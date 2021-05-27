@@ -1,4 +1,4 @@
-export const games=[
+export const games = [
     {
         "_id": "g140",
         "title": "Grand Theft Auto: San Andreas",
@@ -38,7 +38,7 @@ export const games=[
         "description": "The games take place in a science fiction setting and follow the adventures of Ratchet (a feline humanoid known as a Lombax, who is a mechanic) and Clank (a diminutive, sentient Zoni defective robot) as they travel through the universe, saving it from evil forces",
         "imgs": {
             "largeImgUrls": [
-                "assets/img/ratchet.jpg"
+                "../assets/img/ratchet.jpg"
             ],
             "smallImgUrls": [
                 "/img/img1.jpg"

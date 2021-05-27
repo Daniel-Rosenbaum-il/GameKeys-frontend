@@ -12,7 +12,7 @@ body {
     font-size: rem(12px);
     margin: 0;
     padding: 0;
-    background-color: $bgc2;
+    background-color: $clr1;
     color:$clr5;
 }
 
@@ -55,5 +55,5 @@ a {
     text-decoration: none;
 }
 a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }

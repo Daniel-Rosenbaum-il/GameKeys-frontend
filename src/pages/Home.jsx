@@ -21,15 +21,15 @@ class _Home extends Component {
     if (!games) return <Loader />
     // console.log(games);
     return (
-      <div>
+      <div className="home-page ">
         {/* <HomeCtgList/> */}
-        <div className="home-ctg">
+        <div className="home-ctg mb-20">
           <h2>Browse game keys</h2>
-          <div className="ctg-list">
-            <Link to="game/new_releases" >New Releases </Link>
-            <Link to="game/free_game" >Free Games</Link>
-            <Link to="game/top_sellers" >Top Sellers</Link>
-            <Link to="game/top_rated" >Top Rated</Link>
+          <div className="ctg-list flex justify-center gap-20">
+            <Link className="btn-big " to="game/new_releases" >New Releases </Link>
+            <Link className="btn-big " to="game/free_game" >Free Games</Link>
+            <Link className="btn-big " to="game/top_sellers" >Top Sellers</Link>
+            <Link className="btn-big " to="game/top_rated" >Top Rated</Link>
           </div>
         </div>
         <HomeGameList games={games} />

@@ -1,0 +1,23 @@
+.home-game-preview {
+    width: 100%;
+    max-width: 229px;
+    margin-inline-end: 10px;
+    .preview-price {
+        background: $bgc3;
+        position: relative;
+        text-align: end;
+        height: 25px;
+        background-color: #436986;
+        padding-bottom: 15px;
+        p {
+            position: absolute;
+            right: 5%;
+            color: #67c1f5;
+            background: #5989b4;
+            width: 39px;
+            text-align: center;
+            top: 50%;
+            transform: translate(5%, -50%);
+        }
+    }
+}
