@@ -1,0 +1,16 @@
+{
+    "_id": "a101",
+    "fullname": "User 1",
+    "imgUrl": "/img/img1.jpg",
+    "isAdmin": false,
+    "username": "user1",
+    "password": "secret",
+    "boughtGames": [
+        {
+            "_id": "a103",
+            "title": "Grand Theft Auto: San Andreas",
+            "serialKey": "9s8sa4a2s558fsa",
+            "smallImgUrls": "http//..."
+        }
+    ]
+}
