@@ -17,8 +17,8 @@ class _Home extends Component {
 
   render() {
     const { games } = this.props
-    console.log(games);
     if (!games) return <Loader />
+    // console.log(games);
     return (
       <div>
         {/* <HomeCtgList/> */}
