@@ -8,7 +8,7 @@ export const games=[
         "description": "Five years ago, Carl Johnson escaped from the pressures of life in Los Santos, San Andreas, a city tearing itself apart with gang trouble, drugs and corrupion",
         "imgs": {
             "largeImgUrls": [
-                "assets/img/gta.jpg"
+                "../assets/img/gta.jpg"
             ],
             "smallImgUrls": [
                 "/img/img1.jpg"

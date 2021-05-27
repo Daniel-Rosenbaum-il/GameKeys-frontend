@@ -2,22 +2,22 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Loader } from '../cmps/Loader.jsx'
 import { Link } from 'react-router-dom'
+import { HomeGameList } from '../cmps/HomeGameList.jsx'
 import { loadGames } from '../store/actions/game.actions'
 class _Home extends Component {
   state = {
 
   }
-
   componentDidMount() {
     this.props.loadGames()
-
     // this.props.loadUsers()
     // service.query(filter)
   }
 
   render() {
     const { games } = this.props
-    console.log(games);
+    
+    if (!games.length) console.log(games);
     if (!games) return <Loader />
     return (
       <div>
@@ -31,7 +31,7 @@ class _Home extends Component {
             <Link to="game/top_rated" >Top Rated</Link>
           </div>
         </div>
-        {/* <HomeGameList games={games} /> */}
+        <HomeGameList games={games} />
       </div>
     )
   }
