@@ -1,4 +1,4 @@
-// import {storageService} from './storage.service'
+import {localService} from './storage.service'
 import {storageService} from './async-Storage.service'
 
 import {games} from '../data/game.data'
@@ -12,4 +12,4 @@ function getGames() {
 }
 
 // console.log(games);
-// storageService.saveToStorage('game',games)
+localService.saveToStorage('game',games)

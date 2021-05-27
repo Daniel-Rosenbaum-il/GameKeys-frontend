@@ -1,4 +1,4 @@
-export const storageService = {
+export const localService = {
     saveToStorage,
     
 }

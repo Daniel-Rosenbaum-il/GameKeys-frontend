@@ -27,7 +27,7 @@ export const games=[
             "Simulation"
         ],
         "wishlistCount": 0,
-        "discount": "10%"
+        "discount": 10
     },
     {
         "_id": "g180",
@@ -57,6 +57,6 @@ export const games=[
             "Simulation"
         ],
         "wishlistCount": 0,
-        "discount": "10%"
+        "discount": 10
     }
 ]

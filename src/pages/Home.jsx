@@ -19,6 +19,7 @@ class _Home extends Component {
     
     if (!games.length) console.log(games);
     if (!games) return <Loader />
+    // console.log(games);
     return (
       <div>
         {/* <HomeCtgList/> */}
