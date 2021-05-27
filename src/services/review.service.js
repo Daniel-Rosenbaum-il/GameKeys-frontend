@@ -2,6 +2,7 @@ import { httpService } from './http.service'
 import { storageService } from './async-Storage.service'
 import userService from './user.service'
 import { utilService } from './util.service'
+import { gameService } from './game.service.js'
 
 export const reviewService = {
   add,
@@ -27,7 +28,6 @@ function remove(reviewId) {
 }
 async function add(review) {
   // const addedReview = await httpService.post(`review`, review)
-
   review.user = userService.getLoggedinUser()
   review.game = await gameService.getById(review.game._id)
   const addedReview = storageService.post('review', review)

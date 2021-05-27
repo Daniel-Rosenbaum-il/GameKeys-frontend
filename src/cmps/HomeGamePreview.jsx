@@ -1,26 +1,17 @@
-import img1 from '../assets/img/gta.jpg';
 
 export function HomeGamePreview({ game }) {
-    const img2 = require('../assets/img/gta.jpg')
-    // console.log(img2.default);
-    const { imgs, price } = game
-    // const img2 = require(`${imgs.largeImgUrls[0]}`)
-    // const finalPrice = price - (price / discount)
-    console.log(imgs.largeImgUrls[0]);
+    const img2 = require(`../assets/img/the_witcher_292x136.jpg`).default
+    console.log(game);
+    const finalPrice = game.price - (game.price / game.discount)
     return (
         <div className="home-game-preview">
             <div>
-                {/* <img src={imgs.largeImgUrls[0]} alt="" /> */}
                 <div className="s-img">
-                    {/* <img src={img1} alt="" /> */}
-                    {/* <img src="./assets/img/gta.jpg" alt="" /> */}
-                    <img src={img2.default} alt="" />
+                    <img src={img2} alt="" />
 
                 </div>
                 <div className="preview-price">
-                    <div>
-                        <p>188$</p>
-                    </div>
+                    <p>${finalPrice.toFixed(2)}</p>
                 </div>
             </div>
         </div>
