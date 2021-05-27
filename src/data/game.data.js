@@ -2,7 +2,7 @@ export const games=[
     {
         "_id": "g140",
         "title": "Grand Theft Auto: San Andreas",
-        "price": 12,
+        "price": 10,
         "releasedAt": 1622111531769,
         "serialKey": "9s8sa4a2s558fsa",
         "description": "Five years ago, Carl Johnson escaped from the pressures of life in Los Santos, San Andreas, a city tearing itself apart with gang trouble, drugs and corrupion",
