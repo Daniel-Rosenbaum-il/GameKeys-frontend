@@ -27,7 +27,20 @@ export const games = [
             "Simulation"
         ],
         "wishlistCount": 0,
-        "discount": 10
+        "discount": 10,
+        "reviews": [{
+            "rate": 5,
+            "txt": "Great game",
+            "playtime": 750,
+            "byUserId": "u205",
+            "aboutGameId": "a222",
+            "byUser":{
+                "_id": "u101",
+                "fullName": "Orly Amdadi",
+                "imgUrl": "http://some-img",
+             }
+            }
+        ]
     },
     {
         "_id": "g280",
@@ -57,7 +70,20 @@ export const games = [
             "Simulation"
         ],
         "wishlistCount": 0,
-        "discount": 10
+        "discount": 10,
+        "reviews": [{
+            "rate": 5,
+            "txt": "Great game",
+            "playtime": 750,
+            "byUserId": "u205",
+            "aboutGameId": "a222",
+            "byUser":{
+                "_id": "u101",
+                "fullName": "Orly Amdadi",
+                "imgUrl": "http://some-img"
+             }
+            },
+        ]
     },
     {
         "_id": "g380",
@@ -94,9 +120,15 @@ export const games = [
             "txt": "Great game",
             "playtime": 750,
             "byUserId": "u205",
-            "aboutGameId": "a222"
+            "aboutGameId": "a222",
+            "byUser":{
+                "_id": "u101",
+                "fullName": "Orly Amdadi",
+                "imgUrl": "http://some-img"
+             }
         }
-        ],
+        
+        ]
     },
     {
         "_id": "g180",
@@ -126,7 +158,20 @@ export const games = [
             "Simulation"
         ],
         "wishlistCount": 0,
-        "discount": 10
+        "discount": 10,
+        "reviews": [{
+            "rate": 5,
+            "txt": "Great game",
+            "playtime": 750,
+            "byUserId": "u205",
+            "aboutGameId": "a222",
+            "byUser":{
+                "_id": "u101",
+                "fullName": "Orly Amdadi",
+                "imgUrl": "http://some-img"
+             }
+            }
+        ]
     },
     {
         "_id": "g181",
@@ -156,7 +201,20 @@ export const games = [
             "Simulation"
         ],
         "wishlistCount": 0,
-        "discount": 10
+        "discount": 10,
+        "reviews": [{
+            "rate": 5,
+            "txt": "Great game",
+            "playtime": 750,
+            "byUserId": "u205",
+            "aboutGameId": "a222",
+            "byUser":{
+                "_id": "u101",
+                "fullName": "Orly Amdadi",
+                "imgUrl": "http://some-img"
+             }
+            }
+        ],
     },
     {
         "_id": "g182",
@@ -186,6 +244,19 @@ export const games = [
             "Simulation"
         ],
         "wishlistCount": 0,
-        "discount": 10
+        "discount": 10,
+        "reviews": [{
+            "rate": 5,
+            "txt": "Great game",
+            "playtime": 750,
+            "byUserId": "u205",
+            "aboutGameId": "a222",
+            "byUser":{
+                "_id": "u101",
+                "fullName": "Orly Amdadi",
+                "imgUrl": "http://some-img"
+             }
+            }
+        ]
     }
 ]

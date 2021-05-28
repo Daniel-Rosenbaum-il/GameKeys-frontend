@@ -1,4 +1,4 @@
-[
+export const users = [
     {
         "_id": "u101",
         "fullname": "Dan Danovich",
