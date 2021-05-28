@@ -1,4 +1,10 @@
-.game-search{
-    padding:10px;
-    border-radius:20px;
+.game-filter{
+    display: flex;
+    justify-content:center;
+    .game-search{
+        padding:10px;
+        border-radius:20px;
+    
+    }
+
 }

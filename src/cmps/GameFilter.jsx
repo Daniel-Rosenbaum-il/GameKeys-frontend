@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export class GameFilter extends Component {
     state = {
         filterBy: {
-            searchTxt: '',
+            txt: '',
             type: 'all'
         }
     }
@@ -17,10 +17,12 @@ export class GameFilter extends Component {
     }
 
     render() {
-        const { searchTxt } = this.state
+        const { txt } = this.state.filterBy
         return (
             <section className="game-filter">
-                <input className="game-search" autoComplete="off" type="text" name="searchTxt" value={searchTxt} placeholder="Search for a game" onChange={this.handleChange} />
+                <input className="game-search" autoComplete="off"
+                    type="text" name="txt" value={txt}
+                    placeholder="Search for a game" onChange={this.handleChange} />
                 {/* <select className="toy-select" name="isInStock" onChange={this.handleChange}>
                     <option value="all">All</option>
                     <option value="noStock">Not-Availabel</option>

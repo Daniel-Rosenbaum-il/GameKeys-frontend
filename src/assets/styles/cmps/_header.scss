@@ -2,15 +2,22 @@ header {
     // background-color: $clr5;
     padding: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    align-items: center;
 
+    nav {
+        align-items: center;
+    }
+    h1 {
+        margin: 0;
+    }
     .loggedin-user {
         // background-color: $clr1;
         padding: 2px 8px;
         border-radius: 1em;
         align-self: flex-end;
         color: whitesmoke;
-        span{
+        span {
             // background-color: $clr2;
             padding: 4px;
             margin: 10px;
@@ -19,15 +26,14 @@ header {
     }
     nav {
         // background-color: $clr4;
-        padding: 5px 0;
+        // padding: 5px 0;
     }
     nav a:not(:first-child) {
         // border-top: 1px solid $clr1;
         padding: 0 5px;
-        margin: 10px;
+        // margin: 10px;
     }
     // nav .active {
-        // color: $clr1;
+    // color: $clr1;
     // }
-    
 }

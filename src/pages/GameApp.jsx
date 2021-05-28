@@ -8,21 +8,19 @@ import { GameFilter } from '../cmps/GameFilter'
 class _GameApp extends Component {
 
     componentDidMount() {
-        {
-            this.props.loadGames()
-        }
+        this.props.loadGames()
     }
     onSetFilter = (filterBy) => {
-        this.props.loadToys(filterBy)
+        this.props.loadGames(filterBy)
     }
 
     render() {
         console.log(this.props.games);
-        const {games} = this.props
+        const { games } = this.props
         return (
             <section className="main-explorer">
-                <GameFilter/>
-                <GameList games={games}/>
+                <GameFilter  onSetFilter={this.onSetFilter}/>
+                <GameList games={games} />
             </section>
         )
     }

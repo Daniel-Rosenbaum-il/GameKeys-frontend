@@ -1,0 +1,8 @@
+.details-container{
+    display: flex;
+    .details-info{
+        display: flex;
+        flex-direction: column;
+        margin-inline-start: 10px;
+    }
+}

@@ -6,20 +6,13 @@ class _Header extends Component {
     render() {
         const {loggedInUser} = this.props;
         return <header className="main-header">
+               <Link to="/"> <h1>GameKeys</h1></Link>
             <nav>
-                <NavLink exact to="/"><span role="img" aria-label="logo">🙏</span></NavLink>
-                <NavLink to="/login">Login</NavLink>
-                <NavLink exact to="/">User Reviews</NavLink>
-                <NavLink to="/chat">Chat Room</NavLink>
+                <NavLink exact to="/">Home</NavLink>
+                <NavLink to="/game">Explore</NavLink>
+                <NavLink exact to="/about">About us</NavLink>
+                {/* <NavLink to="/chat">Chat Room</NavLink> */}
             </nav>
-            {loggedInUser && <span className="loggedin-user">
-
-                <Link to={`user/${loggedInUser._id}`}>
-                    {loggedInUser.fullname}
-                </Link>
-                
-                <span>{loggedInUser.score || 0}</span>
-            </span>}
         </header>
     }
 

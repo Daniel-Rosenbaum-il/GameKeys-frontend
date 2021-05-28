@@ -7,6 +7,7 @@ import { Home } from './pages/Home'
 
 import { Header } from './cmps/Header'
 import { GameApp } from './pages/GameApp'
+import { GameDetails } from './pages/GameDetails'
 
 
 export function App() {
@@ -16,6 +17,7 @@ export function App() {
         <Header></Header>
         <main>
           <Switch>
+            <Route path="/game/:gameId" component={GameDetails} />
             <Route path="/game" component={GameApp} />
             <Route path="/" component={Home} />
           </Switch>
