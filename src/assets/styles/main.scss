@@ -11,6 +11,9 @@
 // @import "basics/links";
 // @import "basics/forms";
 
+//pages
+@import "views/_about.scss"; 
+
 // Components
 @import "cmps/Header";
 @import "cmps/ReviewList";
@@ -19,9 +22,10 @@
 @import "cmps/game-filter";
 @import "cmps/game-list";
 @import "cmps/loader";
+@import "cmps/small-preview";
+@import "cmps/main-game-preview";
 
 // Views
 @import "views/game-details";
-
 
 

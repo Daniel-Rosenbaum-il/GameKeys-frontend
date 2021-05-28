@@ -1,13 +1,21 @@
-import {HomeGamePreview} from './HomeGamePreview.jsx'
+import { SmallGamePreview } from './SmallGamePreview.jsx'
+import { MainGamePreview } from './MainGamePreview.jsx'
+import { CtgList } from './CtgList.jsx';
 
-export function HomeGameList({games}) {
+export function HomeGameList({ games }) {
     console.log(games);
     return (
         <div className="home-game-list">
-            <h2>FROM DEVELOPERS AND PUBLISHERS THAT YOU KNOW</h2>
-            <div className="flex">
-               {games.map(game => <HomeGamePreview  game={game} key={game._id} />)}
+            <div>
+                {/* {games.map(game => <MainGamePreview game={game} key={game._id} />)} */}
+                <MainGamePreview games={games} />
             </div>
+            <CtgList />
+            <h2 className="mb-20 container">FROM DEVELOPERS AND PUBLISHERS THAT YOU KNOW</h2>
+            <div className="flex container">
+                {games.map(game => <SmallGamePreview game={game} key={game._id} />)}
+            </div>
+
         </div>
     )
 }
