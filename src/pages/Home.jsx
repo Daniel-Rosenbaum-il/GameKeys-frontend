@@ -4,6 +4,7 @@ import { Loader } from '../cmps/Loader.jsx'
 import { Link } from 'react-router-dom'
 import { HomeGameList } from '../cmps/HomeGameList.jsx'
 import { loadGames } from '../store/actions/game.actions'
+import { CtgList } from '../cmps/CtgList.jsx'
 class _Home extends Component {
   state = {
 
@@ -16,21 +17,13 @@ class _Home extends Component {
 
   render() {
     const { games } = this.props
-    
+
     if (!games.length) console.log(games);
     if (!games) return <Loader />
     // console.log(games);
     return (
       <div className="home-page ">
-        {/* <HomeCtgList/> */}
         <div className="home-ctg mb-20">
-          <h2>Browse game keys</h2>
-          <div className="ctg-list flex justify-center gap-20">
-            <Link className="btn-big " to="game/new_releases" >New Releases </Link>
-            <Link className="btn-big " to="game/free_game" >Free Games</Link>
-            <Link className="btn-big " to="game/top_sellers" >Top Sellers</Link>
-            <Link className="btn-big " to="game/top_rated" >Top Rated</Link>
-          </div>
         </div>
         <HomeGameList games={games} />
       </div>

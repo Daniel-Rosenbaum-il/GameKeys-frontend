@@ -1,7 +1,10 @@
-.home-game-preview {
+.small-game-preview {
     width: 100%;
     max-width: 229px;
     margin-inline-end: 10px;
+    .s-img{
+        width: unset;
+    }
     .preview-price {
         background: $bgc3;
         position: relative;
