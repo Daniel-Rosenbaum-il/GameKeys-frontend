@@ -3,22 +3,24 @@ import { connect } from 'react-redux'
 import { gameService } from '../services/game.service'
 import { loadGames } from '../store/actions/game.actions'
 import { GameList } from '../cmps/GameList'
+import { GameFilter } from '../cmps/GameFilter'
 
 class _GameApp extends Component {
 
     componentDidMount() {
-        {
-            this.props.loadGames()
-        }
+        this.props.loadGames()
+    }
+    onSetFilter = (filterBy) => {
+        this.props.loadGames(filterBy)
     }
 
     render() {
         console.log(this.props.games);
-        const {games} = this.props
+        const { games } = this.props
         return (
             <section className="main-explorer">
-                <h2>Explorer</h2>
-                <GameList games={games}/>
+                <GameFilter  onSetFilter={this.onSetFilter}/>
+                <GameList games={games} />
             </section>
         )
     }

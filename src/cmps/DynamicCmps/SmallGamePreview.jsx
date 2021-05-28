@@ -1,7 +1,7 @@
 
 export function SmallGamePreview({ game }) {
-    const img2 = require(`../assets/img/the_witcher_292x136.jpg`).default
-    console.log(game);
+    const img2 = require(`../../assets/img/the_witcher_292x136.jpg`).default
+    // console.log(game);
     const finalPrice = game.price - (game.price / game.discount)
     return (
         <div className="small-game-preview">

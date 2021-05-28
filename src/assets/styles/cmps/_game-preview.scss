@@ -1,0 +1,25 @@
+.game-card {
+    border-radius:5px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 3px 8px 0;
+    background-color: #2a475e;
+    max-width: 260px;
+    .card-img-preview {
+        width: 260px;
+        padding: 10px;
+    }
+    .game-info {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        margin-inline-start: 10px;
+    }
+    .game-btm-info{
+        display: flex;
+        justify-content:space-around;
+    }
+    img{
+        border-radius: 10px; 
+    }
+}

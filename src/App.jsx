@@ -7,6 +7,7 @@ import { Home } from './pages/Home'
 
 import { Header } from './cmps/Header'
 import { GameApp } from './pages/GameApp'
+import { GameDetails } from './pages/GameDetails'
 import { About } from './pages/About'
 
 
@@ -17,6 +18,7 @@ export function App() {
         <Header></Header>
         <main>
           <Switch>
+            <Route path="/game/:gameId" component={GameDetails} />
             <Route path="/game" component={GameApp} />
             <Route path="/about" component={About} />
             <Route path="/" component={Home} />
