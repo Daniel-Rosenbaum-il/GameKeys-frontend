@@ -1,5 +1,5 @@
 
-export function about() {
+export function About() {
     const payments = ['MasterCard', 'Maestro', 'Visa', 'American Express', ' Diners Club']
 
     return (
@@ -12,9 +12,6 @@ export function about() {
             <ul>
                 {payments.map(payment => <li>{payment}</li>)}
             </ul>
-            <video controls autoPlay={true}>
-                <source type="video/mp4" src="https://res.cloudinary.com/dfdvfunfj/video/upload/v1579773488/m5hjco0y2owps1svf1c3.mp4?#t=0&#autoplay=1&mute=1" />
-            </video>
         </div>
     )
 
