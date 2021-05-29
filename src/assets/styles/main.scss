@@ -17,15 +17,16 @@
 // Components
 @import "cmps/Header";
 @import "cmps/ReviewList";
-// @import "cmps/home-game-preview";
 @import "cmps/game-preview";
 @import "cmps/game-filter";
 @import "cmps/game-list";
 @import "cmps/loader";
 @import "cmps/small-preview";
 @import "cmps/main-game-preview";
+@import "cmps/video";
 
 // Views
 @import "views/game-details";
+@import "views/login";
 
 

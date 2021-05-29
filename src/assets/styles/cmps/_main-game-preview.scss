@@ -10,31 +10,14 @@
     .m-img img {
         display: block;
     }
-
-    @media screen and (max-width: $md-breakpoint) {
-        //     .imgs-container {
-        //         position: relative;
-        //         flex-direction: row;
-        //         justify-content: space-around;
-        //         img {
-        //             width: 40%;
-        //             margin-inline-end: 10px;
-        //         }
-        //         p,
-        //         h2 {
-        //             display: none;
-        //         }
-        //     }
-        //     .preview-container {
-        //         gap: 10px;
-        //     }
-    }
-    @media screen and (min-width: $md-breakpoint) {
+    @media screen and (min-width: $lg-breakpoint) {
         img {
             display: block;
         }
+        .imgs-container {
+            width: 21%;
+        }
     }
-    // @media screen and (min-width: $md-breakpoint) {
     padding: 2px;
     position: relative;
     .preview-container {
@@ -109,7 +92,7 @@
         margin-inline-start: 5px;
         color: $clr8;
     }
-    .f-price{
+    .f-price {
         color: $clr4;
     }
     @media screen and (max-width: $md-breakpoint) {
@@ -119,6 +102,31 @@
         .btn-prev {
             left: -8%;
         }
+        @media screen and (max-width: $md-breakpoint) {
+            // .main-game-preview {
+            //     margin-bottom: 90px;
+            //     min-height: 200px;
+            // }
+            .btn {
+                top: 125%;
+            }
+            .btn-next {
+                right: 5%;
+            }
+            .btn-prev {
+                left: 5%;
+            }
+        }
     }
     // }
+}
+@media screen and (max-width: $md-breakpoint) {
+    .main-game-preview {
+        margin-bottom: 100px;
+        min-height: 200px;
+        .m-img > img {
+            margin-top: 5px;
+            min-height: 180px;
+        }
+    }
 }

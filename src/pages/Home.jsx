@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Loader } from '../cmps/Loader.jsx'
 import { Link } from 'react-router-dom'
-import { HomeGameList } from '../cmps/HomeGameList.jsx'
+import { DynamicCmp } from '../cmps/DynamicCmp.jsx'
 import { loadGames } from '../store/actions/game.actions'
-import { CtgList } from '../cmps/CtgList.jsx'
 class _Home extends Component {
   state = {
 
@@ -16,16 +15,22 @@ class _Home extends Component {
   }
 
   render() {
-    const { games } = this.props
-
-    if (!games.length) console.log(games);
+    const { games, type = 'main' } = this.props
     if (!games) return <Loader />
     // console.log(games);
     return (
       <div className="home-page ">
         <div className="home-ctg mb-20">
         </div>
-        <HomeGameList games={games} />
+        <DynamicCmp games={games} type={'main'} />
+        <DynamicCmp games={games} type={'small'} />
+        <DynamicCmp src={''} type={'video'} />
+
+        {/* <div className="game-video container ">
+          <video className="container " controls autoPlay={false}>
+            <source type="video/mp4" src="https://res.cloudinary.com/dfdvfunfj/video/upload/v1579773488/m5hjco0y2owps1svf1c3.mp4?#t=0&#autoplay=1&mute=1" />
+          </video>
+        </div> */}
       </div>
     )
   }

@@ -8,7 +8,7 @@ export const games = [
         "description": "Five years ago, Carl Johnson escaped from the pressures of life in Los Santos, San Andreas, a city tearing itself apart with gang trouble, drugs and corrupion",
         "imgs": {
             "largeImgUrls": [
-                "../assets/img/gta.jpg"
+                "gta.jpg"
             ],
             "smallImgUrls": [
                 "/img/img1.jpg"
@@ -94,7 +94,7 @@ export const games = [
         "description": "The newest installment in the Diablo franchise announced at BlizzCon 2019. This new incarnation maintains the classic isometric ARPG style that Diablo veteran players should be familiar with but with a renewed focus on the darkness that will permeate not only the world and art of Diablo IV but also the story and gameplay.",
         "imgs": {
             "largeImgUrls": [
-                "../assets/img/ratchet.jpg"
+                "ratchet"
             ],
             "smallImgUrls": [
                 "/img/img1.jpg"

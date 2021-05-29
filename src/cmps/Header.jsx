@@ -3,11 +3,12 @@ import { Link, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 class _Header extends Component {
+    flexClass= 'flex space-around justify-center align-center'
     render() {
         const {loggedInUser} = this.props;
-        return <header className="main-header">
-               <Link to="/"> <h1>GameKeys</h1></Link>
-            <nav>
+        return <header className={`main-header ${this.flexClass}`}>
+               <Link to="/"> <p className="logo">GameKeys</p></Link>
+            <nav className={this.flexClass}>
                 <NavLink exact to="/">Home</NavLink>
                 <NavLink to="/game">Explore</NavLink>
                 <NavLink exact to="/about">About us</NavLink>
