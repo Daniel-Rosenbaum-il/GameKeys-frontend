@@ -2,10 +2,10 @@
     border-radius:5px;
     display: flex;
     flex-direction: column;
-    margin: 0 3px 8px 0;
     background-color: #2a475e;
     max-width: 280px;
     min-height:320px;
+    box-shadow: 0 0 1px 0px $clr7;
     .card-img-preview {
         width: 280px;
         padding: 10px;

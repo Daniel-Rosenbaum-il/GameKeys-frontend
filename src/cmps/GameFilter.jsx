@@ -19,7 +19,7 @@ export class GameFilter extends Component {
     render() {
         const { txt } = this.state.filterBy
         return (
-            <section className="game-filter">
+            <section className="game-filter mb-20">
                 <input className="game-search" autoComplete="off"
                     type="text" name="txt" value={txt}
                     placeholder="Search for a game" onChange={this.handleChange} />
