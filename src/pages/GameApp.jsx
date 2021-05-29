@@ -8,6 +8,7 @@ import { GameFilter } from '../cmps/GameFilter'
 class _GameApp extends Component {
 
     componentDidMount() {
+        console.log(this.props.match.params);
         this.props.loadGames()
     }
     onSetFilter = (filterBy) => {

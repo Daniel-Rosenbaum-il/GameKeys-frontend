@@ -1,14 +1,21 @@
+import {Component} from 'react'
 import React from 'react'
-import YouTube from 'react-youtube'
+import ReactPlayer from 'react-player'
 
-export function Video({id}) {
-   const opts = {
-                height: '390',
-                width: '400',
-                playerVars: {
-                    // https://developers.google.com/youtube/player_parameters
-                    autoplay: 0,
-                },
-            }
-    return <YouTube videoId={id} opts={opts} />
+export class Video extends Component {
+    render() {
+        const {id} = this.props
+        return (
+            <div className='player-wrapper'>
+                <ReactPlayer
+                    className='react-player'
+                    url={id}
+                    width='100%'
+                    height='100%'
+                    controls={true}
+                />
+            </div>
+        )
+    }
 }
+

@@ -4,7 +4,7 @@ export class GameFilter extends Component {
     state = {
         filterBy: {
             txt: '',
-            type: 'all'
+            tag: 'All'
         }
     }
 
@@ -27,14 +27,14 @@ export class GameFilter extends Component {
                     <option value="all">All</option>
                     <option value="noStock">Not-Availabel</option>
                     <option value="inStock">Availabel</option>
-                </select>
-                <select className="toy-select" name="type" onChange={this.handleChange}>
-                    <option value="all">All</option>
-                    <option value="Funny">Funny</option>
-                    <option value="Kids">Kids</option>
-                    <option value="Adult">Adult</option>
+        </select>*/}
+                <select className="game-tag-select" name="tag" onChange={this.handleChange}>
+                    <option value="All">All</option>
+                    <option value="Action">Funny</option>
+                    <option value="RPG">Kids</option>
+                    <option value="Strategy">Adult</option>
                     <option value="Educational">Educational</option>
-                </select> */}
+                </select>
                 {/* {this.props.children} */}
             </section>
         )

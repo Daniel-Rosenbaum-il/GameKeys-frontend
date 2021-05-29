@@ -1,15 +1,8 @@
-{
-    "_id": "a255",
-    "isLike": true,
+[{
     "rate": 5,
-    "txt": "",
-    "playTime": 750,
-    "user": {
-        "_id": "a255",
-        "name": "Rami"
-    },
-    "game": {
-        "id": "a222",
-        "title": "Grand Theft Auto: San Andreas"
-    }
-}
+    "txt": "Great game",
+    "playtime": 750,
+    "createdAt":1655258525,
+    "byUserId": "u101"
+     }
+]

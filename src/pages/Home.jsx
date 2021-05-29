@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Loader } from '../cmps/Loader.jsx'
-import { Link } from 'react-router-dom'
 import { DynamicCmp } from '../cmps/DynamicCmp.jsx'
 import { loadGames } from '../store/actions/game.actions'
+import {utilService} from '../services/util.service'
+
 class _Home extends Component {
   state = {
 
@@ -22,9 +23,9 @@ class _Home extends Component {
       <div className="home-page ">
         <div className="home-ctg mb-20">
         </div>
-        <DynamicCmp games={games} type={'main'} />
+        <DynamicCmp games={games} utilService={utilService} type={'main'} />
         <DynamicCmp games={games} type={'small'} />
-        <DynamicCmp src={''} type={'video'} />
+        {/* <DynamicCmp src={''} type={'video'} /> */}
 
         {/* <div className="game-video container ">
           <video className="container " controls autoPlay={false}>

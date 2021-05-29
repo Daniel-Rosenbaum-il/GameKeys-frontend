@@ -2,7 +2,7 @@ import React from 'react'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
 import { Home } from './pages/Home'
-// import { LoginSignup } from './src/pages/LoginSignup'
+import { Login } from './pages/Login'
 // import { UserDetails } from './src/pages/UserDetails'
 
 import { Header } from './cmps/Header'
@@ -18,6 +18,7 @@ export function App() {
         <Header></Header>
         <main>
           <Switch>
+            <Route path="/login" component={Login} />
             <Route path="/game/:gameId" component={GameDetails} />
             <Route path="/game" component={GameApp} />
             <Route path="/about" component={About} />

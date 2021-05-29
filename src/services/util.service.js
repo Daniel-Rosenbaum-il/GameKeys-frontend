@@ -2,7 +2,8 @@
 export const utilService = {
     delay,
     getRandomInt,
-    makeId
+    makeId,
+    getDateFormat
 }
 
 function delay(ms = 1500) {
@@ -24,4 +25,14 @@ function makeId(length = 5) {
         txt += possible.charAt(Math.floor(Math.random() * possible.length));
     }
     return txt;
+}
+function getDateFormat(date) {
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    const currDate = new Date(date)
+    const year = currDate.getFullYear();
+    const month = months[currDate.getMonth() - 1]
+    const day = currDate.getDay();
+    let dateStr = (day < 10) ? `0${day}` : `${day}`
+    dateStr += ` ${month}, ${year}`
+    return dateStr
 }

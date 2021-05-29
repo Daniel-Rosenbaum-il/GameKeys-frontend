@@ -2,13 +2,16 @@ import { SmallGamePreview } from './DynamicCmps/SmallGamePreview.jsx'
 import { MainGamePreview } from './DynamicCmps/MainGamePreview.jsx'
 import { CtgList } from './DynamicCmps/CtgList.jsx';
 import { VideoGame } from './DynamicCmps/VideoGame.jsx';
+import { Loader } from './Loader.jsx';
 
-export function DynamicCmp({ games, type = 'main', src }) {
+export function DynamicCmp({ games, type = 'main', src,utilService }) {
+    console.log(games);
+    // if(!games) return <Loader/>
     const DynamicCmp = () => {
         switch (type) {
             case 'main':
                 return (<div>
-                    <MainGamePreview games={games} />
+                    <MainGamePreview games={games} utilService={utilService}/>
                 </div>)
             case 'video':
                 return (<div>

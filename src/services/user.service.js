@@ -1,5 +1,8 @@
+// import { localService } from './storage.service'
 import { storageService } from './async-Storage.service'
-import { httpService } from './http.service'
+
+// import { httpService } from './http.service'
+import { users } from '../data/user.data'
 
 export const userService = {
     login,
@@ -64,4 +67,7 @@ function _saveLocalUser(user) {
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem('loggedinUser'))
 }
+
+// localService.saveToStorage('user', users)
+
 

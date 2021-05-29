@@ -9,7 +9,7 @@ export const users = [
         "boughtGames": [
             {
                 "_id": "g140",
-                "title": "Grand Theft Auto: San Andreas",
+                "title": "Knockout city",
                 "serialKey": "9s8sa4a2s558fsa",
                 "smallImgUrls": "http//..."
             }
@@ -24,10 +24,11 @@ export const users = [
         "password": "banban",
         "boughtGames": [
             {
-                "_id": "g140",
-                "title": "Grand Theft Auto: San Andreas",
+                "_id": "g280",
+                "title": "Ratchet & Clank 5",
                 "serialKey": "9s8sa4a2s558fsa",
                 "smallImgUrls": "http//..."
+                
             }
         ]
     },
@@ -40,8 +41,8 @@ export const users = [
         "password": "ranran",
         "boughtGames": [
             {
-                "_id": "g140",
-                "title": "Grand Theft Auto: San Andreas",
+                "_id": "g380",
+                "title": "Diablo 4",
                 "serialKey": "9s8sa4a2s558fsa",
                 "smallImgUrls": "http//..."
             }

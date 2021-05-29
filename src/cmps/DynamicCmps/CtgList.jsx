@@ -6,7 +6,7 @@ export function CtgList() {
             <div className="ctg-list flex justify-center gap-20 mb-20">
                 <Link className="btn-big " to="game/new_releases" >New Releases </Link>
                 <Link className="btn-big " to="game/free_game" >Free Games</Link>
-                <Link className="btn-big " to="game/top_sellers" >Top Sellers</Link>
+                <Link className="btn-big " to="game/Action" >Action</Link>
                 <Link className="btn-big " to="game/top_rated" >Top Rated</Link>
             </div>
         </>

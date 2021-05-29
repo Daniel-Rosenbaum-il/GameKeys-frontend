@@ -5,7 +5,8 @@ import { games } from '../data/game.data'
 
 export const gameService = {
     getGames,
-    getById
+    getById,
+    remove
 }
 
 async function getGames(filterBy) {
@@ -16,8 +17,11 @@ async function getGames(filterBy) {
     }
     return games
 }
-function getById(userId) {
-    return storageService.get('game', userId)
+function getById(gameId) {
+    return storageService.get('game', gameId)
+}
+function remove(gameId) {
+    return storageService.remove('game', gameId)
 }
 // console.log(games);
 localService.saveToStorage('game', games)

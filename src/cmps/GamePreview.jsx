@@ -1,23 +1,26 @@
 import React from 'react'
-import img1 from '../assets/img/gta.jpg'
 import { Link } from 'react-router-dom'
 
 export function GamePreview({ game }) {
+    const previewImg = require(`../assets/img/${game.imgs.largeImgUrls[0]}`).default
     return (
         <div>
-            <Link to={`/game/${game._id}`}>
+            <Link to={`/game/${game._id}`} key="555">
                 <div className="game-card">
 
                     <div className="card-img-preview">
-                        <img src={img1} alt="gta main" className="img-preview"></img>
+                        <img src={previewImg} alt="game-preview-img"  className="img-preview"></img>
                     </div>
                     <div className="game-info">
-                        <h2>{game.title}</h2>
-                        <p>{game.description}</p>
-                    </div>
-                    <div className="game-btm-info">
-                        <p>{`$${game.price}`}</p>
-                        <h4>{game.tags.map(tag => <span>{tag} </span>)}</h4>
+                        <div className="game-top-info">
+
+                            <h2>{game.title}</h2>
+                            <p>{game.sDescription}</p>
+                        </div>
+                        <div className="game-btm-info">
+                            <p>{`$${game.price}`}</p>
+                            <h4>{game.tags.map(tag => <span>{tag} </span>)}</h4>
+                        </div>
                     </div>
                 </div>
             </Link>

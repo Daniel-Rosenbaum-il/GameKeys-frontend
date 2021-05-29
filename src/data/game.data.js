@@ -1,28 +1,29 @@
 export const games = [
     {
         "_id": "g140",
-        "title": "Grand Theft Auto: San Andreas",
+        "title": "Knockout city",
         "price": 10,
         "releasedAt": 1622111531769,
         "serialKey": "9s8sa4a2s558fsa",
-        "description": "Five years ago, Carl Johnson escaped from the pressures of life in Los Santos, San Andreas, a city tearing itself apart with gang trouble, drugs and corrupion",
+        "description": "Team up and duke it out with rival Crews in Knockout City™, where EPIC DODGEBALL BATTLES settle the score in team-based multiplayer matches. Throw, catch, pass, dodge, and tackle your way to dodgeball dominance!",
+        "sDescription": "Throw, catch, pass, Watch, and grab your way to dodgebrawl domination!",
         "imgs": {
             "largeImgUrls": [
-                "gta.jpg"
+                "knockout-city.jpg"
             ],
             "smallImgUrls": [
                 "/img/img1.jpg"
             ]
         },
         "videoUrls": [
-            "u_CbHrBbHNQ"
+            "https://www.youtube.com/watch?v=Pf8MJkuE3N0"
         ],
         "tags": [
-            "action",
-            "sports",
-            "racing",
-            "freeToPlay",
-            "adventure",
+            "Action",
+            "Sports",
+            "Racing",
+            "FreeToPlay",
+            "Adventure",
             "Strategy",
             "Simulation"
         ],
@@ -32,14 +33,9 @@ export const games = [
             "rate": 5,
             "txt": "Great game",
             "playtime": 750,
-            "byUserId": "u205",
-            "aboutGameId": "a222",
-            "byUser":{
-                "_id": "u101",
-                "fullName": "Orly Amdadi",
-                "imgUrl": "http://some-img",
+            "createdAt":1655258525,
+            "byUserId": "u101"
              }
-            }
         ]
     },
     {
@@ -49,16 +45,17 @@ export const games = [
         "releasedAt": 1622111531769,
         "serialKey": "9s8s465558fsa",
         "description": "The games take place in a science fiction setting and follow the adventures of Ratchet (a feline humanoid known as a Lombax, who is a mechanic) and Clank (a diminutive, sentient Zoni defective robot) as they travel through the universe, saving it from evil forces",
+        "sDescription": "The rat and the crazy robot are back",
         "imgs": {
             "largeImgUrls": [
-                "../assets/img/ratchet.jpg"
+                "ratchet.jpg"
             ],
             "smallImgUrls": [
                 "/img/img1.jpg"
             ]
         },
         "videoUrls": [
-            "ai3o0XtrnM8"
+            "https://www.youtube.com/watch?v=ai3o0XtrnM8"
         ],
         "tags": [
             "action",
@@ -75,14 +72,9 @@ export const games = [
             "rate": 5,
             "txt": "Great game",
             "playtime": 750,
-            "byUserId": "u205",
-            "aboutGameId": "a222",
-            "byUser":{
-                "_id": "u101",
-                "fullName": "Orly Amdadi",
-                "imgUrl": "http://some-img"
+            "createdAt":1655258525,
+            "byUserId": "u102"
              }
-            },
         ]
     },
     {
@@ -92,25 +84,23 @@ export const games = [
         "releasedAt": 1622111531769,
         "serialKey": "9s8s465558fsa",
         "description": "The newest installment in the Diablo franchise announced at BlizzCon 2019. This new incarnation maintains the classic isometric ARPG style that Diablo veteran players should be familiar with but with a renewed focus on the darkness that will permeate not only the world and art of Diablo IV but also the story and gameplay.",
+        "sDescription": "Diablo 4: do we need to say more?",
+
         "imgs": {
             "largeImgUrls": [
-                "ratchet"
+                "diablo4.jpg"
             ],
             "smallImgUrls": [
                 "/img/img1.jpg"
             ]
         },
         "videoUrls": [
-            "GPKbEgzp3Qo"
+            "https://www.youtube.com/watch?v=GPKbEgzp3Qo"
         ],
         "tags": [
-            "action",
-            "sports",
-            "racing",
-            "freeToPlay",
-            "adventure",
-            "Strategy",
-            "Simulation"
+            "Action",
+            "RPG",
+            "Adventure",
         ],
         "wishlistCount": 0,
         "discount": 10,
@@ -119,34 +109,29 @@ export const games = [
             "rate": 5,
             "txt": "Great game",
             "playtime": 750,
-            "byUserId": "u205",
-            "aboutGameId": "a222",
-            "byUser":{
-                "_id": "u101",
-                "fullName": "Orly Amdadi",
-                "imgUrl": "http://some-img"
+            "createdAt":1655258525,
+            "byUserId": "u101"
              }
-        }
-        
         ]
     },
     {
         "_id": "g180",
-        "title": "Ratchet & Clank",
+        "title": "Sims 4",
         "price": 12,
         "releasedAt": 1622111531769,
         "serialKey": "9s8s465558fsa",
-        "description": "The games take place in a science fiction setting and follow the adventures of Ratchet (a feline humanoid known as a Lombax, who is a mechanic) and Clank (a diminutive, sentient Zoni defective robot) as they travel through the universe, saving it from evil forces",
+        "description": "Play with life and discover the possibilities. Unleash your imagination and create a world of Sims that’s wholly unique. Explore and customize every detail from Sims to homes–and much more.",
+        "sDescription": "Life Love and Decoration",
         "imgs": {
             "largeImgUrls": [
-                "../assets/img/ratchet.jpg"
+                "sims4-l.jpg"
             ],
             "smallImgUrls": [
                 "/img/img1.jpg"
             ]
         },
         "videoUrls": [
-            "http...."
+            "https://www.youtube.com/watch?v=Ci3jhBsVSRc"
         ],
         "tags": [
             "action",
@@ -163,33 +148,29 @@ export const games = [
             "rate": 5,
             "txt": "Great game",
             "playtime": 750,
-            "byUserId": "u205",
-            "aboutGameId": "a222",
-            "byUser":{
-                "_id": "u101",
-                "fullName": "Orly Amdadi",
-                "imgUrl": "http://some-img"
+            "createdAt":1655258525,
+            "byUserId": "u101"
              }
-            }
         ]
     },
     {
         "_id": "g181",
-        "title": "Ratchet & Clank",
+        "title": "The witcher 3",
         "price": 12,
         "releasedAt": 1622111531769,
         "serialKey": "9s8s465558fsa",
-        "description": "The games take place in a science fiction setting and follow the adventures of Ratchet (a feline humanoid known as a Lombax, who is a mechanic) and Clank (a diminutive, sentient Zoni defective robot) as they travel through the universe, saving it from evil forces",
+        "description": "As war rages on throughout the Northern Realms, you take on the greatest contract of your life — tracking down the Child of Prophecy, a living weapon that can alter the shape of the world",
+        "sDescription": "Become a professional monster slayer and embark on an adventure of epic proportions!",
         "imgs": {
             "largeImgUrls": [
-                "../assets/img/ratchet.jpg"
+                "the-witcher-l.jpg"
             ],
             "smallImgUrls": [
                 "/img/img1.jpg"
             ]
         },
         "videoUrls": [
-            "http...."
+            "https://www.youtube.com/watch?v=XHrskkHf958"
         ],
         "tags": [
             "action",
@@ -206,33 +187,29 @@ export const games = [
             "rate": 5,
             "txt": "Great game",
             "playtime": 750,
-            "byUserId": "u205",
-            "aboutGameId": "a222",
-            "byUser":{
-                "_id": "u101",
-                "fullName": "Orly Amdadi",
-                "imgUrl": "http://some-img"
+            "createdAt":1655258525,
+            "byUserId": "u101"
              }
-            }
-        ],
+        ]
     },
     {
         "_id": "g182",
-        "title": "Ratchet & Clank",
+        "title": "BIOMUTANT®",
         "price": 12,
         "releasedAt": 1622111531769,
         "serialKey": "9s8s465558fsa",
-        "description": "The games take place in a science fiction setting and follow the adventures of Ratchet (a feline humanoid known as a Lombax, who is a mechanic) and Clank (a diminutive, sentient Zoni defective robot) as they travel through the universe, saving it from evil forces",
+        "description": "BIOMUTANT® is an open-world, post-apocalyptic Kung-Fu fable RPG, with a unique martial arts styled combat system allowing you to mix melee, shooting and mutant ability action.",
+        "sDescription": "RPG, mutants and martial arts",
         "imgs": {
             "largeImgUrls": [
-                "../assets/img/ratchet.jpg"
+                "biomutant.jpg"
             ],
             "smallImgUrls": [
                 "/img/img1.jpg"
             ]
         },
         "videoUrls": [
-            "http...."
+            "https://www.youtube.com/watch?v=4gsoxG63w8k"
         ],
         "tags": [
             "action",
@@ -248,15 +225,10 @@ export const games = [
         "reviews": [{
             "rate": 5,
             "txt": "Great game",
-            "playtime": 750,
-            "byUserId": "u205",
-            "aboutGameId": "a222",
-            "byUser":{
-                "_id": "u101",
-                "fullName": "Orly Amdadi",
-                "imgUrl": "http://some-img"
+            "playtime": 350,
+            "createdAt":1655258525,
+            "byUserId": "u101"
              }
-            }
         ]
     }
 ]

@@ -15,3 +15,14 @@ export function loadGames(filterBy = {}) {
         }
     }
 }
+
+export function removeGame(gameId) {
+    return async dispatch => {
+        try {
+            await gameService.remove(gameId)
+            dispatch({ type: 'REMOVE_GAME', gameId })
+        } catch (err) {
+            console.log('GameActions: err in removeGame', err)
+        }
+    }
+}

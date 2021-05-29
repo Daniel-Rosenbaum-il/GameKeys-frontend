@@ -12,8 +12,8 @@
   content: " ";
   display: block;
   position: absolute;
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: #fff;
   margin: -4px 0 0 -4px;
@@ -24,7 +24,6 @@
 .lds-roller div:nth-child(1):after {
   top: 63px;
   left: 63px;
-  background-color:$clr4
 }
 .lds-roller div:nth-child(2) {
   animation-delay: -0.072s;
@@ -39,7 +38,6 @@
 .lds-roller div:nth-child(3):after {
   top: 71px;
   left: 48px;
-  background-color:$clr4
 }
 .lds-roller div:nth-child(4) {
   animation-delay: -0.144s;

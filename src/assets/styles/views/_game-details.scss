@@ -1,8 +1,20 @@
-.details-container{
-    display: flex;
-    .details-info{
+.main-details {
+    .details-container {
         display: flex;
-        flex-direction: column;
-        margin-inline-start: 10px;
+        .details-info {
+            display: flex;
+            flex-direction: column;
+            margin-inline-start: 10px;
+            max-width: 500px;
+            margin-bottom: 100px;
+            max-width: 50%;
+        }
+    }
+    .add-review {
+        display: flex;
+        justify-content: center;
+    }
+    .star-svg {
+        height: 2rem;
     }
 }
