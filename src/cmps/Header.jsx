@@ -12,7 +12,7 @@ class _Header extends Component {
                 <NavLink exact to="/">Home</NavLink>
                 <NavLink to="/game">Explore</NavLink>
                 <NavLink exact to="/about">About us</NavLink>
-                {!loggedInUser && <NavLink to="/login">Login</NavLink>}
+                {!loggedInUser && <Link className="btn-login" to="/login">Login</Link>}
                 {loggedInUser && <div className="user-header">
                     <p>Hi {loggedInUser.fullname}</p>
                     <button onClick={this.props.logout}>Logout</button>
