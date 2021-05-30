@@ -89,10 +89,10 @@ class _GameDetails extends Component {
                     </div>
                 </div>
                 <div className="wishlist-link">
-                    <p><Link to={'/login'}>a Sign in</Link> to add this item to your wishlist, follow it, or mark it as ignored</p>
+                    <p><Link to={'/login'}>Sign in</Link> to add this item to your wishlist, follow it, or mark it as ignored</p>
                 </div>
 
-                <div className=" flex">
+                <div className="buy-container flex">
                     <div className="price-container container">
                         <div>
                             <h2>Buy {game.title}</h2>
