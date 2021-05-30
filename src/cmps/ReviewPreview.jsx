@@ -11,7 +11,7 @@ function renderStars(rate) {
 }
 export function ReviewPreview({ review }) {
     console.log(review);
-    const createdAt =  utilService.getDateFormat(Date.now())
+    const createdAt =  new Date(review.createdAt).toLocaleDateString('en-Us' ,{weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
     return (
         <div className="review-preview">
             <div className="review-user-preview">
