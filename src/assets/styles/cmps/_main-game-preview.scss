@@ -10,6 +10,7 @@
     .m-img img {
         display: block;
     }
+
     @media screen and (min-width: $lg-breakpoint) {
         img {
             display: block;
@@ -22,6 +23,7 @@
     position: relative;
     .preview-container {
         flex-direction: row;
+        // height: 325px;
     }
     .m-img {
         width: 200%;
