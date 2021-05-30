@@ -114,40 +114,58 @@ class _Login extends Component {
       </form>
     )
     let loginSection = (
-      <form className="flex space-around align-center"  onSubmit={this.doLogin}>
-        <h1>Login</h1>
-        <input
-          type="text"
-          name="username"
-          value={this.state.loginCred.username}
-          onChange={this.loginHandleChange}
-          placeholder="Username"
-        />
-        <input
-          type="password"
-          name="password"
-          value={this.state.loginCred.password}
-          onChange={this.loginHandleChange}
-          placeholder="Password"
-        />
-        <button>Login</button>
-        <button
-          onClick={this.toggleLoginSignup}
-        >Signup</button>
-      </form>
+      <div className="login-container">
+        <form className="flex space-around align-center column" onSubmit={this.doLogin}>
+          <p className="login-title"> SIGN IN</p>
+          <label className="flex column" >Game keys account name
+          <input
+              type="text"
+              name="username"
+              value={this.state.loginCred.username}
+              onChange={this.loginHandleChange}
+            // placeholder="Username"
+            />
+          </label>
+
+          <label className="flex column" >Password
+          <input
+              type="password"
+              name="password"
+              value={this.state.loginCred.password}
+              onChange={this.loginHandleChange}
+            // placeholder="Password"
+            />
+          </label>
+          <button className="btn-login mb-20 " >Sign in</button>
+          <a >Forgot your password?</a>
+        </form>
+      </div>
     )
 
     const { isLogIn } = this.state
+    const joinImg = require('../assets/img/join.png').default
     return (
-      <div className="login flex column">
-          <button
-          variant="contained"
-          color="primary"
-          size="small"
-          onClick={this.toggleLoginSignup}
-        >&#129044;</button>
-        {isLogIn && loginSection}
-        {!isLogIn && signupSection}
+      <div className="login space-around align-center flex container">
+        <div className="flex">
+
+          {/* <button
+            variant="contained"
+            color="primary"
+            size="small"
+            onClick={this.toggleLoginSignup}
+          >&#129044;</button> */}
+          {isLogIn && loginSection}
+          {!isLogIn && signupSection}
+        </div>
+
+        <div className="flex column align-center justify-center space-between">
+          <h2>Game keys</h2>
+          <p>Join Game keys and discover thousands of games to play.</p>
+          <img src={joinImg} alt="" />
+          <button className="btn-join"
+            onClick={this.toggleLoginSignup}
+          >Join Game keys</button>
+        </div>
 
       </div>
     )

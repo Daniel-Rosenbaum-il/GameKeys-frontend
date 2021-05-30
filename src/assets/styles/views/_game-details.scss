@@ -1,4 +1,51 @@
 .main-details {
+    .price-container {
+        background: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
+        border-radius: 4px;
+        font-size: 13px;
+        color: #c6d4df;
+        padding: 16px;
+        padding-bottom: 26px;
+        margin-bottom: 28px;
+        min-width: 65%;
+        margin-inline-end: 20px;
+        position: relative;
+    }
+   
+    .price-info {
+        position: absolute;
+        bottom: -5%;
+        right: 5%;
+        background-color: $clr0;
+    }
+    .details-price button {
+        background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
+        padding: 0 15px;
+        font-size: 15px;
+        line-height: 30px;
+        text-shadow: 1px 1px rgb(0, 0, 0 / 30%);
+        color: #d2efa9;
+        max-width: 180px;
+    }
+ 
+    .sign-in {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+        color: #acb2b8;
+        font-size: 14px;
+        line-height: 22px;
+        padding: 15px 20px;
+        a {
+            color: $clr4;
+            background-color: rgba(103, 193, 245, 0.2);
+            border-radius: 2px;
+            padding: 0 15px;
+            font-size: 15px;
+            line-height: 30px;
+            border-radius: 2px;
+            display: block;
+            max-width: 80px;
+        }
+    }
     h1 {
         font-size: 26px;
         line-height: 32px;
@@ -17,7 +64,6 @@
             margin-bottom: 20px;
             @media screen and (min-width: 963px) {
                 margin-bottom: 30px;
-
             }
         }
         @media screen and (max-width: 740px) {
@@ -30,7 +76,7 @@
         background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.4) 100%);
 
         @media screen and (max-width: 740px) {
-            flex-direction: column;
+            flex-direction: column-reverse;
         }
     }
     .img-container {
@@ -41,8 +87,9 @@
             cursor: pointer;
             z-index: 15;
         }
-        @media screen and (min-width: 940px) {
-            margin-top: 430px;
+        @media screen and (min-width: 1030px) {
+            margin-top: 67%;
+            justify-content: space-between;
         }
         @media screen and (max-width: 740px) {
             & > div {
@@ -64,7 +111,7 @@
         max-width: 50%;
         @media screen and (max-width: 740px) {
             max-width: 75%;
-            margin: 0 auto;
+            margin: 0 auto 35px;
         }
         .dark-txt {
             color: #556772;
@@ -91,6 +138,17 @@
     }
     .tag-container > a:not(:last-child) {
         margin-inline-end: 2px;
+    }
+    .wishlist-link {
+        color: #c6d4df;
+        font-size: 1.3rem;
+
+        background: linear-gradient(rgba(0, 0, 0, 0) 0, #14202f 35%);
+        padding: 9px;
+        margin: 0 0 20px 0;
+        a {
+            color: $clr7;
+        }
     }
 }
 .add-review {

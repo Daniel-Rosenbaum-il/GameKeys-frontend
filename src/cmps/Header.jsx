@@ -3,10 +3,12 @@ import { Link, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logout } from "../store/actions/user.actions"
 class _Header extends Component {
-    flexClass = 'flex space-around justify-center align-center'
+    flexClass = 'flex space-around space-between align-center'
     render() {
         const { loggedInUser } = this.props;
-        return <header className={`main-header ${this.flexClass}`}>
+        return <header className={`main-header `}>
+            <div className={`container ${this.flexClass}` }>
+
             <Link to="/"> <p className="logo">GameKeys</p></Link>
             <nav className={this.flexClass}>
                 <NavLink exact to="/">Home</NavLink>
@@ -19,6 +21,7 @@ class _Header extends Component {
                     </div>}
                 {/* <NavLink to="/chat">Chat Room</NavLink> */}
             </nav>
+</div>
         </header>
     }
 

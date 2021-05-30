@@ -23,6 +23,9 @@
 .mb-20 {
     margin-bottom: 20px;
 }
+.mr-5{
+    margin-inline-end: 5px;
+}
 
 // img
 .s-img {
@@ -80,8 +83,11 @@
     &.space-around {
         justify-content: space-around;
     }
-    &.space-evenly{
+    &.space-evenly {
         justify-content: space-evenly;
+    }
+    &.space-between {
+        justify-content: space-between;
     }
 }
 
@@ -102,7 +108,6 @@
     font-size: rem(11px);
     margin-bottom: 0;
 }
-
 
 .dark-txt {
     color: #556772;
