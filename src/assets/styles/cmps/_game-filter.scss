@@ -2,24 +2,35 @@
     display: flex;
     justify-content: center;
     .filter-container {
-        padding:2px;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+        padding: 15px;
         background-color: $clr1;
         border-radius: 20px;
-        box-shadow: 0 -0.5px 2px 1px #2c3050a6;
+        // box-shadow: 0 -0.5px 2px 1px #2c3050a6;
+        box-shadow: 0 0px 3px 0.9px #9b9fc1a6;
     }
     .game-search {
         caret-color: rgb(245, 245, 245);
-        border: none;
-        padding: 10px;
-        border-radius: 20px;
-        background-color: $clr1;
-        
+        margin-bottom: 5px;
+        background-color: #425d7482;
+        padding: 8px 6px;
+        display: block;
+        width: 100%;
+        border: 1px solid #26282d;
+        outline: none;
+        transition: border ease-in-out 0.5s;
+        box-shadow: none;
+        border-radius: 2rem;
     }
     .game-search:hover {
-        background-color: $clr5;
+        background-color: #35516a;
+    }
+    .game-search:focus {
+        box-shadow: 0 0 5px 1px white;
     }
     .game-search::placeholder {
         color: $clr6;
+        transition: 0.3s;
     }
     .game-select {
         cursor: pointer;
@@ -27,14 +38,17 @@
         padding: 10px;
         border-radius: 20px;
         background-color: $clr1;
-        color: $clr6
-
+        color: $clr6;
+        box-shadow: 0 0 1px 1px white;
+        margin: 7px;
+        outline: none;
     }
     .game-select:hover {
-        background-color: $clr5;
+        // background-color: $clr5;
+        background-color: #35516a;
     }
-    .textarea:focus, input:focus {
+    .textarea:focus,
+    input:focus {
         color: $clr6;
     }
 }
-

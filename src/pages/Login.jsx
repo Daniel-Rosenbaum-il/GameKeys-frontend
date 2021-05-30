@@ -174,7 +174,7 @@ class _Login extends Component {
             <Link to="/about" >Learn more</Link>
           </div>
           {/* <img src={joinImg} alt="" /> */}
-          <div>
+          <div className="flex justify-center column">
             <p>It's <span>free</span> and <span>easy</span>  to use.</p>
             <button className="btn-join"
               onClick={this.toggleLoginSignup}

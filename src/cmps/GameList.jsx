@@ -3,7 +3,7 @@ import { GamePreview } from './GamePreview'
 
 export function GameList({ games }) {
     return (
-        <div className="game-list gap-10">
+        <div className="game-list gap-10 container">
             {games.map(game => <GamePreview key={game._id} game={game}/> )}
         </div>
     )

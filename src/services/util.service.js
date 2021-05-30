@@ -32,7 +32,13 @@ function getDateFormat(date) {
     const currDate = new Date(date)
     const year = currDate.getFullYear();
     const month = months[currDate.getMonth() - 1]
-    const day = currDate.getDay();
+    let day = currDate.getDay();
+    // let day = new Date(year, month, 0).getDate();
+
+
+    
+    console.log(day);
+    if (day === 0) day = 1
     let dateStr = (day < 10) ? `0${day}` : `${day}`
     dateStr += ` ${month}, ${year}`
     console.log('Datestr', dateStr);
