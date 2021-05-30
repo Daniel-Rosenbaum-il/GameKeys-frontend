@@ -1,8 +1,22 @@
 .video-container {
-  width: 420px;
+  min-width: 65%;
+  height: 100%;
+  position: relative;
+  margin-inline-end: 10px;
+  .video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+  }
+
   .player-wrapper {
     position: relative;
     padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */;
+    min-height: 337px;
   }
 
   .react-player {
