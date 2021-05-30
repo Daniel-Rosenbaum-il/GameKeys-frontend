@@ -3,7 +3,7 @@ export function SmallGamePreview({ game }) {
     const gameImg = require(`../../assets/img/${game.imgs.largeImgUrls[0]}`).default
     const finalPrice = game.price - (game.price / game.discount)
     return (
-        <div className="small-game-preview">
+        <div className="small-game-preview space-between">
             <div>
                 <Link to={`/game/${game._id}`} >
                     <div className="s-img">

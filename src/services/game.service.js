@@ -9,11 +9,28 @@ export const gameService = {
     remove
 }
 
-async function getGames(filterBy) {
+async function getGames(filterBy = { txt: '', tag: 'all' ,sortBy:'title'},) {
     let games = await storageService.query('game')
-    if (filterBy) {
+    if (filterBy.sortBy === 'title') {
+        games.sort((game1, game2) => {
+            return game1.title.localeCompare(game2.title)
+        })
+    }
+    if(filterBy.sortBy==='topReviews'){
+        games.sort((game1, game2) => {
+            return game2.rating - game1.rating
+        })
+    }
+
+    if (filterBy.txt) {
         const txtRegex = new RegExp(filterBy.txt, 'i')
         games = games.filter(game => txtRegex.test(game.title) || txtRegex.test(game.description))
+    }
+    if (filterBy.tag !== 'all') {
+        games = games.filter(game => {
+            const tag = game.tags.findIndex(tag => tag === filterBy.tag)
+            if (tag > -1) return game
+        })
     }
     return games
 }

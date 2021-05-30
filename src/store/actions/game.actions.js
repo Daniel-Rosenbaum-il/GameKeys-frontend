@@ -1,6 +1,6 @@
 import {gameService} from '../../services/game.service'
 
-export function loadGames(filterBy = {}) {
+export function loadGames(filterBy) {
     return async dispatch => {
         try {
             dispatch({ type: 'LOADING_START' })

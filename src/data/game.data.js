@@ -3,10 +3,11 @@ export const games = [
         "_id": "g140",
         "title": "Knockout city",
         "price": 10,
-        "releasedAt": 1622111531769,
+        "releasedAt": 15221135,
         "serialKey": "9s8sa4a2s558fsa",
         "description": "Team up and duke it out with rival Crews in Knockout City™, where EPIC DODGEBALL BATTLES settle the score in team-based multiplayer matches. Throw, catch, pass, dodge, and tackle your way to dodgeball dominance!",
         "sDescription": "Throw, catch, pass, Watch, and grab your way to dodgebrawl domination!",
+        "rating":2.5,
         "imgs": {
             "largeImgUrls": [
                 "knockout-city.jpg"
@@ -19,19 +20,15 @@ export const games = [
             "https://www.youtube.com/watch?v=Pf8MJkuE3N0"
         ],
         "tags": [
-            "Action",
-            "Sports",
-            "Racing",
-            "FreeToPlay",
-            "Adventure",
-            "Strategy",
-            "Simulation"
+            "sports",
+            "adventure",
+            "fighting"
         ],
         "wishlistCount": 0,
         "discount": 10,
         "reviews": [{
             "rate": 5,
-            "txt": "Great game",
+            "txt": "Dear god, this game is amazing. Easy to pick up, pretty satisfying to master. (1v1 mode is SOOO fun as a side break to hone your personal skills) Once you get past the initial `Toss fully charged ball` & Catch `Spamming`, you start realizing theres wayyyyy more to it than that.",
             "playtime": 750,
             "createdAt":1655258525,
             "byUserId": "u101"
@@ -46,6 +43,7 @@ export const games = [
         "serialKey": "9s8s465558fsa",
         "description": "The games take place in a science fiction setting and follow the adventures of Ratchet (a feline humanoid known as a Lombax, who is a mechanic) and Clank (a diminutive, sentient Zoni defective robot) as they travel through the universe, saving it from evil forces",
         "sDescription": "The rat and the crazy robot are back",
+        "rating":3,
         "imgs": {
             "largeImgUrls": [
                 "ratchet.jpg"
@@ -59,12 +57,9 @@ export const games = [
         ],
         "tags": [
             "action",
-            "sports",
             "racing",
-            "freeToPlay",
             "adventure",
-            "Strategy",
-            "Simulation"
+            "strategy",
         ],
         "wishlistCount": 0,
         "discount": 10,
@@ -81,11 +76,11 @@ export const games = [
         "_id": "g380",
         "title": "Diablo 4",
         "price": 12,
-        "releasedAt": 1622111531769,
+        "releasedAt": 15221135,
         "serialKey": "9s8s465558fsa",
         "description": "The newest installment in the Diablo franchise announced at BlizzCon 2019. This new incarnation maintains the classic isometric ARPG style that Diablo veteran players should be familiar with but with a renewed focus on the darkness that will permeate not only the world and art of Diablo IV but also the story and gameplay.",
         "sDescription": "Diablo 4: do we need to say more?",
-
+        "rating":5,
         "imgs": {
             "largeImgUrls": [
                 "diablo4.jpg"
@@ -98,18 +93,18 @@ export const games = [
             "https://www.youtube.com/watch?v=GPKbEgzp3Qo"
         ],
         "tags": [
-            "Action",
-            "RPG",
-            "Adventure",
+            "action",
+            "rpg",
+            "adventure",
         ],
         "wishlistCount": 0,
         "discount": 10,
         "_id": "a255",
         "reviews": [{
             "rate": 5,
-            "txt": "Great game",
+            "txt": "Blizzard has scored again with an object lesson in polish, depth and sheer compelling playability.",
             "playtime": 750,
-            "createdAt":1655258525,
+            "createdAt":16221135,
             "byUserId": "u101"
              }
         ]
@@ -122,6 +117,7 @@ export const games = [
         "serialKey": "9s8s465558fsa",
         "description": "Play with life and discover the possibilities. Unleash your imagination and create a world of Sims that’s wholly unique. Explore and customize every detail from Sims to homes–and much more.",
         "sDescription": "Life Love and Decoration",
+        "rating":3,
         "imgs": {
             "largeImgUrls": [
                 "sims4-l.jpg"
@@ -134,19 +130,15 @@ export const games = [
             "https://www.youtube.com/watch?v=Ci3jhBsVSRc"
         ],
         "tags": [
-            "action",
             "sports",
-            "racing",
-            "freeToPlay",
-            "adventure",
-            "Strategy",
-            "Simulation"
+            "strategy",
+            "simulation"
         ],
         "wishlistCount": 0,
         "discount": 10,
         "reviews": [{
             "rate": 5,
-            "txt": "Great game",
+            "txt": "The DLCS are way too expensive, mods provide more content then EA could ever produce and 90% of it's all free. Fun simulation game overall though",
             "playtime": 750,
             "createdAt":1655258525,
             "byUserId": "u101"
@@ -161,6 +153,7 @@ export const games = [
         "serialKey": "9s8s465558fsa",
         "description": "As war rages on throughout the Northern Realms, you take on the greatest contract of your life — tracking down the Child of Prophecy, a living weapon that can alter the shape of the world",
         "sDescription": "Become a professional monster slayer and embark on an adventure of epic proportions!",
+        "rating":4,
         "imgs": {
             "largeImgUrls": [
                 "the-witcher-l.jpg"
@@ -174,18 +167,14 @@ export const games = [
         ],
         "tags": [
             "action",
-            "sports",
-            "racing",
-            "freeToPlay",
+            "rpg",
             "adventure",
-            "Strategy",
-            "Simulation"
         ],
         "wishlistCount": 0,
         "discount": 10,
         "reviews": [{
             "rate": 5,
-            "txt": "Great game",
+            "txt": "Amazing game where the choices you make actually impact the story (and you get to see boobs)",
             "playtime": 750,
             "createdAt":1655258525,
             "byUserId": "u101"
@@ -198,8 +187,9 @@ export const games = [
         "price": 12,
         "releasedAt": 1622111531769,
         "serialKey": "9s8s465558fsa",
-        "description": "BIOMUTANT® is an open-world, post-apocalyptic Kung-Fu fable RPG, with a unique martial arts styled combat system allowing you to mix melee, shooting and mutant ability action.",
+        "description": "BIOMUTANT® is an open-world, post-apocalyptic Kung-Fu fable RPG, with a unique martial arts styled combat system allowing you to mix melee, shooting and mutant ability Action.",
         "sDescription": "RPG, mutants and martial arts",
+        "rating":3.5,
         "imgs": {
             "largeImgUrls": [
                 "biomutant.jpg"
@@ -214,17 +204,14 @@ export const games = [
         "tags": [
             "action",
             "sports",
-            "racing",
-            "freeToPlay",
             "adventure",
-            "Strategy",
-            "Simulation"
+            "strategy",
         ],
         "wishlistCount": 0,
         "discount": 10,
         "reviews": [{
-            "rate": 5,
-            "txt": "Great game",
+            "rate": 3.5,
+            "txt": "First impressions were good, colourful game with some interesting narrative. Nice to be able to build what you want in the character builder at the start, but slowly over time... Even if only being played for 30 hours so far and only half way through, it has not been a very enjoyable experience.",
             "playtime": 350,
             "createdAt":1655258525,
             "byUserId": "u101"

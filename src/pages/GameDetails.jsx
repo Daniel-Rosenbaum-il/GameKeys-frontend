@@ -7,6 +7,7 @@ import { removeGame } from '../store/actions/game.actions'
 import { Loader } from '../cmps/Loader'
 import { AddReview } from '../cmps/AddReview'
 import { Link } from 'react-router-dom'
+import { ReviewList } from '../cmps/ReviewList'
 
 
 class _GameDetails extends Component {
@@ -29,7 +30,7 @@ class _GameDetails extends Component {
         console.log(game);
         const finalPrice = game.price - (game.price / game.discount)
         return (
-            <section className="main-details container ">
+            <section className="main-details container">
                 {/* <p>All Games > Strategy Games > {game.tags[0]}</p> */}
                 <p>
                     <Link to={`/game`} >All Games  </Link> {'>'}
@@ -88,10 +89,10 @@ class _GameDetails extends Component {
                     </div>
                 </div>
                 <div className="wishlist-link">
-                    <p><Link to={'/login'}>a Sign in</Link> to add this item to your wishlist, follow it, or mark it as ignored</p>
+                    <p><Link to={'/login'}>Sign in</Link> to add this item to your wishlist, follow it, or mark it as ignored</p>
                 </div>
 
-                <div className=" flex">
+                <div className="buy-container flex">
                     <div className="price-container container">
                         <div>
                             <h2>Buy {game.title}</h2>
@@ -127,6 +128,9 @@ class _GameDetails extends Component {
 
                 <div className="add-review">
                     <AddReview loggedInUser={this.props.loggedInUser} />
+                </div>
+                <div className="reviews-container">
+                    <ReviewList reviews={game.reviews} loggedInUser={this.props.loggedInUser}/>
                 </div>
             </section>
         )

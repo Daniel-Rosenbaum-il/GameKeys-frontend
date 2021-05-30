@@ -8,19 +8,23 @@ import { GameFilter } from '../cmps/GameFilter'
 class _GameApp extends Component {
 
     componentDidMount() {
-        console.log(this.props.match.params);
-        this.props.loadGames()
+        const paramsString = this.props.location.search
+        const searchParams = new URLSearchParams(paramsString).get('tag');
+        console.log(searchParams);
+        if (searchParams) {
+            const filterBy = { tag: searchParams }
+            this.props.loadGames(filterBy)
+        }
     }
     onSetFilter = (filterBy) => {
         this.props.loadGames(filterBy)
     }
 
     render() {
-        console.log(this.props.games);
         const { games } = this.props
         return (
             <section className="main-explorer">
-                <GameFilter  onSetFilter={this.onSetFilter}/>
+                <GameFilter onSetFilter={this.onSetFilter} />
                 <GameList games={games} />
             </section>
         )

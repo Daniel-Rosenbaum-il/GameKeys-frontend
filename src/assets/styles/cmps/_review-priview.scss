@@ -1,0 +1,17 @@
+.review-list {
+    padding: 5px;
+    background-color: $clr1;
+    background-color: #101a26;
+    box-shadow: 0 0 1px 0px white;
+    .review-preview {
+        margin-inline-start: 15px;
+    }
+    .review-txt {
+        max-width: 40ch;
+    }
+    .review-game-preview {
+        .star-svg {
+            width: 1rem;
+        }
+    }
+}

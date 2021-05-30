@@ -27,6 +27,7 @@ function makeId(length = 5) {
     return txt;
 }
 function getDateFormat(date) {
+    console.log(date);
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     const currDate = new Date(date)
     const year = currDate.getFullYear();
@@ -34,5 +35,6 @@ function getDateFormat(date) {
     const day = currDate.getDay();
     let dateStr = (day < 10) ? `0${day}` : `${day}`
     dateStr += ` ${month}, ${year}`
+    console.log('Datestr', dateStr);
     return dateStr
 }
