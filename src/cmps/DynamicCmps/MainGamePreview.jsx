@@ -14,8 +14,12 @@ export class MainGamePreview extends Component {
         const games = this.props.games
         this.setState({ games })
     }
-    changeGame = () => {
-
+    changeGame = (diff) => {
+        const { games, gameIdx } = this.state
+        let nextIdx = diff += gameIdx
+        if (nextIdx < 0) nextIdx = games.length - 1
+        if (nextIdx >= games.length) nextIdx = 0
+        this.setState({ gameIdx: nextIdx })
     }
 
     render() {
@@ -28,14 +32,13 @@ export class MainGamePreview extends Component {
         const finalPrice = game.price - (game.price / game.discount)
         return (
             <div className="main-game-preview container mb-20">
-                <button className="btn btn-prev">&#10094;</button>
+                <button className="btn btn-prev" onClick={() => this.changeGame(-1)} >&#10094;</button>
                 <Link to={`/game/${game._id}`}>
 
                     <div className="preview-container flex column">
                         <div className="m-img" >
                             <img src={img2} alt="" />
                         </div>
-                        {/* <div className="flex"> */}
 
                         <div className="imgs-container flex column">
                             <img src={img2} alt="" />
@@ -50,14 +53,14 @@ export class MainGamePreview extends Component {
                             <div className="preview-price">
                                 <p className="discount">{game.discount}%</p>
                                 <div className="flex column">
-                                    <p className="in-sale" >${game.price}</p>
+                                    <p className="in-sale" >${game.price.toFixed(2)}</p>
                                     <p className="f-price" >${finalPrice.toFixed(2)}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </Link>
-                <button className=" btn btn-next"> &#10095;</button>
+                <button className=" btn btn-next" onClick={() => this.changeGame(1)}> &#10095;</button>
             </div>
         )
     }

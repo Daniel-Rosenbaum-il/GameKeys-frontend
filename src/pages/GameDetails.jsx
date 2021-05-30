@@ -25,7 +25,7 @@ class _GameDetails extends Component {
         const { game } = this.state
         if (!game) return <Loader/>
         return (
-            <section className="main-details container">
+            <section className="main-details container ">
                 <div className="details-container">
                     <div className="video-container">
                         <Video id={game.videoUrls[0]} />

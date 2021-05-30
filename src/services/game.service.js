@@ -10,7 +10,7 @@ export const gameService = {
 }
 
 async function getGames(filterBy = { txt: '', tag: 'All' }, sortBy = 'title') {
-    console.log(filterBy)
+    // console.log(filterBy)
     let games = await storageService.query('game')
     // if(sortBy='title'){
     //     games.sort(g)
