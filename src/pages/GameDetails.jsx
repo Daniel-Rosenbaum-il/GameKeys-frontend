@@ -28,6 +28,7 @@ class _GameDetails extends Component {
         if (!game) return <Loader />
         const gameImg = require(`../assets/img/${game.imgs.largeImgUrls[0]}`).default
         console.log(game);
+        const finalPrice = game.price - (game.price / game.discount)
         return (
             <section className="main-details container">
                 {/* <p>All Games > Strategy Games > {game.tags[0]}</p> */}
@@ -39,36 +40,29 @@ class _GameDetails extends Component {
                 </p>
                 <h1>{game.title}</h1>
 
-
                 <div className="details-container flex mb-20">
-
                     <div className="video-container">
                         <div className="video">
                             <Video id={game.videoUrls[0]} />
-                            {/* <img  src={gameImg} alt="" /> */}
                             <a>View more photos</a>
                         </div>
                         <div className="flex img-container justify-center">
-                            
                             <div>
-                        <img  src={gameImg} alt="" />
+                                <img src={gameImg} alt="" />
                             </div>
                             <div>
-                        <img  src={gameImg} alt="" />
+                                <img src={gameImg} alt="" />
                             </div>
                             <div>
-                        <img  src={gameImg} alt="" />
+                                <img src={gameImg} alt="" />
                             </div>
                             <div>
-                        <img  src={gameImg} alt="" />
+                                <img src={gameImg} alt="" />
                             </div>
-                        {/* <img  src={gameImg} alt="" />
-                        <img  src={gameImg} alt="" />
-                        <img  src={gameImg} alt="" /> */}
                         </div>
                     </div>
 
-                    <div className="details-info">
+                    <div className="details-info mb-20">
                         <img className="mb-10" src={gameImg} alt="" />
                         <p maxLength="5">{game.description}</p>
                         <div className="flex">
@@ -83,7 +77,7 @@ class _GameDetails extends Component {
                             <p className="dark-txt"> PUBLISHER:</p>
                             <p className="light-txt"> SEGA</p>
                         </div>
-                            <p className="dark-txt"> Popular user-defined tags for this product:</p>
+                        <p className="dark-txt"> Popular user-defined tags for this product:</p>
                         <div className="tag-container mb-20 flex space-evenly">
                             <Link to={`/game/${game.tags[0]}`} >{game.tags[0]} </Link>
                             <Link to={`/game/${game.tags[1]}`} >{game.tags[1]} </Link>
@@ -91,9 +85,47 @@ class _GameDetails extends Component {
                             <Link to={`/game/${game.tags[3]}`} >{game.tags[3]} </Link>
                         </div>
                         {/* <h2>${game.price}</h2> */}
-                        <button onClick={() => this.onRemoveGame(game._id)}>Delete</button>
+                        {/* <button onClick={() => this.onRemoveGame(game._id)}>Delete</button> */}
                     </div>
                 </div>
+                <div className="wishlist-link">
+                    <p><Link to={'/login'}>a Sign in</Link> to add this item to your wishlist, follow it, or mark it as ignored</p>
+                </div>
+
+                <div className=" flex">
+                    <div className="price-container container">
+                        <div>
+                            <h2>Buy {game.title}</h2>
+                            <p>WEEKEND DEAL! Offer ends in <span> 29:06:12</span></p>
+                        </div>
+                        <div className="details-price">
+                            <div className="price-info flex ">
+                                <div>
+                                    <p className="discount">{game.discount}%</p>
+
+                                </div>
+                                <div className="flex column space-evenly align-center justify-center mr-5">
+                                    <p className="in-sale" >${game.price.toFixed(2)}</p>
+                                    <p className="f-price" >${finalPrice.toFixed(2)}</p>
+                                </div>
+                                <button>Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="sign-in" >
+                        <h2>
+                            Is this game relevant to you?
+                        </h2>
+                        <p>Sign in to see reasons why you may or may not like this based on your games, friends, and curators you follow.</p>
+                        <div>
+                            <Link to="/login">Sign in</Link>
+                        </div>
+                    </div>
+
+                </div>
+
+
                 <div className="add-review">
                     <AddReview loggedInUser={this.props.loggedInUser} />
                 </div>

@@ -1,13 +1,13 @@
-
-.preview-container >.small-game-preview:not(:last-child){
+.preview-container > .small-game-preview:not(:last-child) {
     margin-inline-end: 10px;
 }
 
 .small-game-preview {
     width: 100%;
     max-width: 229px;
-    .s-img{
+    .s-img {
         width: unset;
+        cursor: pointer;
     }
     .preview-price {
         background: $bgc3;
@@ -16,15 +16,38 @@
         height: 25px;
         background-color: #436986;
         padding-bottom: 15px;
-        p {
+        .in-sale {
             position: absolute;
-            right: 5%;
-            color: #67c1f5;
-            background: #5989b4;
-            width: 39px;
-            text-align: center;
+            right: 23%;
+            color: gray;
             top: 50%;
-            transform: translate(5%, -50%);
+            transform: translate(-23%, -50%);
+        }
+        .preview-price {
+            position: relative;
+        }
+        .f-price {
+            position: absolute;
+            right: 3%;
+            top: 50%;
+            transform: translate(-3%, -50%);
+            color: $clr4;
+        }
+        .discount {
+            left: 0%;
+            position: absolute;
+            top: -23px;
+            font-size: rem(18px);
+        }
+        @media screen and (max-width: 590px) {
+            .discount,
+            .in-sale,
+            .f-price {
+                font-size: 9px;
+            }
+            .in-sale {
+                margin-inline-end: 5px;
+            }
         }
     }
 }
