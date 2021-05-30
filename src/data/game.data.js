@@ -19,13 +19,9 @@ export const games = [
             "https://www.youtube.com/watch?v=Pf8MJkuE3N0"
         ],
         "tags": [
-            "Action",
             "Sports",
-            "Racing",
-            "FreeToPlay",
             "Adventure",
-            "Strategy",
-            "Simulation"
+            "Fighting"
         ],
         "wishlistCount": 0,
         "discount": 10,
@@ -58,13 +54,10 @@ export const games = [
             "https://www.youtube.com/watch?v=ai3o0XtrnM8"
         ],
         "tags": [
-            "action",
-            "sports",
-            "racing",
-            "freeToPlay",
+            "Action",
+            "Racing",
             "adventure",
             "Strategy",
-            "Simulation"
         ],
         "wishlistCount": 0,
         "discount": 10,
@@ -99,7 +92,7 @@ export const games = [
         ],
         "tags": [
             "Action",
-            "RPG",
+            "Rpg",
             "Adventure",
         ],
         "wishlistCount": 0,
@@ -134,11 +127,7 @@ export const games = [
             "https://www.youtube.com/watch?v=Ci3jhBsVSRc"
         ],
         "tags": [
-            "action",
-            "sports",
-            "racing",
-            "freeToPlay",
-            "adventure",
+            "Sports",
             "Strategy",
             "Simulation"
         ],
@@ -173,13 +162,9 @@ export const games = [
             "https://www.youtube.com/watch?v=XHrskkHf958"
         ],
         "tags": [
-            "action",
-            "sports",
-            "racing",
-            "freeToPlay",
-            "adventure",
-            "Strategy",
-            "Simulation"
+            "Action",
+            "Rpg",
+            "Adventure",
         ],
         "wishlistCount": 0,
         "discount": 10,
@@ -198,7 +183,7 @@ export const games = [
         "price": 12,
         "releasedAt": 1622111531769,
         "serialKey": "9s8s465558fsa",
-        "description": "BIOMUTANT® is an open-world, post-apocalyptic Kung-Fu fable RPG, with a unique martial arts styled combat system allowing you to mix melee, shooting and mutant ability action.",
+        "description": "BIOMUTANT® is an open-world, post-apocalyptic Kung-Fu fable RPG, with a unique martial arts styled combat system allowing you to mix melee, shooting and mutant ability Action.",
         "sDescription": "RPG, mutants and martial arts",
         "imgs": {
             "largeImgUrls": [
@@ -212,13 +197,10 @@ export const games = [
             "https://www.youtube.com/watch?v=4gsoxG63w8k"
         ],
         "tags": [
-            "action",
-            "sports",
-            "racing",
-            "freeToPlay",
-            "adventure",
+            "Action",
+            "Sports",
+            "Adventure",
             "Strategy",
-            "Simulation"
         ],
         "wishlistCount": 0,
         "discount": 10,

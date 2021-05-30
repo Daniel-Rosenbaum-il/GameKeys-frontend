@@ -18,8 +18,8 @@ export function GamePreview({ game }) {
                             <p>{game.sDescription}</p>
                         </div>
                         <div className="game-btm-info">
+                            <h4>{game.tags.map(tag => <span>{tag} </span>).slice(0,4)}</h4>
                             <p>{`$${game.price}`}</p>
-                            <h4>{game.tags.map(tag => <span>{tag} </span>)}</h4>
                         </div>
                     </div>
                 </div>

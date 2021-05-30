@@ -2,24 +2,27 @@
     display: flex;
     justify-content: center;
     .filter-container {
-        background-color: white;
+        background-color: $clr4;
         border-radius: 20px;
     }
     .game-search {
         border: none;
         padding: 10px;
         border-radius: 20px;
+        background-color: $clr4;
     }
     .game-search:hover {
-        background-color: $clr4;
+        background-color: $clr3;
     }
     .game-tag-select {
         cursor: pointer;
         border: none;
         padding: 10px;
         border-radius: 20px;
+        background-color: $clr4;
+
     }
     .game-tag-select:hover {
-        background-color: $clr4;
+        background-color: $clr3;
     }
 }

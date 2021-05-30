@@ -16,7 +16,6 @@ class _GameApp extends Component {
     }
 
     render() {
-        console.log(this.props.games);
         const { games } = this.props
         return (
             <section className="main-explorer">
