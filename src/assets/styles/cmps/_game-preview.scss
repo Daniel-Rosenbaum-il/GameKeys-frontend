@@ -1,47 +1,52 @@
 .game-card {
     position: relative;
-    border-radius:5px;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
-    background-color: #2a475e;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
     max-width: 280px;
-    min-height:320px;
+    min-height: 320px;
     max-height: 320px;
     box-shadow: 0 0 1px 0px $clr7;
+    box-shadow: inset 0px 0px 2px 0px$clr4;
+
     .card-img-preview {
         width: 280px;
         padding: 10px;
+        img {
+            box-shadow: 0 0 1px 0px white;
+        }
     }
-    .game-info {
-        margin-top: 10px;
-        display: flex;
-        flex-grow: 5;
-        flex-direction: column;
-        justify-content:space-between;
-        margin-inline-start: 10px;
-        max-width:90%;
-    }
-    .game-btm-info{
-        display: flex;
-        justify-content:space-between;
-        align-items: center;
-    }
-    img{
-        border-radius: 10px; 
-        min-height: 150px;
-    }
-    .discount{
-        position: absolute;
-        top: 135px;;
-        right:20px
-    }
-    .small-description{
-        color:#c6d4df;
-    }
-    .in-sale{
-        color:#8f98a0;
-    }
-    .f-price{
-        color:$clr4
-    }
+}
+.game-info {
+    margin-top: 10px;
+    display: flex;
+    flex-grow: 5;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-inline-start: 10px;
+    max-width: 90%;
+}
+.game-btm-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+img {
+    border-radius: 10px;
+    min-height: 150px;
+}
+.discount {
+    position: absolute;
+    top: 135px;
+    right: 20px;
+}
+.small-description {
+    color: #c6d4df;
+}
+.in-sale {
+    color: #8f98a0;
+}
+.f-price {
+    color: $clr4;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import {
   loadUsers,
@@ -83,35 +84,44 @@ class _Login extends Component {
   render() {
     if (this.props.loggedInUser) this.props.history.push(`/`)
     let signupSection = (
-      <form className="flex space-around align-center" onSubmit={this.doSignup}>
-        <h1>Signup</h1>
-        <input
-          type="text"
-          name="fullname"
-          value={this.state.signupCred.fullname}
-          onChange={this.signupHandleChange}
-          placeholder="Full name"
-          autoComplete="fullname"
-        />
+      <div className="login-container">
+        <form className="flex space-around align-center column" onSubmit={this.doSignup}>
+          <h1>Signup</h1>
+          <label className="flex column" >Full name
+          <input
+              type="text"
+              name="fullname"
+              value={this.state.signupCred.fullname}
+              onChange={this.signupHandleChange}
+              // placeholder="Full name"
+              autoComplete="fullname"
+            />
+          </label>
 
+          <label className="flex column" >Username
         <input
-          type="text"
-          name="username"
-          value={this.state.signupCred.username}
-          onChange={this.signupHandleChange}
-          placeholder="Username"
-          autoComplete="username"
-        />
+              type="text"
+              name="username"
+              value={this.state.signupCred.username}
+              onChange={this.signupHandleChange}
+              // placeholder="Username"
+              autoComplete="username"
+            />
+          </label>
+          <label className="flex column " >Password
         <input
-          name="password"
-          type="password"
-          value={this.state.signupCred.password}
-          onChange={this.signupHandleChange}
-          placeholder="Password"
-          autoComplete="current-password"
-        />
-        <button>Signup</button>
-      </form>
+              className="mb-20"
+              name="password"
+              type="password"
+              value={this.state.signupCred.password}
+              onChange={this.signupHandleChange}
+              // placeholder="Password"
+              autoComplete="current-password"
+            />
+            <button>Signup</button>
+          </label>
+        </form>
+      </div>
     )
     let loginSection = (
       <div className="login-container">
@@ -158,14 +168,20 @@ class _Login extends Component {
           {!isLogIn && signupSection}
         </div>
 
-        <div className="flex column align-center justify-center space-between">
-          <h2>Game keys</h2>
-          <p>Join Game keys and discover thousands of games to play.</p>
-          <img src={joinImg} alt="" />
-          <button className="btn-join"
-            onClick={this.toggleLoginSignup}
-          >Join Game keys</button>
-        </div>
+        {isLogIn && <div className="join-container flex column align-center justify-center space-around">
+          <div className="flex column space-between align-center">
+            <p>Join Game keys and discover thousands of games to play.</p>
+            <Link to="/about" >Learn more</Link>
+          </div>
+          {/* <img src={joinImg} alt="" /> */}
+          <div className="flex justify-center column">
+            <p>It's <span>free</span> and <span>easy</span>  to use.</p>
+            <button className="btn-join"
+              onClick={this.toggleLoginSignup}
+            >Join Game keys</button>
+          </div>
+
+        </div>}
 
       </div>
     )

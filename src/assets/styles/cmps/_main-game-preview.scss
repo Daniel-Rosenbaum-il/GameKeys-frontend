@@ -4,13 +4,13 @@
     // btn-prev {
     //     display: none;
     // }
-   
     img {
         display: none;
     }
     .m-img img {
         display: block;
     }
+
     @media screen and (min-width: $lg-breakpoint) {
         img {
             display: block;
