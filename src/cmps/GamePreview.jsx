@@ -6,7 +6,7 @@ export function GamePreview({ game }) {
     return (
         <div>
             <Link to={`/game/${game._id}`} key="555">
-                <div className="game-card">
+                <div className="game-card ">
 
                     <div className="card-img-preview">
                         <img src={previewImg} alt="game-preview-img"  className="img-preview"></img>

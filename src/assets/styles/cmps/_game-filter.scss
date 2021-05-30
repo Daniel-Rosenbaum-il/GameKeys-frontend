@@ -1,10 +1,25 @@
-.game-filter{
+.game-filter {
     display: flex;
-    justify-content:center;
-    .game-search{
-        padding:10px;
-        border-radius:20px;
-    
+    justify-content: center;
+    .filter-container {
+        background-color: white;
+        border-radius: 20px;
     }
-
+    .game-search {
+        border: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+    .game-search:hover {
+        background-color: $clr4;
+    }
+    .game-tag-select {
+        cursor: pointer;
+        border: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+    .game-tag-select:hover {
+        background-color: $clr4;
+    }
 }
