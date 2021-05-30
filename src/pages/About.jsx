@@ -23,7 +23,7 @@ export function About() {
             We also know you want to make payments the way they suit you.
                 That’s why we offer a wide range of payment options including:</p>
             <ul>
-                {payments.map(payment => <li>{payment}</li>)}
+                {payments.map((payment, idx) => <li key={idx}>{payment}</li>)}
             </ul>
             {/* <div className="about-img flex justify-center">
                 <img src={aboutImg} alt="" />

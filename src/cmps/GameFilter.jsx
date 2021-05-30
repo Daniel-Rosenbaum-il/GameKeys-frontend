@@ -4,8 +4,9 @@ export class GameFilter extends Component {
     state = {
         filterBy: {
             txt: '',
-            tag: 'All'
-        }
+            tag: 'all',
+            sortBy:'title'
+        },
     }
 
     handleChange = ({ target }) => {
@@ -13,8 +14,17 @@ export class GameFilter extends Component {
         const { filterBy } = this.state
         this.setState({ filterBy: { ...filterBy, [field]: value } }, () => {
             this.props.onSetFilter(this.state.filterBy)
+            console.log(filterBy);
         })
     }
+    // handleSortChange = ({ target }) => {
+    //     let { value, name: field } = target
+    //     const { sortBy } = this.state
+    //     this.setState({ sortBy: { ...sortBy, [field]: value } }, () => {
+    //         this.props.onSetFilter(this.state)
+    //     })
+    // }
+
 
     render() {
         const { txt } = this.state.filterBy
@@ -24,20 +34,19 @@ export class GameFilter extends Component {
                     <input className="game-search" autoComplete="off"
                         type="text" name="txt" value={txt}
                         placeholder="Search for a game" onChange={this.handleChange} />
-                    {/* <select className="toy-select" name="isInStock" onChange={this.handleChange}>
-                    <option value="all">All</option>
-                    <option value="noStock">Not-Availabel</option>
-                    <option value="inStock">Availabel</option>
-                </select>*/}
-                    <select className="game-tag-select" name="tag" onChange={this.handleChange}>
-                        <option value="All">All</option>
-                        <option value="Action">Action</option>
-                        <option value="Rpg">Rpg</option>
-                        <option value="Strategy">Strategy</option>
-                        <option value="Fighting">Fighting</option>
-                        <option value="Racing">Racing</option>
-                        <option value="Simulation">Simulation</option>
-                        <option value="Strategy">Strategy</option>
+                    <select className="game-select tag" name="tag" onChange={this.handleChange}>
+                        <option value="all">All</option>
+                        <option value="action">Action</option>
+                        <option value="rpg">Rpg</option>
+                        <option value="strategy">Strategy</option>
+                        <option value="fighting">Fighting</option>
+                        <option value="racing">Racing</option>
+                        <option value="simulation">Simulation</option>
+                        <option value="strategy">Strategy</option>
+                    </select>
+                    <select className="game-select sort" name="sortBy" onChange={this.handleChange}>
+                        <option value="title">Title</option>
+                        <option value="topReviews">Top-Reviews</option>
                     </select>
                     {/* {this.props.children} */}
                 </div>

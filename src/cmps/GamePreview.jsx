@@ -14,18 +14,17 @@ export function GamePreview({ game }) {
                     </div>
                     <div className="game-info">
                         <div className="game-top-info">
-
                             <h2>{game.title}</h2>
-                            <p>{game.sDescription}</p>
+                            <p className="small-description">{game.sDescription}</p>
                         </div>
 
                         <div className="game-btm-info">
+                            <h4>{game.tags.map(tag => <span>{tag} </span>)}</h4>
                             <p className="discount">{game.discount}%</p>
                             <div className="flex column">
                                 <p className="in-sale" >${game.price.toFixed(2)}</p>
                                 <p className="f-price" >${finalPrice.toFixed(2)}</p>
                             </div>
-                            <h4>{game.tags.map(tag => <span>{tag} </span>)}</h4>
                         </div>
                     </div>
                 </div>

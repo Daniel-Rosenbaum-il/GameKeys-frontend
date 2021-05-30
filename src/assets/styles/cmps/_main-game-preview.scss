@@ -60,29 +60,41 @@
         position: absolute;
         right: -4%;
         top: 50%;
-        font-size: 13px;
-        color: #5db6e8;
-        background: black;
+        color: $clr4;
+
         height: 80px;
         transform: translate(4%, -50%);
-        font-size: 30px;
+
+        font-size: 3rem;
+        border-radius: 0.1rem;
+        border: unset;
+        background-color: black;
+
         transition: 0.4s;
     }
     .btn-next {
         position: absolute;
         right: -6%;
         transform: translate(6%, -50%);
-    }
-    .btn-next:hover {
-        background: linear-gradient(to right, rgba(171, 218, 244, 0) 5%, rgba(171, 218, 244, 0.3) 95%);
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0) 95%);
+        &:hover {
+            background: linear-gradient(to right, rgba(93, 182, 232, 0.3) 5%, rgba(171, 218, 244, 0) 95%);
+        }
+        &:active {
+            background: linear-gradient(to right, rgba(93, 182, 232, 0.3) 5%, rgba(171, 218, 244, 0) 95%);
+        }
     }
     .btn-prev {
         position: absolute;
         left: -6%;
         transform: translate(6%, -50%);
-    }
-    .btn-prev:hover {
-        background: linear-gradient(to left, rgba(171, 218, 244, 0) 5%, rgba(171, 218, 244, 0.3) 95%);
+        background: linear-gradient(to left, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0) 95%);
+        &:hover {
+            background: linear-gradient(to left, rgba(93, 182, 232, 0.3) 5%, rgba(171, 218, 244, 0) 95%);
+        }
+        &:active {
+            background: linear-gradient(to left, rgba(93, 182, 232, 0.3) 5%, rgba(171, 218, 244, 0) 95%);
+        }
     }
     h2 {
         margin-inline-start: 5px;
