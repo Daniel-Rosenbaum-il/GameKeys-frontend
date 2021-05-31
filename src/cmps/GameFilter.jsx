@@ -5,7 +5,7 @@ export class GameFilter extends Component {
         filterBy: {
             txt: '',
             tag: 'all',
-            sortBy:'title'
+            sortBy: 'title'
         },
     }
 
@@ -30,8 +30,8 @@ export class GameFilter extends Component {
         const { txt } = this.state.filterBy
         return (
             <section className="game-filter mb-20">
-                <div className="filter-container">
-                    <input className="game-search" autoComplete="off"
+                <div className="filter-container flex">
+                    <input className="game-search" autoComplete="off" autoFocus={true}
                         type="text" name="txt" value={txt}
                         placeholder="Search for a game" onChange={this.handleChange} />
                     <select className="game-select tag" name="tag" onChange={this.handleChange}>

@@ -16,6 +16,8 @@
         color: $clr4;
         font-size: rem(34px);
         margin: 0;
+        font-family: "Quantico-Regular";
+        font-size: 2.5rem;
     }
     .loggedin-user {
         padding: 2px 8px;
@@ -29,6 +31,13 @@
     }
     nav a {
         padding: 0 5px;
+    }
+    nav a:hover {
+        text-shadow: 0 0 20px #c9bab3;
+    }
+    nav .active {
+        text-shadow: 0 0 20px #c9bab3;
+        color: $clr4;
     }
     .btn-login {
         background-color: #7f8b91;

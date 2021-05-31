@@ -44,24 +44,25 @@ class _GameDetails extends Component {
                 </p>
                 <h1>{game.title}</h1>
 
-                <div className="details-container flex">
+                <div className="details-container flex gap-20">
                     <div className="video-container">
-                        <div className="video">
-                            <Video id={game.videoUrls[0]} />
-                            <a>View more photos</a>
-                        </div>
-                        <div className="flex img-container justify-center">
-                            <div>
-                                <img src={gameImg} alt="" />
-                            </div>
-                            <div>
-                                <img src={gameImg} alt="" />
-                            </div>
-                            <div>
-                                <img src={gameImg} alt="" />
-                            </div>
-                            <div>
-                                <img src={gameImg} alt="" />
+                        <div className="video flex column gap-10 justify-center">
+                            <Video url={game.videoUrls[0]} />
+                            {/* <a>View more photos</a> */}
+                            {/* </div> */}
+                            <div className="flex img-container gap-10">
+                                <div>
+                                    <img src={gameImg} alt="" />
+                                </div>
+                                <div>
+                                    <img src={gameImg} alt="" />
+                                </div>
+                                <div>
+                                    <img src={gameImg} alt="" />
+                                </div>
+                                <div>
+                                    <img src={gameImg} alt="" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -96,7 +97,7 @@ class _GameDetails extends Component {
                     <p><Link to={'/login'}>Sign in</Link> to add this item to your wishlist, follow it, or mark it as ignored</p>
                 </div>
 
-                <div className="buy-container flex">
+                <div className="buy-container flex column gap-10">
                     <div className="price-container container">
                         <div>
                             <h2>Buy {game.title}</h2>
@@ -112,7 +113,7 @@ class _GameDetails extends Component {
                                     <p className="in-sale" >${game.price.toFixed(2)}</p>
                                     <p className="f-price" >${finalPrice.toFixed(2)}</p>
                                 </div>
-                                <button>Add to cart</button>
+                                <Link to={`/game/order/${game._id}`} > <button >Add to cart</button></Link>
                             </div>
                         </div>
                     </div>

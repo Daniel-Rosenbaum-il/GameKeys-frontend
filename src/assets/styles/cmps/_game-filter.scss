@@ -2,24 +2,25 @@
     display: flex;
     justify-content: center;
     .filter-container {
-        background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
-        padding: 15px;
-        background-color: $clr1;
+        // background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+        // padding: 15px;
+        // background-color: $clr1;
         border-radius: 20px;
+        
         // box-shadow: 0 -0.5px 2px 1px #2c3050a6;
-        box-shadow: 0 0px 3px 0.9px #9b9fc1a6;
+        // box-shadow: 0 0px 3px 0.9px #9b9fc1a6;
     }
     .game-search {
+        padding: 10px 50px;
+        box-shadow: inset 0px 0px 2px 3px #6abcec;
         caret-color: rgb(245, 245, 245);
         margin-bottom: 5px;
         background-color: #425d7482;
-        padding: 8px 6px;
         display: block;
         width: 100%;
         border: 1px solid #26282d;
         outline: none;
         transition: border ease-in-out 0.5s;
-        box-shadow: none;
         border-radius: 2rem;
     }
     .game-search:hover {

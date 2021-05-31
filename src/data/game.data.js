@@ -17,7 +17,7 @@ export const games = [
             ]
         },
         "videoUrls": [
-            "https://www.youtube.com/watch?v=Pf8MJkuE3N0"
+            "https://www.youtube.com/embed/Pf8MJkuE3N0"
         ],
         "tags": [
             "sports",
@@ -53,7 +53,7 @@ export const games = [
             ]
         },
         "videoUrls": [
-            "https://www.youtube.com/watch?v=ai3o0XtrnM8"
+            "https://www.youtube.com/embed/ai3o0XtrnM8"
         ],
         "tags": [
             "action",
@@ -90,7 +90,7 @@ export const games = [
             ]
         },
         "videoUrls": [
-            "https://www.youtube.com/watch?v=GPKbEgzp3Qo"
+            "https://www.youtube.com/embed/GPKbEgzp3Qo"
         ],
         "tags": [
             "action",
@@ -127,7 +127,7 @@ export const games = [
             ]
         },
         "videoUrls": [
-            "https://www.youtube.com/watch?v=Ci3jhBsVSRc"
+            "https://www.youtube.com/embed/Ci3jhBsVSRc"
         ],
         "tags": [
             "sports",
@@ -163,7 +163,7 @@ export const games = [
             ]
         },
         "videoUrls": [
-            "https://www.youtube.com/watch?v=XHrskkHf958"
+            "https://www.youtube.com/embed/XHrskkHf958"
         ],
         "tags": [
             "action",
@@ -199,7 +199,7 @@ export const games = [
             ]
         },
         "videoUrls": [
-            "https://www.youtube.com/watch?v=4gsoxG63w8k"
+            "https://www.youtube.com/embed/4gsoxG63w8k"
         ],
         "tags": [
             "action",

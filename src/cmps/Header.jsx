@@ -7,21 +7,22 @@ class _Header extends Component {
     render() {
         const { loggedInUser } = this.props;
         return <header className={`main-header `}>
-            <div className={`container ${this.flexClass}` }>
+            <div className={`container ${this.flexClass}`}>
 
-            <Link to="/"> <p className="logo">GameKeys</p></Link>
-            <nav className={this.flexClass}>
-                <NavLink exact to="/">Home</NavLink>
-                <NavLink to="/game">Explore</NavLink>
-                <NavLink exact to="/about">About us</NavLink>
-                {!loggedInUser && <Link className="btn-login" to="/login">Login</Link>}
-                {loggedInUser && <div className="user-header">
-                    <p>Hi {loggedInUser.fullname}</p>
-                    <button onClick={this.props.logout}>Logout</button>
+                {/* <Link to="/"> <p className="logo">GameKeys</p></Link> */}
+                <Link to="/"><p className="logo mb-20">G<span>a</span><span>m</span><span>e</span> keys</p></Link>
+                <nav className={this.flexClass}>
+                    <NavLink exact to="/">Home</NavLink>
+                    <NavLink to="/game">Explore</NavLink>
+                    <NavLink exact to="/about">About us</NavLink>
+                    {!loggedInUser && <Link className="btn-login" to="/login">Login</Link>}
+                    {loggedInUser && <div className="user-header">
+                        <p>Hi {loggedInUser.fullname}</p>
+                        <button onClick={this.props.logout}>Logout</button>
                     </div>}
-                {/* <NavLink to="/chat">Chat Room</NavLink> */}
-            </nav>
-</div>
+                    {/* <NavLink to="/chat">Chat Room</NavLink> */}
+                </nav>
+            </div>
         </header>
     }
 

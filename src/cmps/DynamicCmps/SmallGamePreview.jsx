@@ -5,8 +5,8 @@ export function SmallGamePreview({ game }) {
     return (
         <div className="small-game-preview space-between">
             <div>
-                <Link to={`/game/${game._id}`} >
-                    <div className="s-img">
+                <Link className="hidden" to={`/game/${game._id}`} >
+                    <div className="flex">
                         <img src={gameImg} alt="" />
                     </div>
                     <div className="preview-price">
@@ -16,6 +16,9 @@ export function SmallGamePreview({ game }) {
                             <p className="f-price" >${finalPrice.toFixed(2)}</p>
                         </div>
                     </div>
+                <div className="tag-container flex column">
+                    {game.tags.map(tag => <div><Link to={`/game/${tag}`} >{tag}</Link></div> )}
+                </div>
                 </Link>
             </div>
         </div>
