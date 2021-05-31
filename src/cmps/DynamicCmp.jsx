@@ -21,7 +21,7 @@ export function DynamicCmp({ games, type = 'main', src,utilService }) {
                 return (<>
                     <CtgList />
                     <h2 className="mb-20 container ">FROM DEVELOPERS AND PUBLISHERS THAT YOU KNOW</h2>
-                    <div className="preview-container flex container ">
+                    <div className="preview-container flex container space-between gap-20 ">
                         {games.map((game, idx) => {
                             if (idx > 3) return
                             return <SmallGamePreview game={game} key={game._id} />

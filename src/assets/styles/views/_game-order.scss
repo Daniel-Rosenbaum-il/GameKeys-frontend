@@ -1,0 +1,22 @@
+.order-container {
+    .order-card {
+        flex: 1;
+        background-color: rgba(0, 0, 0, 0.2);
+        margin: 0px 0px 3px 0px;
+        max-height: 77px;
+        img {
+            width: auto;
+            height: 70px;
+            background-color: #000000;
+        }
+    }
+    .order-card:last-child {
+        &:last-child {
+            padding: 16px;
+        }
+    }
+    .card-game img {
+        width: 308px;
+        height: auto;
+    }
+}

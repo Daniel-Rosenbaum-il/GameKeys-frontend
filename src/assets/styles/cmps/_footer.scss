@@ -11,25 +11,43 @@ footer {
         text-shadow: 1px 0px 2px #3d6784;
         margin: 0;
     }
-    .logo {
-        font-size: 4.5625rem;
+    .icon {
+        max-width: 40px;
     }
+   
     .icon-title {
         font-family: Quantico-Regular;
-        font-size: 2.4rem;
+        // font-size: 2.4rem;
+        font-size: 1rem;
+        text-align: center;
         margin: 0;
     }
     span {
         color: #66bff3;
-        font-size: 1.3rem;
+        font-size: 0.6rem;
         font-weight: 400;
         letter-spacing: 0.65px;
         line-height: 1.5;
         text-transform: uppercase;
     }
+
     .icon-container {
         border-radius: 0.3rem;
-        background-color: $clr0;
+        background: linear-gradient(to bottom, #e8f5fcb5 5%, #e8f7ff 95%);
+        background: linear-gradient(to bottom, #2e3132b5 5%, #274351 95%);
         width: 100%;
+    }
+
+     .logo span {
+        color: rgb(203, 255, 60);
+        font-size: 4.5625rem;
+    }
+     .logo span:first-of-type {
+        color: #ff9800;
+        font-size: 4.5625rem;
+    }
+     .logo span:last-of-type {
+        font-size: 4.5625rem;
+        color: #b9e4fd;
     }
 }

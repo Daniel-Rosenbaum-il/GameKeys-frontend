@@ -1,16 +1,26 @@
-.preview-container > .small-game-preview:not(:last-child) {
-    margin-inline-end: 10px;
-}
-
 .small-game-preview {
     width: 100%;
     max-width: 229px;
-    .s-img {
-        width: unset;
-        cursor: pointer;
+    background: linear-gradient(-45deg, rgba(64, 121, 153, 1) 5%, rgba(42, 62, 89, 1) 95%);
+    box-shadow: 0 0 5px #000;
+    a {
+        color: $clr4;
+        padding: 2px 7px 2px 7px;
+        background-color: rgba(103, 193, 245, 0.2);
     }
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .tag-container {
+        gap: 3px;
+        // border-top: 1px solid #2a3e59;
+        border-top: 1px solid black;
+        text-transform: capitalize
+    }
+
     .preview-price {
-        background: $bgc3;
+        background: linear-gradient(90deg, #407999 5%, #2a3e59 95%);
         position: relative;
         text-align: end;
         height: 25px;
@@ -39,14 +49,13 @@
             top: -23px;
             font-size: rem(18px);
         }
+    
+
         @media screen and (max-width: 590px) {
             .discount,
             .in-sale,
             .f-price {
                 font-size: 9px;
-            }
-            .in-sale {
-                margin-inline-end: 5px;
             }
         }
     }

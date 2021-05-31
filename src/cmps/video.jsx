@@ -1,21 +1,26 @@
-import {Component} from 'react'
-import React from 'react'
-import ReactPlayer from 'react-player'
+import React from "react";
+// import PropTypes from "prop-types";
 
-export class Video extends Component {
-    render() {
-        const {id} = this.props
-        return (
-            <div className='player-wrapper'>
-                <ReactPlayer
-                    className='react-player'
-                    url={id}
-                    width='100%'
-                    height='100%'
-                    controls={true}
-                />
-            </div>
-        )
-    }
+export function Video({ url }) {
+    return (
+        <div className="video-responsive">
+            <iframe
+                width="853"
+                height="480"
+                src={url}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title="Embedded youtube"
+                // sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation"
+
+            />
+        </div>
+    );
 }
 
+// Video.propTypes = {
+//     embedId: PropTypes.string.isRequired
+// };
+
+// export default Video;
