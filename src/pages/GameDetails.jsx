@@ -24,16 +24,18 @@ class _GameDetails extends Component {
         await this.props.removeGame(gameId)
         this.props.history.push('/Game/')
     }
-    onAddReview(review) {
-        let game = this.state
-        console.log(review);
-        // game.reviews.push(review)
-        // await this.props.saveGame(game)
-        // this.setState({game})
+     onAddReview = (review) => {
+        let {game} = this.state
+        console.log(game);
+        game.reviews.push(review)
+        this.saveReview(game)
     }
-
+    async saveReview(game){
+        await this.props.saveGame(game)
+        this.setState({game})
+    }
     render() {
-        const { users,loggedInUser } = this.props
+        const { users, loggedInUser } = this.props
         const { game } = this.state
         if (!game) return <Loader />
         console.log(users);
@@ -91,10 +93,8 @@ class _GameDetails extends Component {
                         </div>
                         <p className="dark-txt"> Popular user-defined tags for this product:</p>
                         <div className="tag-container mb-20 flex space-evenly">
-                            <Link to={`/game/${game.tags[0]}`} >{game.tags[0]} </Link>
-                            <Link to={`/game/${game.tags[1]}`} >{game.tags[1]} </Link>
-                            <Link to={`/game/${game.tags[2]}`} >{game.tags[2]} </Link>
-                            <Link to={`/game/${game.tags[3]}`} >{game.tags[3]} </Link>
+                            {/* <Link to={`/game/${game.tags[0]}`} >{game.tags[0]} </Link> */}
+                            {game.tags.map((tag) => <Link to={`/game?tag=${tag}`} >{tag} </Link>).slice(0, 3)}
                         </div>
                         {/* <h2>${game.price}</h2> */}
                         {/* <button onClick={() => this.onRemoveGame(game._id)}>Delete</button> */}
@@ -139,7 +139,7 @@ class _GameDetails extends Component {
 
 
                 <div className="add-review">
-                    <AddReview loggedInUser={loggedInUser} onAddReview={this.onAddReview}/>
+                    <AddReview loggedInUser={loggedInUser} onAddReview={this.onAddReview} />
                 </div>
                 <div className="reviews-container">
                     <ReviewList reviews={game.reviews} users={users} loggedInUser={loggedInUser} />

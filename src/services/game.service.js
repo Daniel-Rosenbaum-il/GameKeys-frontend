@@ -1,4 +1,4 @@
-// import { localService } from './storage.service'
+import { localService } from './storage.service'
 import { storageService } from './async-Storage.service'
 
 import { games } from '../data/game.data'
@@ -11,6 +11,7 @@ export const gameService = {
 }
 
 async function getGames(filterBy = { txt: '', tag: 'all' ,sortBy:'title'},) {
+console.log(filterBy);
     let games = await storageService.query('game')
     if (filterBy.sortBy === 'title') {
         games.sort((game1, game2) => {
@@ -50,4 +51,4 @@ function save(game) {
         }
     }
 // console.log(games);
-// localService.saveToStorage('game', games)
+localService.saveToStorage('game', games)
