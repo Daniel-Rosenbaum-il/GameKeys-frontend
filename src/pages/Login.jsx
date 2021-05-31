@@ -108,7 +108,7 @@ class _Login extends Component {
               autoComplete="username"
             />
           </label>
-          <label className="flex column " >Password
+          <label className="flex column  " >Password
         <input
               className="mb-20"
               name="password"
@@ -118,7 +118,7 @@ class _Login extends Component {
               // placeholder="Password"
               autoComplete="current-password"
             />
-            <button>Signup</button>
+            <button className="btn-join">Signup</button>
           </label>
         </form>
       </div>
