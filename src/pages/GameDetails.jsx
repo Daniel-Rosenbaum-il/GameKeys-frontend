@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Video } from '../cmps/video'
 import { gameService } from '../services/game.service'
 import { removeGame } from '../store/actions/game.actions'
+import { loadUsers } from '../store/actions/user.actions'
 import { Loader } from '../cmps/Loader'
 import { AddReview } from '../cmps/AddReview'
 import { Link } from 'react-router-dom'
@@ -12,11 +13,14 @@ import { ReviewList } from '../cmps/ReviewList'
 
 class _GameDetails extends Component {
     state = {
-        game: null
+        game: null,
+        users: null
     }
     async componentDidMount() {
         const game = await gameService.getById(this.props.match.params.gameId)
         this.setState({ game })
+        const users = await this.props.loadUsers
+        this.setState({ users })
     }
     async onRemoveGame(gameId) {
         await this.props.removeGame(gameId)
@@ -24,7 +28,7 @@ class _GameDetails extends Component {
     }
 
     render() {
-        const { game } = this.state
+        const { game, users } = this.state
         if (!game) return <Loader />
         const gameImg = require(`../assets/img/${game.imgs.largeImgUrls[0]}`).default
         console.log(game);
@@ -130,7 +134,7 @@ class _GameDetails extends Component {
                     <AddReview loggedInUser={this.props.loggedInUser} />
                 </div>
                 <div className="reviews-container">
-                    <ReviewList reviews={game.reviews} loggedInUser={this.props.loggedInUser}/>
+                    <ReviewList reviews={game.reviews} users={users} loggedInUser={this.props.loggedInUser} />
                 </div>
             </section>
         )
@@ -140,11 +144,13 @@ class _GameDetails extends Component {
 
 const mapStateToProps = state => {
     return {
-        loggedInUser: state.userModule.loggedInUser
+        loggedInUser: state.userModule.loggedInUser,
+        users: state.userModule.user
 
     }
 }
 const mapDispatchToProps = {
+    loadUsers,
     removeGame,
 }
 export const GameDetails = connect(mapStateToProps, mapDispatchToProps)(_GameDetails)
