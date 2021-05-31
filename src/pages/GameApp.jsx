@@ -15,6 +15,7 @@ class _GameApp extends Component {
             const filterBy = { tag: searchParams }
             this.props.loadGames(filterBy)
         }
+        this.props.loadGames()
     }
     onSetFilter = (filterBy) => {
         this.props.loadGames(filterBy)

@@ -5,8 +5,8 @@
     flex-direction: column;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
     max-width: 280px;
-    min-height: 320px;
-    max-height: 320px;
+    min-height: 350px;
+    max-height: 350px;
     box-shadow: 0 0 1px 0px $clr7;
     .card-img-preview {
         width: 280px;
@@ -28,6 +28,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 3px;
+    }
+    .game-top-info{
+        .star-svg{
+            width:1rem;
+            color:$clr4 ;
+        }
     }
     img {
         border-radius: 10px;
@@ -46,5 +53,50 @@
     }
     .f-price {
         color: $clr4;
+    }
+    h2 {
+        font-size: 1.1rem;
+        margin-bottom: 3px;
+    }
+    h4{
+        display:flex;
+        margin:0;
+    }
+    .preview-tag {
+        // display: flex;
+        // flex-direction: row;
+        text-transform: capitalize;
+        // box-shadow: 0 0px 5px #62b7e8;
+        // color: #67c1f5;
+        // border: 1px solid;
+        // border-radius: 0.5rem;
+        // font-size: 1rem;
+        // margin-inline-start: 10px;
+        // padding: 0px 8px;
+        // background: black;
+        // justify-content: space-between;
+        display: inline-block;
+        line-height: 19px;
+        padding: 0 7px;
+        color: #67c1f5;
+        background-color: rgba(103, 193, 245, 0.2);
+        box-shadow: none;
+        margin-right: 2px;
+        border-radius: 2px;
+        cursor: pointer;
+        margin-bottom: 3px;
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 0;
+    }
+    p{
+        margin: 0px 0 0.1em;
+    }
+    .rating{
+        font-size:1rem;
+        color:$clr4;
+
     }
 }

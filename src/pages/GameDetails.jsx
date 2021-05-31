@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { Video } from '../cmps/video'
 import { gameService } from '../services/game.service'
-import { removeGame } from '../store/actions/game.actions'
+import { removeGame, saveGame } from '../store/actions/game.actions'
 import { loadUsers } from '../store/actions/user.actions'
 import { Loader } from '../cmps/Loader'
 import { AddReview } from '../cmps/AddReview'
@@ -24,9 +24,16 @@ class _GameDetails extends Component {
         await this.props.removeGame(gameId)
         this.props.history.push('/Game/')
     }
+    onAddReview(review) {
+        let game = this.state
+        console.log(review);
+        // game.reviews.push(review)
+        // await this.props.saveGame(game)
+        // this.setState({game})
+    }
 
     render() {
-        const { users } = this.props
+        const { users,loggedInUser } = this.props
         const { game } = this.state
         if (!game) return <Loader />
         console.log(users);
@@ -131,10 +138,10 @@ class _GameDetails extends Component {
 
 
                 <div className="add-review">
-                    <AddReview loggedInUser={this.props.loggedInUser} />
+                    <AddReview loggedInUser={loggedInUser} onAddReview={this.onAddReview}/>
                 </div>
                 <div className="reviews-container">
-                    <ReviewList reviews={game.reviews} users={this.props.users} loggedInUser={this.props.loggedInUser} />
+                    <ReviewList reviews={game.reviews} users={users} loggedInUser={loggedInUser} />
                 </div>
             </section>
         )
@@ -152,5 +159,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
     loadUsers,
     removeGame,
+    saveGame,
 }
 export const GameDetails = connect(mapStateToProps, mapDispatchToProps)(_GameDetails)

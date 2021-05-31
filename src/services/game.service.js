@@ -1,4 +1,4 @@
-import { localService } from './storage.service'
+// import { localService } from './storage.service'
 import { storageService } from './async-Storage.service'
 
 import { games } from '../data/game.data'
@@ -6,7 +6,8 @@ import { games } from '../data/game.data'
 export const gameService = {
     getGames,
     getById,
-    remove
+    remove,
+    save
 }
 
 async function getGames(filterBy = { txt: '', tag: 'all' ,sortBy:'title'},) {
@@ -40,5 +41,13 @@ function getById(gameId) {
 function remove(gameId) {
     return storageService.remove('game', gameId)
 }
+function save(game) {
+        if (game._id) {
+            return storageService.put('game', game)
+        } else {
+            // var newGame = createGame(game)
+            // return storageService.post(STORAGE_KEY, newGame)
+        }
+    }
 // console.log(games);
-localService.saveToStorage('game', games)
+// localService.saveToStorage('game', games)

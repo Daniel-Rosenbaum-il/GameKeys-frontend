@@ -5,4 +5,15 @@
     .star-svg {
         height: 2rem;
     }
+    textarea {
+        resize: none;
+      }
+
+}
+.review-rating-stars{
+    .star-active{
+        .star-svg {
+            color: $clr4;
+        }
+    }
 }

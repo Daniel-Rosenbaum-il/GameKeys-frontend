@@ -10,10 +10,11 @@ export class AddReview extends Component {
             id: utilService.makeId(),
             rating: null,
             createdAt: Date.now(),
-            txt: null
+            txt: null,
+            byUserId: (!this.props.loggedInUser)? '' : this.props.loggedInUser._id,
+            playtime: utilService.getRandomInt(100, 500)
         }
     }
-
     handleSubmit = (ev) => {
         ev.preventDefault()
     }
@@ -29,15 +30,16 @@ export class AddReview extends Component {
     }
     onSubmit = (ev) => {
         ev.preventDefault()
-        // const bookId = this.props.match.params.bookId;
-        // bookService.addReview(bookId, this.state.review)
+        console.log(this.state.review);
+        this.props.onAddReview(this.state.review)
     }
     render() {
-        const { rating, txt } = this.state.review;
+        const { rating } = this.state.review;
         const { loggedInUser } = this.props
+        console.log(this.state.review);
         return (
             <div className="add-review-form">
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={!loggedInUser? '' : this.onSubmit}>
                     <h2>Write A Review </h2>
                     <h3>{loggedInUser && loggedInUser.fullname}</h3>
                     <Rating rating={rating} handleChange={this.handleChange} />
