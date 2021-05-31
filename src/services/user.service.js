@@ -1,4 +1,4 @@
-// import { localService } from './storage.service'
+import { localService } from './storage.service'
 import { storageService } from './async-Storage.service'
 
 // import { httpService } from './http.service'
@@ -21,6 +21,7 @@ window.userService = userService
 // userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 100, isAdmin: true})
 
 function getUsers() {
+    console.log("im hereeeeeeeeeeeeee");
     return storageService.query('user')
     // return httpService.get(`user`)
 }
@@ -68,6 +69,6 @@ function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem('loggedinUser'))
 }
 
-// localService.saveToStorage('user', users)
+localService.saveToStorage('user', users)
 
 

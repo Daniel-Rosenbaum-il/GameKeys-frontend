@@ -1,10 +1,10 @@
 import React from 'react'
-import {ReviewPreview} from './ReviewPreview'
+import { ReviewPreview } from './ReviewPreview'
 
-export function ReviewList({reviews}) {
+export function ReviewList({ reviews, users }) {
     return (
         <div className="review-list">
-            {reviews.map(review => <ReviewPreview review={review} key={review.id}/>)}
+            {reviews.map(review => <ReviewPreview users={users} review={review} key={review.id} />)}
         </div>
     )
 }

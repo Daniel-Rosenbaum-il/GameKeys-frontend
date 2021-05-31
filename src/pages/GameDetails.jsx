@@ -14,13 +14,11 @@ import { ReviewList } from '../cmps/ReviewList'
 class _GameDetails extends Component {
     state = {
         game: null,
-        users: null
     }
     async componentDidMount() {
         const game = await gameService.getById(this.props.match.params.gameId)
         this.setState({ game })
-        const users = await this.props.loadUsers
-        this.setState({ users })
+        this.props.loadUsers()
     }
     async onRemoveGame(gameId) {
         await this.props.removeGame(gameId)
@@ -28,8 +26,10 @@ class _GameDetails extends Component {
     }
 
     render() {
-        const { game, users } = this.state
+        const { users } = this.props
+        const { game } = this.state
         if (!game) return <Loader />
+        console.log(users);
         const gameImg = require(`../assets/img/${game.imgs.largeImgUrls[0]}`).default
         console.log(game);
         const finalPrice = game.price - (game.price / game.discount)
@@ -44,7 +44,7 @@ class _GameDetails extends Component {
                 </p>
                 <h1>{game.title}</h1>
 
-                <div className="details-container flex mb-20">
+                <div className="details-container flex">
                     <div className="video-container">
                         <div className="video">
                             <Video id={game.videoUrls[0]} />
@@ -66,7 +66,7 @@ class _GameDetails extends Component {
                         </div>
                     </div>
 
-                    <div className="details-info mb-20">
+                    <div className="details-info">
                         <img className="mb-10" src={gameImg} alt="" />
                         <p maxLength="5">{game.description}</p>
                         <div className="flex">
@@ -134,7 +134,7 @@ class _GameDetails extends Component {
                     <AddReview loggedInUser={this.props.loggedInUser} />
                 </div>
                 <div className="reviews-container">
-                    <ReviewList reviews={game.reviews} users={users} loggedInUser={this.props.loggedInUser} />
+                    <ReviewList reviews={game.reviews} users={this.props.users} loggedInUser={this.props.loggedInUser} />
                 </div>
             </section>
         )
@@ -144,8 +144,8 @@ class _GameDetails extends Component {
 
 const mapStateToProps = state => {
     return {
-        loggedInUser: state.userModule.loggedInUser,
-        users: state.userModule.user
+        users: state.userModule.users,
+        loggedInUser: state.userModule.loggedInUser
 
     }
 }

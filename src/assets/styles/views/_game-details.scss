@@ -80,13 +80,13 @@
     .video-container {
         .player-wrapper,
         img {
-            margin-bottom: 20px;
+            // margin-bottom: 20px;
             @media screen and (min-width: 963px) {
-                margin-bottom: 30px;
+                // margin-bottom: 30px;
             }
         }
         @media screen and (max-width: 740px) {
-            margin-bottom: 20px;
+            // margin-bottom: 20px;
             min-width: 100%;
         }
     }
@@ -103,7 +103,7 @@
     }
     .img-container {
         gap: 5px;
-        margin-top: 392px;
+        // margin-top: 392px;
         & > div {
             max-width: 125px;
             cursor: pointer;
