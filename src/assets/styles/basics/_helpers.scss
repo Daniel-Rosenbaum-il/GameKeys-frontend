@@ -27,6 +27,9 @@
     margin-inline-end: 5px;
 }
 
+.icon{
+    max-width: 100px;
+}
 // img
 .s-img {
     width: 229px;
@@ -73,6 +76,9 @@
     }
     &.align-center {
         align-items: center;
+    }
+    &.align-start{
+        align-items: flex-start;
     }
     &.gap-10 {
         gap: 10px;

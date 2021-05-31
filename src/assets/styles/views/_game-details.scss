@@ -11,23 +11,42 @@
         margin-inline-end: 20px;
         position: relative;
     }
-   
+
     .price-info {
         position: absolute;
-        bottom: -5%;
-        right: 5%;
+        bottom: -10%;
+        right: 4%;
         background-color: $clr0;
+        align-items: center;
+        padding: 0;
+        height: 36px;
+        transform: translate(-4%, 10%);
+
+        button {
+            background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
+            border: none;
+            text-shadow: 0px 0px 1px black;
+            color: #d2efa9;
+            border-radius: 2px;
+            cursor: pointer;
+            box-shadow: 3px -3px 1px 0px black;
+            padding: 0 15px;
+            font-size: 15px;
+            line-height: 30px;
+            max-width: 180px;
+            transition: 0.4s;
+        }
+        button:hover {
+            // background: linear-gradient(to right, #8ed629 5%, #6aa621 95%);
+            color: $clr7;
+        }
+        .f-price {
+            color: #acdbf5;
+            font-size: 14px;
+            padding-inline-end: 6px;
+        }
     }
-    .details-price button {
-        background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
-        padding: 0 15px;
-        font-size: 15px;
-        line-height: 30px;
-        text-shadow: 1px 1px rgb(0, 0, 0 / 30%);
-        color: #d2efa9;
-        max-width: 180px;
-    }
- 
+
     .sign-in {
         background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
         color: #acb2b8;
@@ -70,6 +89,9 @@
             margin-bottom: 20px;
             min-width: 100%;
         }
+    }
+    .f-price {
+        margin: 0 4px;
     }
     .details-container {
         position: relative;
@@ -150,8 +172,7 @@
             color: $clr7;
         }
     }
-    .buy-container{
+    .buy-container {
         margin-bottom: 50px;
     }
 }
-
