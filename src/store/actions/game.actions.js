@@ -15,6 +15,23 @@ export function loadGames(filterBy) {
         }
     }
 }
+export function saveGame(game) {
+    return async dispatch => {
+        try {
+            // const toyToSave = (!toy._id) ? await toyService.add(toy) : await toyService.update(toy)
+            let gameToSave
+            if (!game._id) {
+                gameToSave = await gameService.save(game) //after back is runing change to add
+            } else {
+                gameToSave = await gameService.save(game) //after back is runing change to update
+            }
+            const action = (!game._id) ? { type: 'ADD_GAME', game: gameToSave } : { type: 'UPDATE_GAME', game: gameToSave }
+            dispatch(action)
+        } catch (err) {
+            console.log('GamesActions: err in saveGame', err)
+        }
+    }
+}
 
 export function removeGame(gameId) {
     return async dispatch => {

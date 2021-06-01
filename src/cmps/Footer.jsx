@@ -4,7 +4,7 @@ import facebook from '../../src/assets/img/icons/facebook.svg'
 
 export function Footer(){
     return(
-        <footer class="flex column align-center">
+        <footer className="flex column align-center">
 
         <div className="flex mb-20 icon-container justify-center gap-10">
 

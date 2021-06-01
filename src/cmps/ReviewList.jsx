@@ -4,7 +4,7 @@ import { ReviewPreview } from './ReviewPreview'
 export function ReviewList({ reviews, users }) {
     return (
         <div className="review-list">
-            {reviews.map(review => <ReviewPreview users={users} review={review} key={review.id} />)}
+            {reviews.map(review => <ReviewPreview users={users} review={review} key={review.id+Math.random()} />)}
         </div>
     )
 }

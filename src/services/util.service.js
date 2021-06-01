@@ -1,9 +1,11 @@
+import { ReactComponent as StarSvg } from '../assets/img/icons/star.svg'
 
 export const utilService = {
     delay,
     getRandomInt,
     makeId,
-    getDateFormat
+    getDateFormat,
+    renderStars
 }
 
 function delay(ms = 1500) {
@@ -27,20 +29,22 @@ function makeId(length = 5) {
     return txt;
 }
 function getDateFormat(date) {
-    console.log(date);
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     const currDate = new Date(date)
     const year = currDate.getFullYear();
     const month = months[currDate.getMonth() - 1]
     let day = currDate.getDay();
     // let day = new Date(year, month, 0).getDate();
-
-
-    
-    console.log(day);
     if (day === 0) day = 1
     let dateStr = (day < 10) ? `0${day}` : `${day}`
     dateStr += ` ${month}, ${year}`
-    console.log('Datestr', dateStr);
     return dateStr
+}
+
+function renderStars(rate) {
+    let stars = []
+    for (let i = 0; i < Math.round(rate); i++) {
+        stars.push(<StarSvg key={i} />)
+    }
+    return stars
 }

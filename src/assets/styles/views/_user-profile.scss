@@ -1,0 +1,13 @@
+.user-profile-header{
+    display: flex;
+    gap: 15px;
+    img{
+        width: 125px;
+        box-shadow: 0px -1px 2px 2px $clr4;
+        border-radius: 91px;
+        height: 125px;
+    }
+    h1{
+        font-size: 1.6rem;
+    }
+}

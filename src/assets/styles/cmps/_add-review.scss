@@ -1,8 +1,21 @@
 .add-review {
-    margin-bottom:80px;
+    margin-bottom: 80px;
     display: flex;
     justify-content: center;
     .star-svg {
         height: 2rem;
+    }
+    textarea {
+        resize: none;
+    }
+}
+.review-rating-stars {
+    .star-svg{
+        cursor: pointer;
+    }
+    .star-active {
+        .star-svg {
+            color: $clr4;
+        }
     }
 }

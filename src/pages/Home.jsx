@@ -16,7 +16,7 @@ class _Home extends Component {
   }
 
   render() {
-    const { games, type = 'main' } = this.props
+    const { games, type = 'main' } = this.props // Do we need main here??
     if (!games) return <Loader />
     // console.log(games);
     return (

@@ -137,7 +137,7 @@ export const games = [
         "wishlistCount": 0,
         "discount": 10,
         "reviews": [{
-            "rate": 5,
+            "rate": 3,
             "txt": "The DLCS are way too expensive, mods provide more content then EA could ever produce and 90% of it's all free. Fun simulation game overall though",
             "playtime": 750,
             "createdAt":1655258525,

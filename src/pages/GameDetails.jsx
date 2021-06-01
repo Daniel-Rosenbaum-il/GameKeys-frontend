@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { Video } from '../cmps/video'
 import { gameService } from '../services/game.service'
-import { removeGame } from '../store/actions/game.actions'
+import { removeGame, saveGame } from '../store/actions/game.actions'
 import { loadUsers } from '../store/actions/user.actions'
 import { Loader } from '../cmps/Loader'
 import { AddReview } from '../cmps/AddReview'
@@ -24,14 +24,23 @@ class _GameDetails extends Component {
         await this.props.removeGame(gameId)
         this.props.history.push('/Game/')
     }
-
+    onAddReview = (review) => {
+        let { game } = this.state
+        const newRating = !game.reviews.length ? game.rating + review.rate :
+        game.rating * game.reviews.length + review.rate
+        game.rating = newRating / (game.reviews.length + 1)
+        game.reviews.push(review)
+        this.saveReview(game)
+    }
+    async saveReview(game) {
+        await this.props.saveGame(game)
+        this.setState({ game })
+    }
     render() {
-        const { users } = this.props
+        const { users, loggedInUser } = this.props
         const { game } = this.state
         if (!game) return <Loader />
-        console.log(users);
         const gameImg = require(`../assets/img/${game.imgs.largeImgUrls[0]}`).default
-        console.log(game);
         const finalPrice = game.price - (game.price / game.discount)
         return (
             <section className="main-details container">
@@ -84,10 +93,8 @@ class _GameDetails extends Component {
                         </div>
                         <p className="dark-txt"> Popular user-defined tags for this product:</p>
                         <div className="tag-container mb-20 flex space-evenly">
-                            <Link to={`/game/${game.tags[0]}`} >{game.tags[0]} </Link>
-                            <Link to={`/game/${game.tags[1]}`} >{game.tags[1]} </Link>
-                            <Link to={`/game/${game.tags[2]}`} >{game.tags[2]} </Link>
-                            <Link to={`/game/${game.tags[3]}`} >{game.tags[3]} </Link>
+                            {/* <Link to={`/game/${game.tags[0]}`} >{game.tags[0]} </Link> */}
+                            {game.tags.map((tag,idx) => <Link to={`/game?tag=${tag}`} key={idx}>{tag} </Link>).slice(0, 3)}
                         </div>
                         {/* <h2>${game.price}</h2> */}
                         {/* <button onClick={() => this.onRemoveGame(game._id)}>Delete</button> */}
@@ -132,10 +139,10 @@ class _GameDetails extends Component {
 
 
                 <div className="add-review">
-                    <AddReview loggedInUser={this.props.loggedInUser} />
+                    <AddReview loggedInUser={loggedInUser} onAddReview={this.onAddReview} />
                 </div>
                 <div className="reviews-container">
-                    <ReviewList reviews={game.reviews} users={this.props.users} loggedInUser={this.props.loggedInUser} />
+                    <ReviewList reviews={game.reviews} users={users} loggedInUser={loggedInUser} />
                 </div>
             </section>
         )
@@ -153,5 +160,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
     loadUsers,
     removeGame,
+    saveGame,
 }
 export const GameDetails = connect(mapStateToProps, mapDispatchToProps)(_GameDetails)
