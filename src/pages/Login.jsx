@@ -167,6 +167,9 @@ class _Login extends Component {
           {isLogIn && loginSection}
           {!isLogIn && signupSection}
         </div>
+        {!isLogIn && <button className="btn-join"
+          onClick={this.toggleLoginSignup}
+        >Back to login</button>}
 
         {isLogIn && <div className="join-container flex column align-center justify-center space-around">
           <div className="flex column space-between align-center">

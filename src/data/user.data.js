@@ -2,7 +2,7 @@ export const users = [
     {
         "_id": "u101",
         "fullname": "Dan Danovich",
-        "imgUrl": "/img/img1.jpg",
+        "imgUrl": "user1.jpeg",
         "isAdmin": false,
         "username": "dan1",
         "password": "dandan",
@@ -18,7 +18,7 @@ export const users = [
     {
         "_id": "u102",
         "fullname": "ban banovich",
-        "imgUrl": "/img/img1.jpg",
+        "imgUrl": "user2.jpg",
         "isAdmin": false,
         "username": "ban1",
         "password": "banban",
@@ -35,7 +35,7 @@ export const users = [
     {
         "_id": "u103",
         "fullname": "Ran Ranovich",
-        "imgUrl": "/img/img1.jpg",
+        "imgUrl": "user3.jpg",
         "isAdmin": false,
         "username": "ran1",
         "password": "ranran",

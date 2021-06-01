@@ -9,7 +9,7 @@ export function Rating({ rate, handleChange, isPreview }) {
       <label htmlFor="rate-1" className={rate >= 1 ? 'star-active' : ''}>
         <StarSvg />
       </label>
-      <input type="radio" name="rate" id="rate-1" value={1} onChange={onHandleChange} hidden />
+      <input type="radio" name="rate" id="rate-1" value={1} onChange={onHandleChange} hidden/>
       <label htmlFor="rate-2" className={rate >= 2 ? 'star-active' : ''}>
         <StarSvg />
       </label>

@@ -19,6 +19,7 @@ class _Header extends Component {
                     {loggedInUser && <div className="user-header">
                         <p>Hi {loggedInUser.fullname}</p>
                         <button onClick={this.props.logout}>Logout</button>
+                        <Link to="/profile">Profile</Link>
                     </div>}
                     {/* <NavLink to="/chat">Chat Room</NavLink> */}
                 </nav>

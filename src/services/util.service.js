@@ -29,7 +29,6 @@ function makeId(length = 5) {
     return txt;
 }
 function getDateFormat(date) {
-    console.log(date);
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     const currDate = new Date(date)
     const year = currDate.getFullYear();
@@ -44,7 +43,7 @@ function getDateFormat(date) {
 
 function renderStars(rate) {
     let stars = []
-    for (let i = 0; i < rate; i++) {
+    for (let i = 0; i < Math.round(rate); i++) {
         stars.push(<StarSvg key={i} />)
     }
     return stars

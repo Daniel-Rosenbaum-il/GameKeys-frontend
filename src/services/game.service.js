@@ -11,7 +11,6 @@ export const gameService = {
 }
 
 async function getGames(filterBy = { txt: '', tag: 'all' ,sortBy:'title'},) {
-console.log(filterBy);
     let games = await storageService.query('game')
     if (filterBy.sortBy === 'title') {
         games.sort((game1, game2) => {
@@ -50,5 +49,4 @@ function save(game) {
             // return storageService.post(STORAGE_KEY, newGame)
         }
     }
-// console.log(games);
 localService.saveToStorage('game', games)

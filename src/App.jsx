@@ -13,6 +13,7 @@ import { About } from './pages/About'
 
 import { Footer } from './cmps/Footer'
 import { GameOrder } from './pages/GameOrder'
+import { UserProfile } from './pages/UserProfile'
 
 export function App() {
   return (
@@ -22,6 +23,7 @@ export function App() {
         <main className="mb-20">
           <Switch>
             <Route path="/login" component={Login} />
+            <Route path="/profile" component={UserProfile} />
             <Route path="/game/order/:gameId" component={GameOrder} />
             <Route path="/game/:gameId" component={GameDetails} />
             <Route path="/game" component={GameApp} />

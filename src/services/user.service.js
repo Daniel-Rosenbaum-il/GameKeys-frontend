@@ -21,7 +21,6 @@ window.userService = userService
 // userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 100, isAdmin: true})
 
 function getUsers() {
-    console.log("im hereeeeeeeeeeeeee");
     return storageService.query('user')
     // return httpService.get(`user`)
 }

@@ -24,23 +24,23 @@ class _GameDetails extends Component {
         await this.props.removeGame(gameId)
         this.props.history.push('/Game/')
     }
-     onAddReview = (review) => {
-        let {game} = this.state
-        console.log(game);
+    onAddReview = (review) => {
+        let { game } = this.state
+        const newRating = !game.reviews.length ? game.rating + review.rate :
+        game.rating * game.reviews.length + review.rate
+        game.rating = newRating / (game.reviews.length + 1)
         game.reviews.push(review)
         this.saveReview(game)
     }
-    async saveReview(game){
+    async saveReview(game) {
         await this.props.saveGame(game)
-        this.setState({game})
+        this.setState({ game })
     }
     render() {
         const { users, loggedInUser } = this.props
         const { game } = this.state
         if (!game) return <Loader />
-        console.log(users);
         const gameImg = require(`../assets/img/${game.imgs.largeImgUrls[0]}`).default
-        console.log(game);
         const finalPrice = game.price - (game.price / game.discount)
         return (
             <section className="main-details container">
@@ -94,7 +94,7 @@ class _GameDetails extends Component {
                         <p className="dark-txt"> Popular user-defined tags for this product:</p>
                         <div className="tag-container mb-20 flex space-evenly">
                             {/* <Link to={`/game/${game.tags[0]}`} >{game.tags[0]} </Link> */}
-                            {game.tags.map((tag) => <Link to={`/game?tag=${tag}`} >{tag} </Link>).slice(0, 3)}
+                            {game.tags.map((tag,idx) => <Link to={`/game?tag=${tag}`} key={idx}>{tag} </Link>).slice(0, 3)}
                         </div>
                         {/* <h2>${game.price}</h2> */}
                         {/* <button onClick={() => this.onRemoveGame(game._id)}>Delete</button> */}

@@ -25,7 +25,7 @@ export function GamePreview({ game }) {
                         </div>
 
                         <div className="game-btm-info">
-                            <h4>{game.tags.map((tag) => <span className="preview-tag">{tag}  </span>).slice(0, 3)}</h4>
+                            <h4>{game.tags.map((tag,idx) => <span className="preview-tag" key={idx}>{tag}  </span>).slice(0, 3)}</h4>
                             <p className="discount">{game.discount}%</p>
                             <div className="flex column">
                                 <p className="in-sale" >${game.price.toFixed(2)}</p>
