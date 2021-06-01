@@ -16,9 +16,9 @@ export function SmallGamePreview({ game }) {
                             <p className="f-price" >${finalPrice.toFixed(2)}</p>
                         </div>
                     </div>
-                <div className="tag-container flex column">
+                {/* <div className="tag-container flex column">
                     {game.tags.map(tag => <div><Link to={`/game/${tag}`} >{tag}</Link></div> )}
-                </div>
+                </div> */}
                 </Link>
             </div>
         </div>

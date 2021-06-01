@@ -1,13 +1,41 @@
 .order-container {
+    h2:first-of-type {
+        font-size: 34px;
+    }
+    .triangle-down {
+        position: absolute;
+        z-index: -1;
+        right: 44%;
+        bottom: -6%;
+        transform: translate(0, 50%);
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-top: 20px solid #159dee;
+    }
+    .order-info {
+        color: #c7d5e0;
+    }
     .order-card {
         flex: 1;
         background-color: rgba(0, 0, 0, 0.2);
         margin: 0px 0px 3px 0px;
-        max-height: 77px;
+        // max-height: 77px;
         img {
             width: auto;
             height: 70px;
             background-color: #000000;
+        }
+    }
+    .cart-status {
+        margin-bottom: 4px;
+        p {
+            position: relative;
+            color: #ffffff;
+            font-weight: bold;
+            line-height: 29px;
+            background-color: #159dee;
+            padding: 0px 14px;
+            display: inline-block;
         }
     }
     .order-card:last-child {

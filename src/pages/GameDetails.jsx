@@ -113,7 +113,7 @@ class _GameDetails extends Component {
                                     <p className="in-sale" >${game.price.toFixed(2)}</p>
                                     <p className="f-price" >${finalPrice.toFixed(2)}</p>
                                 </div>
-                                <Link to={`/game/order/${game._id}`} > <button >Add to cart</button></Link>
+                                <Link to={`/game/order/${game._id}`} > <button className="btn-cta btn-med">Add to cart</button></Link>
                             </div>
                         </div>
                     </div>

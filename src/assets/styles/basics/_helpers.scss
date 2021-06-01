@@ -93,7 +93,12 @@
         justify-content: space-between;
     }
 }
-.pad-15{
+
+.align-end {
+    align-self: flex-end;
+}
+
+.pad-15 {
     padding: 15px;
 }
 .discount {
@@ -137,7 +142,7 @@
 }
 // logo
 .logo {
-    font-size: 4.5625rem;
+    font-size: 4.5rem;
     color: $clr4;
     text-shadow: 0 0 2px #ffe1e1;
     color: #263640;
@@ -162,4 +167,48 @@
 .logo span:last-of-type {
     color: #b9e4fd;
     font-size: 2.5rem;
+}
+.btn-med {
+    padding: 0 15px;
+    font-size: 15px;
+    line-height: 30px;
+    display: inline-block;
+
+}
+.btn-cta {
+    background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
+    border: none;
+    text-shadow: 0px 0px 1px black;
+    color: #d2efa9;
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: 3px -3px 1px 0px black;
+    max-width: 180px;
+    transition: 0.4s;
+
+    &:hover {
+        // background: linear-gradient(to right, #8ed629 5%, #6aa621 95%);
+        color: $clr7;
+    }
+}
+.btn-light {
+    border-radius: 2px;
+    // display: block;
+    background: rgba(103, 193, 245, 0.2);
+    color: $clr4;
+    cursor: pointer;
+    transition: 0.4s;
+    &:hover {
+        background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
+        color: $clr7;
+    }
+}
+.btn-remove{
+    cursor: pointer;
+    text-decoration: underline;
+    color: #56707f;
+    font-size: rem(11px);
+}
+.btn-remove:hover{
+    text-decoration: underline;
 }

@@ -9,10 +9,12 @@ class _GameOrder extends Component {
     componentDidMount() {
         console.log(this.props.match.params.gameId);
         // console.log(this.props.loggedInUser);
-        const { loggedInUser } = this.props.loggedInUser
-        const { gameId } = this.props.match.params.gameId
-        if (loggedInUser && gameId) {
-            // orderService.addOrder(loggedInUser,gameId)
+        if (this.props.loggedInUser) {
+            const { loggedInUser } = this.props.loggedInUser
+            const { gameId } = this.props.match.params.gameId
+            if (loggedInUser && gameId) {
+                // orderService.addOrder(loggedInUser,gameId)
+            }
         }
 
 
@@ -25,39 +27,57 @@ class _GameOrder extends Component {
                     <Link to={`/`} >All Products  </Link> {'>'}
                     <Link  >Your Shopping Cart </Link>
                 </p>
-                <h2>YOUR SHOPPING CART</h2>
+                <h2  >YOUR SHOPPING CART</h2>
+                
+               { <div className="cart-status mb-10">
+                    <p>YOUR ITEM'S BEEN ADDED!
+                    <div className="triangle-down" ></div>
+                    </p>
+              
+                   
+                </div>}
 
-                <div className="flex gap-20">
+                <div className="order-info flex gap-20">
                     <div className="flex column gap-20 ">
                         <div className="flex column ">
-
                             <div className="flex space-between order-card ">
                                 <img src={img} alt="" />
                                 <p className="card-title" >Transistor + Original Soundtrack</p>
                                 <div className="flex column space-evenly align-center justify-center mr-5">
-                                    <p className="in-sale" >${37.44}</p>
+                                    <p className="in-sale" >${58.44}</p>
                                     {/* <p className="in-sale" >${game.price.toFixed(2)}</p> */}
                                     {/* <p className="f-price" >${finalPrice.toFixed(2)}</p> */}
-                                    <p className="f-price" >${44.90}</p>
-                                    <a>remove</a>
+                                    <p className="f-price" >$44.90</p>
+                                    <a className="btn-remove" >remove</a>
                                 </div>
                             </div>
 
                             <div className="flex space-between column order-card  ">
                                 {/* <img src={img} alt="" /> */}
                                 <div className="flex space-between align-center pad-15">
-                                    <h2 className="order-title" >Estimated total</h2>
+                                    <p className="order-title" >Estimated total</p>
                                     <div className="">
-                                        <p className="f-price" >${24.90}</p>
+                                        <p className="f-price" >44.90</p>
                                     </div>
                                 </div>
-                                <div className="flex  space-evenly align-center justify-center mr-5">
+                                <div className="flex column  space-evenly align-center justify-center mr-5 pad-15">
                                     <p>Is this a purchase for yourself or is it a gift? Select one to continue to checkout.</p>
-                                    <button>Purchase for myself</button>
-                                    <button>Purchase as a gift</button>
+                                    <div className="flex gap-10 ">
+                                        <button className="btn-cta btn-med" >Purchase for myself</button>
+                                        <button className="btn-cta btn-med" >Purchase as a gift</button>
+                                    </div>
                                     {/* <p className="in-sale" >${game.price.toFixed(2)}</p> */}
                                     {/* <p className="f-price" >${finalPrice.toFixed(2)}</p> */}
                                 </div>
+                                <div>
+                                    <p>1 All prices include VAT where applicable</p>
+                                </div>
+                            </div>
+                            {/* <div> */}
+                                <a className="align-end btn-remove">Remove all items</a>
+                            {/* </div> */}
+                            <div>
+                                <Link to="/" className="btn-med btn-light" >Continue Shopping</Link>
                             </div>
 
                         </div>
