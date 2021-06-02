@@ -1,14 +1,10 @@
 import React from 'react'
 import { utilService } from '../services/util.service'
 
-function getUserReview(users, review) {
-    const user = users.find(user => user._id === review.byUserId)
-    return user
-}
-export function ReviewPreview({ review, users }) {
-    const user = getUserReview(users, review)
+export function ReviewPreview({ review }) {
+    const user = review.byUser
     const createdAt = new Date(review.createdAt).toLocaleDateString('en-Us', { year: 'numeric', month: 'long', day: 'numeric' })
-    if (!user) return <h1>This item has no reviews</h1>
+    // if (!user) return <h1>This item has no reviews</h1>
     const userImg = require(`../assets/img/${user.imgUrl}`).default
     return (
         <div className="review-preview">

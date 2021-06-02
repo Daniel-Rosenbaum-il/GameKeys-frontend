@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { Video } from '../cmps/video'
 import { gameService } from '../services/game.service'
-import { removeGame, saveGame } from '../store/actions/game.actions'
+import { removeGame, saveGame, addReview } from '../store/actions/game.actions'
 import { loadUsers } from '../store/actions/user.actions'
 import { Loader } from '../cmps/Loader'
 import { AddReview } from '../cmps/AddReview'
@@ -18,9 +18,12 @@ class _GameDetails extends Component {
         game: null,
     }
     async componentDidMount() {
+        this.loadGame()
+        this.props.loadUsers()
+    }
+    loadGame = async () => {
         const game = await gameService.getById(this.props.match.params.gameId)
         this.setState({ game })
-        this.props.loadUsers()
     }
     async onRemoveGame(gameId) {
         await this.props.removeGame(gameId)
@@ -28,15 +31,11 @@ class _GameDetails extends Component {
     }
     onAddReview = async (review) => {
         let { game } = this.state
-        game.rating = this.getNewRating(game.rating, game.reviews.length, review.rate)
-        game.reviews.push(review)
-        await this.props.saveGame(game)
+        await this.props.addReview(review, game._id, this.props.loggedInUser)
+        this.loadGame()
         this.setState({ game })
     }
-    getNewRating(prevRating, prevLength, newRating) {
-        return (prevRating * prevLength + newRating) / (prevLength + 1)
-
-    }
+    
     render() {
         const { users, loggedInUser } = this.props
         const { game } = this.state
@@ -81,8 +80,8 @@ class _GameDetails extends Component {
                     <div className="details-info">
                         <img className="mb-10" src={gameImg} alt="" />
                         <p maxLength="5">{game.description}</p>
-                        <InfoBlock title="RELEASE DATE" value={utilService.getDateString(game.releasedAt)}/>
-                        <InfoBlock title="PUBLISHER" value="Ryan Murphy"/>
+                        <InfoBlock title="RELEASE DATE" value={utilService.getDateString(game.releasedAt)} />
+                        <InfoBlock title="PUBLISHER" value="Ryan Murphy" />
                         <p className="dark-txt"> Popular user-defined tags for this product:</p>
                         <div className="tag-container mb-20 flex space-evenly">
                             {/* <Link to={`/game/${game.tags[0]}`} >{game.tags[0]} </Link> */}
@@ -105,11 +104,11 @@ class _GameDetails extends Component {
                         <div className="details-price">
                             <div className="price-info flex ">
                                 <div>
-                                <p className="discount">{game.discount? `${game.discount}$` : ''}</p>
+                                    <p className="discount">{game.discount ? `${game.discount}$` : ''}</p>
 
                                 </div>
                                 <div className="flex column space-evenly align-center justify-center mr-5">
-                                    <p className={(game.discount>0)? "in-sale":'f-price'} >${game.price.toFixed(2)}</p>
+                                    <p className={(game.discount > 0) ? "in-sale" : 'f-price'} >${game.price.toFixed(2)}</p>
                                     {game.discount ? <p className="f-price" >${finalPrice.toFixed(2)}</p> : ''}
                                 </div>
                                 <Link to={`/game/order/${game._id}`} > <button className="btn-cta btn-med">Add to cart</button></Link>
@@ -150,5 +149,6 @@ const mapDispatchToProps = {
     loadUsers,
     removeGame,
     saveGame,
+    addReview,
 }
 export const GameDetails = connect(mapStateToProps, mapDispatchToProps)(_GameDetails)

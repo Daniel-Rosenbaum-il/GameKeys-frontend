@@ -77,6 +77,7 @@ class _Login extends Component {
     } catch (err) {
       this.setState({ msg: 'signup failed, try again.' })
     }
+  }
   toggleLoginSignup = () => {
       const { isLogIn } = this.state
       this.setState({ isLogIn: !isLogIn })

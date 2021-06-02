@@ -6,9 +6,7 @@ export function loadGames(filterBy) {
             dispatch({ type: 'LOADING_START' })
             const games = await gameService.getGames(filterBy)
             dispatch({ type: 'SET_GAMES', games })
-
         } catch (err) {
-            console.log('Front-action');
             console.log('GameActions: err in loadGames', err)
         } finally {
             dispatch({ type: 'LOADING_DONE' })
@@ -28,7 +26,16 @@ export function saveGame(game) {
         }
     }
 }
-
+export function addReview(review, gameId, loggedInUser) {
+    return async dispatch => {
+        try {
+            const game = await gameService.addReview(review, gameId, loggedInUser)
+            dispatch({ type: 'UPDATE_GAME', game })
+        } catch (err) {
+            console.log('GamesActions: err in addReview', err)
+        }
+    }
+}
 export function removeGame(gameId) {
     return async dispatch => {
         try {

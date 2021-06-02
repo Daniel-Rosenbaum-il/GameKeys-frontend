@@ -1,97 +1,132 @@
 import { Component } from "react"
 import { connect } from 'react-redux'
+import { OrderList } from "../cmps/OrderCmps/OrderList";
+import { addToCart, loadOrders, removeOrder, removeOrders } from "../store/actions/order.actions";
+import { orderService } from "../services/order.service";
+import { Modal } from "../cmps/UtilCmps/Modal";
 import { Link } from "react-router-dom";
+import { OrderInfo } from "../cmps/OrderCmps/OrderInfo";
+import { OrderCheckout } from "../cmps/OrderCmps/OrderCheckout";
+
 class _GameOrder extends Component {
     state = {
-        // user: null,
-        orders: null
+        orders: [],
+        games: [],
+        isCheckout: false
     }
-    componentDidMount() {
-        console.log(this.props.match.params.gameId);
-        // console.log(this.props.loggedInUser);
-        if (this.props.loggedInUser) {
-            const { loggedInUser } = this.props.loggedInUser
-            const { gameId } = this.props.match.params.gameId
-            if (loggedInUser && gameId) {
-                // orderService.addOrder(loggedInUser,gameId)
-            }
+
+    async componentDidMount() {
+        const gameId = this.props.match.params.gameId
+        await this.props.addToCart(gameId)
+        this.setState({ orders: this.props.orders })
+        const games = await orderService.getGamesByOrders(this.props.orders)
+        this.setState({ games })
+    }
+
+    onRemoveOrder = async (gameId) => {
+        await this.props.removeOrder(gameId)
+        const newGames = this.state.games.filter(game => game._id !== gameId)
+        this.setState({ games: newGames })
+        this.setState({ orders: this.props.orders })
+    }
+
+    onRemoveOrders = async (gameId) => {
+        await this.props.removeOrders()
+        this.setState({ games: [] })
+        this.setState({ orders: [] })
+    }
+
+    onUpdateOrders = () => {
+
+    }
+
+    getTotalPrice = (games) => {
+        if (games) {
+            return games.reduce((acc, game) => {
+                const finalPrice = game.price - (game.price / game.discount)
+                return acc += finalPrice
+            }, 0).toFixed(2)
         }
-
-
+        return 0
     }
+    toggleIsCheckout = () => {
+        if (!this.props.loggedInUser) {
+            Modal('👍', 'Log in to continue the purchase', 1500)
+            return setTimeout(() => {
+                this.props.history.push('/login')
+            }, 1500)
+        }
+        const { orders } = this.state
+        if (!orders.length) {
+            return Modal('🛒', 'Add a game to the cart', 2000)
+        }
+        this.setState({ isCheckout: true })
+    }
+
     render() {
+        const { orders, games, isCheckout } = this.state
+        const { loggedInUser } = this.props
         const img = require('../assets/img/sims4-l.jpg').default
+        const totalPrice = this.getTotalPrice(games)
         return (
-            <div className="order-container container">
+            <div className="order-container container" >
+
                 <p>
-                    <Link to={`/`} >All Products  </Link> {'>'}
-                    <Link  >Your Shopping Cart </Link>
+                    <div className="mb-20">
+                        <Link to={`/`} >All Products  </Link> {'>'}
+                        <a  >Your Shopping Cart </a>
+                    </div>
                 </p>
-                <h2  >YOUR SHOPPING CART</h2>
-                
-               { <div className="cart-status mb-10">
-                    <p>YOUR ITEM'S BEEN ADDED!
-                    <div className="triangle-down" ></div>
+
+                <h2 className="mb-20" >YOUR SHOPPING CART</h2>
+
+                <div className="cart-status mb-20">
+                    <p>{(!isCheckout) ? 'YOUR ITEM\'S BEEN ADDED!' : 'Review + purchase'}
+                        <div className="triangle-down" ></div>
                     </p>
-              
-                   
-                </div>}
+                </div>
 
                 <div className="order-info flex gap-20">
-                    <div className="flex column gap-20 ">
+                    <div className={`flex column gap-20 ${isCheckout && 'width-70'}`} >
                         <div className="flex column ">
-                            <div className="flex space-between order-card ">
-                                <img src={img} alt="" />
-                                <p className="card-title" >Transistor + Original Soundtrack</p>
-                                <div className="flex column space-evenly align-center justify-center mr-5">
-                                    <p className="in-sale" >${58.44}</p>
-                                    {/* <p className="in-sale" >${game.price.toFixed(2)}</p> */}
-                                    {/* <p className="f-price" >${finalPrice.toFixed(2)}</p> */}
-                                    <p className="f-price" >$44.90</p>
-                                    <a className="btn-remove" >remove</a>
-                                </div>
-                            </div>
-
                             <div className="flex space-between column order-card  ">
-                                {/* <img src={img} alt="" /> */}
-                                <div className="flex space-between align-center pad-15">
-                                    <p className="order-title" >Estimated total</p>
-                                    <div className="">
-                                        <p className="f-price" >44.90</p>
-                                    </div>
-                                </div>
-                                <div className="flex column  space-evenly align-center justify-center mr-5 pad-15">
-                                    <p>Is this a purchase for yourself or is it a gift? Select one to continue to checkout.</p>
-                                    <div className="flex gap-10 ">
-                                        <button className="btn-cta btn-med" >Purchase for myself</button>
-                                        <button className="btn-cta btn-med" >Purchase as a gift</button>
-                                    </div>
-                                    {/* <p className="in-sale" >${game.price.toFixed(2)}</p> */}
-                                    {/* <p className="f-price" >${finalPrice.toFixed(2)}</p> */}
-                                </div>
-                                <div>
-                                    <p>1 All prices include VAT where applicable</p>
-                                </div>
+                                <OrderList games={games}
+                                    onRemoveOrder={this.onRemoveOrder}
+                                    isCheckout={isCheckout}
+                                />
+
+                                {!isCheckout && <OrderInfo
+                                    toggleIsCheckout={this.toggleIsCheckout}
+                                    totalPrice={totalPrice}
+                                    onUpdateOrders={this.onUpdateOrders} />}
+
+                                {isCheckout && < OrderCheckout
+                                    totalPrice={totalPrice}
+                                    loggedInUser={loggedInUser}
+                                />}
+
                             </div>
-                            {/* <div> */}
-                                <a className="align-end btn-remove">Remove all items</a>
-                            {/* </div> */}
+
+                            {!isCheckout && <a onClick={() => this.onRemoveOrders()}
+                                className="align-end btn-remove">Remove all items</a>}
+
                             <div>
-                                <Link to="/" className="btn-med btn-light" >Continue Shopping</Link>
+                                {!isCheckout && <Link to="/" className="btn-med btn-light" >Continue Shopping</Link>}
                             </div>
 
                         </div>
                     </div>
 
-                    <div className="card-game">
-                        <div>
-                            <img src={img} alt="" />
-                        </div>
-                        <div>
-                            <img src={img} alt="" />
-                        </div>
-                    </div>
 
+
+                    {!isCheckout && <div className="card-game">
+                        <div>
+                            <img src={img} alt="" />
+                        </div>
+                        <div>
+                            <img src={img} alt="" />
+                        </div>
+                    </div>}
                 </div>
             </div>
         )
@@ -101,14 +136,14 @@ class _GameOrder extends Component {
 const mapStateToProps = state => {
     return {
         loggedInUser: state.userModule.loggedInUser,
+        orders: state.orderModule.orders,
     }
 }
 const mapDispatchToProps = {
-    // login,
-    // logout,
-    // signup,
-    // removeUser,
-    // loadUsers
+    addToCart,
+    loadOrders,
+    removeOrder,
+    removeOrders
 }
 
 export const GameOrder = connect(mapStateToProps, mapDispatchToProps)(_GameOrder)

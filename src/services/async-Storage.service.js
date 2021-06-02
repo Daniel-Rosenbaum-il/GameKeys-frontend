@@ -6,6 +6,7 @@ export const storageService = {
     post,
     put,
     remove,
+    removeAll
 }
 
 function query(entityType) {
@@ -45,6 +46,10 @@ function remove(entityType, entityId) {
             entities.splice(idx, 1)
             _save(entityType, entities)
         })
+}
+function removeAll(entityType) {
+    console.log('work');
+    _save(entityType, [])
 }
 
 
