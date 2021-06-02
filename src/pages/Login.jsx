@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -57,8 +57,8 @@ class _Login extends Component {
     }
     const userCreds = { username, password }
     try {
-      this.props.login(userCreds)
-      this.setState({ loginCred: { username: '', password: '' } })
+      await this.props.login(userCreds)
+      this.props.history.push(`/`)
     } catch (err) {
       this.setState({ msg: 'Login failed, try again.' })
     }
@@ -82,7 +82,7 @@ class _Login extends Component {
     this.props.removeUser(userId)
   }
   render() {
-    if (this.props.loggedInUser) this.props.history.push(`/`)
+    if (this.props.loggedInUser) return null
     let signupSection = (
       <div className="login-container">
         <form className="flex space-around align-center column" onSubmit={this.doSignup}>
@@ -164,6 +164,7 @@ class _Login extends Component {
             size="small"
             onClick={this.toggleLoginSignup}
           >&#129044;</button> */}
+          
           {isLogIn && loginSection}
           {!isLogIn && signupSection}
         </div>
