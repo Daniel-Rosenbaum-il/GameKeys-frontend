@@ -1,4 +1,4 @@
-import {utilService} from '../services/util.service'
+import {utilService} from './util.service'
 
 export const storageService = {
     query,
