@@ -63,14 +63,22 @@ export class AddReview extends Component {
             }
         }))
     }
-    onSubmit = (ev) => {
+    onSubmit = async (ev) => {
         ev.preventDefault()
         const { review } = this.state
         if (review.rate < 1) {
             openInfoModal()
             return
         }
-        this.props.onAddReview(review)
+        await this.props.onAddReview(review)
+        this.setState({review: {
+            id: utilService.makeId(),
+            rate: null,
+            createdAt: Date.now(),
+            txt: '',
+            byUserId: (!this.props.loggedInUser) ? '' : this.props.loggedInUser._id,
+            playtime: utilService.getRandomInt(100, 500)
+        }})
     }
     render() {
         const { rate, txt } = this.state.review;

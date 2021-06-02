@@ -5,9 +5,7 @@ import facebook from '../../src/assets/img/icons/facebook.svg'
 export function Footer(){
     return(
         <footer className="flex column align-center">
-
         <div className="flex mb-20 icon-container justify-center gap-10">
-
           <div className="flex align-center">
             <img className="icon" src={twitchIcon} alt="" />
             <div className="flex column">

@@ -36,6 +36,7 @@ export function login(userCreds) {
       dispatch({ type: 'SET_USER', user })
     } catch (err) {
       console.log('UserActions: err in login', err)
+      throw err
     }
   }
 }

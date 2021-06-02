@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import { connect } from 'react-redux'
 import { Loader } from '../cmps/Loader.jsx'
 import { DynamicCmp } from '../cmps/DynamicCmp.jsx'
@@ -16,11 +16,11 @@ class _Home extends Component {
   }
 
   render() {
-    const { games, type = 'main' } = this.props // Do we need main here??
+    const { games } = this.props // Do we need main here??
     if (!games) return <Loader />
     // console.log(games);
     return (
-      <div className="home-page ">
+      <div className="home-page">
         <div className="home-ctg mb-20">
         </div>
         <DynamicCmp games={games} utilService={utilService} type={'main'} />

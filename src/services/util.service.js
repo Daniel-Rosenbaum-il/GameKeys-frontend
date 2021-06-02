@@ -5,7 +5,8 @@ export const utilService = {
     getRandomInt,
     makeId,
     getDateFormat,
-    renderStars
+    renderStars,
+    getDateString
 }
 
 function delay(ms = 1500) {
@@ -40,7 +41,10 @@ function getDateFormat(date) {
     dateStr += ` ${month}, ${year}`
     return dateStr
 }
-
+function getDateString(date) {
+    console.log('date',date);
+    return new Date(date).toLocaleDateString('en-Us', { day: 'numeric', month: 'long', year: 'numeric', })
+}
 function renderStars(rate) {
     let stars = []
     for (let i = 0; i < Math.round(rate); i++) {

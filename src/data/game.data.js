@@ -25,11 +25,12 @@ export const games = [
             "fighting"
         ],
         "wishlistCount": 0,
-        "discount": 10,
+        "discount": 0,
         "reviews": [{
+            "id":"r101",
             "rate": 5,
             "txt": "Dear god, this game is amazing. Easy to pick up, pretty satisfying to master. (1v1 mode is SOOO fun as a side break to hone your personal skills) Once you get past the initial `Toss fully charged ball` & Catch `Spamming`, you start realizing theres wayyyyy more to it than that.",
-            "playtime": 750,
+            "playtime": 250,
             "createdAt":1655258525,
             "byUserId": "u101"
              }
@@ -59,14 +60,15 @@ export const games = [
             "action",
             "racing",
             "adventure",
-            "strategy",
+            "strategy"
         ],
         "wishlistCount": 0,
         "discount": 10,
         "reviews": [{
+            "id":"r102",
             "rate": 5,
             "txt": "Great game",
-            "playtime": 750,
+            "playtime": 325,
             "createdAt":1655258525,
             "byUserId": "u102"
              }
@@ -76,7 +78,7 @@ export const games = [
         "_id": "g380",
         "title": "Diablo 4",
         "price": 12,
-        "releasedAt": 15221135,
+        "releasedAt": 1612113555890,
         "serialKey": "9s8s465558fsa",
         "description": "The newest installment in the Diablo franchise announced at BlizzCon 2019. This new incarnation maintains the classic isometric ARPG style that Diablo veteran players should be familiar with but with a renewed focus on the darkness that will permeate not only the world and art of Diablo IV but also the story and gameplay.",
         "sDescription": "Diablo 4: do we need to say more?",
@@ -95,12 +97,12 @@ export const games = [
         "tags": [
             "action",
             "rpg",
-            "adventure",
+            "adventure"
         ],
         "wishlistCount": 0,
         "discount": 10,
-        "_id": "a255",
         "reviews": [{
+            "id":"r103",
             "rate": 5,
             "txt": "Blizzard has scored again with an object lesson in polish, depth and sheer compelling playability.",
             "playtime": 750,
@@ -137,6 +139,7 @@ export const games = [
         "wishlistCount": 0,
         "discount": 10,
         "reviews": [{
+            "id":"r104",
             "rate": 3,
             "txt": "The DLCS are way too expensive, mods provide more content then EA could ever produce and 90% of it's all free. Fun simulation game overall though",
             "playtime": 750,
@@ -168,11 +171,12 @@ export const games = [
         "tags": [
             "action",
             "rpg",
-            "adventure",
+            "adventure"
         ],
         "wishlistCount": 0,
         "discount": 10,
         "reviews": [{
+            "id":"r105",
             "rate": 5,
             "txt": "Amazing game where the choices you make actually impact the story (and you get to see boobs)",
             "playtime": 750,
@@ -206,10 +210,12 @@ export const games = [
             "sports",
             "adventure",
             "strategy",
+            "rpg",
         ],
         "wishlistCount": 0,
         "discount": 10,
         "reviews": [{
+            "id":"r106",
             "rate": 3.5,
             "txt": "First impressions were good, colourful game with some interesting narrative. Nice to be able to build what you want in the character builder at the start, but slowly over time... Even if only being played for 30 hours so far and only half way through, it has not been a very enjoyable experience.",
             "playtime": 350,

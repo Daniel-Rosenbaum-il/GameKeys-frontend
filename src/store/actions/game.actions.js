@@ -1,4 +1,4 @@
-import {gameService} from '../../services/game.service'
+import { gameService } from '../../services/game.service'
 
 export function loadGames(filterBy) {
     return async dispatch => {
@@ -20,11 +20,7 @@ export function saveGame(game) {
         try {
             // const toyToSave = (!toy._id) ? await toyService.add(toy) : await toyService.update(toy)
             let gameToSave
-            if (!game._id) {
-                gameToSave = await gameService.save(game) //after back is runing change to add
-            } else {
-                gameToSave = await gameService.save(game) //after back is runing change to update
-            }
+            gameToSave = await gameService.save(game) //after back is runing change to add
             const action = (!game._id) ? { type: 'ADD_GAME', game: gameToSave } : { type: 'UPDATE_GAME', game: gameToSave }
             dispatch(action)
         } catch (err) {

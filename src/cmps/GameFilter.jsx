@@ -35,7 +35,7 @@ export class GameFilter extends Component {
                         type="text" name="txt" value={txt}
                         placeholder="Search for a game" onChange={this.handleChange} />
                     <select className="game-select tag" name="tag" onChange={this.handleChange}>
-                        <option value="all">All</option>
+                        <option value="all">Tag</option>
                         <option value="action">Action</option>
                         <option value="rpg">Rpg</option>
                         <option value="strategy">Strategy</option>
