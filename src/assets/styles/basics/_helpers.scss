@@ -97,7 +97,12 @@
 .align-end {
     align-self: flex-end;
 }
-
+.pad-5 {
+    padding: 5px;
+}
+.pad-10 {
+    padding: 10px;
+}
 .pad-15 {
     padding: 15px;
 }
@@ -126,6 +131,9 @@
     padding-right: 10px;
     min-width: 94px;
 }
+.txt-cap{
+    text-transform: capitalize
+}
 // Media helpers
 
 .square-ratio {
@@ -140,6 +148,13 @@
 .hidden {
     opacity: 0;
 }
+.width-70 {
+    width: 100%;
+    @media screen and(min-width:490px) {
+        width: 70%;
+    }
+}
+
 // logo
 .logo {
     font-size: 4.5rem;
@@ -173,7 +188,6 @@
     font-size: 15px;
     line-height: 30px;
     display: inline-block;
-
 }
 .btn-cta {
     background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
@@ -203,12 +217,12 @@
         color: $clr7;
     }
 }
-.btn-remove{
+.btn-remove {
     cursor: pointer;
     text-decoration: underline;
     color: #56707f;
     font-size: rem(11px);
 }
-.btn-remove:hover{
+.btn-remove:hover {
     text-decoration: underline;
 }

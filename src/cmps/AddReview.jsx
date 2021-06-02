@@ -1,42 +1,9 @@
 import { React, Component } from 'react'
-// import { bookService } from '../services/book-service.js'
 import { utilService } from '../services/util.service'
 import { Rating } from './Rating.jsx'
 import { Link } from 'react-router-dom'
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+import { Modal } from './UtilCmps/Modal'
 
-const MySwal = withReactContent(Swal)
-function openInfoModal() {
-    let timerInterval
-    MySwal.fire({
-        title: 'GIVE US SOME STARS',
-        html: 'Please rate your review',
-        timer: 2000,
-        confirmButtonColor: "#5989b4",
-        timerProgressBar: false,
-        didOpen: () => {
-            // Swal.showLoading()
-            timerInterval = setInterval(() => {
-                const content = Swal.getHtmlContainer()
-                if (content) {
-                    const b = content.querySelector('b')
-                    if (b) {
-                        // b.textContent = Swal.getTimerLeft()
-                    }
-                }
-            }, 100)
-        },
-        willClose: () => {
-            clearInterval(timerInterval)
-        }
-    }).then((result) => {
-        /* Read more about handling dismissals below */
-        if (result.dismiss === Swal.DismissReason.timer) {
-            console.log('I was closed by the timer')
-        }
-    })
-}
 export class AddReview extends Component {
     state = {
         review: {
@@ -67,8 +34,8 @@ export class AddReview extends Component {
         ev.preventDefault()
         const { review } = this.state
         if (review.rate < 1) {
-            openInfoModal()
-            return
+            Modal('GIVE US SOME STARS','Please rate your review',2000)
+            return 
         }
         this.props.onAddReview(review)
     }

@@ -6,7 +6,7 @@ class _Header extends Component {
     flexClass = 'flex space-around space-between align-center'
     render() {
         const { loggedInUser } = this.props;
-        return <header className={`main-header `}>
+        return <header className={`main-header mb-20`}>
             <div className={`container ${this.flexClass}`}>
 
                 {/* <Link to="/"> <p className="logo">GameKeys</p></Link> */}

@@ -155,7 +155,7 @@ class _Login extends Component {
     const { isLogIn } = this.state
     const joinImg = require('../assets/img/join.png').default
     return (
-      <div className="login space-around align-center flex container">
+      <div className="login space-around align-center flex container mb-20">
         <div className="flex">
 
           {/* <button
