@@ -4,7 +4,7 @@ export function OrderCheckout({ totalPrice, loggedInUser }) {
         <>
             <div className="flex column">
                 {/* <div className="flex space-between align-center pad-15"> */}
-                <div className="total-price flex column align-end">
+                <div className="total-price flex column align-end pad-15">
                     <div className="flex" >
                         <p className="dark-txt" >Subtotal:</p>
                         <p className="" >${totalPrice}</p>
@@ -31,7 +31,7 @@ export function OrderCheckout({ totalPrice, loggedInUser }) {
                     <p className="dark-txt" >Game keys account:</p>
                     <p className="txt-cap" >{loggedInUser.username}</p>
                 </div>
-                <div className="align-end">
+                <div className="align-end pad-15">
                     <button className="btn-med btn-cta" >Purchase</button>
                 </div>
             </div>

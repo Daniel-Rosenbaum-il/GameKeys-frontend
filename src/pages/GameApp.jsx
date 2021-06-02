@@ -24,8 +24,10 @@ class _GameApp extends Component {
 
     render() {
         const { games } = this.props
+        const backgroundImg = require(`../assets/img/background-5.jpg`).default
         return (
             <section className="main-explorer">
+                <img className="hero" src={backgroundImg} alt="" />
                 <GameFilter onSetFilter={this.onSetFilter} />
                 <GameList games={games} />
             </section>

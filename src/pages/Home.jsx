@@ -1,9 +1,9 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
-import { Loader } from '../cmps/Loader.jsx'
+import { Loader } from '../cmps/UtilCmps/Loader'
 import { DynamicCmp } from '../cmps/DynamicCmp.jsx'
 import { loadGames } from '../store/actions/game.actions'
-import {utilService} from '../services/util.service'
+import { utilService } from '../services/util.service'
 
 class _Home extends Component {
   state = {

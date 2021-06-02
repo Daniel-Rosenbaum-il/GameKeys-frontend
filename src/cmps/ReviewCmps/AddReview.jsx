@@ -1,8 +1,9 @@
-import { React, Component } from 'react'
-import { utilService } from '../services/util.service'
-import { Rating } from './Rating.jsx'
+import { Component } from 'react'
+import { utilService } from '../../services/util.service'
+import { Rating } from '../UtilCmps/Rating'
+
 import { Link } from 'react-router-dom'
-import { Modal } from './UtilCmps/Modal'
+import { Modal } from '../UtilCmps/Modal'
 
 export class AddReview extends Component {
     state = {
@@ -34,18 +35,20 @@ export class AddReview extends Component {
         ev.preventDefault()
         const { review } = this.state
         if (review.rate < 1) {
-            Modal('GIVE US SOME STARS','Please rate your review',2000)
-            return 
+            Modal('GIVE US SOME STARS', 'Please rate your review', 2000)
+            return
         }
         await this.props.onAddReview(review)
-        this.setState({review: {
-            id: utilService.makeId(),
-            rate: null,
-            createdAt: Date.now(),
-            txt: '',
-            byUserId: (!this.props.loggedInUser) ? '' : this.props.loggedInUser._id,
-            playtime: utilService.getRandomInt(100, 500)
-        }})
+        this.setState({
+            review: {
+                id: utilService.makeId(),
+                rate: null,
+                createdAt: Date.now(),
+                txt: '',
+                byUserId: (!this.props.loggedInUser) ? '' : this.props.loggedInUser._id,
+                playtime: utilService.getRandomInt(100, 500)
+            }
+        })
     }
     render() {
         const { rate, txt } = this.state.review;

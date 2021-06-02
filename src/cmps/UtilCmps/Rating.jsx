@@ -1,4 +1,4 @@
-import { ReactComponent as StarSvg } from '../assets/img/icons/star.svg'
+import { ReactComponent as StarSvg } from '../../assets/img/icons/star.svg'
 
 export function Rating({ rate, handleChange, isPreview }) {
   function onHandleChange(ev) {

@@ -164,7 +164,6 @@ class _Login extends Component {
             size="small"
             onClick={this.toggleLoginSignup}
           >&#129044;</button> */}
-          
           {isLogIn && loginSection}
           {!isLogIn && signupSection}
         </div>

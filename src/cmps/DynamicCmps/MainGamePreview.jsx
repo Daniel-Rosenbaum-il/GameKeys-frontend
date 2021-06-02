@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { Component } from "react";
 import { Link } from "react-router-dom";
-import { Loader } from "../Loader";
+import { Loader } from "../UtilCmps/Loader";
 
 // export function MainGamePreview({ games }) {
 export class MainGamePreview extends Component {
