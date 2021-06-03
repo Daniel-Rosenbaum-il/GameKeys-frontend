@@ -10,6 +10,12 @@
     .m-img img {
         display: block;
     }
+    .imgs-container {
+        img {
+            width: 170px;
+            height: 97px;
+        }
+    }
 
     @media screen and (min-width: $lg-breakpoint) {
         img {

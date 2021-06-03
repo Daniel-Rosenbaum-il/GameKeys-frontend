@@ -776,7 +776,7 @@ export const games = [
         "tags": [
             "survival",
             "adventure",
-            "open world "
+            "open world"
         ],
         "wishlistCount": 0,
         "discount": 0,
