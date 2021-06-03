@@ -37,19 +37,44 @@ class _GameDetails extends Component {
         return (prevRating * prevLength + newRating) / (prevLength + 1)
 
     }
+
+    getDesc() {
+        if (this.state.game) {
+            const { description } = this.state.game
+            const descriptions = description.split(' ');
+            let shortStr = ''
+            let length = 46
+            let newDescs = []
+            descriptions.forEach((desc, idx) => {
+                shortStr += ' ' + desc
+                if (idx === length) {
+                    length += 46
+                    newDescs.push(shortStr)
+                    shortStr = ''
+                }
+            })
+            return newDescs
+        }
+    }
     render() {
         const { users, loggedInUser } = this.props
         const { game } = this.state
         if (!game) return <Loader />
         console.log(game);
-        const gameImg = require(`../assets/img/${game.imgs.largeImgUrls[0]}`).default
+        const mainImg = require(`../assets/img/${game.imgs.largeImgUrls[0]}`).default
+        const img1 = require(`../assets/img/${game.imgs.largeImgUrls[1]}`).default
+        const img2 = require(`../assets/img/${game.imgs.largeImgUrls[2]}`).default
+        const img3 = require(`../assets/img/${game.imgs.largeImgUrls[3]}`).default
+        const img4 = require(`../assets/img/${game.imgs.largeImgUrls[4]}`).default
         const finalPrice = game.price - (game.price / game.discount)
+        const descriptions = this.getDesc()
+        descriptions.map(desc => console.log(desc))
         return (
             <section className="main-details container">
                 {/* <p>All Games > Strategy Games > {game.tags[0]}</p> */}
                 <p>
                     <Link to={`/game`} >All Games  </Link> {'>'}
-                    <Link to={`/game/${game.tags[0]}`} >{game.tags[0] + '> '}  </Link>
+                    <Link className="txt-cap" to={`/game/${game.tags[0]}`} >{game.tags[0] + '> '}  </Link>
                     <Link to={`/game/${game.title}`} >{game.title}</Link>
                     {/* <Link className="" to={`game/${game.title`}>{game.title}</Link> */}
                 </p>
@@ -63,26 +88,26 @@ class _GameDetails extends Component {
                             {/* </div> */}
                             <div className="flex img-container gap-10">
                                 <div>
-                                    <img src={gameImg} alt="" />
+                                    <img src={img1} alt="" />
                                 </div>
                                 <div>
-                                    <img src={gameImg} alt="" />
+                                    <img src={img2} alt="" />
                                 </div>
                                 <div>
-                                    <img src={gameImg} alt="" />
+                                    <img src={img3} alt="" />
                                 </div>
                                 <div>
-                                    <img src={gameImg} alt="" />
+                                    <img src={img4} alt="" />
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div className="details-info">
-                        <img className="mb-10" src={gameImg} alt="" />
-                        <p maxLength="5">{game.description}</p>
-                        <InfoBlock title="RELEASE DATE" value={utilService.getDateString(game.releasedAt)}/>
-                        <InfoBlock title="PUBLISHER" value="Ryan Murphy"/>
+                        <img className="mb-10" src={mainImg} alt="" />
+                        <p maxLength="5" className="s-desc">{game.description}</p>
+                        <InfoBlock title="RELEASE DATE" value={utilService.getDateString(game.releasedAt)} />
+                        <InfoBlock title="PUBLISHER" value="Ryan Murphy" />
                         <p className="dark-txt"> Popular user-defined tags for this product:</p>
                         <div className="tag-container mb-20 flex space-evenly">
                             {/* <Link to={`/game/${game.tags[0]}`} >{game.tags[0]} </Link> */}
@@ -105,11 +130,11 @@ class _GameDetails extends Component {
                         <div className="details-price">
                             <div className="price-info flex ">
                                 <div>
-                                <p className="discount">{game.discount? `${game.discount}$` : ''}</p>
+                                    <p className="discount">{game.discount ? `${game.discount}$` : ''}</p>
 
                                 </div>
                                 <div className="flex column space-evenly align-center justify-center mr-5">
-                                    <p className={(game.discount>0)? "in-sale":'f-price'} >${game.price.toFixed(2)}</p>
+                                    <p className={(game.discount > 0) ? "in-sale" : 'f-price'} >${game.price.toFixed(2)}</p>
                                     {game.discount ? <p className="f-price" >${finalPrice.toFixed(2)}</p> : ''}
                                 </div>
                                 <Link to={`/game/order/${game._id}`} > <button className="btn-cta btn-med">Add to cart</button></Link>
@@ -126,8 +151,28 @@ class _GameDetails extends Component {
                             <Link to="/login">Sign in</Link>
                         </div>
                     </div>
+                </div>
+
+                <div className="flex">
+
+                    <div>
+                        <p className="title" >ABOUT THIS GAME</p>
+                        {descriptions.map(desc => {
+                            <>
+                                <p>{desc}</p>
+                                <br />
+                            </>
+                        })}
+                        {descriptions.map(desc => <p className="desc" >{(desc)}</p>)}
+
+                    </div>
+                    <div>
+                        <p>Because you watched the {game.title}</p>
+                    </div>
 
                 </div>
+
+
                 <div className="add-review">
                     <AddReview loggedInUser={loggedInUser} onAddReview={this.onAddReview} />
                 </div>

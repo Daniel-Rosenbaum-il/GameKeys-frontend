@@ -157,13 +157,6 @@ class _Login extends Component {
     return (
       <div className="login space-around align-center flex container mb-20">
         <div className="flex">
-
-          {/* <button
-            variant="contained"
-            color="primary"
-            size="small"
-            onClick={this.toggleLoginSignup}
-          >&#129044;</button> */}
           {isLogIn && loginSection}
           {!isLogIn && signupSection}
         </div>

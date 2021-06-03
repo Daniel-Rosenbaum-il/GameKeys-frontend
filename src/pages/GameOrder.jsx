@@ -66,7 +66,7 @@ class _GameOrder extends Component {
     render() {
         const { orders, games, isCheckout } = this.state
         const { loggedInUser } = this.props
-        const img = require('../assets/img/sims4-l.jpg').default
+        const img = require('../assets/img/sims4/1.jpg').default
         const totalPrice = this.getTotalPrice(games)
         return (
             <div className="order-container container" >
