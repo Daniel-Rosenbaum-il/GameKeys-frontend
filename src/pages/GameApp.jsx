@@ -4,6 +4,7 @@ import { gameService } from '../services/game.service'
 import { loadGames } from '../store/actions/game.actions'
 import { GameList } from '../cmps/GameList'
 import { GameFilter } from '../cmps/GameFilter'
+import { GameCarousel } from '../cmps/UtilCmps/GameCarousel'
 
 class _GameApp extends Component {
 
@@ -24,8 +25,10 @@ class _GameApp extends Component {
 
     render() {
         const { games } = this.props
+        const backgroundImg = require(`../assets/img/background-5.jpg`).default
         return (
             <section className="main-explorer">
+                <img className="hero" src={backgroundImg} alt="" />
                 <GameFilter onSetFilter={this.onSetFilter} />
                 <GameList games={games} />
             </section>

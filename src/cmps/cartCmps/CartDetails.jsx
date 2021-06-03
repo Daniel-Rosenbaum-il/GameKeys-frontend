@@ -1,5 +1,5 @@
 
-export function OrderDetails(orders){
+export function CartDetails(orders){
     return(
         <div>
             buy now!!!!!!

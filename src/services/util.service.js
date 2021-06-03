@@ -6,7 +6,8 @@ export const utilService = {
     makeId,
     getDateFormat,
     renderStars,
-    getDateString
+    getDateString,
+    getFinalPrice
 }
 
 function delay(ms = 1500) {
@@ -52,3 +53,5 @@ function renderStars(rate) {
     }
     return stars
 }
+
+function getFinalPrice(price, discount) {return price - (price * (discount/100))}

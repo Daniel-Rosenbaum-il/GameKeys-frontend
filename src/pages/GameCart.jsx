@@ -1,49 +1,60 @@
 import { Component } from "react"
 import { connect } from 'react-redux'
-import { OrderList } from "../cmps/OrderCmps/OrderList";
-import { addToCart, loadOrders, removeOrder, removeOrders } from "../store/actions/order.actions";
-import { orderService } from "../services/order.service";
+import { CartList } from "../cmps/cartCmps/CartList";
+import { addToCart, loadCarts, removeCart, removeCarts } from "../store/actions/cart.actions";
+import { saveOrder, } from "../store/actions/order.actions";
+import { cartService } from "../services/cart.service";
+import { gameService } from "../services/game.service";
 import { Modal } from "../cmps/UtilCmps/Modal";
 import { Link } from "react-router-dom";
-import { OrderInfo } from "../cmps/OrderCmps/OrderInfo";
-import { OrderCheckout } from "../cmps/OrderCmps/OrderCheckout";
+import { CartInfo } from "../cmps/cartCmps/CartInfo";
+import { CartCheckout } from "../cmps/cartCmps/CartCheckout";
 
-class _GameOrder extends Component {
+class _GameCart extends Component {
     state = {
-        orders: [],
+        carts: [],
         games: [],
         isCheckout: false
     }
 
     async componentDidMount() {
-        const gameId = this.props.match.params.gameId
-        await this.props.addToCart(gameId)
-        this.setState({ orders: this.props.orders })
-        const games = await orderService.getGamesByOrders(this.props.orders)
+        const game = await gameService.getById(this.props.match.params.gameId)
+        console.log(game);
+        await this.props.addToCart(game)
+        await this.props.loadCarts()
+        this.setState({ carts: this.props.carts })
+        const games = await cartService.getGamesByCarts(this.props.carts)
         this.setState({ games })
     }
 
-    onRemoveOrder = async (gameId) => {
-        await this.props.removeOrder(gameId)
+    onRemoveCart = async (gameId) => {
+        await this.props.removeCart(gameId)
         const newGames = this.state.games.filter(game => game._id !== gameId)
         this.setState({ games: newGames })
-        this.setState({ orders: this.props.orders })
+        this.setState({ carts: this.props.carts })
     }
 
-    onRemoveOrders = async (gameId) => {
-        await this.props.removeOrders()
+    onRemoveCarts = async () => {
+        await this.props.removeCarts()
         this.setState({ games: [] })
-        this.setState({ orders: [] })
+        this.setState({ carts: [] })
     }
 
-    onUpdateOrders = () => {
-
+    onCheckOut = async () => {
+        const { carts } = this.state
+        const buyer = this.props.loggedInUser
+        await carts.forEach(cart =>{
+             this.props.saveOrder(cart, buyer)
+            return cart
+        })
+        return console.log('thnx for buying');
     }
 
     getTotalPrice = (games) => {
         if (games) {
             return games.reduce((acc, game) => {
-                const finalPrice = game.price - (game.price / game.discount)
+                if (!game.discount) return acc += game.price
+                const finalPrice = game.price - (game.price * (game.discount / 100))
                 return acc += finalPrice
             }, 0).toFixed(2)
         }
@@ -56,20 +67,22 @@ class _GameOrder extends Component {
                 this.props.history.push('/login')
             }, 1500)
         }
-        const { orders } = this.state
-        if (!orders.length) {
-            return Modal('🛒', 'Add a game to the cart', 2000)
+        const { carts } = this.state
+        if (!carts.length) {
+            return Modal('🛒', 'Added to the cart', 2000)
         }
         this.setState({ isCheckout: true })
     }
+    // onPlaceOrder 
 
     render() {
-        const { orders, games, isCheckout } = this.state
+        const { carts, games, isCheckout } = this.state
+        console.log(carts);
         const { loggedInUser } = this.props
         const img = require('../assets/img/sims4-l.jpg').default
         const totalPrice = this.getTotalPrice(games)
         return (
-            <div className="order-container container" >
+            <div className="cart-container container" >
 
                 <p>
                     <div className="mb-20">
@@ -86,28 +99,29 @@ class _GameOrder extends Component {
                     </p>
                 </div>
 
-                <div className="order-info flex gap-20">
+                <div className="cart-info flex gap-20">
                     <div className={`flex column gap-20 ${isCheckout && 'width-70'}`} >
                         <div className="flex column ">
-                            <div className="flex space-between column order-card  ">
-                                <OrderList games={games}
-                                    onRemoveOrder={this.onRemoveOrder}
+                            <div className="flex space-between column cart-card  ">
+                                <CartList games={games}
+                                    onRemoveCart={this.onRemoveCart}
                                     isCheckout={isCheckout}
                                 />
 
-                                {!isCheckout && <OrderInfo
+                                {!isCheckout && <CartInfo
                                     toggleIsCheckout={this.toggleIsCheckout}
                                     totalPrice={totalPrice}
-                                    onUpdateOrders={this.onUpdateOrders} />}
+                                    onUpdateCarts={this.onUpdateCarts} />}
 
-                                {isCheckout && < OrderCheckout
+                                {isCheckout && < CartCheckout
                                     totalPrice={totalPrice}
                                     loggedInUser={loggedInUser}
+                                    onCheckOut={this.onCheckOut}
                                 />}
 
                             </div>
 
-                            {!isCheckout && <a onClick={() => this.onRemoveOrders()}
+                            {!isCheckout && <a onClick={() => this.onRemoveCarts()}
                                 className="align-end btn-remove">Remove all items</a>}
 
                             <div>
@@ -116,9 +130,6 @@ class _GameOrder extends Component {
 
                         </div>
                     </div>
-
-
-
                     {!isCheckout && <div className="card-game">
                         <div>
                             <img src={img} alt="" />
@@ -136,14 +147,15 @@ class _GameOrder extends Component {
 const mapStateToProps = state => {
     return {
         loggedInUser: state.userModule.loggedInUser,
-        orders: state.orderModule.orders,
+        carts: state.cartModule.carts,
     }
 }
 const mapDispatchToProps = {
     addToCart,
-    loadOrders,
-    removeOrder,
-    removeOrders
+    loadCarts,
+    removeCart,
+    removeCarts,
+    saveOrder,
 }
 
-export const GameOrder = connect(mapStateToProps, mapDispatchToProps)(_GameOrder)
+export const GameCart = connect(mapStateToProps, mapDispatchToProps)(_GameCart)

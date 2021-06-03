@@ -46,7 +46,7 @@ export class GameFilter extends Component {
                     </select>
                     <select className="game-select sort" name="sortBy" onChange={this.handleChange}>
                         <option value="title">Title</option>
-                        <option value="topReviews">Top-Reviews</option>
+                        <option value="rating">Top-Reviews</option>
                     </select>
                     {/* {this.props.children} */}
                 </div>

@@ -12,7 +12,7 @@ import { About } from './pages/About'
 
 
 import { Footer } from './cmps/Footer'
-import { GameOrder } from './pages/GameOrder'
+import { GameCart } from './pages/GameCart'
 import { UserProfile } from './pages/UserProfile'
 
 export function App() {
@@ -24,7 +24,7 @@ export function App() {
           <Switch>
             <Route path="/login" component={Login} />
             <Route path="/profile" component={UserProfile} />
-            <Route path="/game/order/:gameId" component={GameOrder} />
+            <Route path="/game/order/:gameId" component={GameCart} />
             <Route path="/game/:gameId" component={GameDetails} />
             <Route path="/game" component={GameApp} />
             <Route path="/about" component={About} />

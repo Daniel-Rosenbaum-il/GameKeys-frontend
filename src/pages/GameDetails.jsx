@@ -5,10 +5,10 @@ import { Video } from '../cmps/video'
 import { gameService } from '../services/game.service'
 import { removeGame, saveGame, addReview } from '../store/actions/game.actions'
 import { loadUsers } from '../store/actions/user.actions'
-import { Loader } from '../cmps/Loader'
-import { AddReview } from '../cmps/AddReview'
+import { Loader } from '../cmps/UtilCmps/Loader'
+import { AddReview } from '../cmps/ReviewCmps/AddReview'
 import { Link } from 'react-router-dom'
-import { ReviewList } from '../cmps/ReviewList'
+import { ReviewList } from '../cmps/ReviewCmps/ReviewList'
 import { InfoBlock } from '../cmps/InfoBlock'
 import { utilService } from '../services/util.service'
 
@@ -25,7 +25,7 @@ class _GameDetails extends Component {
         const game = await gameService.getById(this.props.match.params.gameId)
         this.setState({ game })
     }
-    async onRemoveGame(gameId) {
+    onRemoveGame = async (gameId) => {
         await this.props.removeGame(gameId)
         this.props.history.push('/Game/')
     }
@@ -35,14 +35,14 @@ class _GameDetails extends Component {
         this.loadGame()
         this.setState({ game })
     }
-    
+
     render() {
         const { users, loggedInUser } = this.props
         const { game } = this.state
         if (!game) return <Loader />
         console.log(game);
         const gameImg = require(`../assets/img/${game.imgs.largeImgUrls[0]}`).default
-        const finalPrice = game.price - (game.price / game.discount)
+        const finalPrice = utilService.getFinalPrice(game.price, game.discount)
         return (
             <section className="main-details container">
                 {/* <p>All Games > Strategy Games > {game.tags[0]}</p> */}
@@ -81,7 +81,7 @@ class _GameDetails extends Component {
                         <img className="mb-10" src={gameImg} alt="" />
                         <p maxLength="5">{game.description}</p>
                         <InfoBlock title="RELEASE DATE" value={utilService.getDateString(game.releasedAt)} />
-                        <InfoBlock title="PUBLISHER" value="Ryan Murphy" />
+                        <InfoBlock title="Seller" value={game.seller.fullname} />
                         <p className="dark-txt"> Popular user-defined tags for this product:</p>
                         <div className="tag-container mb-20 flex space-evenly">
                             {/* <Link to={`/game/${game.tags[0]}`} >{game.tags[0]} </Link> */}
@@ -104,7 +104,7 @@ class _GameDetails extends Component {
                         <div className="details-price">
                             <div className="price-info flex ">
                                 <div>
-                                    <p className="discount">{game.discount ? `${game.discount}$` : ''}</p>
+                                    <p className="discount">{game.discount ? `${game.discount}%` : ''}</p>
 
                                 </div>
                                 <div className="flex column space-evenly align-center justify-center mr-5">

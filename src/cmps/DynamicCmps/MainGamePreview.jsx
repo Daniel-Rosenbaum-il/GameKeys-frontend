@@ -1,7 +1,9 @@
 import { render } from "@testing-library/react";
 import { Component } from "react";
 import { Link } from "react-router-dom";
-import { Loader } from "../Loader";
+import { Loader } from "../UtilCmps/Loader";
+import { utilService } from '../../services/util.service'
+
 
 // export function MainGamePreview({ games }) {
 export class MainGamePreview extends Component {
@@ -29,7 +31,7 @@ export class MainGamePreview extends Component {
         const img2 = require(`../../assets/img/${game.imgs.largeImgUrls[0]}`).default
         // const img2 = require(`../../assets/img/ratchet.jpg`).default
         const releasedAt = this.props.utilService.getDateFormat(game.releasedAt)
-        const finalPrice = game.price - (game.price / game.discount)
+        const finalPrice = utilService.getFinalPrice(game.price, game.discount)
         return (
             <div className="main-game-preview container mb-20">
                 <button className="btn btn-prev" onClick={() => this.changeGame(-1)} >&#10094;</button>
@@ -51,10 +53,10 @@ export class MainGamePreview extends Component {
                             <img src={img2} alt="" />
                             <img src={img2} alt="" />
                             <div className="preview-price">
-                                <p className="discount">{game.discount}%</p>
+                                <p className="discount">{game.discount ? `${game.discount}%` : ''}</p>
                                 <div className="flex column">
-                                    <p className="in-sale" >${game.price.toFixed(2)}</p>
-                                    <p className="f-price" >${finalPrice.toFixed(2)}</p>
+                                    <p className={(game.discount > 0) ? "in-sale" : 'f-price'} >${game.price.toFixed(2)}</p>
+                                    {game.discount ? <p className="f-price" >${finalPrice.toFixed(2)}</p> : ''}
                                 </div>
                             </div>
                         </div>

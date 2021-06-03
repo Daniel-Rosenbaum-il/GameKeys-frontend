@@ -26,8 +26,8 @@
 .mr-5 {
     margin-inline-end: 5px;
 }
-.mb-1rem{
-    margin-bottom:9px;
+.mb-1rem {
+    margin-bottom: 9px;
 }
 
 // img
@@ -134,8 +134,8 @@
     padding-right: 10px;
     min-width: 94px;
 }
-.txt-cap{
-    text-transform: capitalize
+.txt-cap {
+    text-transform: capitalize;
 }
 // Media helpers
 
@@ -228,4 +228,10 @@
 }
 .btn-remove:hover {
     text-decoration: underline;
+}
+
+.hero {
+        height: 60vh;
+        object-fit: cover;
+        border-radius: 25px 25px 40px 40px;
 }

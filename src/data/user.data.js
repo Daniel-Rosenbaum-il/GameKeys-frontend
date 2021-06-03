@@ -2,7 +2,7 @@ export const users = [
     {
         "_id": "u101",
         "fullname": "Dan Danovich",
-        "imgUrl": "user1.jpeg",
+        "imgUrl": "user1.jpg",
         "isAdmin": false,
         "username": "dan1",
         "password": "dandan",

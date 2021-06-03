@@ -1,7 +1,7 @@
-import { localService } from './storage.service'
-import { storageService } from './async-Storage.service'
+// import { localService } from './storage.service'
+// import { storageService } from './async-Storage.service'
 import { httpService } from './http.service'
-import { games } from '../data/game.data'
+// import { games } from '../data/game.data'
 
 export const gameService = {
     getGames,
@@ -42,17 +42,17 @@ function getById(gameId) {
 }
 
 function remove(gameId) {
-    return storageService.remove('game', gameId)
+    return httpService.delete(`game/${gameId}`)
 }
 function save(game) {
     if (game._id) {
-        return storageService.put('game', game)
+        return httpService.put(`game/${game._id}`, game)
     } else {
         // var newGame = createGame(game)
-        // return storageService.post(STORAGE_KEY, newGame)
+        // return httpService.post(`game`, newGame)
     }
 }
 function addReview(review, gameId, byUser){
     return httpService.put('game/review', {review, gameId, byUser})
 }
-localService.saveToStorage('game', games)
+// localService.saveToStorage('game', games)

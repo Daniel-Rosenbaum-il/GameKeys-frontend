@@ -14,7 +14,7 @@ export function GamePreview({ game }) {
                     <div className="game-info">
                         <div className="game-top-info">
                             <div className="rating flex space-between">
-                                <p>{rating} {`(${game.reviews.length})`}</p>
+                                {rating===0? <p>{rating} {`(${game.reviews.length})`}</p>: 'Not rated'}
                                 <p>{rating.length > 4 ? `Top-Rated` : ''}</p>
                             </div>
                             <h2>{game.title}</h2>

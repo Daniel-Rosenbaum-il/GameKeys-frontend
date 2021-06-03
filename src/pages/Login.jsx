@@ -159,38 +159,30 @@ class _Login extends Component {
       const { isLogIn } = this.state
       const joinImg = require('../assets/img/join.png').default
       return (
-        <div className="login flex space-around align-center container">
-          <div className="flex">
-
-            {/* <button
-            variant="contained"
-            color="primary"
-            size="small"
-            onClick={this.toggleLoginSignup}
-          >&#129044;</button> */}
-            {isLogIn && loginSection}
-            {!isLogIn && signupSection}
-          </div>
-          {!isLogIn && <button className="btn-join"
-            onClick={this.toggleLoginSignup}
-          >Back to login</button>}
-
-          {isLogIn && <div className="join-container flex column align-center justify-center space-around">
-            <div className="flex column space-between align-center">
-              <p>Join Game keys and discover thousands of games to play.</p>
-              <Link to="/about" >Learn more</Link>
-            </div>
-            {/* <img src={joinImg} alt="" /> */}
-            <div className="flex justify-center column">
-              <p>It's <span>free</span> and <span>easy</span>  to use.</p>
-              <button className="btn-join"
-                onClick={this.toggleLoginSignup}
-              >Join Game keys</button>
-            </div>
-
-          </div>}
-
+        <div className="login space-around align-center flex container mb-20">
+        <div className="flex">
+          {isLogIn && loginSection}
+          {!isLogIn && signupSection}
         </div>
+        {!isLogIn && <button className="btn-join"
+          onClick={this.toggleLoginSignup}
+        >Back to login</button>}
+
+        {isLogIn && <div className="join-container flex column align-center justify-center space-around">
+          <div className="flex column space-between align-center">
+            <p>Join Game keys and discover thousands of games to play.</p>
+            <Link to="/about" >Learn more</Link>
+          </div>
+          {/* <img src={joinImg} alt="" /> */}
+          <div className="flex justify-center column">
+            <p>It's <span>free</span> and <span>easy</span>  to use.</p>
+            <button className="btn-join"
+              onClick={this.toggleLoginSignup}
+            >Join Game keys</button>
+          </div>
+        </div>}
+      </div>
+
       )
     }
   }

@@ -4,6 +4,14 @@ import { connect } from 'react-redux'
 import { logout } from "../store/actions/user.actions"
 class _Header extends Component {
     flexClass = 'flex space-around space-between align-center'
+
+    onLogout = async () => {
+        try{
+            await this.props.logout()
+        }catch (err) {
+            console.log('err', err);
+        }
+    }
     render() {
         const { loggedInUser } = this.props;
         return <header className={`main-header mb-20`}>
@@ -18,7 +26,7 @@ class _Header extends Component {
                     {!loggedInUser && <Link className="btn-login" to="/login">Login</Link>}
                     {loggedInUser && <div className="user-header">
                         <p>Hi {loggedInUser.fullname}</p>
-                        <button onClick={this.props.logout}>Logout</button>
+                        <button onClick={()=> this.onLogout()}>Logout</button>
                         <Link to="/profile">Profile</Link>
                     </div>}
                     {/* <NavLink to="/chat">Chat Room</NavLink> */}

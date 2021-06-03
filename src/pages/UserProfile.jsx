@@ -1,22 +1,27 @@
 import React, { Component } from 'react'
+
 import { connect } from 'react-redux'
+
 import { loadGames } from '../store/actions/game.actions'
+import { UserHeader } from '../cmps/UserCmps/UserHeader'
 
 
 class _UserProfile extends Component {
 
     componentDidMount() {
+        if (!this.props.loggedInUser) return this.props.history.push(`/`)
         this.props.loadGames()
     }
     render() {
         const { games, loggedInUser } = this.props
-        const userImg = require(`../assets/img/${loggedInUser.imgUrl}`).default
+        // console.log(loggedInUser);
+        // const userImg = require(`../assets/img/${loggedInUser.imgUrl}`).default
+        if (!loggedInUser) return this.props.history.push(`/`)
         return (
-            <section className="main-user-profile container">
-                <div className="user-profile-header">
-                    <img src={userImg} alt=""></img>
-                <h1>Hello {loggedInUser.fullname}</h1>
-                </div>
+            <section className="main-user-profile">
+                <UserHeader fullname={loggedInUser.fullname} />
+
+
             </section>
         )
     }

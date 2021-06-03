@@ -1,6 +1,6 @@
 
 
-export function OrderInfo({totalPrice,toggleIsCheckout}) {
+export function CartInfo({totalPrice,toggleIsCheckout}) {
     return (
         <>
             <div className="flex space-between align-center pad-15">

@@ -1,4 +1,4 @@
-.order-container {
+.cart-container {
     h2:first-of-type {
         font-size: 34px;
     }
@@ -12,10 +12,10 @@
         border-right: 15px solid transparent;
         border-top: 20px solid #159dee;
     }
-    .order-info {
+    .cart-info {
         color: #c7d5e0;
     }
-    .order-card {
+    .cart-card {
         flex: 1;
         background-color: rgba(0, 0, 0, 0.2);
         margin: 0px 0px 3px 0px;
@@ -38,7 +38,7 @@
             display: inline-block;
         }
     }
-    .order-card:last-child {
+    .cart-card:last-child {
         &:last-child {
             padding: 16px;
         }
@@ -51,7 +51,7 @@
             height: auto;
         }
     }
-    .order-title {
+    .cart-title {
         font-size: 2rem;
     }
     .btn-container {

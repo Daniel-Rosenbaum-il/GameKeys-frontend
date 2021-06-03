@@ -1,8 +1,9 @@
-import { React, Component } from 'react'
-import { utilService } from '../services/util.service'
-import { Rating } from './Rating.jsx'
+import { Component } from 'react'
+import { utilService } from '../../services/util.service'
+import { Rating } from '../UtilCmps/Rating'
+
 import { Link } from 'react-router-dom'
-import { Modal } from './UtilCmps/Modal'
+import { Modal } from '../UtilCmps/Modal'
 
 export class AddReview extends Component {
     state = {
@@ -30,8 +31,8 @@ export class AddReview extends Component {
         ev.preventDefault()
         const { review } = this.state
         if (review.rate < 1) {
-            Modal('GIVE US SOME STARS','Please rate your review',2000)
-            return 
+            Modal('GIVE US SOME STARS', 'Please rate your review', 2000)
+            return
         }
         await this.props.onAddReview(review)
         this.setState({review: {
@@ -52,7 +53,7 @@ export class AddReview extends Component {
                     <textarea ref={this.textInput} name="txt" value={txt} id="" cols="40" rows="10" onChange={this.handleChange}></textarea>
                     <div className="review-btn">
                         {loggedInUser && < button className="btn-add-review">Send</button>}
-                        {!loggedInUser && < button className="btn-login-review"><Link to="/login">Login</Link></button>}
+                        {!loggedInUser && < button className="btn-login-review"><Link to="/login">Sign in</Link></button>}
                     </div>
                 </form>
             </div>
