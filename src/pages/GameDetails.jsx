@@ -36,19 +36,43 @@ class _GameDetails extends Component {
         this.setState({ game })
     }
 
+    getDesc() {
+        if (this.state.game) {
+            const { description } = this.state.game
+            const descriptions = description.split(' ');
+            let shortStr = ''
+            let length = 46
+            let newDescs = []
+            descriptions.forEach((desc, idx) => {
+                shortStr += ' ' + desc
+                if (idx === length) {
+                    length += 46
+                    newDescs.push(shortStr)
+                    shortStr = ''
+                }
+            })
+            return newDescs
+        }
+    }
     render() {
         const { users, loggedInUser } = this.props
         const { game } = this.state
         if (!game) return <Loader />
         console.log(game);
-        const gameImg = require(`../assets/img/${game.imgs.largeImgUrls[0]}`).default
-        const finalPrice = utilService.getFinalPrice(game.price, game.discount)
+        const mainImg = require(`../assets/img/${game.imgs.largeImgUrls[0]}`).default
+        const img1 = require(`../assets/img/${game.imgs.largeImgUrls[1]}`).default
+        const img2 = require(`../assets/img/${game.imgs.largeImgUrls[2]}`).default
+        const img3 = require(`../assets/img/${game.imgs.largeImgUrls[3]}`).default
+        const img4 = require(`../assets/img/${game.imgs.largeImgUrls[4]}`).default
+        const finalPrice =  utilService.getFinalPrice(game.price, game.discount)
+        const descriptions = this.getDesc()
+        descriptions.map(desc => console.log(desc))
         return (
             <section className="main-details container">
                 {/* <p>All Games > Strategy Games > {game.tags[0]}</p> */}
                 <p>
                     <Link to={`/game`} >All Games  </Link> {'>'}
-                    <Link to={`/game/${game.tags[0]}`} >{game.tags[0] + '> '}  </Link>
+                    <Link className="txt-cap" to={`/game/${game.tags[0]}`} >{game.tags[0] + '> '}  </Link>
                     <Link to={`/game/${game.title}`} >{game.title}</Link>
                     {/* <Link className="" to={`game/${game.title`}>{game.title}</Link> */}
                 </p>
@@ -62,24 +86,26 @@ class _GameDetails extends Component {
                             {/* </div> */}
                             <div className="flex img-container gap-10">
                                 <div>
-                                    <img src={gameImg} alt="" />
+                                    <img src={img1} alt="" />
                                 </div>
                                 <div>
-                                    <img src={gameImg} alt="" />
+                                    <img src={img2} alt="" />
                                 </div>
                                 <div>
-                                    <img src={gameImg} alt="" />
+                                    <img src={img3} alt="" />
                                 </div>
                                 <div>
-                                    <img src={gameImg} alt="" />
+                                    <img src={img4} alt="" />
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div className="details-info">
-                        <img className="mb-10" src={gameImg} alt="" />
-                        <p maxLength="5">{game.description}</p>
+
+
+                        <img className="mb-10" src={mainImg} alt="" />
+                        <p maxLength="5" className="s-desc">{game.description}</p>
                         <InfoBlock title="RELEASE DATE" value={utilService.getDateString(game.releasedAt)} />
                         <InfoBlock title="Seller" value={game.seller.fullname} />
                         <p className="dark-txt"> Popular user-defined tags for this product:</p>
@@ -124,6 +150,24 @@ class _GameDetails extends Component {
                         <div>
                             <Link to="/login">Sign in</Link>
                         </div>
+                    </div>
+                </div>
+
+                <div className="flex">
+
+                    <div>
+                        <p className="title" >ABOUT THIS GAME</p>
+                        {descriptions.map(desc => {
+                            <>
+                                <p>{desc}</p>
+                                <br />
+                            </>
+                        })}
+                        {descriptions.map(desc => <p className="desc" >{(desc)}</p>)}
+
+                    </div>
+                    <div>
+                        <p>Because you watched the {game.title}</p>
                     </div>
 
                 </div>

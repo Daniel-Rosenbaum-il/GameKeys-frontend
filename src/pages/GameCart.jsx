@@ -79,7 +79,7 @@ class _GameCart extends Component {
         const { carts, games, isCheckout } = this.state
         console.log(carts);
         const { loggedInUser } = this.props
-        const img = require('../assets/img/sims4-l.jpg').default
+        const img = require('../assets/img/sims4/1.jpg').default
         const totalPrice = this.getTotalPrice(games)
         return (
             <div className="cart-container container" >

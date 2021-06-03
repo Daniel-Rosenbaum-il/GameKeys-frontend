@@ -42,7 +42,10 @@ export class GameFilter extends Component {
                         <option value="fighting">Fighting</option>
                         <option value="racing">Racing</option>
                         <option value="simulation">Simulation</option>
-                        <option value="strategy">Strategy</option>
+                        <option value="shooter">Shooter</option>
+                        <option value="classic">Classic</option>
+                        <option value="multiplayer">Multiplayer</option>
+                        <option value="adventure">Adventure</option>
                     </select>
                     <select className="game-select sort" name="sortBy" onChange={this.handleChange}>
                         <option value="title">Title</option>
