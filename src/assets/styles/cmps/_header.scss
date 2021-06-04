@@ -98,6 +98,9 @@
     }
     .user-menu-container {
         position: relative;
+        img {
+            pointer-events: auto;
+        }
         cursor: pointer;
         a {
             font-size: 12px;
@@ -186,7 +189,7 @@
         //     justify-content: unset;
         // }
         nav {
-           z-index: 99;
+            z-index: 99;
             position: absolute;
             top: 0;
             bottom: 0;
@@ -224,8 +227,10 @@
             box-shadow: 0 0 1px 0px $clr2;
             padding: -16px 10px;
             height: 137px;
+            cursor: auto;
             img {
                 width: 70px;
+                pointer-events: none;
             }
         }
         .user-menu.hidden-menu {
