@@ -1,5 +1,5 @@
-import { localService } from './storage.service'
-import { storageService } from './async-Storage.service'
+// import { localService } from './storage.service'
+// import { storageService } from './async-Storage.service'
 import { httpService } from './http.service'
 import { users } from '../data/user.data'
 
@@ -68,6 +68,6 @@ function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem('loggedinUser'))
 }
 
-localService.saveToStorage('user', users)
+// localService.saveToStorage('user', users)
 
 

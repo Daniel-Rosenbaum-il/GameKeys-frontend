@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { socketService } from '../services/socket.service'
 
 import {
   loadUsers,
@@ -58,6 +59,7 @@ class _Login extends Component {
     const userCreds = { username, password }
     try {
       await this.props.login(userCreds)
+      socketService.emit('login', this.props.loggedInUser)
       this.props.history.push(`/`)
     } catch (err) {
       this.setState({ msg: 'Login failed, try again.' })

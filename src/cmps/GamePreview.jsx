@@ -15,7 +15,7 @@ export function GamePreview({ game }) {
                         <div className="game-top-info">
                             <h4 className="preview-tag">Seller: {game.seller.fullname}</h4>
                             <div className="rating flex space-between">
-                                {rating===0? <p>{rating} {`(${game.reviews.length})`}</p>: 'Not rated'}
+                                {game.rating>0? <p>{rating} {`(${game.reviews.length})`}</p>: 'Not rated'}
                                 <p>{rating.length > 4 ? `Top-Rated` : ''}</p>
                             </div>
                             <h2>{game.title}</h2>

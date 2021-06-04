@@ -9,6 +9,7 @@ import { Modal } from "../cmps/UtilCmps/Modal";
 import { Link } from "react-router-dom";
 import { CartInfo } from "../cmps/cartCmps/CartInfo";
 import { CartCheckout } from "../cmps/cartCmps/CartCheckout";
+import { socketService } from "../services/socket.service";
 
 class _GameCart extends Component {
     state = {
@@ -18,6 +19,7 @@ class _GameCart extends Component {
     }
 
     async componentDidMount() {
+        window.scrollTo(0, 0)
         const game = await gameService.getById(this.props.match.params.gameId)
         console.log(game);
         await this.props.addToCart(game)
@@ -43,10 +45,11 @@ class _GameCart extends Component {
     onCheckOut = async () => {
         const { carts } = this.state
         const buyer = this.props.loggedInUser
-        await carts.forEach(cart =>{
-             this.props.saveOrder(cart, buyer)
-            return cart
-        })
+        await Promise.all(carts.map(async cart => {
+            const savedOrder = await this.props.saveOrder(cart, buyer)
+            socketService.emit('orderSent', savedOrder)
+            return savedOrder
+        }))
         return console.log('thnx for buying');
     }
 

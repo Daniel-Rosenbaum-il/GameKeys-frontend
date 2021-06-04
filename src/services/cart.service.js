@@ -36,19 +36,20 @@ async function removeAll(gameId) {
     return storageService.removeAll(STORAGE_KEY)
 }
 
-async function add({game}) {
-    const {price,discount,title} = game
+async function add({ game }) {
+    const { price, discount, title, seller } = game
     const carts = await query()
     const isDuplicate = carts.some(cart => cart.game._id === game._id)
     if (isDuplicate) return
-    // console.log(imgs);
+    console.log('game', game);
     const img = game.imgs.largeImgUrls[0]
     const cart = {
-        game:{
-            _id:game._id,
+        game: {
+            _id: game._id,
             price,
             discount,
             title,
+            sellerId: seller._id,
             img
         },
     }

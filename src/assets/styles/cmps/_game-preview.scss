@@ -4,13 +4,13 @@
     display: flex;
     flex-direction: column;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
-    max-width: 280px;
-    min-height: 365px;
-    max-height: 365px;
+    max-width: 250px;
+    min-height: 380px;
+    max-height: 380px;
     box-shadow: 0 0 1px 0px $clr7;
     padding-bottom: 5px;
     .card-img-preview {
-        width: 280px;
+        width: 255px;
         padding: 10px;
         img {
             box-shadow: #67c1f5 0px 0px 1px 0px;
@@ -38,8 +38,8 @@
     }
     img {
         border-radius: 10px;
-        min-height: 150px;
-        max-height: 150px;
+        min-height: 140px;
+        max-height: 140px;
     }
     .discount {
         position: absolute;
@@ -56,7 +56,7 @@
         color: $clr4;
     }
     h2 {
-        font-size: 1.1rem;
+        font-size: 17px;
         margin-bottom: 3px;
     }
     h4{

@@ -17,10 +17,11 @@ export function saveOrder(order, buyer) {
     console.log('orderActions',buyer);
     return async dispatch => {
         try {
-            let orderToSave
-            orderToSave = await orderService.save(order, buyer) //after back is runing change to add
+            
+            const orderToSave = await orderService.save(order, buyer) //after back is runing change to add
             const action ={ type: 'ADD_ORDER', order: orderToSave }
             dispatch(action)
+            return orderToSave
         } catch (err) {
             console.log('OrdersActions: err in saveOrder', err)
         }
