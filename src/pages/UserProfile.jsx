@@ -18,7 +18,7 @@ class _UserProfile extends Component {
 
         return (
             <section className="main-user-profile">
-                <UserHeader fullname={loggedInUser.fullname} />
+            <UserHeader fullname={loggedInUser.fullname} />
             </section>
         )
     }

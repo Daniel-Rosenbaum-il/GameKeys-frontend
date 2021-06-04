@@ -17,7 +17,6 @@ export class AddReview extends Component {
         }
     }
 
-
     handleSubmit = (ev) => {
         ev.preventDefault()
     }
@@ -59,7 +58,9 @@ export class AddReview extends Component {
                     <h2>Write A Review </h2>
                     <h3>{loggedInUser && loggedInUser.fullname}</h3>
                     <Rating rate={rate} handleChange={this.handleChange} />
+                    <div className="review-box-txt">
                     <textarea ref={this.textInput} name="txt" value={txt} id="" cols="40" rows="10" onChange={this.handleChange}></textarea>
+                    </div>
                     <div className="review-btn">
                         {loggedInUser && < button className="btn-add-review">Send</button>}
                         {!loggedInUser && < button className="btn-login-review"><Link to="/login">Login</Link></button>}
