@@ -32,7 +32,7 @@ class _Header extends Component {
         const { loggedInUser } = this.props;
         return <header className={`main-header mb-20`}>
             <div className={`container ${this.flexClass}`}>
-                 {/* {this.props.msg && <div className="user-msg"></div>} */}
+                {/* {this.props.msg && <div className="user-msg"></div>} */}
                 <Link to="/"><p className="logo mb-20">G<span>a</span><span>m</span><span>e</span> keys</p></Link>
 
                 <nav className={`${this.flexClass} ${!this.state.isHidden && 'show'}`}>
@@ -48,9 +48,9 @@ class _Header extends Component {
 
                         {/* </details> */}
                     </div>}
-              
+
                     {/* <Screen isHidden={this.state.isHidden} toggleIsHidden={this.toggleIsHidden} /> */}
-                    <div className="user-menu-container flex " >
+                    {loggedInUser && <div className="user-menu-container flex " >
                         <div className="flex  align-center" >
                             <NotifyMe
                                 data={[
@@ -80,21 +80,21 @@ class _Header extends Component {
                             <img onClick={() => this.toggleIsHidden()} src={img} alt="" />
                         </div>
 
-                        <div className={`user-menu ${this.state.isHidden && 'hidden-menu'}`}>
+                        <div onClick={() => this.toggleIsHidden()} className={`user-menu ${this.state.isHidden && 'hidden-menu'}`}>
                             <div className="drop-down">
                                 <Link to="/profile">Profile</Link>
-                                <a onClick={this.props.logout}>Logout:
-                             <span className="light-txt txt-cap">{loggedInUser.username}</span></a>
+                                {loggedInUser && <a onClick={this.props.logout}>Logout:
+                             <span className="light-txt txt-cap"> {loggedInUser.username}</span></a>}
                                 <a>Wishlist</a>
                                 <a>My store</a>
                             </div>
                         </div>
-                    </div>
-
+                    </div>}
                 </nav>
+
                 <div onClick={() => this.toggleIsHidden()}
-                        className={`screen ${this.state.isHidden && 'hidden-screen'}`} >
-                    </div>
+                    className={`screen ${this.state.isHidden && 'hidden-screen'}`} >
+                </div>
                 <button class="btn-menu font-med" onClick={() => this.toggleIsHidden()}>☰</button>
             </div>
         </header>
