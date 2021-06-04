@@ -33,7 +33,7 @@ class _UserProfile extends Component {
         if (!loggedInUser) return <h1>No user to show</h1>
         return (
             <section className="main-user-profile">
-                <UserHeader fullname={loggedInUser.fullname} />
+            <UserHeader fullname={loggedInUser.fullname} />
             </section>
         )
     }
