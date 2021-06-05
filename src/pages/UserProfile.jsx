@@ -28,6 +28,7 @@ class _UserProfile extends Component {
     render() {
         const { games, loggedInUser } = this.props
         const { user } = this.state
+        console.log(games,user);
         console.log(user);
         // const userImg = require(`../assets/img/${loggedInUser.imgUrl}`).default
         if (!loggedInUser) return <h1>No user to show</h1>

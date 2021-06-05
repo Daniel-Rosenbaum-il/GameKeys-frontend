@@ -5,7 +5,7 @@ export function UserHeader({fullname}) {
 
     return (
         <header>
-            <div className="user-profile-header">
+            <div className="user-profile-header container">
                 <img className="hero" src={backgroundImg} alt="" />
                 <div>
                     <img className="avatar" src={userImg} alt=""></img>

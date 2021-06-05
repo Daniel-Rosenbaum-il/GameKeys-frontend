@@ -165,6 +165,12 @@
         transform: translate3d(-49px, 63px, 0px) !important;
         border-radius: 1rem;
     }
+    .hamburger {
+        border: unset;
+        color: white;
+        background-color: #386fbba6;
+        font-size: 0.8rem;
+    }
     @media screen and (max-width: 750px) {
         padding: 0 15px;
         align-items: center;
@@ -190,6 +196,7 @@
         // }
         nav {
             z-index: 99;
+            padding-top: 20px;
             position: absolute;
             top: 0;
             bottom: 0;
@@ -248,6 +255,7 @@
             padding: 0;
             box-shadow: unset;
             .drop-down {
+                width: unset;
                 background-color: unset;
                 /* color: blue; */
                 border: unset;

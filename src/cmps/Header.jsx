@@ -95,7 +95,7 @@ class _Header extends Component {
                 <div onClick={() => this.toggleIsHidden()}
                     className={`screen ${this.state.isHidden && 'hidden-screen'}`} >
                 </div>
-                <button class="btn-menu font-med" onClick={() => this.toggleIsHidden()}>☰</button>
+                <button  class="btn-menu  hamburger" onClick={() => this.toggleIsHidden()}>☰</button>
             </div>
         </header>
     }
