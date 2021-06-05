@@ -1,9 +1,7 @@
 .main-details {
-
-
     .price-container {
         background: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
-        border-radius: 4px;
+        border-radius: 5px;
         font-size: 13px;
         color: #c6d4df;
         padding: 16px;
@@ -23,7 +21,6 @@
         height: 36px;
         transform: translate(-4%, 10%);
 
-     
         .f-price {
             color: #acdbf5;
             font-size: 14px;
@@ -44,7 +41,7 @@
             padding: 0 15px;
             font-size: 15px;
             line-height: 30px;
-            border-radius: 2px;
+            // border-radius: 2px;
             display: block;
             max-width: 80px;
         }
@@ -108,7 +105,7 @@
         display: flex;
         flex-direction: column;
         max-width: 50%;
-        justify-content:space-between;
+        justify-content: space-between;
         @media screen and (max-width: 740px) {
             max-width: 75%;
             margin: 0 auto 35px;
@@ -121,7 +118,7 @@
             color: #67c1f5;
         }
         p {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: roboto-reg;
             color: #c6d4df;
             max-height: 111px;
             overflow: hidden;
@@ -152,7 +149,7 @@
     }
     .buy-container {
         margin-bottom: 50px;
-        @media screen and (min-width:680px) {
+        @media screen and (min-width: 680px) {
             flex-direction: row;
         }
     }

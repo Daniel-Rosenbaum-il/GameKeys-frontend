@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { CartList } from "../cmps/cartCmps/CartList";
 import { addToCart, loadCarts, removeCart, removeCarts } from "../store/actions/cart.actions";
 import { saveOrder, } from "../store/actions/order.actions";
+import { userMsg } from "../store/actions/user.actions";
 import { cartService } from "../services/cart.service";
 import { gameService } from "../services/game.service";
 import { Modal } from "../cmps/UtilCmps/Modal";
@@ -48,6 +49,12 @@ class _GameCart extends Component {
         await Promise.all(carts.map(async cart => {
             const savedOrder = await this.props.saveOrder(cart, buyer)
             socketService.emit('orderSent', savedOrder)
+            localStorage.clear('cart')
+            this.props.userMsg('Your purchase has been made')
+            setTimeout(() => {
+                this.props.userMsg('')
+                this.props.history.push('/profile')
+              }, 2000);
             return savedOrder
         }))
         return console.log('thnx for buying');
@@ -151,6 +158,7 @@ const mapStateToProps = state => {
     return {
         loggedInUser: state.userModule.loggedInUser,
         carts: state.cartModule.carts,
+        msg: state.userModule.msg
     }
 }
 const mapDispatchToProps = {
@@ -159,6 +167,7 @@ const mapDispatchToProps = {
     removeCart,
     removeCarts,
     saveOrder,
+    userMsg,
 }
 
 export const GameCart = connect(mapStateToProps, mapDispatchToProps)(_GameCart)

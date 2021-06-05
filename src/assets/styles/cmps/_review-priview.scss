@@ -2,29 +2,36 @@
     background-color: $clr1;
     display: flex;
     flex-direction: column;
+    
+
     .review-preview {
-        padding: 8px;
-        margin-inline-start: 15px;
+        padding: 12px;
         background-color: #101a26;
-        box-shadow: 0 0 1px 0px white;
+        // box-shadow: 0 0 1px 0px white;
+        width: 400px;
         margin-bottom: 20px;
+        border-radius: 5px;
     }
-    .review-user-preview{
-        display:flex;
+    .review-user-preview {
+        display: flex;
+        align-items: center;
         margin-bottom: 5px;
-        gap:10px;
+        gap: 10px;
         margin-inline-end: 5px;
-        img{
-            width:50px;
-            height:70px;
+        text-transform: capitalize;
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 30px;
         }
     }
     .review-txt {
         max-width: 80ch;
+        color: white;
     }
     .review-game-preview {
         .star-svg {
-            width: 1rem;
+            width: 0.8rem;
         }
     }
 }

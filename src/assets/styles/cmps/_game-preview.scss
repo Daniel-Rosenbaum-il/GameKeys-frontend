@@ -1,19 +1,21 @@
 .game-card {
+    font-size: 12px;
+    font-family: roboto-reg;
     position: relative;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
-    max-width: 250px;
+    background: rgba(0, 0, 0, 0.5);
+    max-width: 255px;
     min-height: 380px;
     max-height: 380px;
-    box-shadow: 0 0 1px 0px $clr7;
+    // box-shadow: 0 0 1px 0px $clr7;
     padding-bottom: 5px;
     .card-img-preview {
         width: 255px;
         padding: 10px;
         img {
-            box-shadow: #67c1f5 0px 0px 1px 0px;
+            // box-shadow: #67c1f5 0px 0px 1px 0px;
         }
     }
     .game-info {
@@ -29,11 +31,12 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 3px;
     }
-    .game-top-info{
-        .star-svg{
-            width:1rem;
-            color:$clr4 ;
+    .game-top-info {
+        .star-svg {
+            width: 14px;
+            color: $clr4;
         }
     }
     img {
@@ -50,33 +53,31 @@
         color: #c6d4df;
     }
     .in-sale {
-        color: #8f98a0;
+        font-size: 14px;
+        position: absolute;
+        bottom: 70px;
+        left: 11px;
+        color: white;
     }
     .f-price {
-        color: $clr4;
+        font-size: 23px;
+        position: absolute;
+        bottom: 40px;
+        left: 11px;
+        color: white;
     }
     h2 {
-        font-size: 17px;
+        font-size: 14px;
         margin-bottom: 3px;
     }
-    h4{
-        display:flex;
-        margin:0;
+    h4 {
+        display: flex;
+        margin: 0;
     }
     .preview-tag {
-        // display: flex;
-        // flex-direction: row;
         text-transform: capitalize;
-        // box-shadow: 0 0px 5px #62b7e8;
-        // color: #67c1f5;
-        // border: 1px solid;
-        // border-radius: 0.5rem;
-        // font-size: 1rem;
-        // margin-inline-start: 10px;
-        // padding: 0px 8px;
-        // background: black;
-        // justify-content: space-between;
         display: inline-block;
+        font-size: 12px;
         line-height: 19px;
         padding: 0 7px;
         color: #67c1f5;
@@ -92,12 +93,15 @@
         text-overflow: ellipsis;
         margin-bottom: 0;
     }
-    p{
+    p {
         margin: 0px 0 0.1em;
     }
-    .rating{
-        font-size:1rem;
-        color:$clr4;
-
+    .rating {
+        font-size: 1rem;
+        color: $clr4;
+        p {
+            font-size: 14px;
+            display: flex;
+        }
     }
 }

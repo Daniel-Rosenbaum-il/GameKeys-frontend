@@ -1,13 +1,13 @@
 * {
     box-sizing: border-box;
 }
-@font-face {
-    font-family: Quantico-Regular;
-    src: url("../../fonts/Quantico/Quantico-Regular.ttf");
-}
+// @font-face {
+//     font-family: Quantico-Regular;
+//     src: url("../../fonts/Quantico/Quantico-Regular.ttf");
+// }
 
 html {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: roboto-reg;
     line-height: 1.6;
 }
 
@@ -25,23 +25,21 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "motiva-sans", sans-serif;
+    font-family: roboto-reg;
     margin-top: 0;
 }
 
 h2 {
     font-weight: 300;
     font-size: rem(14px);
-    text-transform: uppercase;
-    color: #fff;
+    // text-transform: uppercase;
+    color: #ffff;
     margin: 0 0 10px;
     letter-spacing: 0.03em;
     font-weight: normal;
     padding-top: 2px;
 }
 
-section,
-main,
 footer {
     padding: 5px;
 }
@@ -55,7 +53,7 @@ img {
 }
 
 p {
-    margin: 0 0 1em;
+    margin: 0 0 0em;
 }
 
 a {

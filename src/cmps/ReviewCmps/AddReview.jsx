@@ -30,7 +30,10 @@ export class AddReview extends Component {
         ev.preventDefault()
         const { review } = this.state
         if (review.rate < 1) {
-            Modal('GIVE US SOME STARS', 'Please rate your review', 2000)
+            this.props.userMsg('GIVE US SOME STARS')
+            setTimeout(() => {
+                this.props.userMsg('')
+              }, 2000);
             return
         }
         await this.props.onAddReview(review)

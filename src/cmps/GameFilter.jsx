@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+// import { ReactComponent as Search } from '../assets/img/icons/search.svg'
 export class GameFilter extends Component {
     state = {
         filterBy: {
@@ -30,10 +30,10 @@ export class GameFilter extends Component {
         const { txt } = this.state.filterBy
         return (
             <section className="game-filter mb-20">
-                <div className="filter-container flex">
-                    <input className="game-search" autoComplete="off" autoFocus={true}
+                <div className="filter-container container flex">
+                    <input className="game-search" autoComplete="off"
                         type="text" name="txt" value={txt}
-                        placeholder="Search for a game" onChange={this.handleChange} />
+                        placeholder="Search a game" onChange={this.handleChange} />
                     <select className="game-select tag" name="tag" onChange={this.handleChange}>
                         <option value="all">Tag</option>
                         <option value="action">Action</option>
