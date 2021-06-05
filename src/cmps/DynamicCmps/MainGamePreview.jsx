@@ -63,6 +63,7 @@ export class MainGamePreview extends Component {
                                     {game.discount ? <p className="f-price" >${finalPrice.toFixed(2)}</p> : ''}
                                 </div>
                             </div>
+                                <button className="btn-home-buynow">Buy now</button>
                         </div>
                     </div>
                 </Link>

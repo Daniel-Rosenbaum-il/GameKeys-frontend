@@ -2,7 +2,7 @@
 @import "setup/variables";
 @import "setup/functions";
 @import "setup/mixins";
-// @import "setup/typography";
+@import "setup/typography";
 
 // // Basics
 @import "basics/helpers";
@@ -36,5 +36,6 @@
 @import "views/login";
 @import "views/game-app";
 @import "views/user-Profile";
+@import "views/home-page";
 
 

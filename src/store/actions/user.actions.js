@@ -60,3 +60,10 @@ export function logout() {
     }
   }
 }
+
+export function userMsg(msg) {
+  console.log(msg);
+  return dispatch =>{
+    dispatch({ type: 'SET_MSG', msg})
+  }
+}

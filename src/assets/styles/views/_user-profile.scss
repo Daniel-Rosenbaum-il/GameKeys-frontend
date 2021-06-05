@@ -1,12 +1,10 @@
 .user-profile-header {
     display: flex;
     position: relative;
-    gap: 15px;
     .avatar {
         width: 125px;
-        box-shadow: 0px -1px 2px 2px #67c1f5;
-        border-radius: 91px;
-        height: 140px;
+        border-radius: 90px;
+        height: 125px;
         object-fit: cover;
         position: absolute;
         bottom: -16%;
@@ -18,7 +16,7 @@
         font-size: 1.6rem;
     }
     .hero{
-        border-radius: 25px 25px 40px 40px;
+        border-radius: 5px;
         object-position: center;
     }
  
@@ -28,7 +26,29 @@
     text-transform: capitalize;
     margin-top: 60px;
 }
+.user-buy-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.user-game-card{
+    display: flex;
+    width: 220px;
+    padding: 1px;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: flex-start;
+    border-radius: 5px;
 
+    .user-game-card-img{
+        img{
+            margin: 10px ;
+            width: 200px;
+            height: 145px;
+        }
+    }
+}
 // .img-container {
 //     img {
 //         max-width: 100%;

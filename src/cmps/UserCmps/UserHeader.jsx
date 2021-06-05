@@ -1,7 +1,7 @@
 
-export function UserHeader({fullname}) {
+export function UserHeader({fullname, img}) {
     const backgroundImg = require(`../../assets/img/background-user.jpg`).default
-    const userImg = require(`../../assets/img/user2.jpg`).default
+    const userImg = require(`../../assets/img/${img}`).default
 
     return (
         <header>

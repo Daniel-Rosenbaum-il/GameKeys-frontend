@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import { Home } from './pages/Home'
 import { Login } from './pages/Login'
@@ -9,35 +10,45 @@ import { Header } from './cmps/Header'
 import { GameApp } from './pages/GameApp'
 import { GameDetails } from './pages/GameDetails'
 import { About } from './pages/About'
-
+import { userMsg } from './store/actions/user.actions'
 
 import { Footer } from './cmps/Footer'
 import { GameCart } from './pages/GameCart'
 import { UserProfile } from './pages/UserProfile'
 import { socketService } from './services/socket.service'
 
-export class App extends Component {
-  state={
-    msg:''
+class _App extends Component {
+  state = {
+    msg: ''
   }
 
   componentDidMount() {
     socketService.setup()
     socketService.on('gameBought', this.onGameBought)
+    this.setState({ msg: this.props.msg })
   }
   componentWillUnmount() {
     socketService.terminate()
   }
-  onGameBought = (order) => { 
-    this.setState({msg:"An order has been made"});
-  }
 
+  onGameBought = async (order) => {
+    // console.log("game")
+    await this.props.userMsg('An order has been made' )
+    this.setState({ msg: this.props.msg})
+    setTimeout(() => {
+      this.props.userMsg('')
+    }, 2000);
+    this.setState({ msg: this.props.msg})
+    // this.onSetMsg("An order has been made" )
+  }
+  
   render() {
+    console.log('App', this.props.msg);
     return (
       <div className="app">
         <Router>
-          <Header msg={this.state.msg}></Header>
-          <main className="mb-20">
+          <Header msg={this.props.msg}></Header>
+          <main className="">
             <Switch>
               <Route path="/login" component={Login} />
               <Route path="/profile" component={UserProfile} />
@@ -55,3 +66,13 @@ export class App extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    msg: state.userModule.msg
+  }
+}
+const mapDispatchToProps = {
+  userMsg,
+}
+
+export const App = connect(mapStateToProps, mapDispatchToProps)(_App)

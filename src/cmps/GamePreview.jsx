@@ -22,7 +22,7 @@ export function GamePreview({ game }) {
                             <p className="small-description">{game.sDescription}</p>
                         </div>
 
-                        <div className={`game-btm-info ${game.discount>0? "" : "mb-1rem"}`}>
+                        <div className="game-btm-info">
                             <h4>{game.tags.map((tag, idx) => <span className="preview-tag" key={idx}>{tag}  </span>).slice(0, 3)}</h4>
                             <p className="discount">{game.discount? `${game.discount}%` : ''}</p>
                             <div className="flex column">

@@ -39,17 +39,18 @@
 // btn
 .btn-big {
     width: 100%;
-    height: 58px;
+    height: 40px;
     font-weight: 300;
     display: inline-block;
-    font-size: 18px;
-    line-height: 56px;
-    color: #66c0f4;
+    font-size: 14px;
+    line-height: 40px;
+    color: #ffffff;
     text-align: center;
-    border-radius: 3px;
-    box-shadow: 0 0 4px #000;
-    background: linear-gradient(314deg, #1e78a2, transparent), linear-gradient(314deg, #1a5e80, #3a88af);
-    transition: 0.4s;
+    border-radius: 5px;
+    font-family: roboto-medium;
+    background: $clr1;
+    border: 1px solid white;
+    transition: 5s;
     @media screen and (max-width: 550px) {
         width: 105px;
         font-size: 12px;
@@ -112,13 +113,14 @@
 }
 .discount {
     margin: 10px 10px;
-    color: #a4d007;
-    background: #4c6b22;
+    color: #ffffff;
+    background: #6ebf00;
     display: inline-block;
     padding: 0 3px;
     line-height: 34px;
     padding: 0 5px;
-    font-size: 26px;
+    border-radius: 25px;
+    font-size: 15px;
 }
 .in-sale {
     text-decoration: line-through;
@@ -135,8 +137,8 @@
     padding-right: 10px;
     min-width: 94px;
 }
-.light-txt{
-    color:$clr4
+.light-txt {
+    color: $clr4;
 }
 .txt-cap {
     text-transform: capitalize;
@@ -164,15 +166,18 @@
 
 // logo
 .logo {
-    font-size: 4.5rem;
-    color: $clr4;
-    text-shadow: 0 0 2px #ffe1e1;
-    color: #263640;
-    // box-shadow: inset -20px 0px 6px 20px #353535;
-    border-radius: 1rem;
-    text-transform: uppercase;
-    // background: linear-gradient(to bottom, #2e3132b5 5%, #274351 95%);
-    font-family: Quantico-Regular;
+    // font-size: 4.5rem;
+    // color: $clr4;
+    // text-shadow: 0 0 2px #ffe1e1;
+    // color: #263640;
+    // // box-shadow: inset -20px 0px 6px 20px #353535;
+    // border-radius: 1rem;
+    // text-transform: uppercase;
+    // // background: linear-gradient(to bottom, #2e3132b5 5%, #274351 95%);
+    // font-family: roboto-reg;
+    .img {
+        width:200px;
+    }
 }
 .logo::first-letter {
     color: #d2704b;
@@ -237,7 +242,8 @@
 .hero {
     height: 60vh;
     object-fit: cover;
-    border-radius: 25px 25px 40px 40px;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 .s-desc {
     overflow: hidden;

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Video } from '../cmps/video'
 import { gameService } from '../services/game.service'
 import { removeGame, saveGame, addReview } from '../store/actions/game.actions'
-import { loadUsers } from '../store/actions/user.actions'
+import { loadUsers, userMsg } from '../store/actions/user.actions'
 import { Loader } from '../cmps/UtilCmps/Loader'
 import { AddReview } from '../cmps/ReviewCmps/AddReview'
 import { Link } from 'react-router-dom'
@@ -58,7 +58,6 @@ class _GameDetails extends Component {
         const { users, loggedInUser } = this.props
         const { game } = this.state
         if (!game) return <Loader />
-        console.log(game);
         const mainImg = require(`../assets/img/${game.imgs.largeImgUrls[0]}`).default
         const img1 = require(`../assets/img/${game.imgs.largeImgUrls[1]}`).default
         const img2 = require(`../assets/img/${game.imgs.largeImgUrls[2]}`).default
@@ -66,7 +65,6 @@ class _GameDetails extends Component {
         const img4 = require(`../assets/img/${game.imgs.largeImgUrls[4]}`).default
         const finalPrice =  utilService.getFinalPrice(game.price, game.discount)
         const descriptions = this.getDesc()
-        descriptions.map(desc => console.log(desc))
         return (
             <section className="main-details container">
                 {/* <p>All Games > Strategy Games > {game.tags[0]}</p> */}
@@ -153,7 +151,7 @@ class _GameDetails extends Component {
                     </div>
                 </div>
 
-                <div className="flex">
+                <div className="flex mb-20">
 
                     <div>
                         <p className="title" >ABOUT THIS GAME</p>
@@ -166,13 +164,11 @@ class _GameDetails extends Component {
                         {descriptions.map(desc => <p className="desc" >{(desc)}</p>)}
 
                     </div>
-                    <div>
-                        <p>Because you watched the {game.title}</p>
-                    </div>
+                  
 
                 </div>
                 <div className="add-review">
-                    <AddReview loggedInUser={loggedInUser} onAddReview={this.onAddReview} />
+                    <AddReview loggedInUser={loggedInUser} onAddReview={this.onAddReview} userMsg={this.props.userMsg} />
                 </div>
                 <div className="reviews-container">
                     <ReviewList reviews={game.reviews} users={users} loggedInUser={loggedInUser} />
@@ -187,6 +183,7 @@ const mapStateToProps = state => {
         users: state.userModule.users,
         loggedInUser: state.userModule.loggedInUser
 
+
     }
 }
 const mapDispatchToProps = {
@@ -194,5 +191,6 @@ const mapDispatchToProps = {
     removeGame,
     saveGame,
     addReview,
+    userMsg,
 }
 export const GameDetails = connect(mapStateToProps, mapDispatchToProps)(_GameDetails)
