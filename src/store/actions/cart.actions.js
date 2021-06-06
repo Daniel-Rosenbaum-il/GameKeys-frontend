@@ -21,8 +21,7 @@ export function loadCarts() {
 export function addToCart(game) {
     return async dispatch => {
         try {
-            console.log(game,);
-            const newCart = await cartService.add({game})
+            const newCart = await cartService.add({ game })
             if (newCart) dispatch({ type: 'ADD_CART', cart: newCart })
         } catch (err) {
             console.log('CartActions: err in addCart', err)
@@ -44,7 +43,7 @@ export function removeCarts() {
     return async dispatch => {
         try {
             await cartService.removeAll()
-            dispatch({ type: 'REMOVE_CARTS'})
+            dispatch({ type: 'REMOVE_CARTS' })
         } catch (err) {
             console.log('cartActions: err in remove cart', err)
         }

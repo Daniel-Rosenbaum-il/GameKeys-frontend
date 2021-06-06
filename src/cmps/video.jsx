@@ -5,6 +5,7 @@ export function Video({ url }) {
     return (
         <div className="video-responsive">
             <iframe
+                autoPlay={true}
                 width="853"
                 height="480"
                 src={url}
@@ -12,7 +13,7 @@ export function Video({ url }) {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 title="Embedded youtube"
-                // sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation"
+            // sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation"
 
             />
         </div>

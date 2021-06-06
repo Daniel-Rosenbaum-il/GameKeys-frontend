@@ -2,6 +2,7 @@
 import { storageService } from './async-Storage.service'
 import { utilService } from './util.service'
 import { gameService } from './game.service'
+import { userService } from './user.service'
 const STORAGE_KEY = 'cart'
 
 export const cartService = {
@@ -35,13 +36,16 @@ async function removeAll(gameId) {
     // return httpService.delete(`review/${reviewId}`)
     return storageService.removeAll(STORAGE_KEY)
 }
-
-async function add({ game }) {
-    const { price, discount, title, seller } = game
+async function checkIsDuplicate(gameId) {
     const carts = await query()
-    const isDuplicate = carts.some(cart => cart.game._id === game._id)
-    if (isDuplicate) return
-    console.log('game', game);
+    return carts.some(cart => cart.game._id === gameId)
+}
+
+async function add({ game, }) {
+    const { price, discount, title, seller, _id } = game
+    const isDuplicate = await checkIsDuplicate(_id)
+    if (isDuplicate) return null
+
     const img = game.imgs.largeImgUrls[0]
     const cart = {
         game: {
