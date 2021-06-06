@@ -14,7 +14,7 @@ footer {
     .icon {
         margin-inline-end: 5px;
         max-width: 40px;
-       fill:white;
+        fill: white;
     }
 
     .icon-title {
@@ -34,16 +34,15 @@ footer {
     }
 
     .icon-container {
-        height:80px;
+        height: 80px;
         border-radius: 0.3rem;
-        background:#0d151e;
+        background: #0d151e;
         width: 100%;
-        svg{
-            height:37px;
+        svg {
+            height: 37px;
         }
     }
     .logo-footer {
-            width: 300px;
-            height: 65px;
-        }
+        width: 25%;
+    }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 
-export function GameUserPreview({ order }) {
-    const { game } = order
+export function GameUserPreview({ game }) {
+    // const { game } = order
     if (!game) return <h1>You dont have games yet</h1>
     console.log(game.img);
     // const img = 

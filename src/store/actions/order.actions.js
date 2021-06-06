@@ -14,7 +14,7 @@ export function loadOrders(filterBy) {
     }
 }
 export function saveOrder(order, buyer) {
-    console.log('orderActions',buyer);
+    console.log('orderActions',buyer , order);
     return async dispatch => {
         try {
             

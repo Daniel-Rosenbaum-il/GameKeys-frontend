@@ -7,33 +7,45 @@
         height: 125px;
         object-fit: cover;
         position: absolute;
-        bottom: -16%;
+        bottom: -11%;
         right: 50%;
-        transform: translate(50%,0);
+        transform: translate(50%, 0);
+        border: 4px solid #1a2a3d;
     }
 
     h1 {
         font-size: 1.6rem;
     }
-    .hero{
+    .hero {
         border-radius: 5px;
         object-position: center;
     }
- 
 }
-.username-title{
+.username-title {
     text-align: center;
     text-transform: capitalize;
     margin-top: 60px;
+    font-size: 1.3rem;
 }
-.user-buy-list{
+.user-bought-list {
+    h1 {
+        font-size: 2rem;
+    }
+}
+.boughtGamess {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+.user-buy-list {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
-.user-game-card{
+.user-game-card {
     display: flex;
-    width: 220px;
+    width: 210px;
     padding: 1px;
     flex-direction: column;
     align-items: center;
@@ -41,11 +53,63 @@
     justify-content: flex-start;
     border-radius: 5px;
 
-    .user-game-card-img{
-        img{
-            margin: 10px ;
-            width: 200px;
-            height: 145px;
+    .user-game-card-img {
+        img {
+            border-radius: 5px;
+            margin: 10px;
+            width: 195px;
+            height: 140px;
+        }
+    }
+}
+.game-clicked-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    background-color: #5989b4;
+    position: fixed;
+    z-index: 200;
+    top: 35vh;
+    right: 75vh;
+    p {
+        max-width: 50ch;
+    }
+    .game-user-btn {
+        margin-top: 5px;
+        padding: 0 30px;
+        // padding: 5px;
+        background-color: #00ba00;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+}
+.user-sell-container{ 
+    display: flex;
+}
+.user-sell-card-list{
+    display: flex;
+    flex-direction: column;
+}
+.chart{
+    width:250px;
+    max-width: 300px;
+}
+.user-sell-card {
+    width: 500px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    // margin-bottom: 5px;
+    display: flex;
+    gap: 8px;
+    .user-sell-img {
+        img {
+            border-radius: 5px;
+            width: 130px;
+            max-height: 70px;
         }
     }
 }
@@ -55,5 +119,3 @@
 //         height: 50vh;
 //     }
 // }
-
-  
