@@ -23,8 +23,8 @@ export function DetailsPanel({ game, getDateString }) {
                 <InfoBlock title="RELEASE DATE" value={getDateString(releasedAt)} />
                 <InfoBlock title="Seller" value={seller.fullname} />
                 <p className="dark-txt"> Popular user-defined tags for this product:</p>
-                <div className="tag-container mb-20 flex space-evenly">
-                    {tags.map((tag, idx) => <Link to={`/game?tag=${tag}`} key={idx}>{tag} </Link>).slice(0, 3)}
+                <div className="tag-container mb-20 flex">
+                    {tags.map((tag, idx) => <Link className="btn" to={`/game?tag=${tag}`} key={idx}>{tag} </Link>).slice(0, 3)}
                 </div>
             </div>
         </div>
