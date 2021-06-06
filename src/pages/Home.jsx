@@ -16,14 +16,14 @@ class _Home extends Component {
   }
 
   render() {
-    const poster = require('../assets/img/knockout-city/1.jpg').default
+    const poster = require('../assets/img/hero.jpg').default
     const { games } = this.props // Do we need main here??
     if (!games) return <Loader />
     // console.log(games);
     return (
-      <div className="home-page">
+      <div className="home-page ">
         <div className="home-poster">
-        <img className="poster" src={poster} alt="defult"></img>
+        <img className="poster mb-20 " src={poster} alt="defult"></img>
         </div>
         <div className="home-ctg mb-20">
         </div>

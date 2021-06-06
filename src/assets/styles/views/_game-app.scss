@@ -1,6 +1,10 @@
-
-.main-explorer{
-    .hero{
+.main-explorer {
+    .hero {
+        margin-top: 40px;
         object-position: top;
+        @media screen and(min-width:750px) {
+            height: 85vh;
+            margin-top: 0;
+        }
     }
 }

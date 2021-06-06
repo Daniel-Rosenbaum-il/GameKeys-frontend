@@ -4,14 +4,14 @@ import { CtgList } from './DynamicCmps/CtgList.jsx';
 import { VideoGame } from './DynamicCmps/VideoGame.jsx';
 
 
-export function DynamicCmp({ games, type = 'main', src,utilService }) {
+export function DynamicCmp({ games, type = 'main', src, utilService }) {
     // console.log(games);
     // if(!games) return <Loader/>
     const DynamicCmp = () => {
         switch (type) {
             case 'main':
                 return (<div>
-                    <MainGamePreview games={games} utilService={utilService}/>
+                    <MainGamePreview games={games} utilService={utilService} />
                 </div>)
             case 'video':
                 return (<div>
@@ -20,7 +20,7 @@ export function DynamicCmp({ games, type = 'main', src,utilService }) {
             case 'small':
                 return (<>
                     <CtgList />
-                    <h2 className="mb-20 container ">FROM DEVELOPERS AND PUBLISHERS THAT YOU KNOW</h2>
+                    <h2 className="mb-20 container ctg-s-title ">From best sellers</h2>
                     <div className="preview-container flex container  gap-20 ">
                         {games.map((game, idx) => {
                             if (idx > 3) return

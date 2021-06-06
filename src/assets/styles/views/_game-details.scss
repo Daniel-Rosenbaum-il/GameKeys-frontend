@@ -9,6 +9,15 @@
         margin-bottom: 28px;
         min-width: 65%;
         position: relative;
+        h2 {
+            font-size: 1.7rem;
+        }
+    }
+    .top-nav {
+        margin-top: 60px;
+        @media screen and(min-width:750px) {
+            margin-top: 0;
+        }
     }
 
     .price-info {
@@ -20,14 +29,16 @@
         padding: 0;
         height: 36px;
         transform: translate(-4%, 10%);
-
+        border-radius: 5px;
         .f-price {
             color: #acdbf5;
             font-size: 14px;
             padding-inline-end: 6px;
         }
     }
-
+    .desc {
+        max-width: 60ch;
+    }
     .sign-in {
         background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
         color: #acb2b8;
@@ -41,9 +52,12 @@
             padding: 0 15px;
             font-size: 15px;
             line-height: 30px;
-            // border-radius: 2px;
             display: block;
             max-width: 80px;
+        }
+        .btn-add-review {
+            width: 116px;
+            max-width: 116px;
         }
     }
     h1 {
@@ -59,16 +73,11 @@
         cursor: pointer;
     }
     .video-container {
-        .player-wrapper,
-        img {
-            // margin-bottom: 20px;
-            @media screen and (min-width: 963px) {
-                // margin-bottom: 30px;
-            }
-        }
         @media screen and (max-width: 740px) {
-            // margin-bottom: 20px;
             min-width: 100%;
+            .details-container {
+                flex-direction: column-reverse;
+            }
         }
     }
     .f-price {
@@ -77,10 +86,6 @@
     .details-container {
         position: relative;
         background: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.4) 100%);
-
-        @media screen and (max-width: 740px) {
-            flex-direction: column-reverse;
-        }
     }
     .img-container {
         gap: 5px;

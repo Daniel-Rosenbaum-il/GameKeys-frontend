@@ -2,6 +2,7 @@
 import { storageService } from './async-Storage.service'
 import { utilService } from './util.service'
 import { gameService } from './game.service'
+import { userService } from './user.service'
 const STORAGE_KEY = 'cart'
 
 export const cartService = {
@@ -36,33 +37,37 @@ async function removeAll(gameId) {
     return storageService.removeAll(STORAGE_KEY)
 }
 
-async function add({ game }) {
-    const { price, discount, title, seller,serialKey } = game
-    const carts = await query()
-    const isDuplicate = carts.some(cart => cart.game._id === game._id)
-    if (isDuplicate) return
-    console.log('game', game);
-    const img = game.imgs.largeImgUrls[0]
-    const cart = {
-        game: {
-            _id: game._id,
-            price,
-            discount,
-            title,
-            sellerId: seller._id,
-            img,
-            serialKey
-        },
+    async function checkIsDuplicate(gameId) {
+        const carts = await query()
+        return carts.some(cart => cart.game._id === gameId)
     }
-    const addedCart = storageService.post(STORAGE_KEY, cart)
-    return addedCart
-}
-async function getGamesByCarts() {
-    const games = await gameService.getGames()
-    const carts = await query()
-    const filterGames = carts.reduce((acc, cart) => {
-        const game = games.filter(game => game._id === cart.game._id)
-        return [...acc, ...game]
-    }, [])
-    return filterGames
-}
+
+    async function add({ game, }) {
+        const { price, discount, title, seller, _id, serialKey } = game
+        const isDuplicate = await checkIsDuplicate(_id)
+        if (isDuplicate) return null
+
+        const img = game.imgs.largeImgUrls[0]
+        const cart = {
+            game: {
+                _id: game._id,
+                price,
+                discount,
+                title,
+                sellerId: seller._id,
+                img,
+                serialKey
+            },
+        }
+        const addedCart = storageService.post(STORAGE_KEY, cart)
+        return addedCart
+    }
+    async function getGamesByCarts() {
+        const games = await gameService.getGames()
+        const carts = await query()
+        const filterGames = carts.reduce((acc, cart) => {
+            const game = games.filter(game => game._id === cart.game._id)
+            return [...acc, ...game]
+        }, [])
+        return filterGames
+    }

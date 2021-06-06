@@ -22,8 +22,7 @@ class _GameCart extends Component {
     async componentDidMount() {
         window.scrollTo(0, 0)
         const game = await gameService.getById(this.props.match.params.gameId)
-        console.log(game);
-        await this.props.addToCart(game)
+        await this.props.addToCart(game, this.props.loggedInUser)
         await this.props.loadCarts()
         this.setState({ carts: this.props.carts })
         const games = await cartService.getGamesByCarts(this.props.carts)
@@ -54,7 +53,7 @@ class _GameCart extends Component {
             setTimeout(() => {
                 this.props.userMsg('')
                 this.props.history.push('/profile')
-              }, 2000);
+            }, 2000);
             return savedOrder
         }))
         return console.log('thnx for buying');
@@ -72,14 +71,17 @@ class _GameCart extends Component {
     }
     toggleIsCheckout = () => {
         if (!this.props.loggedInUser) {
-            Modal('👍', 'Log in to continue the purchase', 1500)
+            // Modal('👍', 'Log in to continue the purchase', 1500)
+            this.props.userMsg('Log in to continue the purchase')
+
             return setTimeout(() => {
                 this.props.history.push('/login')
             }, 1500)
         }
         const { carts } = this.state
         if (!carts.length) {
-            return Modal('🛒', 'Added to the cart', 2000)
+            this.props.userMsg('Added to the cart')
+            // return Modal('🛒', 'Added to the cart', 2000)
         }
         this.setState({ isCheckout: true })
     }

@@ -23,16 +23,16 @@ export function CartCheckout({ totalPrice, loggedInUser, onCheckOut }) {
                     <p className="dark-txt">Payment method:</p>
                     <p className="visa" >Visa ending in 4758</p>
                 </div>
-                <div className="flex gap-10 pad-5">
+                <div className="flex gap-10 pad-5 ">
                     <p className="dark-txt" >Gift options:</p>
-                    <p>This purchase is for your own account.</p>
+                    <p >This purchase is for your own account.</p>
                 </div>
                 <div className="flex gap-10 pad-5">
                     <p className="dark-txt" >Game keys account:</p>
                     <p className="txt-cap" >{loggedInUser.username}</p>
                 </div>
                 <div className="align-end pad-15">
-                    <button className="btn-med btn-cta" onClick={() => onCheckOut()}>Purchase</button>
+                    <button className="btn-med btn btn-success" onClick={() => onCheckOut()}>Purchase</button>
                 </div>
             </div>
         </>

@@ -20,7 +20,7 @@ class _Header extends Component {
     }
 
     flexClass = 'flex space-around space-between align-center'
-    
+
     onLogout = async () => {
         try {
             await this.props.logout()
@@ -32,8 +32,8 @@ class _Header extends Component {
     render() {
         const logo = require('../assets/img/logo/GameKeys-BIG.png').default
         const { loggedInUser } = this.props;
-        return <header className={`main-header`}>
-            {this.props.msg && <UserMsg msg={this.props.msg}/>}
+        return <header className={`main-header `}>
+            {this.props.msg && <UserMsg msg={this.props.msg} />}
             <div className={`container ${this.flexClass}`}>
                 {/* {this.props.msg && <div className="user-msg"></div>} */}
                 <Link to="/"><img src={logo} className="logo-img" alt=""></img></Link>
@@ -95,7 +95,7 @@ class _Header extends Component {
                 <div onClick={() => this.toggleIsHidden()}
                     className={`screen ${this.state.isHidden && 'hidden-screen'}`} >
                 </div>
-                <button className="btn-menu font-med" onClick={() => this.toggleIsHidden()}>☰</button>
+                <button className="btn-menu " onClick={() => this.toggleIsHidden()}>☰</button>
             </div>
         </header>
     }

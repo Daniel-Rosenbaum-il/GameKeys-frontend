@@ -7,6 +7,8 @@
     }
     .btn-menu {
         display: none;
+        border: unset;
+        background-color: white;
     }
 
     a {
@@ -68,7 +70,7 @@
         background: black;
     }
     .user-menu {
-        transform: translate3d(-49px, 63px, 0px);
+        transform: translate3d(-71.1px, 35.1px, 0px);
         display: block;
         opacity: 1;
         z-index: 200;
@@ -124,17 +126,15 @@
         .notification-message .timestamp {
             font-size: rem(8px);
         }
+        span {
+            color: lightslategrey;
+        }
         li {
             font-size: 11px;
+            color: $clr4;
             padding: 10px;
             transition: 0.4s;
         }
-        // li:hover {
-        // background-color: #3a587c;
-        // }
-        // a:hover {
-        // background-color: #1a2a3de8;
-        // }
     }
     .notification::after {
         padding: 2.5px 5px;
@@ -144,18 +144,25 @@
         border: 1.5px #fff solid;
     }
     .popover-header {
-        // background: repeating-linear-gradient(45deg, #3b5b91, transparent 100px);
-        background: linear-gradient(45deg, #42ffeb, transparent);
+        background-color: #3c5470;
+        color: white;
         border-radius: 1rem 1rem 0 0;
-        color: $clr1;
         text-shadow: 0 0 $clr7;
+        font-size: 0;
+        border: unset;
+    }
+    .bs-popover-auto[x-placement^="bottom"] > .arrow::after,
+    .bs-popover-bottom > .arrow::after {
+        right: -0.1px;
     }
     .popover-body {
         border-radius: 0 0 0.9rem 0.9rem;
         background-color: #3c5470;
         .btn-link {
+            width: 100%;
             box-shadow: 0, 0, 0px 1px $clr7;
-            background-color: #3a6290;
+            background: #1015196e;
+            color: white;
             margin-bottom: 5px;
             color: $clr7;
             text-decoration: none;
@@ -167,20 +174,27 @@
             // overflow: unset;
             .notification-message {
                 // background-color: #1a2a3d00;
-                background-color: #b0fff7;
-                color: #1a2a3d;
+                background: linear-gradient(45deg, #162624, transparent);
+                color: white;
             }
             // .notification-message:hover {
             // background-color: #1a2a3d00;
             // }
         }
         .btn-link:hover {
-            color: #ffd46b;
+            color: #c4beff;
         }
     }
     .bs-popover-bottom {
-        transform: translate3d(-49px, 63px, 0px) !important;
+        transform: translate3d(-89px, 34px, 0px);
+        width: 209px;
         border-radius: 1rem;
+    }
+    .hamburger {
+        border: unset;
+        color: white;
+        background-color: #386fbba6;
+        font-size: 0.8rem;
     }
     @media screen and (max-width: 750px) {
         padding: 0 15px;
@@ -189,7 +203,7 @@
         right: 0;
         top: 0;
         left: 0;
-        padding-bottom: 13px;
+        padding: 13px;
         z-index: 9;
         .screen {
             background-color: #0000004f;
@@ -202,11 +216,15 @@
             background-color: #00000000;
         }
 
+        #popover-contained {
+            display: none;
+        }
         // > div:first-of-type {
         //     justify-content: unset;
         // }
         nav {
             z-index: 99;
+            padding-top: 20px;
             position: absolute;
             top: 0;
             bottom: 0;
@@ -265,6 +283,7 @@
             padding: 0;
             box-shadow: unset;
             .drop-down {
+                width: unset;
                 background-color: unset;
                 /* color: blue; */
                 border: unset;
@@ -280,13 +299,15 @@
         }
     }
     .user-msg {
-        padding:12px;
-        width:300px;
+        font-size: 1.2rem;
+        padding: 12px;
+        width: 300px;
         position: fixed;
-        bottom: 2vh;
-        left: 100px;
+        bottom: 3vh;
+        left: 50px;
         z-index: 500;
-        background-color: #121418;
-        color:white;
+        border: 1px solid white;
+        background-color: #218838;
+        color: white;
     }
 }
