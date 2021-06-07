@@ -50,54 +50,57 @@ export class MainGamePreview extends Component {
         const finalPrice = utilService.getFinalPrice(game.price, game.discount)
         return (
             <>
-                <div className="main-game-preview container mb-20">
-                    <button className="btn btn-prev" onClick={() => this.changeGameByDiff(-1)} >&#10094;</button>
-                    <Link to={`/game/${game._id}`}>
+                <div>
 
-                        <div className="preview-container flex column">
-                            <div className={`m-img ${classTransition}`} >
-                                <img src={mainImg} alt="" />
-                            </div>
+                    <div className="main-game-preview container mb-20">
+                        <button className="btn btn-prev" onClick={() => this.changeGameByDiff(-1)} >&#10094;</button>
+                        <Link to={`/game/${game._id}`}>
 
-                            <div className="imgs-container flex column">
-                                <img onMouseOver={() => this.changeImg(1)}
-                                    onMouseLeave={() => this.changeImg(0)}
-                                    className={classTransition} src={imgs[1]} />
-                                <img onMouseOver={() => this.changeImg(2)}
-                                    onMouseLeave={() => this.changeImg(0)}
-                                    className={classTransition} src={imgs[2]} />
-
-                                <h2>{game.title}</h2>
-                                <p>Release date:{releasedAt}</p>
-                            </div>
-
-                            <div className="imgs-container flex column">
-                                <img onMouseOver={() => this.changeImg(3)}
-                                    onMouseLeave={() => this.changeImg(0)}
-                                    className={classTransition} src={imgs[3]} />
-                                <img onMouseOver={() => this.changeImg(4)}
-                                    onMouseLeave={() => this.changeImg(0)}
-                                    className={classTransition} src={imgs[4]} />
-
-                                <div className="preview-price">
-                                    <p className={`discount ${!game.discount && 'hidden'}`}>{game.discount ? `${game.discount}%` : '1'}</p>
-                                    <div className="flex column">
-                                        <p className={`${!game.discount && 'hidden'}`} >${game.price.toFixed(2)}</p>
-                                        <p className={`f-price `} >${finalPrice.toFixed(2)}</p>
-                                    </div>
+                            <div className="preview-container flex column">
+                                <div className={`m-img ${classTransition}`} >
+                                    <img src={mainImg} alt="" />
                                 </div>
-                                <button className="btn-home-buy-now btn-success">Buy now</button>
+
+                                <div className="imgs-container flex column">
+                                    <img onMouseOver={() => this.changeImg(1)}
+                                        onMouseLeave={() => this.changeImg(0)}
+                                        className={classTransition} src={imgs[1]} />
+                                    <img onMouseOver={() => this.changeImg(2)}
+                                        onMouseLeave={() => this.changeImg(0)}
+                                        className={classTransition} src={imgs[2]} />
+
+                                    <h2>{game.title}</h2>
+                                    <p>Release date:{releasedAt}</p>
+                                </div>
+
+                                <div className="imgs-container flex column">
+                                    <img onMouseOver={() => this.changeImg(3)}
+                                        onMouseLeave={() => this.changeImg(0)}
+                                        className={classTransition} src={imgs[3]} />
+                                    <img onMouseOver={() => this.changeImg(4)}
+                                        onMouseLeave={() => this.changeImg(0)}
+                                        className={classTransition} src={imgs[4]} />
+
+                                    <div className="preview-price">
+                                        <p className={`discount ${!game.discount && 'hidden'}`}>{game.discount ? `${game.discount}%` : '1'}</p>
+                                        <div className="flex column">
+                                            <p className={`${!game.discount && 'hidden'}`} >${game.price.toFixed(2)}</p>
+                                            <p className={`f-price `} >${finalPrice.toFixed(2)}</p>
+                                        </div>
+                                    </div>
+                                    <button className="btn-home-buy-now btn-success">Buy now</button>
+                                </div>
                             </div>
-                        </div>
-                    </Link>
-                    <button className=" btn btn-next" onClick={() => this.changeGameByDiff(1)}> &#10095;</button>
-                </div>
-                <div className="carousel-nav flex justify-center gap-10">
-                    {games.map((game, idx) =>
-                        <div key={'ball' + idx}
-                            onClick={() => this.changeGameByIdx(idx)}
-                            className={`item ${gameIdx === idx && 'active'} `}
-                        ></div>)}
+                        </Link>
+                        <button className=" btn btn-next" onClick={() => this.changeGameByDiff(1)}> &#10095;</button>
+                    </div>
+                    <div className="carousel-nav flex justify-center gap-10">
+                        {games.map((game, idx) =>
+                            <div key={'ball' + idx}
+                                onClick={() => this.changeGameByIdx(idx)}
+                                className={`item ${gameIdx === idx && 'active'} `}
+                            ></div>)}
+                    </div>
                 </div>
             </>
         )

@@ -3,26 +3,35 @@ import { MainGamePreview } from './DynamicCmps/MainGamePreview.jsx'
 import { CtgList } from './DynamicCmps/CtgList.jsx';
 import { VideoGame } from './DynamicCmps/VideoGame.jsx';
 
+var gGames = []
+// const gIdx = 0
+export function DynamicCmp({ games, type = 'main', src, utilService }) {
 
-export function DynamicCmp({ games, type = 'main', src,utilService }) {
-    // console.log(games);
-    // if(!games) return <Loader/>
+
+    console.log(gGames, 'gGamesgGames');
+    let countGameToCut = 0
+    if (type === 'main') countGameToCut = 5
+    if (type === 'video') countGameToCut = 6
+    else countGameToCut = 4
+    if (gGames.length < countGameToCut) {
+        gGames = [...games]
+    }
+    const filterGames = gGames.splice(0, countGameToCut)
     const DynamicCmp = () => {
         switch (type) {
             case 'main':
-                return (<div>
-                    <MainGamePreview games={games} utilService={utilService}/>
-                </div>)
+                return (
+                    <MainGamePreview games={filterGames} utilService={utilService} />
+                )
             case 'video':
-                return (<div>
-                    <VideoGame src={src} />
-                </div>)
+                return (
+                    <VideoGame games={filterGames} />
+                )
             case 'small':
                 return (<>
                     <CtgList />
-                    <h2 className="mb-20 container ctg-s-title ">FROM DEVELOPERS AND PUBLISHERS THAT YOU KNOW</h2>
                     <div className="preview-container flex container  gap-20 ">
-                        {games.map((game, idx) => {
+                        {filterGames.map((game, idx) => {
                             if (idx > 3) return
                             return <SmallGamePreview game={game} key={game._id} />
                         })}

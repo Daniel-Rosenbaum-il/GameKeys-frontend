@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Video } from '../video'
+import { Video } from '../Video'
 import { InfoBlock } from '../InfoBlock'
 export function DetailsPanel({ game, getDateString }) {
     const { imgs, videoUrls, description, releasedAt, seller, tags } = game

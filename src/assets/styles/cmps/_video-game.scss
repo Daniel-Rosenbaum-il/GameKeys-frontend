@@ -1,0 +1,26 @@
+.video-container.grid-container {
+    grid-template-columns: repeat(3, minmax(86px, 1fr));
+}
+.game-video-container {
+    box-shadow: 0 0 1px 0px #03a9f4;
+    padding: 5px;
+    border-radius: 0.6rem;
+    a {
+        color: $clr4;
+        font-size: 1.2rem;
+        width: 100%;
+        display: block;
+        background: $bgc2;
+    }
+    .video-container {
+        background: $bgc3;
+        // box-shadow: 0 0 1px 0px #03a9f4;
+        padding: 5px;
+        border-radius: 0.6rem;
+       
+    }
+}
+
+// .link {
+//     // background: $bgc3;
+// }

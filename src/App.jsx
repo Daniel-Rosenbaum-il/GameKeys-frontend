@@ -53,7 +53,6 @@ class _App extends Component {
             <Switch>
               <Route path="/login" component={Login} />
               <Route path="/profile" component={UserProfile} />
-              <Route path="/GameSwipe" component={GameSwipe} />
               <Route path="/game/order/:gameId" component={GameCart} />
               <Route path="/game/:gameId" component={GameDetails} />
               <Route path="/game" component={GameApp} />

@@ -14,7 +14,6 @@ export function Video({ url }) {
                 allowFullScreen
                 title="Embedded youtube"
             // sandbox="allow-forms allow-scripts allow-pointer-lock allow-same-origin allow-top-navigation"
-
             />
         </div>
     );
