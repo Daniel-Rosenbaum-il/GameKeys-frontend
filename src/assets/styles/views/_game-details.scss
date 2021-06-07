@@ -152,6 +152,10 @@
         a {
             color: $clr7;
         }
+        .btn-light:hover {
+            background: rgba(103, 193, 245, 0.2);
+            color: #67c1f5;
+        }
     }
     .buy-container {
         margin-bottom: 50px;

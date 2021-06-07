@@ -220,20 +220,20 @@
     transition: 0.4s;
 
     &:hover {
-        // background: linear-gradient(to right, #8ed629 5%, #6aa621 95%);
         color: $clr7;
     }
 }
 .btn-light {
     border-radius: 2px;
-    // display: block;
     background: rgba(103, 193, 245, 0.2);
     color: $clr4;
     cursor: pointer;
     transition: 0.4s;
     &:hover {
-        background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
-        color: $clr7;
+        // background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
+        // color: $clr7;
+        // background: rgba(103, 193, 245, 0.2);
+        // color: $clr4;
     }
 }
 .btn-remove {
