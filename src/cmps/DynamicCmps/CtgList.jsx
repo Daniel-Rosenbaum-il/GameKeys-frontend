@@ -3,15 +3,18 @@ export function CtgList() {
     return (
         <>
             <h2 className="ctg-l-title mb-20 container">Browse game keys</h2>
-            <div className="ctg-list  flex container gap-20 mb-20">
+            <div className="ctg-list  flex container gap-20 mb-30">
                 <Link className="btn-big " to="/game?tag=adventure" >Adventure</Link>
                 <Link className="btn-big " to="/game?tag=racing" >Racing</Link>
                 <Link className="btn-big " to="/game?tag=action" >Action</Link>
                 <Link className="btn-big " to="/game?tag=sports" >Sports</Link>
             </div>
-            <div className="container flex" >
+            <div className="container flex space-between" >
                 <h2 className="mb-20 ctg-s-title ">FROM DEVELOPERS AND PUBLISHERS THAT YOU KNOW</h2>
-                <Link className="btn align-end btn-outline-info title" to="/game">See all</Link>
+                <div>
+                <Link className="btn btn-view align-end  title cap" to="/game"> View all</Link>
+
+                </div>
             </div>
         </>
     )
