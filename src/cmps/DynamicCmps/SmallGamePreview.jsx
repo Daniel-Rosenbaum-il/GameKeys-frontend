@@ -3,6 +3,7 @@ import { utilService } from '../../services/util.service'
 export function SmallGamePreview({ game }) {
     const gameImg = require(`../../assets/img/${game.imgs.largeImgUrls[0]}`).default
     const finalPrice = utilService.getFinalPrice(game.price, game.discount)
+    console.log('hereeeeeeeee');
     return (
         <div className="small-game-preview space-between">
             <div>

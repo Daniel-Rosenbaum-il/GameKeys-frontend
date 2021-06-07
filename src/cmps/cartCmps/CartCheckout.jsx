@@ -32,7 +32,7 @@ export function CartCheckout({ totalPrice, loggedInUser, onCheckOut }) {
                     <p className="txt-cap" >{loggedInUser.username}</p>
                 </div>
                 <div className="align-end pad-15">
-                    <button className="btn-med btn btn-success" onClick={() => onCheckOut()}>Purchase</button>
+                    <button className="btn-med btn btn-success" onClick={() => onCheckOut(loggedInUser._id)}>Purchase</button>
                 </div>
             </div>
         </>

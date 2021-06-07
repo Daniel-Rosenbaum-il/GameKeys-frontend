@@ -20,7 +20,8 @@ import { GameSwipe } from './cmps/UtilCmps/GameSwipe'
 
 class _App extends Component {
   state = {
-    msg: ''
+    msg: '',
+    isUpdate:null
   }
 
   async componentDidMount(){
@@ -36,7 +37,7 @@ class _App extends Component {
   onGameBought = async (order) => {
     console.log('sockettttt');
     await this.props.userMsg('An order has been made')
-    this.setState({ msg: this.props.msg})
+    this.setState({ msg: this.props.msg, isUpdate:true})
     setTimeout(() => {
       this.props.userMsg('')
     }, 5000);
@@ -60,12 +61,11 @@ class _App extends Component {
     return (
       <div className="app">
         <Router>
-          <Header msg={this.props.msg}></Header>
+          <Header msg={this.props.msg} isUpdate={this.state.isUpdate}></Header>
           <main className="">
             <Switch>
               <Route path="/login" component={Login} />
               <Route path="/profile" component={UserProfile} />
-              <Route path="/GameSwipe" component={GameSwipe} />
               <Route path="/game/order/:gameId" component={GameCart} />
               <Route path="/game/:gameId" component={GameDetails} />
               <Route path="/game" component={GameApp} />

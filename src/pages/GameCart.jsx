@@ -17,7 +17,7 @@ class _GameCart extends Component {
         carts: [],
         games: [],
         isCheckout: false,
-        buyToUser: null,
+        buyToUserId: null,
         frinedsList: null
     }
 
@@ -44,17 +44,18 @@ class _GameCart extends Component {
         this.setState({ carts: [] })
     }
 
-    onCheckOut = async (buyToUser) => {
+    onCheckOut = async (buyToUserId) => {
+        if (!buyToUserId) return
         const { carts } = this.state
+        const { loggedInUser } = this.props
         let buyer;
-        if (buyToUser) {
-            buyer = { _id: buyToUser }
-        } else {
-            buyer = this.props.loggedInUser
-        }
+        if (buyToUserId !== loggedInUser._id) {
+            buyer = { _id: buyToUserId }
+        } else buyer = loggedInUser
+
         await Promise.all(carts.map(async cart => {
             const savedOrder = await this.props.saveOrder(cart, buyer)
-            await buyToUser ? socketService.emit('giftSent', buyToUser) : socketService.emit('orderSent', savedOrder)
+            await buyToUserId !== loggedInUser._id ? socketService.emit('giftSent', buyToUserId) : socketService.emit('orderSent', savedOrder)
             // socketService.emit('orderSent',savedOrder)
             // await socketService.emit('orderSent', savedOrder)
             this.props.userMsg('Your purchase has been made')
@@ -97,12 +98,13 @@ class _GameCart extends Component {
     }
     // onPlaceOrder 
     onFriendSelect = () => {
+        console.log(this.state);
         this.setState({ frinedsList: this.props.loggedInUser.friends })
         console.log(this.props.loggedInUser.friends);
     }
     render() {
         const { carts, games, isCheckout, frinedsList } = this.state
-        console.log(frinedsList);
+        console.log('this.state', this.state);
         const { loggedInUser } = this.props
         const img = require('../assets/img/sims4/1.jpg').default
         const totalPrice = this.getTotalPrice(games)

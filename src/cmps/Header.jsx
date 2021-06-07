@@ -7,20 +7,44 @@ import NotifyMe from 'react-notification-timeline';
 import { UserMsg } from './UtilCmps/UserMsg'
 class _Header extends Component {
     state = {
-        isHidden: true
+        isHidden: true,
+        data: []
     }
-
+    // componentDidMount() {
+    //     if (this.props.msg) {
+    //         this.updateData(this.props.msg)
+    //     }
+    // }
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.msg){
+            console.log(prevProps.msg);
+            if(prevProps.msg === "You got a gift!!!")
+            this.updateData(prevProps.msg);
+        }
+    }
+    
+    updateData(msg) {
+        console.log('updateDataaaaaaaaaaaaaa',msg);
+        const data =
+        {
+            "update": msg,
+            "timestamp": Date.now()
+        }
+        this.setState({ data: [...this.state.data, data] })
+        
+    }
+    
     toggleIsHidden = () => {
         const { isHidden } = this.state
         this.setState({ isHidden: !isHidden })
     }
-
-    readMsg = (prop) => {
-        console.log('read');
+    
+    readAll = () => {
+        this.setState({data:[]});
     }
-
+    
     flexClass = 'flex space-around space-between align-center'
-
+    
     onLogout = async () => {
         try {
             await this.props.logout()
@@ -28,12 +52,15 @@ class _Header extends Component {
             console.log('err', err);
         }
     }
-
+    
     render() {
+        console.log('State-headerrrrrr', this.state);
+        // console.log('State-headerrrrrr', this.props);
+        const {data} = this.state
         const logo = require('../assets/img/logo/GameKeys-BIG.png').default
         const { loggedInUser } = this.props;
         return <header className={`main-header`}>
-            {this.props.msg && <UserMsg msg={this.props.msg}/>}
+            {this.props.msg && <UserMsg msg={this.props.msg} />}
             <div className={`container ${this.flexClass}`}>
                 {/* {this.props.msg && <div className="user-msg"></div>} */}
                 <Link to="/"><img src={logo} className="logo-img" alt=""></img></Link>
@@ -53,20 +80,7 @@ class _Header extends Component {
                     {loggedInUser && <div className="user-menu-container flex " >
                         <div className="flex  align-center" >
                             <NotifyMe
-                                data={[
-                                    {
-                                        "update": "Product sold🛒",
-                                        "timestamp": 1596119688264
-                                    },
-                                    {
-                                        "update": "Product sold🛒",
-                                        "timestamp": 1596119998264
-                                    },
-                                    {
-                                        "update": "Product sold🛒",
-                                        "timestamp": 1596119998264
-                                    },
-                                ]}
+                                data={data}
                                 storageKey='notific_key'
                                 notific_key='timestamp'
                                 notific_value='update'
@@ -75,7 +89,7 @@ class _Header extends Component {
                                 showDate={true}
                                 size={18}
                                 color="#b9e4fd"
-                                markAsReadFn={() => this.readMsg()}
+                                markAsReadFn={() => this.readAll()}
                             />
                             <img onClick={() => this.toggleIsHidden()} src={require(`../assets/img/${loggedInUser.imgUrl}`).default} alt="" />
                         </div>

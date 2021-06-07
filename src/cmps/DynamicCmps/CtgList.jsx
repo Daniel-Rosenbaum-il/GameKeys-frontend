@@ -9,6 +9,10 @@ export function CtgList() {
                 <Link className="btn-big " to="/game?tag=action" >Action</Link>
                 <Link className="btn-big " to="/game?tag=sports" >Sports</Link>
             </div>
+            <div className="container flex" >
+                <h2 className="mb-20 ctg-s-title ">Best sellers</h2>
+                <Link className="btn align-end btn-outline-info title" to="/game">See all</Link>
+            </div>
         </>
     )
 }

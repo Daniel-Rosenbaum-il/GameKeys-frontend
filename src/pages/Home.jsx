@@ -29,7 +29,7 @@ class _Home extends Component {
         </div>
         <DynamicCmp games={games} utilService={utilService} type={'main'} />
         <DynamicCmp games={games} type={'small'} />
-        {/* <DynamicCmp src={''} type={'video'} /> */}
+        <DynamicCmp games={games} src={''} type={'video'} />
 
         {/* <div className="game-video container ">
           <video className="container " controls autoPlay={false}>
