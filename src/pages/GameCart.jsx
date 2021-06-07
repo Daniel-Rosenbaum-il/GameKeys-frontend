@@ -18,6 +18,7 @@ class _GameCart extends Component {
         games: [],
         isCheckout: false,
         buyToUser: null,
+        frinedsList: null
     }
 
     async componentDidMount() {
@@ -53,13 +54,13 @@ class _GameCart extends Component {
         }
         await Promise.all(carts.map(async cart => {
             const savedOrder = await this.props.saveOrder(cart, buyer)
-            await buyToUser? socketService.emit('giftSent', buyToUser) : socketService.emit('orderSent', savedOrder)
+            await buyToUser ? socketService.emit('giftSent', buyToUser) : socketService.emit('orderSent', savedOrder)
             // socketService.emit('orderSent',savedOrder)
             // await socketService.emit('orderSent', savedOrder)
             this.props.userMsg('Your purchase has been made')
             setTimeout(() => {
                 this.props.userMsg('')
-                this.props.history.push('/profile')
+                // this.props.history.push('/profile')
             }, 2000);
             return savedOrder
         }))
@@ -95,10 +96,13 @@ class _GameCart extends Component {
         this.setState({ isCheckout: true })
     }
     // onPlaceOrder 
-
+    onFriendSelect = () => {
+        this.setState({ frinedsList: this.props.loggedInUser.friends })
+        console.log(this.props.loggedInUser.friends);
+    }
     render() {
-        const { carts, games, isCheckout } = this.state
-        console.log(carts);
+        const { carts, games, isCheckout, frinedsList } = this.state
+        console.log(frinedsList);
         const { loggedInUser } = this.props
         const img = require('../assets/img/sims4/1.jpg').default
         const totalPrice = this.getTotalPrice(games)
@@ -132,6 +136,8 @@ class _GameCart extends Component {
                                 {!isCheckout && <CartInfo
                                     toggleIsCheckout={this.toggleIsCheckout}
                                     totalPrice={totalPrice}
+                                    onFriendSelect={this.onFriendSelect}
+                                    frinedsList={frinedsList}
                                     onCheckOut={this.onCheckOut}
                                     onUpdateCarts={this.onUpdateCarts} />}
 
