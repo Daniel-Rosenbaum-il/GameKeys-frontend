@@ -86,23 +86,30 @@
         border-radius: 5px;
     }
 }
-.user-sell-container{ 
-    display: flex;
-}
-.user-sell-card-list{
+.user-sell-container {
+margin-bottom: 20px}
+.user-sell-card-list {
     display: flex;
     flex-direction: column;
 }
-.chart{
-    width:250px;
-    max-width: 300px;
+.main-chart {
+    h1 {
+        margin-bottom: 20px;
+    }
+    .chart-preview {
+        max-width: 400px;
+        display: flex;
+        gap: 50px;
+    }
 }
 .user-sell-card {
-    width: 500px;
+    display: flex;
+    // flex-direction: column;
+    max-width: 435px;
     padding: 5px;
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0.5);
-    // margin-bottom: 5px;
+    margin-bottom: 5px;
     display: flex;
     gap: 8px;
     .user-sell-img {

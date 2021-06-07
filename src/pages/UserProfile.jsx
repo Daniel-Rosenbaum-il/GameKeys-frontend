@@ -51,8 +51,8 @@ class _UserProfile extends Component {
                     {/* <UserGameList orders={user.orders} /> */}
                     <DanDUserGameList orders={user.orders} onGameClicked={this.onGameClicked} />
                 </div>
-                    <h1>Games you sell</h1>
                 <div className="user-sell-container container">
+                    <h1>Games you sell</h1>
                     <div className="user-sell-list">
                         {gamesToSell.map(game => <div className="user-sell-preview" key={game._id}>
                             <div className="user-sell-card">
@@ -66,18 +66,30 @@ class _UserProfile extends Component {
                             </div>
                         </div>)}
                     </div>
-                        <div className="chart">
-                        <Chart type="bar"/>
-                        </div>
                 </div>
-                    {serialKey && <div className="game-clicked-info">
-                        <h1>Your serial-key: {serialKey}</h1>
-                        <p>Add your key to your favorite app</p>
-                        <p>We advise to use GameKeys app! but we work with</p>
-                        <p>Steam, Google play and HBO-Games</p>
-                        <p>Enjoy</p>
-                        <botton className="game-user-btn" onClick={() => this.onGameClicked('')}>GG</botton>
-                    </div>}
+                <div className="main-chart container">
+                    <h1>Statistics</h1>
+                    <div className="chart-preview">
+                        <Chart type="bar" 
+                        labels={['January','February','March','April','May','June']}
+                            label='Amout made in $'
+                            datas={[280.00,450.00,387.97,258.95,370.00,35.00]}
+                        />
+                        <Chart type="bar" 
+                        labels={['January','February','March','April','May','June']}
+                            label='Play time: in hours-monthly'
+                            datas={[72,35,112,28,56,10]}
+                        />
+                    </div>
+                </div>
+                {serialKey && <div className="game-clicked-info">
+                    <h1>Your serial-key: {serialKey}</h1>
+                    <p>Add your key to your favorite app</p>
+                    <p>We advise to use GameKeys app! but we work with</p>
+                    <p>Steam, Google play and HBO-Games</p>
+                    <p>Enjoy</p>
+                    <botton className="game-user-btn" onClick={() => this.onGameClicked('')}>GG</botton>
+                </div>}
             </section>
         )
     }

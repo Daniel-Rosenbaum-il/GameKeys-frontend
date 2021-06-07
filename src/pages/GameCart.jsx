@@ -16,7 +16,8 @@ class _GameCart extends Component {
     state = {
         carts: [],
         games: [],
-        isCheckout: false
+        isCheckout: false,
+        buyToUser: null,
     }
 
     async componentDidMount() {
@@ -42,13 +43,19 @@ class _GameCart extends Component {
         this.setState({ carts: [] })
     }
 
-    onCheckOut = async () => {
+    onCheckOut = async (buyToUser) => {
         const { carts } = this.state
-        const buyer = this.props.loggedInUser
+        let buyer;
+        if (buyToUser) {
+            buyer = { _id: buyToUser }
+        } else {
+            buyer = this.props.loggedInUser
+        }
         await Promise.all(carts.map(async cart => {
             const savedOrder = await this.props.saveOrder(cart, buyer)
-            socketService.emit('orderSent', savedOrder)
-            localStorage.clear('cart')
+            await buyToUser? socketService.emit('giftSent', buyToUser) : socketService.emit('orderSent', savedOrder)
+            // socketService.emit('orderSent',savedOrder)
+            // await socketService.emit('orderSent', savedOrder)
             this.props.userMsg('Your purchase has been made')
             setTimeout(() => {
                 this.props.userMsg('')
@@ -56,6 +63,7 @@ class _GameCart extends Component {
             }, 2000);
             return savedOrder
         }))
+        localStorage.clear('cart')
         return console.log('thnx for buying');
     }
 
@@ -96,18 +104,18 @@ class _GameCart extends Component {
         return (
             <div className="cart-container container" >
 
-                <p>
-                    <div className="mb-20">
-                        <Link to={`/`} >All Products  </Link> {'>'}
-                        <a  >Your Shopping Cart </a>
-                    </div>
-                </p>
+                {/* <p> */}
+                <div className="mb-20">
+                    <Link to={`/`} >All Products  </Link> {'>'}
+                    <a  >Your Shopping Cart </a>
+                </div>
+                {/* </p> */}
 
                 <h2 className="mb-20" >YOUR SHOPPING CART</h2>
 
                 <div className="cart-status mb-20">
                     <p>{(!isCheckout) ? 'YOUR ITEM\'S BEEN ADDED!' : 'Review + purchase'}
-                        <div className="triangle-down" ></div>
+                        <span className="triangle-down" ></span>
                     </p>
                 </div>
 
@@ -123,6 +131,7 @@ class _GameCart extends Component {
                                 {!isCheckout && <CartInfo
                                     toggleIsCheckout={this.toggleIsCheckout}
                                     totalPrice={totalPrice}
+                                    onCheckOut={this.onCheckOut}
                                     onUpdateCarts={this.onUpdateCarts} />}
 
                                 {isCheckout && < CartCheckout

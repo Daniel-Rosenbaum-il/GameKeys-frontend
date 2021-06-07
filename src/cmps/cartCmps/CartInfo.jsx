@@ -1,6 +1,6 @@
 
 
-export function CartInfo({totalPrice,toggleIsCheckout}) {
+export function CartInfo({totalPrice,toggleIsCheckout, onCheckOut}) {
     return (
         <>
             <div className="flex space-between align-center pad-15">
@@ -14,7 +14,7 @@ export function CartInfo({totalPrice,toggleIsCheckout}) {
                 <div className="btn-container flex gap-10  ">
                     <button onClick={() => toggleIsCheckout()}
                         className=" btn btn-success btn-med" >Purchase for myself</button>
-                    <button className=" btn btn-success btn-med" >Purchase as a gift</button>
+                    <button className=" btn btn-success btn-med" onClick={() => onCheckOut("60b7c6d1f1c3b404a014a141")}>Purchase as a gift</button>
                 </div>
             </div>
             <div className="pad-15">

@@ -1,13 +1,13 @@
 import { Doughnut, Bar, PolarArea } from 'react-chartjs-2'
 
-export function Chart({ type }) {
+export function Chart({ type, labels, label, datas }) {
     const data = {
         // labels: Object.keys(mapObj),
-        labels: ["January", "February", "March", "April"],
+        labels,
         datasets: [
             {
-                label: "Amount made in $",
-                data: [50, 89, 35.99, 278.97,],
+                label,
+                data:datas,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.8)',
                     'rgba(54, 162, 235, 0.8)',

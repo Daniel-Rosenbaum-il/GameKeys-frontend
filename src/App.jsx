@@ -22,9 +22,10 @@ class _App extends Component {
     msg: ''
   }
 
-  componentDidMount() {
-    socketService.setup()
-    socketService.on('gameBought', this.onGameBought)
+  async componentDidMount(){
+    await socketService.setup()
+    await socketService.on('gameBought', this.onGameBought)
+    await socketService.on('giftBought', this.onGiftSent)
     this.setState({ msg: this.props.msg })
   }
   componentWillUnmount() {
@@ -32,12 +33,23 @@ class _App extends Component {
   }
 
   onGameBought = async (order) => {
-    // console.log("game")
-    await this.props.userMsg('An order has been made' )
+    console.log('sockettttt');
+    await this.props.userMsg('An order has been made')
     this.setState({ msg: this.props.msg})
     setTimeout(() => {
       this.props.userMsg('')
-    }, 2000);
+    }, 5000);
+    this.setState({ msg: this.props.msg})
+    // this.onSetMsg("An order has been made" )
+  }
+
+  onGiftSent = async (order) => {
+    // console.log(order)
+    await this.props.userMsg('You got a gift!!!' )
+    this.setState({ msg: this.props.msg})
+    setTimeout(() => {
+      this.props.userMsg('')
+    }, 5000);
     this.setState({ msg: this.props.msg})
     // this.onSetMsg("An order has been made" )
   }
