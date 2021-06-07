@@ -71,10 +71,34 @@
     .tax {
         border-bottom: 1px solid #405a6b;
     }
-    .visa{
+    .visa {
         color: #6ca420;
     }
     @media screen and (min-width: 750px) {
         padding-top: 45px;
+    }
+    .friends-modal {
+        font-size: 1.1rem;
+        position: fixed;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+        width: 360px;
+        height: 245px;
+        background-color: #294962;
+        padding: 10px;
+        border-radius: 5px;
+        color: white;
+        button {
+            align-self: center;
+            width: 27%;
+        }
+        p{
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        p.active {
+            background-color: #28a745;
+        }
     }
 }
