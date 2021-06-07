@@ -52,7 +52,7 @@ export class MainGamePreview extends Component {
             <>
                 <div>
 
-                    <div className="main-game-preview container mb-20">
+                    <div className="main-game-preview container mb-30">
                         <button className="btn btn-prev" onClick={() => this.changeGameByDiff(-1)} >&#10094;</button>
                         <Link to={`/game/${game._id}`}>
 
@@ -94,7 +94,7 @@ export class MainGamePreview extends Component {
                         </Link>
                         <button className=" btn btn-next" onClick={() => this.changeGameByDiff(1)}> &#10095;</button>
                     </div>
-                    <div className="carousel-nav flex justify-center gap-10">
+                    <div className="carousel-nav flex justify-center">
                         {games.map((game, idx) =>
                             <div key={'ball' + idx}
                                 onClick={() => this.changeGameByIdx(idx)}

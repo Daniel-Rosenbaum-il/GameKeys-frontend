@@ -19,18 +19,22 @@
     color: #5989b4;
     text-shadow: 0 0 1px #f8f8ff;
 }
+
 .ctg-s-title {
     font-size: 1.9rem;
     color: #5989b4;
     text-shadow: 0 0 1px #f8f8ff;
 }
-.btn-see-more{
-    font-size: 14px;
-    text-transform: uppercase;
-    color: #fff;
-    margin: 0 0 10px;
-    letter-spacing: 0.03em
+.btn-view {
+    border-color: #17a2b8;
+    color: white;
+    transition: 0.4s;
 }
+.btn-view:hover {
+    color: white;
+    border-color: white;
+}
+
 .poster {
     padding: 0 0px 6px 0px;
     object-position: top;

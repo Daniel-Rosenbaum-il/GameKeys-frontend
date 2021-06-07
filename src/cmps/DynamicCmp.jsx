@@ -30,7 +30,7 @@ export function DynamicCmp({ games, type = 'main', src, utilService }) {
             case 'small':
                 return (<>
                     <CtgList />
-                    <div className="preview-container flex container  gap-20 ">
+                    <div className="preview-container flex container mb-30 gap-20 ">
                         {filterGames.map((game, idx) => {
                             if (idx > 3) return
                             return <SmallGamePreview game={game} key={game._id} />
@@ -42,7 +42,7 @@ export function DynamicCmp({ games, type = 'main', src, utilService }) {
         }
     }
     return (
-        <div className="home-game-list mb-20">
+        <div className="home-game-list mb-30">
             <DynamicCmp />
         </div>
     )
