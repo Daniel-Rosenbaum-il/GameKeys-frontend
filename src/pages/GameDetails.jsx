@@ -32,8 +32,10 @@ class _GameDetails extends Component {
         if (this.props.loggedInUser) this.checkIsInLibrary()
     }
     async checkIsInLibrary() {
+        if (!this.state.game) return
         const gameId = this.state.game._id
         const userId = this.props.loggedInUser._id
+    
         const isInLibrary = await orderService.checkIsInLibrary(gameId, userId)
         this.setState({ isInLibrary })
     }
@@ -57,7 +59,7 @@ class _GameDetails extends Component {
             let length = 3
             let newDescs = []
             descriptions.forEach((desc, idx) => {
-                shortStr += desc +'. '
+                shortStr += desc + '. '
                 if (idx === length) {
                     length += 3
                     newDescs.push(shortStr)
@@ -94,11 +96,13 @@ class _GameDetails extends Component {
                     <div className="desc" >
                         <p className="title" >ABOUT THIS GAME</p>
                         {/* {descriptions.map(desc => <p className="desc" >{(desc)}</p>)} */}
-                        {descriptions.map(desc => {
+                        {descriptions.map((desc,idx) => {
                             return (
-                                <><p>{desc}</p>
+                                <div key={'desc'+idx}>
+                                    <p>{desc}</p>
                                     <br />
-                                </>
+
+                                </div>
                             )
                         })}
                     </div>

@@ -5,6 +5,7 @@ export function GamePreview({ game }) {
     const previewImg = require(`../assets/img/${game.imgs.largeImgUrls[0]}`).default
     const finalPrice = game.price - (game.price * (game.discount/100))
     const rating = utilService.renderStars(game.rating)
+    
     return (
             <Link to={`/game/${game._id}`}>
                 <div className="game-card ">

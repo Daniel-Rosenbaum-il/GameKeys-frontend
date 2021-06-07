@@ -15,7 +15,7 @@ class _GameApp extends Component {
         if (searchParams) {
             const filterBy = { tag: searchParams }
             this.props.loadGames(filterBy)
-        }else{
+        } else {
             this.props.loadGames()
         }
     }
@@ -26,10 +26,12 @@ class _GameApp extends Component {
     render() {
         const { games } = this.props
         // const backgroundImg = require(`../assets/img/background-5.jpg`).default
-        const backgroundImg = require(`../assets/img/hero2.jpeg`).default
+        const backgroundImg = require(`../assets/img/hero3.jpg`).default
         return (
             <section className="main-explorer">
-                <img className="hero " src={backgroundImg} alt="" />
+                <img className="poster mb-20" src={backgroundImg} alt="" />
+
+                {/* <button>Save up to 70%</button> */}
                 <GameFilter onSetFilter={this.onSetFilter} />
                 <GameList games={games} />
             </section>

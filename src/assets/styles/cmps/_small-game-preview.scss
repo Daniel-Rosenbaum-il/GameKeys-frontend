@@ -3,6 +3,7 @@
     // max-width: 229px;
     background: linear-gradient(-45deg, rgba(64, 121, 153, 1) 5%, rgba(42, 62, 89, 1) 95%);
     box-shadow: 0 0 5px #000;
+
     a {
         color: $clr4;
         padding: 2px 7px 2px 7px;
@@ -16,9 +17,16 @@
         gap: 3px;
         // border-top: 1px solid #2a3e59;
         border-top: 1px solid black;
-        text-transform: capitalize
+        text-transform: capitalize;
     }
-
+    img {
+        height: 90px;
+    }
+    @media screen and(min-width:720px) {
+        img {
+            height: 118px;
+        }
+    }
     .preview-price {
         background: linear-gradient(90deg, #407999 5%, #2a3e59 95%);
         position: relative;
@@ -49,7 +57,6 @@
             top: -23px;
             font-size: rem(18px);
         }
-    
 
         @media screen and (max-width: 590px) {
             .discount,

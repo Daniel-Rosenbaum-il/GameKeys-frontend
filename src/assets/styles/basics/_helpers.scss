@@ -30,7 +30,7 @@
 .mb-1rem {
     margin-bottom: 9px;
 }
-.mt-40{
+.mt-40 {
     margin-top: 40px;
 }
 
@@ -248,4 +248,51 @@
     color: #fff;
     margin: 0 0 10px;
     letter-spacing: 0.03em;
+}
+
+// css-column
+// .row {
+//     display: flex;
+//     flex-wrap: wrap;
+//     padding: 0 4px;
+//   }
+// /* Create four equal columns that sits next to each other */
+// .column {
+//     flex: 25%;
+//     max-width: 25%;
+//     padding: 0 4px;
+// }
+
+// .column img {
+//     margin-top: 8px;
+//     vertical-align: middle;
+//     width: 100%;
+// }
+
+// /* Responsive layout - makes a two column-layout instead of four columns */
+// @media screen and (max-width: 800px) {
+//     .column {
+//         flex: 50%;
+//         max-width: 50%;
+//     }
+// }
+
+// /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+// @media screen and (max-width: 600px) {
+//     .column {
+//         flex: 100%;
+//         max-width: 100%;
+//     }
+// }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(86px, 1fr));
+    grid-gap: 10px;
+    grid-auto-flow: dense;
+}
+.card-swipe{
+    background-color: black;
+    width: 227px;
+    height: 116px;
 }

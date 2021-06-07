@@ -84,6 +84,7 @@ class _GameCart extends Component {
 
             return setTimeout(() => {
                 this.props.history.push('/login')
+                this.props.userMsg('')
             }, 1500)
         }
         const { carts } = this.state

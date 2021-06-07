@@ -1,6 +1,7 @@
 .user-profile-header {
     display: flex;
     position: relative;
+    z-index: -1;
     .avatar {
         width: 125px;
         border-radius: 90px;
@@ -19,6 +20,7 @@
     .hero {
         border-radius: 5px;
         object-position: center;
+      
     }
 }
 .username-title {

@@ -7,7 +7,7 @@ export function SmallGamePreview({ game }) {
         <div className="small-game-preview space-between">
             <div>
                 <Link className="hidden" to={`/game/${game._id}`} >
-                    <div className="flex">
+                    <div className="flex small-img">
                         <img src={gameImg} alt="" />
                     </div>
                     <div className="preview-price">

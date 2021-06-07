@@ -16,6 +16,7 @@ import { Footer } from './cmps/Footer'
 import { GameCart } from './pages/GameCart'
 import { UserProfile } from './pages/UserProfile'
 import { socketService } from './services/socket.service'
+import { GameSwipe } from './cmps/UtilCmps/GameSwipe'
 
 class _App extends Component {
   state = {
@@ -55,7 +56,7 @@ class _App extends Component {
   }
   
   render() {
-    console.log('App', this.props.msg);
+    // console.log('App', this.props.msg);
     return (
       <div className="app">
         <Router>
@@ -64,6 +65,7 @@ class _App extends Component {
             <Switch>
               <Route path="/login" component={Login} />
               <Route path="/profile" component={UserProfile} />
+              <Route path="/GameSwipe" component={GameSwipe} />
               <Route path="/game/order/:gameId" component={GameCart} />
               <Route path="/game/:gameId" component={GameDetails} />
               <Route path="/game" component={GameApp} />
