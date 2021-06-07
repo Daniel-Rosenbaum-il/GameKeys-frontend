@@ -81,7 +81,7 @@ class _GameDetails extends Component {
                 <DetailsPanel game={game} getDateString={utilService.getDateString} />
 
                 <div className="wishlist-link">
-                    {loggedInUser && !isInLibrary && <button className="btn-secondary btn btn-lg" >Add to wishList</button>}
+                    {loggedInUser && !isInLibrary && <button className="btn btn-light btn-outline-secondary" >Add to wishList</button>}
                     {!loggedInUser && <p><Link to={'/login'}>Sign in</Link> to add this item to your wishlist, follow it, or mark it as ignored</p>}
                 </div>
 
