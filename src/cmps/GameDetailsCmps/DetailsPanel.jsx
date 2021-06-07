@@ -9,10 +9,11 @@ export function DetailsPanel({ game, getDateString }) {
             <div className="video-container">
                 <div className="video flex column gap-10 justify-center">
                     <Video url={videoUrls[0]} />
-                    <div className="flex img-container gap-10">
+                    {/* <div className="flex img-container gap-10"> */}
+                    <div className="grid-container">
                         {urlImgs.map((img, idx) => {
                             if (idx >= 4) return
-                            return <div> <img src={img} alt="" /></div>
+                            return <div key={'i' + idx} > <img src={img} alt="" /></div>
                         })}
                     </div>
                 </div>

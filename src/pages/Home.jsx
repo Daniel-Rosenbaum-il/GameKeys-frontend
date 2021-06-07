@@ -16,7 +16,7 @@ class _Home extends Component {
   }
 
   render() {
-    const poster = require('../assets/img/hero.jpg').default
+    const poster = require('../assets/img/hero2.jpeg').default
     const { games } = this.props // Do we need main here??
     if (!games) return <Loader />
     // console.log(games);

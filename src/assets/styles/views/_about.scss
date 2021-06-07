@@ -1,5 +1,6 @@
 .about {
     padding: 5px;
+    padding-top: 45px;
     color: $clr7;
     font-size: 20px;
     .about-img {
@@ -15,5 +16,8 @@
         height:500px;
         background-repeat: no-repeat;
         background-size: contain;
+    }
+    @media screen and (min-width: 750px) {
+        padding-top: 40px;
     }
 }

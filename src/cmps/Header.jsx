@@ -32,7 +32,7 @@ class _Header extends Component {
     render() {
         const logo = require('../assets/img/logo/GameKeys-BIG.png').default
         const { loggedInUser } = this.props;
-        return <header className={`main-header mb-3`}>
+        return <header className={`main-header`}>
             {this.props.msg && <UserMsg msg={this.props.msg}/>}
             <div className={`container ${this.flexClass}`}>
                 {/* {this.props.msg && <div className="user-msg"></div>} */}

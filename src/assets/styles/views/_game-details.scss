@@ -22,14 +22,15 @@
 
     .price-info {
         position: absolute;
-        bottom: -10%;
-        right: 4%;
-        background-color: $clr0;
+        bottom: -11%;
+        right: 7%;
+        background-color: #0f1418;
         align-items: center;
-        padding: 0;
-        height: 36px;
-        transform: translate(-4%, 10%);
+        padding: 0px;
+        height: 32px;
+        transform: translate(7%, -8%);
         border-radius: 5px;
+
         .f-price {
             color: #acdbf5;
             font-size: 14px;
@@ -98,18 +99,6 @@
         & > div {
             cursor: pointer;
         }
-        // @media screen and (max-width: 740px) {
-        //     & > div {
-        //         min-width: 200px;
-        //         max-width: 45%;
-        //     }
-        //     flex-wrap: wrap;
-        // }
-        // @media screen and (max-width: 445px) {
-        //     & > div {
-        //         max-width: 100%;
-        //     }
-        // }
     }
 
     .details-info {
@@ -141,7 +130,7 @@
             padding-right: 16px;
         }
     }
-    .tag-container{
+    .tag-container {
         justify-content: flex-start;
     }
     .tag-container > a {
@@ -169,5 +158,8 @@
         @media screen and (min-width: 680px) {
             flex-direction: row;
         }
+    }
+    @media screen and (min-width: 750px) {
+        padding-top: 45px;
     }
 }

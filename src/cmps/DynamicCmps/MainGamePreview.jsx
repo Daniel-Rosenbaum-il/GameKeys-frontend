@@ -10,28 +10,42 @@ export class MainGamePreview extends Component {
     state = {
         games: null,
         gameIdx: 0,
-        imgIdx: 0
+        imgIdx: 0,
+        classTransition: ''
     }
     componentDidMount() {
         const games = this.props.games
+        this.toggleTransition()
         this.setState({ games })
     }
+
     changeGameByDiff = (diff) => {
+        this.setState({ classTransition: '' })
         const { games, gameIdx } = this.state
         let nextIdx = diff += gameIdx
         if (nextIdx < 0) nextIdx = games.length - 1
         if (nextIdx >= games.length) nextIdx = 0
-        this.setState({ gameIdx: nextIdx })
+        setTimeout(() => this.setState({ gameIdx: nextIdx }), 100)
+        this.toggleTransition()
     }
     changeGameByIdx(idx) {
-        this.setState({ gameIdx: idx })
+        this.setState({ classTransition: '' })
+        setTimeout(() => this.setState({ gameIdx: idx }), 100)
+        this.toggleTransition()
     }
-
+    toggleTransition() {
+        setTimeout(() => this.setState({ classTransition: 'transition' }), 100)
+    }
+    changeImg = (imgIdx) => {
+        this.setState({ imgIdx })
+    }
     render() {
-        const { games, gameIdx, imgIdx } = this.state
+        const { games, gameIdx, imgIdx, classTransition } = this.state
         if (!games || !games.length) return (<Loader />)
         const game = games[gameIdx]
         const imgs = game.imgs.largeImgUrls.map(img => require(`../../assets/img/${img}`).default)
+        const mainImgUrl = games[gameIdx].imgs.largeImgUrls[imgIdx]
+        const mainImg = require(`../../assets/img/${mainImgUrl}`).default
         const releasedAt = this.props.utilService.getDateFormat(game.releasedAt)
         const finalPrice = utilService.getFinalPrice(game.price, game.discount)
         return (
@@ -41,25 +55,35 @@ export class MainGamePreview extends Component {
                     <Link to={`/game/${game._id}`}>
 
                         <div className="preview-container flex column">
-                            <div className="m-img" >
-                                <img src={imgs[0]} alt="" />
+                            <div className={`m-img ${classTransition}`} >
+                                <img src={mainImg} alt="" />
                             </div>
 
                             <div className="imgs-container flex column">
-                                <img src={imgs[1]} alt="" />
-                                <img src={imgs[2]} alt="" />
+                                <img onMouseOver={() => this.changeImg(1)}
+                                    onMouseLeave={() => this.changeImg(0)}
+                                    className={classTransition} src={imgs[1]} />
+                                <img onMouseOver={() => this.changeImg(2)}
+                                    onMouseLeave={() => this.changeImg(0)}
+                                    className={classTransition} src={imgs[2]} />
+
                                 <h2>{game.title}</h2>
                                 <p>Release date:{releasedAt}</p>
                             </div>
 
                             <div className="imgs-container flex column">
-                                <img src={imgs[3]} alt="" />
-                                <img src={imgs[4]} alt="" />
+                                <img onMouseOver={() => this.changeImg(3)}
+                                    onMouseLeave={() => this.changeImg(0)}
+                                    className={classTransition} src={imgs[3]} />
+                                <img onMouseOver={() => this.changeImg(4)}
+                                    onMouseLeave={() => this.changeImg(0)}
+                                    className={classTransition} src={imgs[4]} />
+
                                 <div className="preview-price">
-                                    <p className="discount">{game.discount ? `${game.discount}%` : ''}</p>
+                                    <p className={`discount ${!game.discount && 'hidden'}`}>{game.discount ? `${game.discount}%` : '1'}</p>
                                     <div className="flex column">
-                                        <p className={(game.discount > 0) ? "in-sale" : 'f-price'} >${game.price.toFixed(2)}</p>
-                                        {game.discount ? <p className="f-price" >${finalPrice.toFixed(2)}</p> : ''}
+                                        <p className={`${!game.discount && 'hidden'}`} >${game.price.toFixed(2)}</p>
+                                        <p className={`f-price `} >${finalPrice.toFixed(2)}</p>
                                     </div>
                                 </div>
                                 <button className="btn-home-buy-now btn-success">Buy now</button>
@@ -68,11 +92,9 @@ export class MainGamePreview extends Component {
                     </Link>
                     <button className=" btn btn-next" onClick={() => this.changeGameByDiff(1)}> &#10095;</button>
                 </div>
-
                 <div className="carousel-nav flex justify-center gap-10">
-
                     {games.map((game, idx) =>
-                        <div
+                        <div key={'ball' + idx}
                             onClick={() => this.changeGameByIdx(idx)}
                             className={`item ${gameIdx === idx && 'active'} `}
                         ></div>)}
