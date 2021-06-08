@@ -11,7 +11,6 @@ class _GameApp extends Component {
     componentDidMount() {
         const paramsString = this.props.location.search
         const searchParams = new URLSearchParams(paramsString).get('tag');
-        console.log(searchParams);
         if (searchParams) {
             const filterBy = { tag: searchParams }
             this.props.loadGames(filterBy)
@@ -25,12 +24,10 @@ class _GameApp extends Component {
 
     render() {
         const { games } = this.props
-        // const backgroundImg = require(`../assets/img/background-5.jpg`).default
-        const backgroundImg = require(`../assets/img/hero3.jpg`).default
+        const backgroundImg = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623148687/GameKeys/img/hero3_sbpuaf.jpg"
         return (
             <section className="main-explorer">
                 <img className="poster mb-20" src={backgroundImg} alt="" />
-
                 {/* <button>Save up to 70%</button> */}
                 <GameFilter onSetFilter={this.onSetFilter} />
                 <GameList games={games} />

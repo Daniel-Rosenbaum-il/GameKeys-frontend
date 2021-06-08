@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { utilService } from '../services/util.service'
 
 export function GamePreview({ game }) {
-    const previewImg = require(`../assets/img/${game.imgs.largeImgUrls[0]}`).default
+    const previewImg = game.imgs.largeImgUrls[0]
     const finalPrice = game.price - (game.price * (game.discount/100))
     const rating = utilService.renderStars(game.rating)
     

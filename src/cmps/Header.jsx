@@ -54,10 +54,9 @@ class _Header extends Component {
     }
     
     render() {
-        console.log('State-headerrrrrr', this.state);
         // console.log('State-headerrrrrr', this.props);
         const {data} = this.state
-        const logo = require('../assets/img/logo/GameKeys-BIG.png').default
+        const logo = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623183631/GameKeys/img/logo/GameKeys-BIG_k1kusx.png"
         const { loggedInUser } = this.props;
         return <header className={`main-header`}>
             {this.props.msg && <UserMsg msg={this.props.msg} />}
@@ -91,7 +90,7 @@ class _Header extends Component {
                                 color="#b9e4fd"
                                 markAsReadFn={() => this.readAll()}
                             />
-                            <img onClick={() => this.toggleIsHidden()} src={require(`../assets/img/${loggedInUser.imgUrl}`).default} alt="" />
+                            <img onClick={() => this.toggleIsHidden()} src={loggedInUser.imgUrl} alt="" />
                         </div>
 
                         <div onClick={() => this.toggleIsHidden()} className={`user-menu ${this.state.isHidden && 'hidden-menu'}`}>

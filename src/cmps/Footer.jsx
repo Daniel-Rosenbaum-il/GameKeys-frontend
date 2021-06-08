@@ -2,7 +2,7 @@ import { ReactComponent as TwitchIcon } from '../../src/assets/img/icons/twitter
 import  {ReactComponent as Instagram} from '../../src/assets/img/icons/instagram.svg'
 import {ReactComponent as Facebook} from '../../src/assets/img/icons/facebook.svg'
 
-const logo = require('../assets/img/logo/GameKeys-BIG.png').default
+const logo = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623183631/GameKeys/img/logo/GameKeys-BIG_k1kusx.png"
 export function Footer() {
   return (
     <footer className="flex column align-center">

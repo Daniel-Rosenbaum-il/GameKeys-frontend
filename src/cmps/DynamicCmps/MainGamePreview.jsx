@@ -43,9 +43,9 @@ export class MainGamePreview extends Component {
         const { games, gameIdx, imgIdx, classTransition } = this.state
         if (!games || !games.length) return (<Loader />)
         const game = games[gameIdx]
-        const imgs = game.imgs.largeImgUrls.map(img => require(`../../assets/img/${img}`).default)
+        const imgs = game.imgs.largeImgUrls.map(img => img)
         const mainImgUrl = games[gameIdx].imgs.largeImgUrls[imgIdx]
-        const mainImg = require(`../../assets/img/${mainImgUrl}`).default
+        const mainImg = mainImgUrl
         const releasedAt = this.props.utilService.getDateFormat(game.releasedAt)
         const finalPrice = utilService.getFinalPrice(game.price, game.discount)
         return (

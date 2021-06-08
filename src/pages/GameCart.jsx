@@ -110,17 +110,15 @@ class _GameCart extends Component {
         const { carts, games, isCheckout, frinedsList,isOpenModal } = this.state
         console.log('this.state', this.state);
         const { loggedInUser } = this.props
-        const img = require('../assets/img/sims4/1.jpg').default
+        const img = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623183655/GameKeys/img/background-5_t0clwl.jpg"
         const totalPrice = this.getTotalPrice(games)
         return (
             <div className="cart-container container" >
 
-                {/* <p> */}
                 <div className="mb-20">
                     <Link to={`/`} >All Products  </Link> {'>'}
                     <a  >Your Shopping Cart </a>
                 </div>
-                {/* </p> */}
 
                 <h2 className="mb-20" >YOUR SHOPPING CART</h2>
 

@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom'
 import { utilService } from '../../services/util.service'
 export function SmallGamePreview({ game }) {
-    const gameImg = require(`../../assets/img/${game.imgs.largeImgUrls[0]}`).default
+    const gameImg = game.imgs.largeImgUrls[0]
     const finalPrice = utilService.getFinalPrice(game.price, game.discount)
-    console.log('hereeeeeeeee');
     return (
         <div className="small-game-preview space-between">
             <div>
@@ -18,9 +17,6 @@ export function SmallGamePreview({ game }) {
                             {game.discount ? <p className="f-price" >${finalPrice.toFixed(2)}</p> : ''}
                         </div>
                     </div>
-                    {/* <div className="tag-container flex column">
-                    {game.tags.map(tag => <div><Link to={`/game/${tag}`} >{tag}</Link></div> )}
-                </div> */}
                 </Link>
             </div>
         </div>

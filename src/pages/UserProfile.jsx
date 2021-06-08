@@ -57,7 +57,7 @@ class _UserProfile extends Component {
                         {gamesToSell.map(game => <div className="user-sell-preview" key={game._id}>
                             <div className="user-sell-card">
                                 <div className="user-sell-img">
-                                    <img src={require(`../assets/img/${game.imgs.largeImgUrls[0]}`).default}></img>
+                                    <img src={game.imgs.largeImgUrls[0]} alt=""></img>
                                 </div>
                                 <div className="user-sell-info">
                                     <h2>{game.title}</h2>
