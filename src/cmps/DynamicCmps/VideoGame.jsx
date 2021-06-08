@@ -2,9 +2,15 @@ import { Link } from "react-router-dom";
 import { Video } from "../Video";
 
 export function VideoGame({ games }) {
-    console.log(games);
-    console.log('cideoooooooooooooooo');
-    return (
+    return (<>
+        <div className="container flex space-between" >
+            <h2 className="mb-20 ctg-s-title ">Popular in Game keys</h2>
+            <div>
+                <Link className="btn btn-view align-end  title cap" to="/game"> View all</Link>
+            </div>
+        </div>
+
+        {/* <h2 className="container mb-20 ctg-s-title">Popular in Game keys</h2> */}
         <div className="video-container grid-container container" >
             {games.map(game => {
                 return (
@@ -17,25 +23,8 @@ export function VideoGame({ games }) {
                     </div>
                 )
             })}
-            {/* <div>
-                <Video url="https://www.youtube.com/embed/Jioo5uXoNLg" > </Video>
-            </div>
-            <div>
-                <Video url="https://www.youtube.com/embed/Jioo5uXoNLg" > </Video>
-            </div>
-            <div>
-                <Video url="https://www.youtube.com/embed/Jioo5uXoNLg" > </Video>
-            </div>
-            <div>
-                <Video url="https://www.youtube.com/embed/Jioo5uXoNLg" > </Video>
-            </div>
-            <div>
-                <Video url="https://www.youtube.com/embed/Jioo5uXoNLg" > </Video>
-            </div>
-            <div>
-                <Video url="https://www.youtube.com/embed/Jioo5uXoNLg" > </Video>
-            </div> */}
         </div>
+    </>
     )
 }
 

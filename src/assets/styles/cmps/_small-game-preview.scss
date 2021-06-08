@@ -1,9 +1,20 @@
+.s-preview-container {
+    box-shadow: 0 0 7px 0px #000;
+    flex-direction: row;
+    &.grid-container {
+        grid-template-columns: repeat(4, minmax(65px, 1fr));
+    }
+}
 .small-game-preview {
     width: 100%;
     // max-width: 229px;
     background: linear-gradient(-45deg, rgba(64, 121, 153, 1) 5%, rgba(42, 62, 89, 1) 95%);
     box-shadow: 0 0 5px #000;
-
+    @media screen and (max-width: 775px) {
+        .in-sale {
+            padding-inline-end: 6px;
+        }
+    }
     a {
         color: $clr4;
         padding: 2px 7px 2px 7px;
@@ -20,7 +31,7 @@
         text-transform: capitalize;
     }
     img {
-        height: 90px;
+        height: 84px;
     }
     @media screen and(min-width:720px) {
         img {
@@ -52,10 +63,12 @@
             color: $clr4;
         }
         .discount {
-            left: 0%;
             position: absolute;
             top: -23px;
+            left: 2%;
             font-size: rem(18px);
+            padding: 4px;
+            text-align: center;
         }
 
         @media screen and (max-width: 590px) {

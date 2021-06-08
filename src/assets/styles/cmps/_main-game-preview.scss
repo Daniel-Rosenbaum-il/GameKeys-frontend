@@ -44,13 +44,12 @@
     .preview-container {
         box-shadow: 0 0 7px 0px #000;
         flex-direction: row;
+
         h2 {
-            margin-top: 15px;
-            margin-left: 15px;
+            padding: 3px;
         }
         p {
-            // margin-top: 30px;
-            margin-left: 0px;
+            padding: 5px;
         }
     }
     .m-img {
@@ -67,14 +66,34 @@
         min-height: 97px;
     }
     .preview-price {
-        position: absolute;
-        bottom: 45px;
+        align-self: flex-end;
         color: white;
-        right: 10px;
         display: flex;
         align-items: center;
         font-size: 18px;
-        z-index: 8;
+        .in-sale {
+            margin: 0;
+            padding: 0;
+        }
+        .f-price {
+            margin: 0;
+            padding: 0;
+        }
+        .discount {
+            padding: 4px;
+            margin: 0;
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            color: whitesmoke;
+            background: #6ebf00;
+            font-family: "roboto-reg";
+            font-weight: 900;
+            text-align: center;
+        }
+    }
+    .price-container {
+        gap: 0;
     }
     .btn-home-buy-now {
         position: absolute;
@@ -157,6 +176,7 @@
     .f-price {
         color: $clr4;
     }
+
     @media screen and (max-width: $md-breakpoint) {
         .btn-next {
             right: -8%;
@@ -190,6 +210,7 @@
 
 .carousel-nav {
     gap: 2px;
+    display: none;
     .item {
         // background-color: #6ed0fc;
         // width: 15px;
@@ -208,5 +229,8 @@
     .item.active {
         // background-color: $clr1;
         background-color: hsla(202, 60%, 100%, 0.4);
+    }
+    @media screen and(min-width:790px) {
+        display: flex;
     }
 }

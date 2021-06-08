@@ -3,11 +3,12 @@ import { Video } from '../Video.jsx'
 import { InfoBlock } from '../InfoBlock'
 export function DetailsPanel({ game, getDateString }) {
     const { imgs, videoUrls, description, releasedAt, seller, tags } = game
+    // const sDescription = description.slice(0, 250)
     const urlImgs = imgs.largeImgUrls.map(img => require(`../../assets/img/${img}`).default)
     return (
-        <div className="details-container flex gap-20">
+        <div className="details-container container flex gap-5 mb-20">
             <div className="video-container">
-                <div className="video flex column gap-10 justify-center">
+                <div className="video flex column justify-center">
                     <Video url={videoUrls[0]} />
                     {/* <div className="flex img-container gap-10"> */}
                     <div className="grid-container">
@@ -18,14 +19,22 @@ export function DetailsPanel({ game, getDateString }) {
                     </div>
                 </div>
             </div>
-            <div className="details-info">
-                <img className="mb-10" src={urlImgs[0]} alt="" />
-                <p maxLength="5" className="s-desc">{description}</p>
-                <InfoBlock title="RELEASE DATE" value={getDateString(releasedAt)} />
-                <InfoBlock title="Seller" value={seller.fullname} />
-                <p className="dark-txt"> Popular user-defined tags for this product:</p>
-                <div className="tag-container mb-20 flex ">
-                    {tags.map((tag, idx) => <Link className="btn txt-cap" to={`/game?tag=${tag}`} key={idx}>{tag} </Link>).slice(0, 3)}
+            <div className="details-info flex space-between ">
+                <div>
+                    <img className="mb-10" src={urlImgs[0]} alt="" />
+                    <p maxLength="10" className="s-desc">{description}</p>
+                </div>
+                <div>
+                    <InfoBlock title="RELEASE DATE" value={getDateString(releasedAt)} />
+                    <InfoBlock title="Seller" value={seller.fullname} />
+
+
+                    <div className="tag-info flex column" >
+                        <p className="dark-txt  mb-10"> Popular user-defined tags for this product:</p>
+                        <div className="tag-container flex justify-center gap-5 ">
+                            {tags.map((tag, idx) => <Link className="btn txt-cap" to={`/game?tag=${tag}`} key={idx}>{tag} </Link>).slice(0, 3)}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

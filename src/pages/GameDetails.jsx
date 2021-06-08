@@ -72,26 +72,27 @@ class _GameDetails extends Component {
     render() {
         const { users, loggedInUser } = this.props
         const { game, isInLibrary } = this.state
+        console.log(game);
         if (!game) return <Loader />
         const finalPrice = utilService.getFinalPrice(game.price, game.discount)
         const descriptions = this.getDesc()
         return (
             <section className="main-details container">
                 <DetailsTopNav game={game} />
-                <h1>{game.title}</h1>
+                <h1 className="container" >{game.title}</h1>
                 <DetailsPanel game={game} getDateString={utilService.getDateString} />
 
-                <div className="wishlist-link">
+                <div className="wishlist-link container ">
                     {loggedInUser && !isInLibrary && <button className="btn btn-light btn-outline-secondary" >Add to wishList</button>}
                     {!loggedInUser && <p><Link to={'/login'}>Sign in</Link> to add this item to your wishlist, follow it, or mark it as ignored</p>}
                 </div>
 
-                <div className="buy-container flex column gap-10">
+                <div className="buy-container flex column gap-10 container">
                     <DetailsPriceBar isInLibrary={isInLibrary} game={game} finalPrice={finalPrice} />
                     <DetailsSideBar loggedInUser={loggedInUser} isInLibrary={isInLibrary} />
                 </div>
 
-                <div className="flex mb-20">
+                <div className="flex mb-20 container">
 
                     <div className="desc" >
                         <p className="title" >ABOUT THIS GAME</p>

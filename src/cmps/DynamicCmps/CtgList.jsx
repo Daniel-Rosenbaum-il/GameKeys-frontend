@@ -13,7 +13,6 @@ export function CtgList() {
                 <h2 className="mb-20 ctg-s-title ">Best sellers</h2>
                 <div>
                 <Link className="btn btn-view align-end  title cap" to="/game"> View all</Link>
-
                 </div>
             </div>
         </>

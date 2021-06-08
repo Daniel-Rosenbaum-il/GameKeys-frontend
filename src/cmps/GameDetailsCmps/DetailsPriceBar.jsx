@@ -23,7 +23,7 @@ export function DetailsPriceBar({ isInLibrary, game, finalPrice }) {
 
                     {isInLibrary && <Link className="btn btn-primary" to="/profile"> In Library</Link>}
                     {!isInLibrary && <Link to={`/game/order/${_id}`} >
-                        <button className="btn btn-success btn-med">Add to cart</button>
+                        <button className="btn-main">Add to cart</button>
                     </Link>}
                 </div>
             </div>
