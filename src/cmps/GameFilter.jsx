@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { ReactComponent as Search } from '../assets/img/icons/search.svg'
 export class GameFilter extends Component {
     state = {
         filterBy: {
@@ -17,14 +16,6 @@ export class GameFilter extends Component {
             console.log(filterBy);
         })
     }
-    // handleSortChange = ({ target }) => {
-    //     let { value, name: field } = target
-    //     const { sortBy } = this.state
-    //     this.setState({ sortBy: { ...sortBy, [field]: value } }, () => {
-    //         this.props.onSetFilter(this.state)
-    //     })
-    // }
-
 
     render() {
         const { txt } = this.state.filterBy

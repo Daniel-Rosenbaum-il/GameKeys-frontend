@@ -159,7 +159,7 @@ class _Login extends Component {
       )
 
       const { isLogIn } = this.state
-      const joinImg = require('../assets/img/join.png').default
+      const joinImg = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623183628/GameKeys/img/join_qtv6hr.png"
       return (
         <div className="login space-around align-center flex container mb-20">
         <div className="flex">

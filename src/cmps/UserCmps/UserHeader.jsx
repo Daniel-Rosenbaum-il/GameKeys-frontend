@@ -1,8 +1,7 @@
 
 export function UserHeader({fullname, img}) {
-    const backgroundImg = require(`../../assets/img/user-profile-hero.jpg`).default
-    const userImg = require(`../../assets/img/${img}`).default
-
+    const backgroundImg = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623183702/GameKeys/img/user-profile-hero_cytz5i.jpg"
+    const userImg = img
     return (
         <header>
             <div className="user-profile-header container">

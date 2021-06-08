@@ -4,7 +4,7 @@ import { InfoBlock } from '../InfoBlock'
 export function DetailsPanel({ game, getDateString }) {
     const { imgs, videoUrls, description, releasedAt, seller, tags } = game
     // const sDescription = description.slice(0, 250)
-    const urlImgs = imgs.largeImgUrls.map(img => require(`../../assets/img/${img}`).default)
+    const urlImgs = imgs.largeImgUrls
     return (
         <div className="details-container container flex gap-5 mb-20">
             <div className="video-container">
