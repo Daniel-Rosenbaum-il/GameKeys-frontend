@@ -77,7 +77,7 @@ class _GameDetails extends Component {
         const finalPrice = utilService.getFinalPrice(game.price, game.discount)
         const descriptions = this.getDesc()
         return (
-            <section className="main-details container">
+            <section className="main-details ">
                 <DetailsTopNav game={game} />
                 <h1 className="container" >{game.title}</h1>
                 <DetailsPanel game={game} getDateString={utilService.getDateString} />
@@ -109,10 +109,10 @@ class _GameDetails extends Component {
                     </div>
 
                 </div>
-                <div className="add-review">
+                <div className="add-review container">
                     <AddReview loggedInUser={loggedInUser} onAddReview={this.onAddReview} userMsg={this.props.userMsg} />
                 </div>
-                <div className="reviews-container">
+                <div className="reviews-container container ">
                     <ReviewList reviews={game.reviews} users={users} loggedInUser={loggedInUser} />
                 </div>
             </section >
