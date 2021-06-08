@@ -47,7 +47,7 @@ export function DanDUserGameList({ orders, onGameClicked }) {
     <DragDropContext onDragEnd={handleOnDragEnd}>
       <Droppable droppableId="boughtGamess" direction="horizontal">
         {(provided) => (
-          <div className="boughtGamess" {...provided.droppableProps} ref={provided.innerRef}>
+          <div className="boughtGamess mb-20" {...provided.droppableProps} ref={provided.innerRef}>
             {boughtGamess.map(({ game }, index) => {
               return (
                 <Draggable key={game._id} draggableId={game._id} index={index}>

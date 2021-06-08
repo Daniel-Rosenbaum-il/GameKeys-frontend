@@ -67,7 +67,7 @@ class _UserProfile extends Component {
                         </div>)}
                     </div>
                 </div>
-                <div className="main-chart container">
+                {/* <div className="main-chart container">
                     <h1>Statistics</h1>
                     <div className="chart-preview">
                         <Chart type="bar" 
@@ -81,7 +81,7 @@ class _UserProfile extends Component {
                             datas={[72,35,112,28,56,10]}
                         />
                     </div>
-                </div>
+                </div> */}
                 {serialKey && <div className="game-clicked-info">
                     <h1>Your serial-key: {serialKey}</h1>
                     <p>Add your key to your favorite app</p>
