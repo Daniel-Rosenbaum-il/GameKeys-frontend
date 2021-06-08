@@ -18,7 +18,8 @@ class _GameCart extends Component {
         games: [],
         isCheckout: false,
         buyToUserId: null,
-        frinedsList: null
+        frinedsList: null,
+        isOpenModal: false
     }
 
     async componentDidMount() {
@@ -98,12 +99,15 @@ class _GameCart extends Component {
     }
     // onPlaceOrder 
     onFriendSelect = () => {
-        console.log(this.state);
         this.setState({ frinedsList: this.props.loggedInUser.friends })
-        console.log(this.props.loggedInUser.friends);
+    }
+    toggleModal = (isOpenModal) => {
+        console.log(isOpenModal);
+        this.onFriendSelect()
+        this.setState({ isOpenModal:!isOpenModal})
     }
     render() {
-        const { carts, games, isCheckout, frinedsList } = this.state
+        const { carts, games, isCheckout, frinedsList,isOpenModal } = this.state
         console.log('this.state', this.state);
         const { loggedInUser } = this.props
         const img = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623183655/GameKeys/img/background-5_t0clwl.jpg"
@@ -134,6 +138,8 @@ class _GameCart extends Component {
                                 />
 
                                 {!isCheckout && <CartInfo
+                                    toggleModal={this.toggleModal}
+                                    isOpenModal={isOpenModal}
                                     toggleIsCheckout={this.toggleIsCheckout}
                                     totalPrice={totalPrice}
                                     onFriendSelect={this.onFriendSelect}

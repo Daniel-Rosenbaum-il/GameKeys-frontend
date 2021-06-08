@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 export function CtgList() {
     return (
         <>
-            <h2 className="ctg-l-title mb-20 container">Browse game keys</h2>
+            <h2 className="ctg-s-title mb-20 container">Browse game keys</h2>
             <div className="ctg-list  flex container gap-20 mb-30">
                 <Link className="btn-big " to="/game?tag=adventure" >Adventure</Link>
                 <Link className="btn-big " to="/game?tag=racing" >Racing</Link>

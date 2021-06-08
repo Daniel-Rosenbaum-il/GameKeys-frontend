@@ -1,7 +1,7 @@
 import { FriendsList } from "./FriendsList";
 
 
-export function CartInfo({ totalPrice, toggleIsCheckout, onFriendSelect, frinedsList, onCheckOut }) {
+export function CartInfo({ totalPrice, toggleIsCheckout, onFriendSelect, frinedsList, onCheckOut, isOpenModal, toggleModal }) {
     console.log(frinedsList);
     return (
         <>
@@ -15,13 +15,17 @@ export function CartInfo({ totalPrice, toggleIsCheckout, onFriendSelect, frineds
                 <p className="p-3">Is this a purchase for yourself or is it a gift? Select one to continue to checkout.</p>
                 <div className="btn-container flex gap-10  ">
                     <button onClick={() => toggleIsCheckout()}
-                        className=" btn btn-success btn-med" >Purchase for myself</button>
-                    <button className="gift-btn btn btn-success btn-med" onClick={() => onFriendSelect()}>Purchase as a gift</button>
+                        className="btn-main" >Purchase for myself</button>
+                    <button className="btn-main" onClick={() => toggleModal(isOpenModal)}>Purchase as a gift</button>
                     {/* <button className="gift-btn btn btn-success btn-med" }>Purchase as a gift</button> */}
                 </div>
             </div>
             <div className="pad-15">
-                    {frinedsList && <FriendsList onCheckOut={onCheckOut} frinedsList={frinedsList}/>}
+                {isOpenModal && <FriendsList
+                    isOpenModal={isOpenModal}
+                    FriendsList={FriendsList}
+                    onCheckOut={this.onCheckOut}
+                    frinedsList={frinedsList} />}
                 <p>All prices include VAT where applicable</p>
             </div>
 
