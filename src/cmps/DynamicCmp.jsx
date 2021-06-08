@@ -10,12 +10,14 @@ export function DynamicCmp({ games, type = 'main', src, utilService }) {
 
     console.log(gGames, 'gGamesgGames');
     let countGameToCut = 0
-    if (type === 'main') countGameToCut = 5
-    if (type === 'video') countGameToCut = 6
+    console.log(countGameToCut);
+    if (type === 'main') countGameToCut = 11
+    else if (type === 'video') countGameToCut = 2
     else countGameToCut = 4
-    if (gGames.length < countGameToCut) {
-        gGames = [...games]
-    }
+
+    if (gGames.length < countGameToCut) gGames = [...games]
+
+
     const filterGames = gGames.splice(0, countGameToCut)
     const DynamicCmp = () => {
         switch (type) {
@@ -30,7 +32,8 @@ export function DynamicCmp({ games, type = 'main', src, utilService }) {
             case 'small':
                 return (<>
                     <CtgList />
-                    <div className="preview-container flex container mb-30 gap-20 ">
+                    {/* <div className="preview-container flex container mb-30 gap-20 "> */}
+                    <div className="s-preview-container grid-container container mb-30 gap-20 ">
                         {filterGames.map((game, idx) => {
                             if (idx > 3) return
                             return <SmallGamePreview game={game} key={game._id} />

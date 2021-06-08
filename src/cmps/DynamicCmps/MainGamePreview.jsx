@@ -62,7 +62,8 @@ export class MainGamePreview extends Component {
                                 </div>
 
                                 <div className="imgs-container flex column">
-                                    <img onMouseOver={() => this.changeImg(1)}
+                                    <img
+                                        onMouseOver={() => this.changeImg(1)}
                                         onMouseLeave={() => this.changeImg(0)}
                                         className={classTransition} src={imgs[1]} />
                                     <img onMouseOver={() => this.changeImg(2)}
@@ -73,22 +74,26 @@ export class MainGamePreview extends Component {
                                     <p>Release date:{releasedAt}</p>
                                 </div>
 
-                                <div className="imgs-container flex column">
+                                <div className="imgs-container flex column space-between">
+                                    <div>
                                     <img onMouseOver={() => this.changeImg(3)}
                                         onMouseLeave={() => this.changeImg(0)}
                                         className={classTransition} src={imgs[3]} />
                                     <img onMouseOver={() => this.changeImg(4)}
                                         onMouseLeave={() => this.changeImg(0)}
                                         className={classTransition} src={imgs[4]} />
+                                        
+                                    </div>
 
                                     <div className="preview-price">
                                         <p className={`discount ${!game.discount && 'hidden'}`}>{game.discount ? `${game.discount}%` : '1'}</p>
-                                        <div className="flex column">
-                                            <p className={`${!game.discount && 'hidden'}`} >${game.price.toFixed(2)}</p>
+                                        <div className="price-container flex column">
+                                            <p className={`in-sale ${!game.discount && 'hidden'}`} >${game.price.toFixed(2)}</p>
                                             <p className={`f-price `} >${finalPrice.toFixed(2)}</p>
                                         </div>
                                     </div>
-                                    <button className="btn-home-buy-now btn-success">Buy now</button>
+                                    {/* <button className="btn-home-buy-now btn-success">Buy now</button> */}
+                                    <button className="btn-main txt-cap">Get it today</button>
                                 </div>
                             </div>
                         </Link>

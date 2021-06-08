@@ -18,6 +18,9 @@
 .btn {
     cursor: pointer;
 }
+.mb-auto {
+    margin-bottom: auto ;
+}
 .mb-10 {
     margin-bottom: 10px;
 }
@@ -56,7 +59,7 @@
     font-family: roboto-medium;
     background: $clr1;
     border: 1px solid white;
-    transition: .5s;
+    transition: 0.5s;
     @media screen and (max-width: 550px) {
         width: 105px;
         font-size: 12px;
@@ -87,6 +90,9 @@
     }
     &.align-start {
         align-items: flex-start;
+    }
+    &.gap-5 {
+        gap: 5px;
     }
     &.gap-10 {
         gap: 10px;
@@ -127,6 +133,8 @@
     padding: 0 5px;
     border-radius: 25px;
     font-size: 15px;
+    font-family: "roboto-reg";
+    font-weight: 900;
 }
 .in-sale {
     text-decoration: line-through;
@@ -180,7 +188,6 @@
     color: #d2704b;
 }
 
-
 .btn-med {
     padding: 0 15px;
     font-size: 15px;
@@ -227,6 +234,35 @@
 }
 .btn-remove:hover {
     text-decoration: underline;
+}
+.btn-main {
+    margin: 0px;
+    border: 0px;
+    outline: none;
+    background-color: #28a745;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    position: relative;
+    border-radius: 4px;
+    text-transform: uppercase;
+    text-align: center;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    line-height: 15px;
+    padding: 0px 20px;
+    height: 50px;
+    display: flex;
+    width: 100%;
+    min-width: auto;
+    // background-color: rgb(90, 125, 207);
+    color: rgb(255, 255, 255);
+    transition: 0.4s;
+    &:hover {
+        background-color: #26ca4b;
+    }
 }
 
 .hero {
@@ -294,7 +330,7 @@
     grid-gap: 10px;
     grid-auto-flow: dense;
 }
-.card-swipe{
+.card-swipe {
     background-color: black;
     width: 227px;
     height: 116px;
