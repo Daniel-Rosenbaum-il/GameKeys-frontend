@@ -56,6 +56,7 @@
         font-size: 2rem;
     }
     .btn-container {
+        width: 100%;
         @media screen and(max-width:425px) {
             gap: 5px;
             .btn-med {
@@ -78,22 +79,30 @@
         padding-top: 45px;
     }
     .friends-modal {
+        width: 98%;
+        height: 93%;
+        padding: 20px;
         font-size: 1.1rem;
         position: fixed;
-        top: 50%;
-        right: 50%;
-        transform: translate(50%, -50%);
-        width: 360px;
-        height: 245px;
+        transform: translate(50%, -88%);
+        top: 89%;
         background-color: #294962;
-        padding: 10px;
         border-radius: 5px;
         color: white;
+        right: 50%;
+        @media screen and (min-width: 750px) {
+            top: 50%;
+            transform: translate(50%, -50%);
+            width: 360px;
+            height: 245px;
+            padding: 10px;
+        }
+
         button {
             align-self: center;
             width: 27%;
         }
-        p{
+        p {
             cursor: pointer;
             font-size: 1rem;
         }
