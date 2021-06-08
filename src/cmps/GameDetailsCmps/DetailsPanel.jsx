@@ -8,18 +8,18 @@ export function DetailsPanel({ game, getDateString }) {
     return (
         <div className="details-container container flex gap-5 mb-20">
             <div className="video-container">
-                <div className="video flex column justify-center">
+                <div className="video flex column justify-center gap-5">
                     <Video url={videoUrls[0]} />
                     {/* <div className="flex img-container gap-10"> */}
                     <div className="grid-container">
                         {urlImgs.map((img, idx) => {
-                            if (idx >= 4) return
-                            return <div key={'i' + idx} > <img src={img} alt="" /></div>
+                            if (idx >= 5) return
+                            return <div key={'i' + idx} > <img src={urlImgs[idx+1]} alt="" /></div>
                         })}
                     </div>
                 </div>
             </div>
-            <div className="details-info flex space-between ">
+            <div className="details-info flex  ">
                 <div>
                     <img className="mb-10" src={urlImgs[0]} alt="" />
                     <p maxLength="10" className="s-desc">{description}</p>
