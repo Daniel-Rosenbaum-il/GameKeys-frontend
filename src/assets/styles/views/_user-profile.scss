@@ -35,10 +35,10 @@
     }
 }
 .boughtGamess {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 10px;
+    grid-auto-flow: dense
 }
 .user-buy-list {
     display: flex;
@@ -47,8 +47,7 @@
 }
 .user-game-card {
     display: flex;
-    width: 210px;
-    padding: 1px;
+    padding: 10px;
     flex-direction: column;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
@@ -58,10 +57,11 @@
     .user-game-card-img {
         img {
             border-radius: 5px;
-            margin: 10px;
-            width: 195px;
-            height: 140px;
+            margin-bottom: 5px;
         }
+    }
+    h2{
+        margin:0;
     }
 }
 .game-clicked-info {
@@ -99,7 +99,7 @@ margin-bottom: 20px}
         margin-bottom: 20px;
     }
     .chart-preview {
-        max-width: 400px;
+        max-width: 300px;
         display: flex;
         gap: 50px;
     }

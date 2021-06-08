@@ -121,7 +121,20 @@
         font-size: 5px;
     }
     .notification-info-panel {
-        max-height: 147px;
+        display: flex;
+        max-height: 150px;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        h5 {
+            font-size: 0.95rem;
+            margin: 0 0 0 3px;
+        }
+        svg {
+            display: none;
+            // width: 20px;
+            // fill:white;
+        }
         .notification-message {
             background-color: #1a2a3d;
         }
@@ -146,9 +159,9 @@
         border: 1.5px #fff solid;
     }
     .popover-header {
-        background-color: #3c5470;
+        background-color: #0f141899;
         color: white;
-        border-radius: 1rem 1rem 0 0;
+        border-radius: 0.5rem 0.5rem 0 0;
         text-shadow: 0 0 $clr7;
         font-size: 0;
         border: unset;
@@ -157,9 +170,16 @@
     .bs-popover-bottom > .arrow::after {
         right: -0.1px;
     }
+    .popover {
+        max-width: 172px;
+    }
     .popover-body {
         border-radius: 0 0 0.9rem 0.9rem;
-        background-color: #3c5470;
+        background-color: #0f141899;
+        border-radius: 0 0 0.4rem 0.4rem;
+        svg{
+            display: none;
+        }
         .btn-link {
             width: 100%;
             box-shadow: 0, 0, 0px 1px $clr7;
@@ -175,9 +195,19 @@
         .notification-info-panel {
             // overflow: unset;
             .notification-message {
-                // background-color: #1a2a3d00;
-                background: linear-gradient(45deg, #162624, transparent);
+                background-color: #454a4c;
                 color: white;
+                width:98%;
+                border:none;
+            }
+            ul{
+                list-style: none;
+display: flex;
+            }
+            li{
+                padding:6px;
+                font-size: 14px;
+
             }
             // .notification-message:hover {
             // background-color: #1a2a3d00;
@@ -190,7 +220,7 @@
     .bs-popover-bottom {
         transform: translate3d(-89px, 34px, 0px);
         width: 209px;
-        border-radius: 1rem;
+        border-radius: 0.5rem;
     }
     .hamburger {
         border: unset;
