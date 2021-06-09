@@ -7,11 +7,7 @@ export function loadCarts() {
     return async dispatch => {
         try {
             const carts = await cartService.query()
-            console.log(carts, 'from load');
             dispatch({ type: 'SET_CARTS', carts })
-            // socketService.on(SOCKET_EVENT_REVIEW_ADDED, review => {
-            //     dispatch({ type: 'ADD_REVIEW', review })
-            // })
         } catch (err) {
             console.log('ReviewActions: err in loadReviews', err)
         }

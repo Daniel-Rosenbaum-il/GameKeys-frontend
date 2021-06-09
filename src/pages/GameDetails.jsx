@@ -72,7 +72,6 @@ class _GameDetails extends Component {
     render() {
         const { users, loggedInUser } = this.props
         const { game, isInLibrary } = this.state
-        console.log(game);
         if (!game) return <Loader />
         const finalPrice = utilService.getFinalPrice(game.price, game.discount)
         const descriptions = this.getDesc()

@@ -40,7 +40,6 @@ class _UserProfile extends Component {
         const { loggedInUser } = this.props
         const { user, serialKey, gamesToSell } = this.state
         if (!loggedInUser) return <h1>No user to show</h1>
-        console.log(gamesToSell);
         if (!user) return <h1>Loading</h1>
         if (!gamesToSell) return <h1>Loading</h1>
         return (

@@ -4,7 +4,6 @@ export function ReviewPreview({ review }) {
     const user = review.byUser
     const createdAt = new Date(review.createdAt).toLocaleDateString('en-Us', { year: 'numeric', month: 'long', day: 'numeric' })
     const userImg = user.imgUrl
-    console.log(userImg);
     return (
         <div className="review-preview">
             <div className="review-user-preview">

@@ -13,7 +13,6 @@ export class GameFilter extends Component {
         const { filterBy } = this.state
         this.setState({ filterBy: { ...filterBy, [field]: value } }, () => {
             this.props.onSetFilter(this.state.filterBy)
-            console.log(filterBy);
         })
     }
 

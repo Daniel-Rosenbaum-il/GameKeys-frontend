@@ -4,13 +4,10 @@ import { CtgList } from './DynamicCmps/CtgList.jsx';
 import { VideoGame } from './DynamicCmps/VideoGame.jsx';
 
 var gGames = []
-// const gIdx = 0
 export function DynamicCmp({ games, type = 'main', src, utilService }) {
 
 
-    console.log(gGames, 'gGamesgGames');
     let countGameToCut = 0
-    console.log(countGameToCut);
     if (type === 'main') countGameToCut = 11
     else if (type === 'video') countGameToCut = 2
     else countGameToCut = 4

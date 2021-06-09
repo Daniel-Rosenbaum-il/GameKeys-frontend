@@ -19,7 +19,6 @@ class _Home extends Component {
     const poster = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623183624/GameKeys/img/hero2_chf0rb.jpg"
     const { games } = this.props // Do we need main here??
     if (!games) return <Loader />
-    // console.log(games);
     return (
       <div className="home-page ">
         <div className="home-poster">

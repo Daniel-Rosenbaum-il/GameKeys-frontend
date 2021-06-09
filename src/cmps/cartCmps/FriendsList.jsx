@@ -7,7 +7,6 @@ export class FriendsList extends Component {
     }
 
     onChoseFriend = (friendId) => {
-        console.log(friendId);
         this.setState({ friendId })
     }
 

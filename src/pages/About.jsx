@@ -1,16 +1,13 @@
-import aboutImg from '../assets/img/about-800x533.jpg'
-import mainImg from '../assets/img/about/about-img2.jpg'
 export function About() {
     const payments = ['MasterCard', 'Maestro', 'Visa', 'American Express', ' Diners Club', 'Sofort', 'Skrill', 'Alipay', 'Giropay', 'Neteller', 'Bitcoin']
-
     return (
         <div className="about">
             <div className="about-img flexmb-20">
                 {/* <img src={mainImg} alt="" /> */}
-            <div className="about-title">
-                <p>Who we are</p>
-                <p>Gamers, Sellers, Buyyers & friends</p>
-            </div>
+                <div className="about-title">
+                    <p>Who we are</p>
+                    <p>Gamers, Sellers, Buyyers & friends</p>
+                </div>
             </div>
             <p>Here at GameKeys.com, we specialise in providing you with the best digital
             codes for the hottest games. There’s no need to pay full price or

@@ -32,8 +32,7 @@ function save(order, buyer) {
 }
 
 async function checkIsInLibrary(gameId, userId) {
-    console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhh');
-    console.log('userIduserIduserIduserIduserId',userId);
+
     const user = await userService.getById(userId)
     return user.orders.some(order => order.game._id === gameId)
 }

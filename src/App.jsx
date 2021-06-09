@@ -35,7 +35,6 @@ class _App extends Component {
   }
 
   onGameBought = async (order) => {
-    console.log('sockettttt');
     await this.props.userMsg('An order has been made')
     this.setState({ msg: this.props.msg, isUpdate:true})
     setTimeout(() => {
@@ -46,7 +45,6 @@ class _App extends Component {
   }
 
   onGiftSent = async (order) => {
-    // console.log(order)
     await this.props.userMsg('You got a gift!!!' )
     this.setState({ msg: this.props.msg})
     setTimeout(() => {
@@ -57,7 +55,6 @@ class _App extends Component {
   }
   
   render() {
-    // console.log('App', this.props.msg);
     return (
       <div className="app">
         <Router>

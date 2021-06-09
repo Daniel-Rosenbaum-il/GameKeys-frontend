@@ -43,7 +43,6 @@ function getDateFormat(date) {
     return dateStr
 }
 function getDateString(date) {
-    console.log('date',date);
     return new Date(date).toLocaleDateString('en-Us', { day: 'numeric', month: 'long', year: 'numeric', })
 }
 function renderStars(rate) {

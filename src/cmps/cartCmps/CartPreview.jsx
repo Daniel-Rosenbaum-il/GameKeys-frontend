@@ -1,8 +1,6 @@
 
 export function CartPreview({ game, onRemoveCart, isCheckout }) {
-    // console.log(game);
-    // console.log(game, 'preview');
-    // console.log(onRemoveCart,'onRemoveCart');
+
     const gameImg = game.imgs.largeImgUrls[0]
     const finalPrice = game.price - (game.price * (game.discount/100))
     return (

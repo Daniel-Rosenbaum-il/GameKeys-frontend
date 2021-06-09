@@ -2,7 +2,6 @@ import { FriendsList } from "./FriendsList";
 
 
 export function CartInfo({ totalPrice, toggleIsCheckout, onFriendSelect, frinedsList, onCheckOut, isOpenModal, toggleModal }) {
-    console.log(frinedsList);
     return (
         <>
             <div className="flex space-between align-center pad-15">

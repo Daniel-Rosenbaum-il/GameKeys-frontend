@@ -49,8 +49,7 @@ export class GameSwipe extends Component {
     const items = Array.from(games);
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
-    // console.log(items);
-    // console.log(result);
+
 
   }
   moveTo(ev) {

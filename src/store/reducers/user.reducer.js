@@ -19,7 +19,6 @@ export function userReducer(state = initialState, action = {}) {
     case 'SET_USERS':
       return { ...state, users: action.users }
     case 'SET_MSG':
-      console.log('reducerrrrr', action.msg);
       return { ...state, msg: action.msg }
     default:
       return state

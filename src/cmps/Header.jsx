@@ -17,14 +17,12 @@ class _Header extends Component {
     // }
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.msg){
-            console.log(prevProps.msg);
             if(prevProps.msg === "You got a gift!!!")
             this.updateData(prevProps.msg);
         }
     }
     
     updateData(msg) {
-        console.log('updateDataaaaaaaaaaaaaa',msg);
         const data =
         {
             "update": msg,
@@ -54,7 +52,6 @@ class _Header extends Component {
     }
     
     render() {
-        // console.log('State-headerrrrrr', this.props);
         const {data} = this.state
         const logo = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623183631/GameKeys/img/logo/GameKeys-BIG_k1kusx.png"
         const { loggedInUser } = this.props;

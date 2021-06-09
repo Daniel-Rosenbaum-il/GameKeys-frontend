@@ -99,17 +99,17 @@ class _GameCart extends Component {
         this.setState({ isCheckout: true })
     }
     // onPlaceOrder 
-    onFriendSelect = () => {
-        this.setState({ frinedsList: this.props.loggedInUser.friends })
+    onFriendSelect = (friends) => {
+        this.setState({ frinedsList: friends })
     }
     toggleModal = (isOpenModal) => {
-        console.log(isOpenModal);
-        this.onFriendSelect()
+        const {friends} = this.props.loggedInUser
+        if(!friends) return
+        this.onFriendSelect(friends)
         this.setState({ isOpenModal:!isOpenModal})
     }
     render() {
         const { carts, games, isCheckout, frinedsList,isOpenModal } = this.state
-        console.log('this.state', this.state);
         const { loggedInUser } = this.props
         const img1 = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623183655/GameKeys/img/background-5_t0clwl.jpg"
         const img2 = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623183651/GameKeys/img/background-1_mwtzmp.jpg"
