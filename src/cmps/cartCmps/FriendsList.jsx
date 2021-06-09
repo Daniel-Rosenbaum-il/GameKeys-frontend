@@ -26,9 +26,9 @@ export class FriendsList extends Component {
                         )
                     })}
                 </div>
-                <div className="flex justify-center gap-20" >
-                    <button className="btn btn-success btn-med" onClick={() => onCheckOut(this.state.friendId)}>Purchase</button>
-                    <a className=" btn-outline-danger" onClick={() => toggleModal(isOpenModal)}>Back</a>
+                <div className="friends-btn flex justify-center gap-20 align-center" >
+                    <button className="btn-main" onClick={() => onCheckOut(this.state.friendId)}>Purchase</button>
+                    <a className="" onClick={() => toggleModal(isOpenModal)}>Back</a>
                 </div>
             </div>
         )

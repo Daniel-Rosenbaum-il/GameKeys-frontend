@@ -79,17 +79,27 @@
         padding-top: 45px;
     }
     .friends-modal {
-        width: 98%;
-        height: 93%;
-        padding: 20px;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
         font-size: 1.1rem;
         position: fixed;
-        transform: translate(50%, -88%);
-        top: 89%;
         background-color: #294962;
         border-radius: 5px;
         color: white;
-        right: 50%;
+        h4{
+            padding-top: 60px;
+        }
+        a {
+            color: white;
+            cursor: pointer;
+        }
+        .friends-btn{
+            gap:30px;
+            padding-bottom: 15px;
+        }
         @media screen and (min-width: 750px) {
             top: 50%;
             transform: translate(50%, -50%);
@@ -105,6 +115,7 @@
         p {
             cursor: pointer;
             font-size: 1rem;
+            padding: 5px;
         }
         p.active {
             background-color: #28a745;

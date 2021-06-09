@@ -24,8 +24,9 @@ export function CartInfo({ totalPrice, toggleIsCheckout, onFriendSelect, frineds
                 {isOpenModal && <FriendsList
                     isOpenModal={isOpenModal}
                     FriendsList={FriendsList}
-                    onCheckOut={this.onCheckOut}
-                    frinedsList={frinedsList} />}
+                    onCheckOut={onCheckOut}
+                    frinedsList={frinedsList}
+                    toggleModal={toggleModal} />}
                 <p>All prices include VAT where applicable</p>
             </div>
 

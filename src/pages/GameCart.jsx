@@ -52,6 +52,7 @@ class _GameCart extends Component {
         let buyer;
         if (buyToUserId !== loggedInUser._id) {
             buyer = { _id: buyToUserId }
+            this.toggleModal(this.state.isOpenModal)
         } else buyer = loggedInUser
 
         await Promise.all(carts.map(async cart => {
@@ -110,7 +111,8 @@ class _GameCart extends Component {
         const { carts, games, isCheckout, frinedsList,isOpenModal } = this.state
         console.log('this.state', this.state);
         const { loggedInUser } = this.props
-        const img = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623183655/GameKeys/img/background-5_t0clwl.jpg"
+        const img1 = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623183655/GameKeys/img/background-5_t0clwl.jpg"
+        const img2 = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623183651/GameKeys/img/background-1_mwtzmp.jpg"
         const totalPrice = this.getTotalPrice(games)
         return (
             <div className="cart-container container" >
@@ -164,12 +166,12 @@ class _GameCart extends Component {
 
                         </div>
                     </div>
-                    {!isCheckout && <div className="card-game">
+                    {!isCheckout && <div className="card-game flex gap-5 column">
                         <div>
-                            <img src={img} alt="" />
+                            <img src={img1} alt="" />
                         </div>
                         <div>
-                            <img src={img} alt="" />
+                            <img src={img2} alt="" />
                         </div>
                     </div>}
                 </div>
