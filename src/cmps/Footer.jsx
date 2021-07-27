@@ -1,6 +1,6 @@
-import { ReactComponent as TwitchIcon } from '../../src/assets/img/icons/twitter.svg'
-import  {ReactComponent as Instagram} from '../../src/assets/img/icons/instagram.svg'
-import {ReactComponent as Facebook} from '../../src/assets/img/icons/facebook.svg'
+import { ReactComponent as TwitchIcon } from '../assets/img/icons/twitter.svg'
+import  {ReactComponent as Instagram} from '../assets/img/icons/instagram.svg'
+import {ReactComponent as Facebook} from '../assets/img/icons/facebook.svg'
 
 const logo = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623183631/GameKeys/img/logo/GameKeys-BIG_k1kusx.png"
 export function Footer() {
@@ -30,7 +30,7 @@ export function Footer() {
         </div>
       </div>
       <img className="logo-footer" src={logo} alt=""></img>
-      <small>copyright gamekeys.com 2021. all rights reserved &copy;2021</small>
+      <small>Copyrights Gamekeys.com 2021. all rights reserved &copy;2021</small>
     </footer>
   )
 }

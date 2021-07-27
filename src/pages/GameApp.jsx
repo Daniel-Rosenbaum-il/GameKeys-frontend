@@ -24,7 +24,7 @@ class _GameApp extends Component {
 
     render() {
         const { games } = this.props
-        const backgroundImg = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623148687/GameKeys/img/hero3_sbpuaf.jpg"
+        const backgroundImg = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623183628/GameKeys/img/hero3_ensfhg.jpg"
         return (
             <section className="main-explorer">
                 <img className="poster mb-20" src={backgroundImg} alt="" />

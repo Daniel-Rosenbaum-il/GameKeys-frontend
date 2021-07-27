@@ -1,36 +1,47 @@
-export function About() {
-    const payments = ['MasterCard', 'Maestro', 'Visa', 'American Express', ' Diners Club', 'Sofort', 'Skrill', 'Alipay', 'Giropay', 'Neteller', 'Bitcoin']
+import { useEffect, useRef, useState } from "react"
+
+export const About = () => {
+    const [imgIdx, setImg] = useState(0)
+    const intervalId = useRef()
+    const imgUrls = ['https://res.cloudinary.com/dat4toc2t/image/upload/v1627133999/GameKeys/img/about/about-img5_e0mzaj.jpg',
+        'https://res.cloudinary.com/dat4toc2t/image/upload/v1627135561/GameKeys/img/about/about-img6_vsbf2h.jpg',]
+    useEffect(() => {
+        intervalId.current = setInterval(() => {
+
+            setImg(imgIdx => {
+                if (imgIdx === imgUrls.length-1) {
+                  return  imgIdx = 0
+                } else {
+                   return imgIdx + 1
+                }
+            })
+        }, 3000)
+
+        return () => {
+            clearInterval(intervalId.current)
+            console.log('hello');
+        }
+    }, [])
+
     return (
-        <div className="about">
-            <div className="about-img flexmb-20">
-                {/* <img src={mainImg} alt="" /> */}
-                <div className="about-title">
-                    <p>Who we are</p>
-                    <p>Gamers, Sellers, Buyyers & friends</p>
+        <section className="about ">
+            <div className="about-info flex justify-center">
+                <div className="info-title">
+                    <h1>This is GameKeys</h1>
+                </div>
+                <div className="info-txt">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Sed a quae repudiandae iure sit quis, enim alias soluta corrupti voluptatum?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Sed a quae repudiandae iure sit quis, enim alias soluta corrupti voluptatum?</p>
                 </div>
             </div>
-            <p>Here at GameKeys.com, we specialise in providing you with the best digital
-            codes for the hottest games. There’s no need to pay full price or
-            wait for a game again. We combine the lowest prices with rapid
-            digital delivery, so you can start playing your favourite games, fast.
-            CDKeys.com has over 20 years of combined industry experience.
-            We’ve taken our passion for games and created a truly innovative service
-            that puts gamers first.
-            </p>
-
-            <p>We’ve made setting up an account quick and easy, so you can get your hands on the newest,
-            and most exciting game deals in a matter of seconds. Redeeming your digital codes is simple –
-            and we’re here to help if you need any extra help.
-            We also know you want to make payments the way they suit you.
-                That’s why we offer a wide range of payment options including:</p>
-            <ul>
-                {payments.map((payment, idx) => <li key={idx}>{payment}</li>)}
-            </ul>
-            {/* <div className="about-img flex justify-center">
-                <img src={aboutImg} alt="" />
-            </div> */}
-        </div>
+            <div className="slogen">
+                <img className="slogen-img" src={imgUrls[imgIdx]}>
+                </img>
+                <div className="test"></div>
+                <h2 className="slogen-txt">We are keys, for games!</h2>
+            </div>
+        </section>
     )
-
-
 }

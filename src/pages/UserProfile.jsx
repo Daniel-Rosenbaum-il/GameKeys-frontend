@@ -82,7 +82,7 @@ class _UserProfile extends Component {
                     </div>
                 </div> */}
                 {serialKey && <div className="game-clicked-info">
-                    <h1>Your serial-key: {serialKey}</h1>
+                    <h1>Your serial-key:<span> {serialKey}</span></h1>
                     <p>Add your key to your favorite app</p>
                     <p>We advise to use GameKeys app! but we work with</p>
                     <p>Steam, Google play and HBO-Games</p>

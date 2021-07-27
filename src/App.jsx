@@ -17,14 +17,17 @@ import { GameCart } from './pages/GameCart'
 import { UserProfile } from './pages/UserProfile'
 import { socketService } from './services/socket.service'
 import { GameSwipe } from './cmps/UtilCmps/GameSwipe'
+import { login } from './store/actions/user.actions'
 
 class _App extends Component {
   state = {
     msg: '',
-    isUpdate:null
+    isUpdate: null
   }
 
-  async componentDidMount(){
+  async componentDidMount() {
+    const userCreds = { username:'Admin', password:'Admin'}
+    await this.props.login(userCreds)
     await socketService.setup()
     await socketService.on('gameBought', this.onGameBought)
     await socketService.on('giftBought', this.onGiftSent)
@@ -36,24 +39,24 @@ class _App extends Component {
 
   onGameBought = async (order) => {
     await this.props.userMsg('An order has been made')
-    this.setState({ msg: this.props.msg, isUpdate:true})
+    this.setState({ msg: this.props.msg, isUpdate: true })
     setTimeout(() => {
       this.props.userMsg('')
-    }, 5000);
-    this.setState({ msg: this.props.msg})
+    }, 3000);
+    this.setState({ msg: this.props.msg })
     // this.onSetMsg("An order has been made" )
   }
 
   onGiftSent = async (order) => {
-    await this.props.userMsg('You got a gift!!!' )
-    this.setState({ msg: this.props.msg})
+    await this.props.userMsg('You got a gift!!!')
+    this.setState({ msg: this.props.msg })
     setTimeout(() => {
       this.props.userMsg('')
-    }, 5000);
-    this.setState({ msg: this.props.msg})
+    }, 3000);
+    this.setState({ msg: this.props.msg })
     // this.onSetMsg("An order has been made" )
   }
-  
+
   render() {
     return (
       <div className="app">
@@ -84,6 +87,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = {
   userMsg,
+  login
 }
 
 export const App = connect(mapStateToProps, mapDispatchToProps)(_App)
