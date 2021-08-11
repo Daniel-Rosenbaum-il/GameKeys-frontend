@@ -1,9 +1,9 @@
 .login {
     height: 75vh;
     background-image: url("../../img/login.jpg");
-    margin-top: 3%;
-    @media screen and (max-width: 765px) {
+    @media screen and (max-width: 750px) {
         flex-direction: column;
+        margin-top: 120px;
         .join-container{
             margin-bottom: 120px;
         }
