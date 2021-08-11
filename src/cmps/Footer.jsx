@@ -1,4 +1,4 @@
-import { ReactComponent as TwitchIcon } from '../assets/img/icons/twitter.svg'
+import { ReactComponent as Twitter } from '../assets/img/icons/twitter.svg'
 import  {ReactComponent as Instagram} from '../assets/img/icons/instagram.svg'
 import {ReactComponent as Facebook} from '../assets/img/icons/facebook.svg'
 
@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="flex column align-center">
       <div className="icon-container flex mb-20  justify-center gap-10">
         <div className="flex align-center">
-          <TwitchIcon className="icon" />
+          <Twitter className="icon" />
           <div className="flex column">
             <p className="icon-title" >11.9k</p>
             <span>Followers</span>
