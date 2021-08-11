@@ -69,6 +69,10 @@
             font-size: rem(18px);
             padding: 4px;
             text-align: center;
+            // @media screen and (max-width: 590px){
+            //     line-height:18px;
+            //     top:-13px;
+            // }
         }
 
         @media screen and (max-width: 590px) {
@@ -76,6 +80,10 @@
             .in-sale,
             .f-price {
                 font-size: 9px;
+            }
+            .discount {
+                line-height: 18px;
+                top: -13px;
             }
         }
     }

@@ -7,6 +7,7 @@ import { UserGameList } from '../cmps/UserCmps/UserGameList'
 import { DanDUserGameList } from '../cmps/UserCmps/DanDUserGameList'
 import { userService } from '../services/user.service'
 import { Chart } from '../cmps/UtilCmps/Chart'
+import { Link } from 'react-router-dom'
 
 class _UserProfile extends Component {
     state = {
@@ -62,6 +63,7 @@ class _UserProfile extends Component {
                                     <h2>{game.title}</h2>
                                     <h2>Sell price: ${game.price}</h2>
                                 </div>
+                                <Link to={`/profile/mystore/edit/${game._id}`}>Edit</Link>
                             </div>
                         </div>)}
                     </div>

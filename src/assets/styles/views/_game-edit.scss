@@ -1,0 +1,20 @@
+.game-edit {
+    padding-top: 100px;
+    input {
+        margin-bottom: 8px;
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+    }
+    button {
+        margin-top: 10px;
+        height:40px;
+        max-width: 50px;
+    }
+    textarea{
+        resize: none;
+    }
+    label{
+        width:100%;
+    }
+}

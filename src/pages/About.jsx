@@ -19,9 +19,8 @@ export const About = () => {
 
         return () => {
             clearInterval(intervalId.current)
-            console.log('hello');
         }
-    }, [])
+    }, [imgIdx])
 
     return (
         <section className="about ">
@@ -30,10 +29,9 @@ export const About = () => {
                     <h1>This is GameKeys</h1>
                 </div>
                 <div className="info-txt">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Sed a quae repudiandae iure sit quis, enim alias soluta corrupti voluptatum?</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Sed a quae repudiandae iure sit quis, enim alias soluta corrupti voluptatum?</p>
+                    <p>We believe that games should be easy to: access, share, buy & sell and to be affordable, this is why we came with GameKeys.
+                        A market place for games, where you can share your thoughts, buy/sell games, get updateed with the newest trands in the gaming industry, and be a part of a community.</p>
+                    <p>We work with our own game-app! but we also work with all the major platforms, such as: Steam, Google play and HBO-Games and more.</p>
                 </div>
             </div>
             <div className="slogen">

@@ -18,6 +18,7 @@ import { UserProfile } from './pages/UserProfile'
 import { socketService } from './services/socket.service'
 import { GameSwipe } from './cmps/UtilCmps/GameSwipe'
 import { login } from './store/actions/user.actions'
+import { GameEdit } from './pages/GameEdit'
 
 class _App extends Component {
   state = {
@@ -26,7 +27,7 @@ class _App extends Component {
   }
 
   async componentDidMount() {
-    const userCreds = { username:'Admin', password:'Admin'}
+    const userCreds = { username:'Guest', password:'Guest'}
     await this.props.login(userCreds)
     await socketService.setup()
     await socketService.on('gameBought', this.onGameBought)
@@ -65,6 +66,7 @@ class _App extends Component {
           <main className="">
             <Switch>
               <Route path="/login" component={Login} />
+              <Route path="/profile/mystore/edit/:gameId?" component={GameEdit} />
               <Route path="/profile" component={UserProfile} />
               <Route path="/game/order/:gameId" component={GameCart} />
               <Route path="/game/:gameId" component={GameDetails} />

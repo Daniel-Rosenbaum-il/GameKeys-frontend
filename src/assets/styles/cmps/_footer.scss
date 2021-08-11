@@ -43,6 +43,9 @@ footer {
         }
     }
     .logo-footer {
-        width: 25%;
+        width: 300px;
+        @media screen and(max-width:768px){
+            width: 270px;
+        }
     }
 }

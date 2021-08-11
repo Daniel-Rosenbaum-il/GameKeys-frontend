@@ -3,7 +3,7 @@ import { Video } from "../Video";
 
 export function VideoGame({ games }) {
     return (<>
-        <div className="container flex space-between" >
+        <div className="video-ctg container flex space-between" >
             <h2 className="mb-20 ctg-s-title ">Popular in Game keys</h2>
             <div>
                 <Link className="btn btn-view align-end  title cap" to="/game"> View all</Link>

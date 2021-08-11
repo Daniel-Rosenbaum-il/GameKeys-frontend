@@ -8,14 +8,17 @@ export const gameService = {
     getById,
     remove,
     save,
-    addReview
+    addReview,
+    getEmptyGame
 }
 
 function getGames(filterBy = { txt: '', tag: 'all', sortBy: 'title' },) {
     return httpService.get('game', filterBy)
     
 }
-
+function getEmptyGame(){
+    return {title:'', price:0}
+}
 function getById(gameId) {
     return httpService.get(`game/${gameId}`, gameId)
     // if (filterBy.sortBy === 'title') {

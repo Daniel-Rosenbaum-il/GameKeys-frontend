@@ -9,6 +9,7 @@ import { GameCarousel } from '../cmps/UtilCmps/GameCarousel'
 class _GameApp extends Component {
 
     componentDidMount() {
+        window.scrollTo(0, 0)
         const paramsString = this.props.location.search
         const searchParams = new URLSearchParams(paramsString).get('tag');
         if (searchParams) {

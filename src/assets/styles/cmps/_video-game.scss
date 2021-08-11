@@ -12,7 +12,6 @@
 .game-video-container {
     .video {
         gap: 2px;
-      
     }
     display: none;
     box-shadow: 0 0 1px 0px #03a9f4;
@@ -34,7 +33,12 @@
         display: block;
     }
 }
-
+.video-ctg {
+    display:none;
+    @media screen and(min-width:700px) {
+        display: block;
+    }
+}
 // .link {
 //     // background: $bgc3;
 // }
