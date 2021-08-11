@@ -4,6 +4,9 @@
     margin-top: 3%;
     @media screen and (max-width: 765px) {
         flex-direction: column;
+        .join-container{
+            margin-bottom: 120px;
+        }
     }
     form h1{
         color: $clr4
@@ -59,7 +62,7 @@
     }
     .btn-login {
         padding: 3px 80px;
-        font-size: 15px;
+        font-size: rem(13px);
         line-height: 30px;
         border-radius: 2px;
         display: block;
