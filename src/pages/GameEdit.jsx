@@ -3,9 +3,12 @@ import { useForm } from '../services/customHooks.js'
 import { useDispatch } from 'react-redux'
 import { saveGame } from '../store/actions/game.actions.js'
 import { gameService } from '../services/game.service'
+import {utilService} from '../services/util.service'
+import {Loader} from '../cmps/UtilCmps/Loader'
 
 export const GameEdit = ({ history, match }) => {
     const [game, handleChange, setGame] = useForm(gameService.getEmptyGame())
+    const [videoUrls, setVideoUrls] = React.useState({});
 
     const dispatch = useDispatch()
     useEffect(() => {
@@ -17,21 +20,26 @@ export const GameEdit = ({ history, match }) => {
         const { gameId } = match.params
         if (gameId) {
             const _game = await gameService.getById(gameId)
-            console.log(_game);
+            setVideoUrls(utilService.arrayToObject(_game.videoUrls,'url'))
             setGame(_game)
         }
     }
+    
+    const handleChanges = prop => event => {
+        setVideoUrls({...videoUrls, [prop]: event.target.value});
+    };
 
+    
     const onAddGame = async (ev) => {
         ev.preventDefault()
-        console.log(game);
+        game.videoUrls = Object.values(videoUrls)
         dispatch(saveGame(game))
         history.push('/')
     }
     if (game._id === undefined) {
-        console.log(game);
-        return <h1>Loading...</h1>}
-    else return (
+        return <Loader/>}
+    else 
+        return (
         <form className="game-edit container" onSubmit={(ev) => onAddGame(ev)}>
             {game !== 0 && <h1>Game edit</h1>}
             <div className="">
@@ -47,11 +55,11 @@ export const GameEdit = ({ history, match }) => {
                 <textarea type="textarea" name="sDescription" cols="40" rows="5" placeholder="sDescription" value={game.sDescription} onChange={handleChange} />
                 <label htmlFor="description">Description:</label>
                 <textarea type="textarea" name="description" placeholder="description" cols="40" rows="10" value={game.description} onChange={handleChange} />
-                {/* <label htmlFor="videoUrls">Video Url: add a Youtube url</label> */}
-                {/* {game.videoUrls.map(url => <input type="text" name="url" placeholder="Video-Url" value={url} onChange={handleChange} />)} */}
-                {/* <input type="text" name="videoUrls[1]" placeholder="Video-Url" value={game.videoUrls[0]} onChange={handleChange} />
-                <input type="text" name="videoUrls[2]" placeholder="Video-Url" value={game.videoUrls[1]} onChange={handleChange} />
-                <input type="text" name="videoUrls[3]" placeholder="Video-Url" value={game.videoUrls[2]} onChange={handleChange} /> */}
+                { <label htmlFor="videoUrls">Video Url: add a Youtube url</label> }
+                {/* {game.videoUrls.map((url,idx) => <input type="text" key={idx} name={videoUrls} placeholder="Video-Url" value={videoUrls[idx]} onChange={handleChanges(idx)} />)} */}
+                <input type="text" name="videoUrls[1]" placeholder="Video-Url" value={videoUrls.url0} onChange={handleChanges('url0')} />
+                <input type="text" name="videoUrls[2]" placeholder="Video-Url" value={videoUrls.url1} onChange={handleChanges('url1')} />
+                <input type="text" name="videoUrls[3]" placeholder="Video-Url" value={videoUrls.url2} onChange={handleChanges('url2')} />
                 <button className='btn-main'>Save</button>
             </div>
         </form>

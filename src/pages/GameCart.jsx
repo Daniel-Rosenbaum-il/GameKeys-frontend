@@ -103,6 +103,15 @@ class _GameCart extends Component {
         this.setState({ frinedsList: friends })
     }
     toggleModal = (isOpenModal) => {
+        if (!this.props.loggedInUser) {
+            // Modal('👍', 'Log in to continue the purchase', 1500)
+            this.props.userMsg('Log in to continue the purchase')
+
+            return setTimeout(() => {
+                this.props.history.push('/login')
+                this.props.userMsg('')
+            }, 1500)
+        }
         const {friends} = this.props.loggedInUser
         if(!friends) return
         this.onFriendSelect(friends)

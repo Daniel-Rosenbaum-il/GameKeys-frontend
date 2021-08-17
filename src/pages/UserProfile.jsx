@@ -8,6 +8,7 @@ import { DanDUserGameList } from '../cmps/UserCmps/DanDUserGameList'
 import { userService } from '../services/user.service'
 import { Chart } from '../cmps/UtilCmps/Chart'
 import { Link } from 'react-router-dom'
+import {Loader} from '../cmps/UtilCmps/Loader'
 
 class _UserProfile extends Component {
     state = {
@@ -41,8 +42,8 @@ class _UserProfile extends Component {
         const { loggedInUser } = this.props
         const { user, serialKey, gamesToSell } = this.state
         if (!loggedInUser) return <h1>No user to show</h1>
-        if (!user) return <h1>Loading</h1>
-        if (!gamesToSell) return <h1>Loading</h1>
+        if (!user) return <Loader />
+        if (!gamesToSell) return <Loader />
         return (
             <section className="main-user-profile">
                 <UserHeader fullname={user.fullname} img={user.imgUrl} />

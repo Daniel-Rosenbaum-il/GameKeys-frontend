@@ -170,7 +170,7 @@ class _Login extends Component {
           onClick={this.toggleLoginSignup}
         >Back to login</button>}
 
-        {isLogIn && <div className="join-container flex column align-center justify-center space-around">
+        {isLogIn && <div className="join-container flex column space-around">
           <div className="flex column space-between align-center">
             <p>Join Game keys and discover thousands of games to play.</p>
             <Link to="/about" >Learn more</Link>

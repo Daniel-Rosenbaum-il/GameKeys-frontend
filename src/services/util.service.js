@@ -7,7 +7,8 @@ export const utilService = {
     getDateFormat,
     renderStars,
     getDateString,
-    getFinalPrice
+    getFinalPrice,
+    arrayToObject
 }
 
 function delay(ms = 1500) {
@@ -52,5 +53,11 @@ function renderStars(rate) {
     }
     return stars
 }
-
+function arrayToObject(arr,keyName){
+    const obj = arr.reduce((accumulator, currentValue,idx) => {
+        accumulator[keyName+idx] = currentValue;
+        return accumulator;
+      }, {});
+      return obj
+}
 function getFinalPrice(price, discount) {return price - (price * (discount/100))}
