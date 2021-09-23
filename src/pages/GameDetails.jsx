@@ -35,7 +35,7 @@ class _GameDetails extends Component {
         if (!this.state.game) return
         const gameId = this.state.game._id
         const userId = this.props.loggedInUser._id
-    
+
         const isInLibrary = await orderService.checkIsInLibrary(gameId, userId)
         this.setState({ isInLibrary })
     }
@@ -69,12 +69,18 @@ class _GameDetails extends Component {
             return newDescs
         }
     }
+    getUserByReview = (review) => {
+        let users = this.props.users
+        let user = users.filter(user => user._id === review.byUser._id)
+        return user[0]
+    }
     render() {
         const { users, loggedInUser } = this.props
         const { game, isInLibrary } = this.state
         if (!game) return <Loader />
         const finalPrice = utilService.getFinalPrice(game.price, game.discount)
         const descriptions = this.getDesc()
+        console.log(users);
         return (
             <section className="main-details ">
                 <DetailsTopNav game={game} />
@@ -96,9 +102,9 @@ class _GameDetails extends Component {
                     <div className="desc" >
                         <p className="title" >ABOUT THIS GAME</p>
                         {/* {descriptions.map(desc => <p className="desc" >{(desc)}</p>)} */}
-                        {descriptions.map((desc,idx) => {
+                        {descriptions.map((desc, idx) => {
                             return (
-                                <div key={'desc'+idx}>
+                                <div key={'desc' + idx}>
                                     <p>{desc}</p>
                                     <br />
 
@@ -112,7 +118,7 @@ class _GameDetails extends Component {
                     <AddReview loggedInUser={loggedInUser} onAddReview={this.onAddReview} userMsg={this.props.userMsg} />
                 </div>
                 <div className="reviews-container container ">
-                    <ReviewList reviews={game.reviews} users={users} loggedInUser={loggedInUser} />
+                    <ReviewList reviews={game.reviews} getUserByReview = {this.getUserByReview} loggedInUser={loggedInUser} />
                 </div>
             </section >
         )

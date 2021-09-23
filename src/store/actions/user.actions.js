@@ -61,6 +61,21 @@ export function logout() {
   }
 }
 
+export function updateUser(user) {
+  return async dispatch => {
+      try {
+        // console.log('actionnnnnn', user);
+          let userToSave
+          userToSave = await userService.updateUser(user) //after back is runing change to add
+          // console.log('userToSave', userToSave);
+          const action = { type: 'UPDATE_USER', user: userToSave }
+          dispatch(action)
+      } catch (err) {
+          console.log('usersActions: err in saveUser', err)
+      }
+  }
+}
+
 export function userMsg(msg) {
   return dispatch =>{
     dispatch({ type: 'SET_MSG', msg})

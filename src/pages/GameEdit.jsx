@@ -8,7 +8,7 @@ import {Loader} from '../cmps/UtilCmps/Loader'
 
 export const GameEdit = ({ history, match }) => {
     const [game, handleChange, setGame] = useForm(gameService.getEmptyGame())
-    const [videoUrls, setVideoUrls] = React.useState({});
+    const [videoUrls, setVideoUrls] = useState({});
 
     const dispatch = useDispatch()
     useEffect(() => {

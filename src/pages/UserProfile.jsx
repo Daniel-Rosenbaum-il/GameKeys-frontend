@@ -8,7 +8,7 @@ import { DanDUserGameList } from '../cmps/UserCmps/DanDUserGameList'
 import { userService } from '../services/user.service'
 import { Chart } from '../cmps/UtilCmps/Chart'
 import { Link } from 'react-router-dom'
-import {Loader} from '../cmps/UtilCmps/Loader'
+import { Loader } from '../cmps/UtilCmps/Loader'
 
 class _UserProfile extends Component {
     state = {
@@ -38,6 +38,7 @@ class _UserProfile extends Component {
     onGameClicked = (serialKey) => {
         this.setState({ serialKey: serialKey })
     }
+    
     render() {
         const { loggedInUser } = this.props
         const { user, serialKey, gamesToSell } = this.state

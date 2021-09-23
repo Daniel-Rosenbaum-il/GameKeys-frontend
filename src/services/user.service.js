@@ -12,6 +12,7 @@ export const userService = {
     remove,
     update,
     getLoggedinUser,
+    updateUser
 }
 
 window.userService = userService
@@ -63,7 +64,12 @@ function _saveLocalUser(user) {
     sessionStorage.setItem('loggedinUser', JSON.stringify(user))
     return user
 }
-
+async function updateUser(userCred){
+    console.log('userCred',userCred);
+    const userToUpdate = await httpService.put(`user/${userCred._id}`, userCred)
+    console.log('userToUpdate',userToUpdate);
+    return _saveLocalUser(userToUpdate)
+}
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem('loggedinUser'))
 }

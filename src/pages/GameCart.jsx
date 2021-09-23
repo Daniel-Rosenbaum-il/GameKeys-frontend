@@ -68,6 +68,9 @@ class _GameCart extends Component {
             return savedOrder
         }))
         localStorage.clear('cart')
+        setTimeout(() => {
+            this.props.history.push(`/profile`)
+        }, 1000)
         return console.log('thnx for buying');
     }
 

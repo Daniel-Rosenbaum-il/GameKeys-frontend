@@ -19,6 +19,7 @@ import { socketService } from './services/socket.service'
 import { GameSwipe } from './cmps/UtilCmps/GameSwipe'
 import { login } from './store/actions/user.actions'
 import { GameEdit } from './pages/GameEdit'
+import { UserEdit } from './pages/UserEdit'
 
 class _App extends Component {
   state = {
@@ -67,6 +68,7 @@ class _App extends Component {
             <Switch>
               <Route path="/login" component={Login} />
               <Route path="/profile/mystore/edit/:gameId?" component={GameEdit} />
+              <Route path="/profile/edit" component={UserEdit} />
               <Route path="/profile" component={UserProfile} />
               <Route path="/game/order/:gameId" component={GameCart} />
               <Route path="/game/:gameId" component={GameDetails} />
