@@ -29,12 +29,13 @@
 @import "cmps/video";
 @import "cmps/carousel";
 @import "cmps/util/screen";
+@import "cmps/util/alert";
 @import "cmps/footer";
 
 // Views
 @import "views/game-details";
 @import "views/game-cart";
-@import "views/login";
+@import "views/login-signup";
 @import "views/game-app";
 @import "views/user-Profile";
 @import "views/home-page";

@@ -7,6 +7,7 @@
     top: 0;
     bottom: 0;
     z-index: 11;
+    cursor: pointer;
     pointer-events: auto;
     &.hidden-screen {
         pointer-events: none;

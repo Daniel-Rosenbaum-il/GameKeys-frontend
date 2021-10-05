@@ -97,6 +97,7 @@ class _Header extends Component {
                              <span className="light-txt txt-cap"> {loggedInUser.username}</span></a>}
                                 <a>Wishlist</a>
                                 <a>My store</a>
+                                <Link to="/profile/edit">Edit profile</Link>
                             </div>
                         </div>
                     </div>}

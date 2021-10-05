@@ -15,7 +15,7 @@ export const About = () => {
                    return imgIdx + 1
                 }
             })
-        }, 3000)
+        }, 5000)
 
         return () => {
             clearInterval(intervalId.current)
@@ -35,7 +35,9 @@ export const About = () => {
                 </div>
             </div>
             <div className="slogen">
-                <img className="slogen-img" src={imgUrls[imgIdx]}>
+                <img className="slogen-img bottom-img" src={imgUrls[0]}>
+                </img>
+                <img className="slogen-img top-img" src={imgUrls[1]}>
                 </img>
                 <div className="test"></div>
                 <h2 className="slogen-txt">We are keys, for games!</h2>

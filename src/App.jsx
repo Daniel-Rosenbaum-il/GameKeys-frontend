@@ -20,6 +20,7 @@ import { GameSwipe } from './cmps/UtilCmps/GameSwipe'
 import { login } from './store/actions/user.actions'
 import { GameEdit } from './pages/GameEdit'
 import { UserEdit } from './pages/UserEdit'
+import { Signup } from './pages/Signup'
 
 class _App extends Component {
   state = {
@@ -67,6 +68,7 @@ class _App extends Component {
           <main className="">
             <Switch>
               <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
               <Route path="/profile/mystore/edit/:gameId?" component={GameEdit} />
               <Route path="/profile/edit" component={UserEdit} />
               <Route path="/profile" component={UserProfile} />

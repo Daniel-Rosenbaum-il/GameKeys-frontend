@@ -4,14 +4,14 @@
     position: absolute;
     width: 100%;
     background-color: #0f141899;
-   
+
     .logo-img {
         width: 150px;
     }
     .btn-menu {
         display: none;
-        border: unset;
-        background-color: white;
+        background-color: $clr0;
+        border: 1px solid #ffffff5c;
     }
 
     a {
@@ -177,7 +177,7 @@
         border-radius: 0 0 0.9rem 0.9rem;
         background-color: #0f141899;
         border-radius: 0 0 0.4rem 0.4rem;
-        svg{
+        svg {
             display: none;
         }
         .btn-link {
@@ -197,17 +197,16 @@
             .notification-message {
                 background-color: #454a4c;
                 color: white;
-                width:98%;
-                border:none;
+                width: 98%;
+                border: none;
             }
-            ul{
+            ul {
                 list-style: none;
-display: flex;
+                display: flex;
             }
-            li{
-                padding:6px;
+            li {
+                padding: 6px;
                 font-size: 14px;
-
             }
             // .notification-message:hover {
             // background-color: #1a2a3d00;
@@ -235,7 +234,7 @@ display: flex;
         right: 0;
         top: 0;
         left: 0;
-        padding: 13px;
+        padding: 4px;
         z-index: 9;
         .screen {
             background-color: #0000004f;
@@ -256,14 +255,14 @@ display: flex;
         // }
         nav {
             z-index: 99;
-            padding-top: 20px;
+            padding-top: 6px;
             position: absolute;
             top: 0;
             bottom: 0;
             background: linear-gradient(45deg, black, transparent);
             background-color: #455667;
             height: 100vh;
-            width: 47%;
+            max-width: 50%;
             transform: translateX(100%);
             flex-direction: column;
             right: 0;
@@ -272,8 +271,8 @@ display: flex;
             * > {
                 display: none;
             }
-            @media screen and(min-width:430px) {
-                width: 40%;
+            @media screen and(min-width:450px) {
+                max-width: 40%;
             }
         }
         nav.show {
@@ -299,10 +298,10 @@ display: flex;
             display: flex;
             width: 100%;
             flex-direction: row-reverse;
-            height: 90px;
+            // height: 90px;
             box-shadow: 0 0 1px 0px $clr2;
             padding: -16px 10px;
-            height: 137px;
+            max-height: 137px;
             cursor: auto;
             img {
                 width: 70px;
@@ -331,7 +330,7 @@ display: flex;
             }
             a {
                 color: unset;
-                font-size: 16px;
+                font-size: 14px;
             }
         }
 

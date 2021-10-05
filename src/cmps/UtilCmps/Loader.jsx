@@ -1,4 +1,6 @@
-export function Loader(){
+import React from 'react'
+
+export const Loader = () => {
     return(
         <div className="flex justify-center">
         <div className="lds-roller">
