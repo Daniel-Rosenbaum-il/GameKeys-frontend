@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { Alert } from '../cmps/UtilCmps/Alert'
 import { FormInput } from '../cmps/UtilCmps/FormInput'
 import { Loader } from '../cmps/UtilCmps/Loader'
-import { handleFile, useForm, useUploadImg } from '../services/customHooks'
+import { handleFile, useForm, } from '../services/customHooks'
 import { userService } from '../services/user.service'
 import { updateUser, userMsg } from '../store/actions/user.actions'
 

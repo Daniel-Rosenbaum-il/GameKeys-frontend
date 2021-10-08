@@ -6,7 +6,6 @@ import { saveOrder, } from "../store/actions/order.actions";
 import { userMsg } from "../store/actions/user.actions";
 import { cartService } from "../services/cart.service";
 import { gameService } from "../services/game.service";
-import { Modal } from "../cmps/UtilCmps/Modal";
 import { Link } from "react-router-dom";
 import { CartInfo } from "../cmps/cartCmps/CartInfo";
 import { CartCheckout } from "../cmps/cartCmps/CartCheckout";
@@ -24,8 +23,11 @@ class _GameCart extends Component {
 
     async componentDidMount() {
         window.scrollTo(0, 0)
-        const game = await gameService.getById(this.props.match.params.gameId)
-        await this.props.addToCart(game, this.props.loggedInUser)
+        const {gameId} = this.props.match.params
+        if(gameId){
+            const game = await gameService.getById(this.props.match.params.gameId)
+            await this.props.addToCart(game, this.props.loggedInUser)
+        }
         await this.props.loadCarts()
         this.setState({ carts: this.props.carts })
         const games = await cartService.getGamesByCarts(this.props.carts)
@@ -121,7 +123,7 @@ class _GameCart extends Component {
         this.setState({ isOpenModal:!isOpenModal})
     }
     render() {
-        const { carts, games, isCheckout, frinedsList,isOpenModal } = this.state
+        const { games, isCheckout, frinedsList,isOpenModal } = this.state
         const { loggedInUser } = this.props
         const img1 = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623183655/GameKeys/img/background-5_t0clwl.jpg"
         const img2 = "https://res.cloudinary.com/dat4toc2t/image/upload/v1623183651/GameKeys/img/background-1_mwtzmp.jpg"
@@ -130,14 +132,14 @@ class _GameCart extends Component {
             <div className="cart-container container" >
 
                 <div className="mb-20">
-                    <Link to={`/`} >All Products  </Link> {'>'}
-                    <a  >Your Shopping Cart </a>
+                    <Link to={`/game`} >All Products  </Link> {'>'}
+                    <Link to={`/game/order`} >Your Shopping Cart </Link>
                 </div>
 
                 <h2 className="mb-20" >YOUR SHOPPING CART</h2>
 
                 <div className="cart-status mb-20">
-                    <p>{(!isCheckout) ? 'YOUR ITEM\'S BEEN ADDED!' : 'Review + purchase'}
+                    <p>{(!isCheckout) ? 'YOUR ITEMS' : 'Review + purchase'}
                         <span className="triangle-down" ></span>
                     </p>
                 </div>

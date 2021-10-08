@@ -46,7 +46,7 @@ form > * {
     padding: 0 0.5rem;
     cursor: text;
     transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
-    background-color: #0d151e;
+    background-color: $clr0;
 }
 .form-input:focus ~ .form-label,
 .form-input:not(:placeholder-shown).form-input:not(:focus) ~ .form-label {

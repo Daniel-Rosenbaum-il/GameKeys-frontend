@@ -3,10 +3,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { loadGames } from '../store/actions/game.actions'
 import { UserHeader } from '../cmps/UserCmps/UserHeader'
-import { UserGameList } from '../cmps/UserCmps/UserGameList'
 import { DanDUserGameList } from '../cmps/UserCmps/DanDUserGameList'
 import { userService } from '../services/user.service'
-import { Chart } from '../cmps/UtilCmps/Chart'
 import { Link } from 'react-router-dom'
 import { Loader } from '../cmps/UtilCmps/Loader'
 
@@ -29,7 +27,6 @@ class _UserProfile extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         const { loggedInUser } = this.props
-        const { user } = this.state
         if (prevProps.loggedInUser !== loggedInUser) {
             if (!loggedInUser) this.props.history.push(`/`)
             // if (!user) this.props.history.push(`/`)
@@ -70,28 +67,13 @@ class _UserProfile extends Component {
                         </div>)}
                     </div>
                 </div>
-                {/* <div className="main-chart container">
-                    <h1>Statistics</h1>
-                    <div className="chart-preview">
-                        <Chart type="bar" 
-                        labels={['January','February','March','April','May','June']}
-                            label='Amout made in $'
-                            datas={[280.00,450.00,387.97,258.95,370.00,35.00]}
-                        />
-                        <Chart type="bar" 
-                        labels={['January','February','March','April','May','June']}
-                            label='Play time: in hours-monthly'
-                            datas={[72,35,112,28,56,10]}
-                        />
-                    </div>
-                </div> */}
                 {serialKey && <div className="game-clicked-info">
                     <h1>Your serial-key:<span> {serialKey}</span></h1>
                     <p>Add your key to your favorite app</p>
                     <p>We advise to use GameKeys app! but we work with</p>
                     <p>Steam, Google play and HBO-Games</p>
                     <p>Enjoy</p>
-                    <botton className="game-user-btn" onClick={() => this.onGameClicked('')}>GG</botton>
+                    <button className="game-user-btn" onClick={() => this.onGameClicked('')}>GG</button>
                 </div>}
             </section>
         )
