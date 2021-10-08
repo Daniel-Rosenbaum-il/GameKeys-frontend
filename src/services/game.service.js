@@ -17,31 +17,25 @@ function getGames(filterBy = { txt: '', tag: 'all', sortBy: 'title' },) {
     
 }
 function getEmptyGame(){
-    return {title:'', price:0}
+    return { title:'',
+        price:0,
+        tags:[],
+        discount:0,
+        imgs:{
+            largeImgUrls:[ '', '','' , '', ''],
+            smallImgUrls:[],
+        },
+        description:'',
+        releasedAt:'',
+        serialKey:'',
+        rating: 0,
+        wishlistCount: 0,
+        reviews: [],
+        videoUrls:[],
+        sDescription:'',}
 }
 function getById(gameId) {
     return httpService.get(`game/${gameId}`, gameId)
-    // if (filterBy.sortBy === 'title') {
-    //     games.sort((game1, game2) => {
-    //         return game1.title.localeCompare(game2.title)
-    //     })
-    // }
-    // if (filterBy.sortBy === 'topReviews') {
-    //     games.sort((game1, game2) => {
-    //         return game2.rating - game1.rating
-    //     })
-    // }
-
-    // if (filterBy.txt) {
-    //     const txtRegex = new RegExp(filterBy.txt, 'i')
-    //     games = games.filter(game => txtRegex.test(game.title) || txtRegex.test(game.description))
-    // }
-    // if (filterBy.tag !== 'all') {
-    //     games = games.filter(game => {
-    //         const tag = game.tags.findIndex(tag => tag === filterBy.tag)
-    //         if (tag > -1) return game
-    //     })
-    // }
 }
 
 function remove(gameId) {
@@ -51,8 +45,7 @@ function save(game) {
     if (game._id) {
         return httpService.put(`game/${game._id}`, game)
     } else {
-        // var newGame = createGame(game)
-        // return httpService.post(`game`, newGame)
+        return httpService.post(`game`, game)
     }
 }
 function addReview(review, gameId, byUser){

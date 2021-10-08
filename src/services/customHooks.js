@@ -11,7 +11,6 @@ export const useForm = (initialState, cb = () => { }) => {
   return [
     fields,
     function (ev) {
-      console.log(ev);
       const field = ev.target.name
       let value
       if (ev.target.type === 'number') {
@@ -26,7 +25,7 @@ export const useForm = (initialState, cb = () => { }) => {
 }
 
 
-export const handleFile = (file, cb =() => {}) => {
+export const handleFile = (file, cb = () => { }) => {
   const reader = new FileReader();
   reader.readAsDataURL(file);
   reader.onloadend = () => {
@@ -35,4 +34,23 @@ export const handleFile = (file, cb =() => {}) => {
   reader.onerror = () => {
     console.error('AHHHHHHHH!!');
   };
+}
+export const useOnScreen = (options) => {
+  const [ref, setRef] = useState(null)
+  const [visible, setVisible] = useState(false)
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      setVisible(entry.isIntersecting)
+
+    }, options)
+    if (ref) {
+      observer.observe(ref)
+    }
+    return () => {
+      if (ref) {
+        observer.unobserve(ref)
+      }
+    }
+  }, [ref, options])
+  return [setRef, visible]
 }

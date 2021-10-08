@@ -63,19 +63,19 @@ class _Login extends Component {
                 handleChange={this.loginHandleChange} label="Username" />
               <FormInput type="password" name="password" value={this.state.loginCred.password}
                 handleChange={this.loginHandleChange} label="Password" />
-              <button className="btn-join mb-20 " type="submit">LOG IN</button>
-              <a >Forgot your password?</a>
+              <button className="btn-primary mb-20 " type="submit">LOG IN</button>
+              <a className="forget-link">Forgot your password?</a>
             </form>
           </div>
         </div>
         <div className="join-container flex column space-around">
           <div className="flex column space-between align-center">
             <p>Join Game keys and discover thousands of games to play.</p>
-            <Link to="/about" >Learn more</Link>
+            <Link to="/about" className='about-link'>Learn more</Link>
           </div>
           <div className="flex justify-center column">
             <p>It's <span>free</span> and <span>easy</span>  to use.</p>
-            <Link to="/signup"><button className="btn-join"
+            <Link to="/signup"><button className="btn-primary"
             >Join GameKeys</button></Link>
           </div>
         </div>

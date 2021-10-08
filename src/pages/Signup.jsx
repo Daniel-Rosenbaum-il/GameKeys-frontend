@@ -72,9 +72,9 @@ export const Signup = ({ history }) => {
                         handleChange={handleChange}
                         label="Confirm password"
                     />
-                    <button className="btn-join" type="submit">Sign Up</button>
+                    <button className="btn-primary" type="submit">Sign Up</button>
                 </div>
-                <Link to="/login"><button className="btn-join"
+                <Link to="/login"><button className="btn-primary"
                 >Back to login</button></Link>
             </form>
         </div>

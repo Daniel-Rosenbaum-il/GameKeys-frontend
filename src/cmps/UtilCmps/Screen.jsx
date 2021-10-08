@@ -1,7 +1,3 @@
-import { Component } from "react";
-
-
-// class Screen extends Component{
 
 export function Screen({ isHidden, toggleIsHidden }) {
 

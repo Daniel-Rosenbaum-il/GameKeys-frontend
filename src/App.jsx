@@ -72,7 +72,7 @@ class _App extends Component {
               <Route path="/profile/mystore/edit/:gameId?" component={GameEdit} />
               <Route path="/profile/edit" component={UserEdit} />
               <Route path="/profile" component={UserProfile} />
-              <Route path="/game/order/:gameId" component={GameCart} />
+              <Route path="/game/order/:gameId?" component={GameCart} />
               <Route path="/game/:gameId" component={GameDetails} />
               <Route path="/game" component={GameApp} />
               <Route path="/about" component={About} />

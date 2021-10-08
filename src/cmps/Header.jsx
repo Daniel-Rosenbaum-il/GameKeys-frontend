@@ -61,7 +61,7 @@ class _Header extends Component {
                 {/* {this.props.msg && <div className="user-msg"></div>} */}
                 <Link to="/"><img src={logo} className="logo-img" alt=""></img></Link>
 
-                <nav className={`${this.flexClass} ${!this.state.isHidden && 'show'}`}>
+                <nav className={`${this.flexClass} ${!this.state.isHidden && 'show'} ${!loggedInUser  && 'loggedin-check'}`}>
                     <div className="link-container" >
                         <NavLink exact to="/">Home</NavLink>
                         <NavLink to="/game">Explore</NavLink>
@@ -95,8 +95,8 @@ class _Header extends Component {
                                 <Link to="/profile">Profile</Link>
                                 {loggedInUser && <a onClick={this.props.logout}>Logout:
                              <span className="light-txt txt-cap"> {loggedInUser.username}</span></a>}
-                                <a>Wishlist</a>
-                                <a>My store</a>
+                             <Link to="/game/order">Shoping cart</Link>
+                                {/* <a>My store</a> */}
                                 <Link to="/profile/edit">Edit profile</Link>
                             </div>
                         </div>

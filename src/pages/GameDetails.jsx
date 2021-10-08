@@ -1,8 +1,8 @@
-import { Component } from 'react'
-import { connect } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { gameService } from '../services/game.service'
-import { removeGame, saveGame, addReview } from '../store/actions/game.actions'
+import { addReview } from '../store/actions/game.actions'
 import { loadUsers, userMsg } from '../store/actions/user.actions'
 import { Loader } from '../cmps/UtilCmps/Loader'
 import { AddReview } from '../cmps/ReviewCmps/AddReview'
@@ -14,47 +14,75 @@ import { DetailsSideBar } from '../cmps/GameDetailsCmps/DetailsSideBar'
 import { DetailsPriceBar } from '../cmps/GameDetailsCmps/DetailsPriceBar'
 import { DetailsPanel } from '../cmps/GameDetailsCmps/DetailsPanel'
 import { DetailsTopNav } from '../cmps/GameDetailsCmps/DetailsTopNav'
+<<<<<<< HEAD
 import { ImgModal } from '../cmps/GameDetailsCmps/ImgModal'
+=======
+import { GamePreview } from '../cmps/GamePreview'
+import { useOnScreen } from '../services/customHooks'
+>>>>>>> 233d8ea3170b7197dca30807b8c4902b61cf217a
+
+import React from 'react'
+
+export const GameDetails = ({ history, match }) => {
+    const { loggedInUser, users } = useSelector(state => state.userModule)
+    const [game, setGame] = useState(null)
+    const [isInLibrary, setIsInLibrary] = useState(false)
+    const [addCardClass, setAddCardClass] = useState('')
+    const [orderPath, setOrderPath] = useState('')
+
+    const dispatch = useDispatch()
+
+    //onScreen
+    const [setRef, visible] = useOnScreen({ threshold: 0 })
+    const [setBottomRef, visibleBottom] = useOnScreen({ threshold: 0.5 })
+    const [setTopRef, visibleTop] = useOnScreen({ threshold: 0 })
+
+    useEffect(() => {
+        dispatch(loadUsers())
+        loadGame()
+    }, [])
+
+    useEffect(() => {
+        if(!orderPath) return
+        history.push(orderPath)
+    }, [orderPath])
+
+    useEffect(() => {
+        if (visibleTop) { }
+        (visibleBottom) ? setAddCardClass('absolute') : setAddCardClass('')
+    }, [visibleBottom, visibleTop])
 
 
-class _GameDetails extends Component {
-    state = {
-        game: null,
-        isInLibrary: false
+    const setMsg = (msg) => {
+        dispatch(userMsg(msg))
     }
-    async componentDidMount() {
-        this.props.loadUsers()
-        this.loadGame()
-        // if (this.props.loggedInUser) this.checkIsInLibrary()
-    }
-    async loadGame() {
-        const game = await gameService.getById(this.props.match.params.gameId)
-        this.setState({ game })
-        if (this.props.loggedInUser) this.checkIsInLibrary()
-    }
-    async checkIsInLibrary() {
-        if (!this.state.game) return
-        const gameId = this.state.game._id
-        const userId = this.props.loggedInUser._id
+    useEffect(() => {
+        checkIsInLibrary()
+    }, [game])
 
-        const isInLibrary = await orderService.checkIsInLibrary(gameId, userId)
-        this.setState({ isInLibrary })
+    const loadGame = async () => {
+        const game = await gameService.getById(match.params.gameId)
+        setGame(game)
+        if (loggedInUser) checkIsInLibrary()
     }
 
-    onRemoveGame = async (gameId) => {
-        await this.props.removeGame(gameId)
-        this.props.history.push('/Game/')
-    }
-    onAddReview = async (review) => {
-        let { game } = this.state
-        await this.props.addReview(review, game._id, this.props.loggedInUser)
-        this.loadGame()
-        this.setState({ game })
+    const checkIsInLibrary = async () => {
+        if (!game) return
+        const gameId = game._id
+        const userId = loggedInUser._id
+        const gameIsInLibrary = await orderService.checkIsInLibrary(gameId, userId)
+        setIsInLibrary(gameIsInLibrary)
     }
 
-    getDesc() {
-        if (this.state.game) {
-            const { description } = this.state.game
+
+    const onAddReview = async (review) => {
+        await dispatch(addReview(review, game._id, loggedInUser))
+        loadGame()
+    }
+
+    const getDesc = () => {
+        if (game) {
+            const { description } = game
             const descriptions = description.split('.');
             let shortStr = ''
             let length = 3
@@ -70,50 +98,39 @@ class _GameDetails extends Component {
             return newDescs
         }
     }
-    getUserByReview = (review) => {
-        let users = this.props.users
+    const getUserByReview = (review) => {
         let user = users.filter(user => user._id === review.byUser._id)
         return user[0]
     }
-    render() {
-        const { users, loggedInUser } = this.props
-        const { game, isInLibrary } = this.state
-        if (!game) return <Loader />
-        const finalPrice = utilService.getFinalPrice(game.price, game.discount)
-        const descriptions = this.getDesc()
-        console.log(users);
-        return (
-            <section className="main-details ">
-                <DetailsTopNav game={game} />
-                <h1 className="container" >{game.title}</h1>
+
+    const addToCart = () => {
+        setOrderPath(`/game/order/${game._id}`)
+    }
+
+    if (!game) return <Loader />
+    const finalPrice = utilService.getFinalPrice(game.price, game.discount)
+    const descriptions = getDesc()
+    return (
+        <section className="main-details ">
+            <DetailsTopNav game={game} />
+            <h1 className="container" >{game.title}</h1>
+            <div className="" ref={setTopRef}>
                 <DetailsPanel game={game} getDateString={utilService.getDateString} />
+            </div>
 
-                <div className="wishlist-link container ">
-                    {loggedInUser && !isInLibrary && <button className="btn btn-light btn-outline-secondary" >Add to wishList</button>}
-                    {!loggedInUser && <p><Link to={'/login'}>Sign in</Link> to add this item to your wishlist, follow it, or mark it as ignored</p>}
-                </div>
+            <div className="wishlist-link container " ref={setRef}>
+                {loggedInUser && !isInLibrary && <button className="btn btn-light btn-outline-secondary" >Add to wishList</button>}
+                {!loggedInUser && <p><Link to={'/login'}>Sign in</Link> to add this item to your wishlist, follow it, or mark it as ignored</p>}
+            </div>
 
-                <div className="buy-container flex column gap-10 container">
-                    <DetailsPriceBar isInLibrary={isInLibrary} game={game} finalPrice={finalPrice} />
-                    <DetailsSideBar loggedInUser={loggedInUser} isInLibrary={isInLibrary} />
-                </div>
+            <div className="buy-container flex column gap-10 container"  >
+                <DetailsPriceBar isInLibrary={isInLibrary} game={game} finalPrice={finalPrice} />
+                <DetailsSideBar loggedInUser={loggedInUser} isInLibrary={isInLibrary} />
+            </div>
 
-                <div className="flex mb-20 container">
+            <div className="flex mb-20 container ">
 
-                    <div className="desc" >
-                        <p className="title" >ABOUT THIS GAME</p>
-                        {/* {descriptions.map(desc => <p className="desc" >{(desc)}</p>)} */}
-                        {descriptions.map((desc, idx) => {
-                            return (
-                                <div key={'desc' + idx}>
-                                    <p>{desc}</p>
-                                    <br />
-
-                                </div>
-                            )
-                        })}
-                    </div>
-
+<<<<<<< HEAD
                 </div>
 
                 <ImgModal imgs={game.imgs.largeImgUrls} imgIdx={0} />
@@ -130,20 +147,34 @@ class _GameDetails extends Component {
         )
     }
 }
+=======
+                <div className="desc"  >
+                    <p className="title" >ABOUT THIS GAME</p>
+                    {descriptions.map((desc, idx) => {
+                        return (
+                            <div key={'desc' + idx}>
+                                <p>{desc}</p>
+                                <br />
+>>>>>>> 233d8ea3170b7197dca30807b8c4902b61cf217a
 
-const mapStateToProps = state => {
-    return {
-        users: state.userModule.users,
-        loggedInUser: state.userModule.loggedInUser
+                            </div>
+                        )
+                    })}
+                </div>
 
+            </div>
+            <div className="add-review container description-container">
+                <GamePreview game={game} addClass={`${addCardClass} ${(!visible && !visibleTop) && 'visible'}`} >
+                    <div className="card-buy-btn">{!isInLibrary &&
+                        <button className="btn-main" onClick={() => addToCart()}>Add to cart</button>}
+                    </div>
+                </GamePreview>
+                <AddReview loggedInUser={loggedInUser} onAddReview={onAddReview} userMsg={setMsg} />
+            </div>
+            <div className="reviews-container container " ref={setBottomRef}>
+                <ReviewList reviews={game.reviews} getUserByReview={getUserByReview} loggedInUser={loggedInUser} />
+            </div>
+        </section >
 
-    }
+    )
 }
-const mapDispatchToProps = {
-    loadUsers,
-    removeGame,
-    saveGame,
-    addReview,
-    userMsg,
-}
-export const GameDetails = connect(mapStateToProps, mapDispatchToProps)(_GameDetails)

@@ -1,26 +1,8 @@
-import { useEffect, useRef, useState } from "react"
 
 export const About = () => {
-    const [imgIdx, setImg] = useState(0)
-    const intervalId = useRef()
     const imgUrls = ['https://res.cloudinary.com/dat4toc2t/image/upload/v1627133999/GameKeys/img/about/about-img5_e0mzaj.jpg',
         'https://res.cloudinary.com/dat4toc2t/image/upload/v1627135561/GameKeys/img/about/about-img6_vsbf2h.jpg',]
-    useEffect(() => {
-        intervalId.current = setInterval(() => {
 
-            setImg(imgIdx => {
-                if (imgIdx === imgUrls.length-1) {
-                  return  imgIdx = 0
-                } else {
-                   return imgIdx + 1
-                }
-            })
-        }, 5000)
-
-        return () => {
-            clearInterval(intervalId.current)
-        }
-    }, [imgIdx])
 
     return (
         <section className="about ">
@@ -35,9 +17,9 @@ export const About = () => {
                 </div>
             </div>
             <div className="slogen">
-                <img className="slogen-img bottom-img" src={imgUrls[0]}>
+                <img className="slogen-img bottom-img" alt="about" src={imgUrls[0]}>
                 </img>
-                <img className="slogen-img top-img" src={imgUrls[1]}>
+                <img className="slogen-img top-img" alt="about" src={imgUrls[1]}>
                 </img>
                 <div className="test"></div>
                 <h2 className="slogen-txt">We are keys, for games!</h2>
