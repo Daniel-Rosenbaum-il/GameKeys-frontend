@@ -20,15 +20,11 @@ export const GameEdit = ({ history, match }) => {
     const [imgIdx, setImgIdx] = useState('')
     const dispatch = useDispatch()
 
-    useEffect( () => {
+    useEffect(async () => {
         window.scrollTo(0, 0)
         const { gameId } = match.params
-        console.log('gameIdgameIdgameIdgameId', gameId);
-        gameId ? loadGame(gameId) : setDefultImages()
-        console.log('gamegamegame', game);
-        return()=>{
-            setGame('')
-        }
+        (gameId && gameId.length > 0) ? await loadGame(gameId) : setDefultImages(gameId)
+
     }, [])
 
     useEffect(() => {
@@ -42,23 +38,24 @@ export const GameEdit = ({ history, match }) => {
     const loadGame = async (gameId) => {
         const _game = await gameService.getById(gameId)
         if (!_game || (_game.seller._id !== loggedInUser._id)) history.push('/')
-        setGame(_game) 
+        setGame({ ..._game })
 
         // const dateValueString = new Date(game.releasedAt).toISOString().slice(0,10).replace(/-/g,"xxx");
         //example of how to use regEx to change the string, ex: 2021-03-25 => 2021xxx03xxx25
 
-        console.log('game.releasedAt', game);
+        console.log('game.releasedAt', _game);
 
-         if(game.releasedAt){
-             const newDateValueString = new Date(game.releasedAt).toISOString().slice(0, 10)
-             console.log('newDateValueString', newDateValueString);
-        } 
-        // setDateValueString(newDateValueString)
-        setVideoUrls(utilService.arrayToObject(_game.videoUrls, 'url'))
-        setGameImages(_game.imgs.largeImgUrls)
+        if (_game.releasedAt) {
+            const newDateValueString = new Date(_game.releasedAt).toISOString().slice(0, 10)
+            console.log('newDateValueString', newDateValueString);
+            setDateValueString(newDateValueString)
+        }
+        // setVideoUrls(utilService.arrayToObject(_game.videoUrls, 'url'))
+        setGameImages([..._game.imgs.largeImgUrls])
     }
 
-    const setDefultImages = () => {
+    const setDefultImages = (gameId) => {
+        if (gameId) return
         const defaultImage = 'https://res.cloudinary.com/dat4toc2t/image/upload/v1633548278/GK/camera-add-icon_wiloio.jpg'
         const images = game.imgs.largeImgUrls.fill(defaultImage)
         setGameImages([...images])
@@ -91,14 +88,14 @@ export const GameEdit = ({ history, match }) => {
         await dispatch(saveGame(game))
         history.push('/')
     }
-    if (game === undefined) {
+    if (!game) {
         return <Loader />
     }
     else
         return (
             <section className="game-edit container">
                 <form className="game-edit-form flex column" onSubmit={onAddGame}>
-                    {game !== 0 && <h1>Game edit</h1>}
+                    {game._id ? <h1>Edit game</h1> : <h1>Add game</h1>}
                     <div className="form-container flex space-between">
                         <div className="info-area flex">
                             <div className="info-details">

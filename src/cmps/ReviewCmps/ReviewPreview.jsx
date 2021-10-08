@@ -1,7 +1,9 @@
 import { utilService } from '../../services/util.service'
+import { Loader } from '../UtilCmps/Loader'
 
 export function ReviewPreview({ review, user }) {
     const createdAt = new Date(review.createdAt).toLocaleDateString('en-Us', { year: 'numeric', month: 'long', day: 'numeric' })
+    if(!user) return <Loader />
     return (
         <div className="review-preview">
             <div className="review-user-preview">
