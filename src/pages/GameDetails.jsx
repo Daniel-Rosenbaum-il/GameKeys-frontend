@@ -14,12 +14,9 @@ import { DetailsSideBar } from '../cmps/GameDetailsCmps/DetailsSideBar'
 import { DetailsPriceBar } from '../cmps/GameDetailsCmps/DetailsPriceBar'
 import { DetailsPanel } from '../cmps/GameDetailsCmps/DetailsPanel'
 import { DetailsTopNav } from '../cmps/GameDetailsCmps/DetailsTopNav'
-<<<<<<< HEAD
 import { ImgModal } from '../cmps/GameDetailsCmps/ImgModal'
-=======
 import { GamePreview } from '../cmps/GamePreview'
 import { useOnScreen } from '../services/customHooks'
->>>>>>> 233d8ea3170b7197dca30807b8c4902b61cf217a
 
 import React from 'react'
 
@@ -29,6 +26,9 @@ export const GameDetails = ({ history, match }) => {
     const [isInLibrary, setIsInLibrary] = useState(false)
     const [addCardClass, setAddCardClass] = useState('')
     const [orderPath, setOrderPath] = useState('')
+
+    const [isOpenModal, setIsOpenModal] = useState(false)
+    const [imgPreviewIdx, setImgPreviewIdx] = useState(0)
 
     const dispatch = useDispatch()
 
@@ -43,7 +43,7 @@ export const GameDetails = ({ history, match }) => {
     }, [])
 
     useEffect(() => {
-        if(!orderPath) return
+        if (!orderPath) return
         history.push(orderPath)
     }, [orderPath])
 
@@ -52,13 +52,18 @@ export const GameDetails = ({ history, match }) => {
         (visibleBottom) ? setAddCardClass('absolute') : setAddCardClass('')
     }, [visibleBottom, visibleTop])
 
+    // useEffect(() => {
+    //     setIsOpenModal(!isOpenModal)
+    // }, [imgPreviewIdx])
 
-    const setMsg = (msg) => {
-        dispatch(userMsg(msg))
-    }
     useEffect(() => {
         checkIsInLibrary()
     }, [game])
+
+    const toggleOpenModal = () => { setIsOpenModal(!isOpenModal) }
+    const setMsg = (msg) => {
+        dispatch(userMsg(msg))
+    }
 
     const loadGame = async () => {
         const game = await gameService.getById(match.params.gameId)
@@ -73,7 +78,13 @@ export const GameDetails = ({ history, match }) => {
         const gameIsInLibrary = await orderService.checkIsInLibrary(gameId, userId)
         setIsInLibrary(gameIsInLibrary)
     }
-
+    const changeIdxByDiff = (diff) => {
+        if (diff > 0 && imgPreviewIdx < game.imgs.largeImgUrls.length - 1) {
+            setImgPreviewIdx(imgPreviewIdx + diff)
+        } else if (diff < 0 && imgPreviewIdx > 0) {
+            setImgPreviewIdx(imgPreviewIdx + diff)
+        }
+    }
 
     const onAddReview = async (review) => {
         await dispatch(addReview(review, game._id, loggedInUser))
@@ -115,7 +126,10 @@ export const GameDetails = ({ history, match }) => {
             <DetailsTopNav game={game} />
             <h1 className="container" >{game.title}</h1>
             <div className="" ref={setTopRef}>
-                <DetailsPanel game={game} getDateString={utilService.getDateString} />
+                <DetailsPanel game={game}
+                    getDateString={utilService.getDateString}
+                    setIsOpenModal={setIsOpenModal}
+                    setImgPreviewIdx={setImgPreviewIdx} />
             </div>
 
             <div className="wishlist-link container " ref={setRef}>
@@ -130,24 +144,6 @@ export const GameDetails = ({ history, match }) => {
 
             <div className="flex mb-20 container ">
 
-<<<<<<< HEAD
-                </div>
-
-                <ImgModal imgs={game.imgs.largeImgUrls} imgIdx={0} />
-
-
-                <div className="add-review container">
-                    <AddReview loggedInUser={loggedInUser} onAddReview={this.onAddReview} userMsg={this.props.userMsg} />
-                </div>
-                <div className="reviews-container container ">
-                    <ReviewList reviews={game.reviews} getUserByReview={this.getUserByReview} loggedInUser={loggedInUser} />
-                </div>
-            </section >
-
-        )
-    }
-}
-=======
                 <div className="desc"  >
                     <p className="title" >ABOUT THIS GAME</p>
                     {descriptions.map((desc, idx) => {
@@ -155,14 +151,20 @@ export const GameDetails = ({ history, match }) => {
                             <div key={'desc' + idx}>
                                 <p>{desc}</p>
                                 <br />
->>>>>>> 233d8ea3170b7197dca30807b8c4902b61cf217a
 
                             </div>
                         )
                     })}
                 </div>
-
             </div>
+            <ImgModal imgs={game.imgs.largeImgUrls}
+                imgPreviewIdx={imgPreviewIdx}
+                isOpenModal={isOpenModal}
+                toggleOpenModal={toggleOpenModal}
+                changeIdxByDiff={changeIdxByDiff}
+            />
+
+
             <div className="add-review container description-container">
                 <GamePreview game={game} addClass={`${addCardClass} ${(!visible && !visibleTop) && 'visible'}`} >
                     <div className="card-buy-btn">{!isInLibrary &&
