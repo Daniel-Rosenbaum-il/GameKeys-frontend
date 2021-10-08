@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom'
 import { Video } from '../Video.jsx'
 import { InfoBlock } from '../InfoBlock'
-export function DetailsPanel({ game, getDateString }) {
+export function DetailsPanel({ game, getDateString, setImgPreviewIdx, setIsOpenModal, }) {
     const { imgs, videoUrls, description, releasedAt, seller, tags } = game
     // const sDescription = description.slice(0, 250)
+    const selectImgByIdx = (idx) => {
+        setIsOpenModal(true)
+        setImgPreviewIdx(idx)
+    }
     const urlImgs = imgs.largeImgUrls
     return (
         <div className="details-container container flex gap-5 mb-20">
@@ -14,7 +18,13 @@ export function DetailsPanel({ game, getDateString }) {
                     <div className="grid-container">
                         {urlImgs.map((img, idx) => {
                             if (idx >= 5) return
-                            return <div key={'i' + idx} > <img src={urlImgs[idx+1]} alt="" /></div>
+                            return <div key={'i' + idx} >
+                                <img className={'s-img-game'}
+                                    onClick={() => { selectImgByIdx(idx+1) }}
+
+                                    src={urlImgs[idx + 1]}
+                                    alt=""
+                                /></div>
                         })}
                     </div>
                 </div>
