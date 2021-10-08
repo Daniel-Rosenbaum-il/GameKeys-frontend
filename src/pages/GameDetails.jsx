@@ -14,6 +14,7 @@ import { DetailsSideBar } from '../cmps/GameDetailsCmps/DetailsSideBar'
 import { DetailsPriceBar } from '../cmps/GameDetailsCmps/DetailsPriceBar'
 import { DetailsPanel } from '../cmps/GameDetailsCmps/DetailsPanel'
 import { DetailsTopNav } from '../cmps/GameDetailsCmps/DetailsTopNav'
+import { ImgModal } from '../cmps/GameDetailsCmps/ImgModal'
 
 
 class _GameDetails extends Component {
@@ -114,13 +115,18 @@ class _GameDetails extends Component {
                     </div>
 
                 </div>
+
+                <ImgModal imgs={game.imgs.largeImgUrls} imgIdx={0} />
+
+
                 <div className="add-review container">
                     <AddReview loggedInUser={loggedInUser} onAddReview={this.onAddReview} userMsg={this.props.userMsg} />
                 </div>
                 <div className="reviews-container container ">
-                    <ReviewList reviews={game.reviews} getUserByReview = {this.getUserByReview} loggedInUser={loggedInUser} />
+                    <ReviewList reviews={game.reviews} getUserByReview={this.getUserByReview} loggedInUser={loggedInUser} />
                 </div>
             </section >
+
         )
     }
 }
