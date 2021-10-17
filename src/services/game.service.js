@@ -9,7 +9,8 @@ export const gameService = {
     remove,
     save,
     addReview,
-    getEmptyGame
+    getEmptyGame,
+    getDefaultTags
 }
 
 function getGames(filterBy = { txt: '', tag: 'all', sortBy: 'title' },) {
@@ -31,7 +32,7 @@ function getEmptyGame(){
         rating: 0,
         wishlistCount: 0,
         reviews: [],
-        videoUrls:[],
+        videoUrls:['','',''],
         sDescription:'',}
 }
 function getById(gameId) {
@@ -50,5 +51,22 @@ function save(game) {
 }
 function addReview(review, gameId, byUser){
     return httpService.put('game/review', {review, gameId, byUser})
+}
+
+function getDefaultTags() {
+    return [
+        'all',
+        'action',
+        'adventure',
+        'classic',
+        'fighting',
+        'multiplayer',
+        'racing',
+        'rpg',
+        'shooter',
+        'simulation',
+        'sport',
+        'strategy',
+    ]
 }
 // localService.saveToStorage('game', games)

@@ -122,8 +122,8 @@
     .details-info {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         max-width: 50%;
-        // justify-content: space-between;
         gap: 10px;
         // .tag-info{
         //     height: 100%;
@@ -196,9 +196,7 @@
         padding-top: 45px;
     }
     .game-card {
-        @media screen and (max-width: 920px) {
-            display: none;
-        }
+        display: none;
         max-width: 250px;
         position: fixed;
         top: 200px;
@@ -216,6 +214,10 @@
         }
         &.visible {
             opacity: 1;
+            display: flex;
+        }
+        @media screen and (max-width: 920px) {
+            display: none !important;
         }
     }
     .description-container {
@@ -226,7 +228,9 @@
         bottom: 40px;
         right: 10px;
     }
-    .s-img-game{
+
+    .s-img-game {
         cursor: pointer;
+        height: 100%;
     }
 }

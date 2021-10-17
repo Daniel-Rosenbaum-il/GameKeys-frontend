@@ -13,22 +13,20 @@ import { TagList } from '../cmps/TagList.jsx'
 export const GameEdit = ({ history, match }) => {
     const { loggedInUser } = useSelector(state => state.userModule)
     const [game, handleChange, setGame] = useForm(gameService.getEmptyGame())
-    const [videoUrls, setVideoUrls] = useState({});
     const [gameImages, setGameImages] = useState([])
     const [newImage, setNewImage] = useState('')
-    const [dateValueString, setDateValueString] = useState('')
     const [imgIdx, setImgIdx] = useState('')
     const dispatch = useDispatch()
 
     useEffect(async () => {
         window.scrollTo(0, 0)
         const { gameId } = match.params
-        (gameId && gameId.length > 0) ? await loadGame(gameId) : setDefultImages(gameId)
+        // console.log(gameId);
+        if (gameId) await loadGame(gameId); setDefultImages(gameId);
 
     }, [])
 
     useEffect(() => {
-        console.log('newImage', newImage);
         if (!newImage) return
         const newGameImages = [...gameImages]
         newGameImages.splice(imgIdx, 1, newImage)
@@ -38,19 +36,15 @@ export const GameEdit = ({ history, match }) => {
     const loadGame = async (gameId) => {
         const _game = await gameService.getById(gameId)
         if (!_game || (_game.seller._id !== loggedInUser._id)) history.push('/')
-        setGame({ ..._game })
 
         // const dateValueString = new Date(game.releasedAt).toISOString().slice(0,10).replace(/-/g,"xxx");
         //example of how to use regEx to change the string, ex: 2021-03-25 => 2021xxx03xxx25
-
-        console.log('game.releasedAt', _game);
-
         if (_game.releasedAt) {
             const newDateValueString = new Date(_game.releasedAt).toISOString().slice(0, 10)
-            console.log('newDateValueString', newDateValueString);
-            setDateValueString(newDateValueString)
+            _game.releasedAt = newDateValueString
         }
-        // setVideoUrls(utilService.arrayToObject(_game.videoUrls, 'url'))
+       if(_game.videoUrls.length === 0) _game.videoUrls = ['','',''];
+        setGame({ ..._game })
         setGameImages([..._game.imgs.largeImgUrls])
     }
 
@@ -63,30 +57,36 @@ export const GameEdit = ({ history, match }) => {
 
     const uploadImg = async (ev, idx) => {
         const fileEv = ev.target.files[0]
-        console.log('ev', ev, 'idx', idx);
         setImgIdx(idx)
         handleFile(fileEv, setNewImage)
     }
 
-    const handleChanges = prop => event => {
-        setVideoUrls({ ...videoUrls, [prop]: event.target.value });
-    };
-
-
-    const onAddGame = async (ev) => {
+    const addRemoveTag = (tag) => {
+        const { tags } = game
+        let tagIndex
+        if (tags.includes(tag)) {
+            tagIndex = tags.indexOf(tag)
+            tags.splice(tagIndex, 1)
+        } else {
+            tags.push(tag)
+        }
+        setGame({ ...game })
+    }
+    const onAddGame = (ev) => {
         ev.preventDefault()
-        game.videoUrls = Object.values(videoUrls)
-        if (!game.seller) {
+        if (!game._id) {
             const { _id, fullname, imgUrl } = loggedInUser
             game.seller = {
                 _id,
                 fullname,
                 imgUrl
             }
-
         }
-        await dispatch(saveGame(game))
-        history.push('/')
+        game.imgs.largeImgUrls = gameImages
+        console.log(game);
+        dispatch(saveGame(game))
+        // history.push('/profile')
+        //"https://res.cloudinary.com/dat4toc2t/image/upload/v1623183656/GameKeys/img/assassin-creed/5_c1sa8u.jpg"
     }
     if (!game) {
         return <Loader />
@@ -103,12 +103,15 @@ export const GameEdit = ({ history, match }) => {
                                 <FormInput type="text" name="serialKey" label="serialKey" value={game.serialKey} handleChange={handleChange} />
                                 <FormInput type="number" name="price" label="price" value={game.price} handleChange={handleChange} />
                                 <FormInput type="number" name="discount" label="discount" value={game.discount} handleChange={handleChange} />
-                                {/* <FormInput type="date" name="releasedAt" label="released At" value='' handleChange={handleChange} /> */}
-                                <TagList tags={game.tags} />
+                                <FormInput type="date" name="releasedAt" label="released At" value={game.releasedAt} handleChange={handleChange} />
+
+                                <TagList tags={game.tags} addRemoveTag={addRemoveTag} />
                                 <FormInput type="textarea" name="sDescription" label="short Description"
                                     value={game.sDescription} handleChange={handleChange}
                                     cols="40" rows="5"
                                 />
+
+                                
                             </div>
                             <div className="info-text">
                                 <FormInput type="textarea" name="description" label="description"
@@ -117,6 +120,7 @@ export const GameEdit = ({ history, match }) => {
                             </div>
                         </div>
                         <div className="media-area">
+                            <p>Upload pictures: add up to 5 pictures</p>
                             <div className="images-area flex">
                                 {gameImages && gameImages.map((image, idx) => {
                                     return (
@@ -137,9 +141,13 @@ export const GameEdit = ({ history, match }) => {
                             </div>
                             <div className="video-area">
                                 <p>Video Urls: add up to 3 Youtube urls</p>
-                                <FormInput type="text" name="videoUrls[1]" label="video Url 1" value={videoUrls.url0} handleChange={handleChanges('url0')} />
+                                {game.videoUrls.map((url, index) =>
+                                    <FormInput type="text" key={`videoUrlsKey${index}`} name="videoUrls" label={`video Url ${index+1}`}
+                                        value={url} handleChange={(ev) => handleChange(ev, index)} />
+                                )}
+                                {/* <FormInput type="text" name="videoUrls[1]" label="video Url 1" value={videoUrls.url0} handleChange={handleChanges('url0')} />
                                 <FormInput type="text" name="videoUrls[2]" label="video Url 2" value={videoUrls.url1} handleChange={handleChanges('url1')} />
-                                <FormInput type="text" name="videoUrls[3]" label="video Url 3" value={videoUrls.url2} handleChange={handleChanges('url2')} />
+                                <FormInput type="text" name="videoUrls[3]" label="video Url 3" value={videoUrls.url2} handleChange={handleChanges('url2')} /> */}
                             </div>
                         </div>
                     </div>

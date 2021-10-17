@@ -34,7 +34,7 @@ export const GameDetails = ({ history, match }) => {
 
     //onScreen
     const [setRef, visible] = useOnScreen({ threshold: 0 })
-    const [setBottomRef, visibleBottom] = useOnScreen({ threshold: 0.5 })
+    const [setBottomRef, visibleBottom] = useOnScreen({ threshold: 0.1 })
     const [setTopRef, visibleTop] = useOnScreen({ threshold: 0 })
 
     useEffect(() => {

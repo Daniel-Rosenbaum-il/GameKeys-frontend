@@ -88,7 +88,7 @@
     p {
         max-width: 50ch;
     }
-    h1{
+    h1 {
         font: size 1.5em;
     }
     .game-user-btn {
@@ -102,6 +102,9 @@
 }
 .user-sell-container {
     margin-bottom: 20px;
+    .btn{
+        margin-left: 0 ;
+    }
 }
 .user-sell-card-list {
     display: flex;
@@ -142,6 +145,7 @@
             }
         }
     }
+  
 }
 // .img-container {
 //     img {

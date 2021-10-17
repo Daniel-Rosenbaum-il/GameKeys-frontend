@@ -1,4 +1,31 @@
 .game-edit {
+    @media screen and (max-width: 750px) {
+        .game-edit-form {
+            align-items: center;
+            text-align: center;
+        }
+        .form-container {
+            flex-direction: column;
+            align-items: center;
+        }
+        .btn-main {
+            width: 70% !important;
+        }
+    }
+    @media screen and (max-width: 450px) {
+        .game-edit-form {
+            align-items: flex-start;
+            text-align: center;
+        }
+        .form-container {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .btn-main {
+            width: 100% !important;
+        }
+    }
+    
     p {
         margin-bottom: 1rem;
     }
@@ -13,6 +40,7 @@
     .form-container {
         width: 100%;
         gap: 1.5rem;
+
     }
     .game-edit-form {
         background-color: $clr0;
@@ -35,6 +63,31 @@
         .info-details {
             max-width: 300px;
             min-width: 250px;
+        }
+        .edit-tag-list {
+            position: relative;
+            padding: 0.4rem;
+            border: 1px solid #9099a1;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            p {
+                position: absolute;
+                top: -10px;
+                margin: 0;
+                left: 2px;
+                background-color: $clr0;
+                color: white;
+                font-size: 0.7rem;
+                padding: 0 0.5rem;
+            }
+            .btn{
+                font-size: 0.8rem;
+                color: $clr2;
+                &.added{
+                    color: $clr4;
+                }
+
+            }
         }
     }
     .media-area {

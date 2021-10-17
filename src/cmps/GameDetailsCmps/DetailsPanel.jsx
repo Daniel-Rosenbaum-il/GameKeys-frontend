@@ -17,8 +17,8 @@ export function DetailsPanel({ game, getDateString, setImgPreviewIdx, setIsOpenM
                     {/* <div className="flex img-container gap-10"> */}
                     <div className="grid-container">
                         {urlImgs.map((img, idx) => {
-                            if (idx >= 5) return
-                            return <div key={'i' + idx} >
+                            if (idx >= 4) return
+                            return <div className="s-img-container" key={'i' + idx} >
                                 <img className={'s-img-game'}
                                     onClick={() => { selectImgByIdx(idx+1) }}
 

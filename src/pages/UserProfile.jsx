@@ -35,7 +35,7 @@ class _UserProfile extends Component {
     onGameClicked = (serialKey) => {
         this.setState({ serialKey: serialKey })
     }
-    
+
     render() {
         const { loggedInUser } = this.props
         const { user, serialKey, gamesToSell } = this.state
@@ -66,6 +66,7 @@ class _UserProfile extends Component {
                             </div>
                         </div>)}
                     </div>
+                        <Link to="/profile/mystore/edit"> <button className="btn btn-primary">Add game</button></Link>
                 </div>
                 {serialKey && <div className="game-clicked-info">
                     <h1>Your serial-key:<span> {serialKey}</span></h1>

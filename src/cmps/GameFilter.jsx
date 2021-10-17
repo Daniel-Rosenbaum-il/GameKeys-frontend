@@ -1,12 +1,23 @@
 import React, { Component } from 'react'
+import { FormInput } from './UtilCmps/FormInput'
+import {gameService} from '../services/game.service'
+
 export class GameFilter extends Component {
     state = {
         filterBy: {
             txt: '',
-            tag: 'all',
+            tag: '',
             sortBy: 'title'
         },
     }
+
+    // componentDidMount() {
+    //     const tagOptions = gameService.getDefaultTags()
+    //     const { filterBy } = this.state
+    //     console.log(tagOptions);
+    //     this.setState({filterBy:{...filterBy, tag:tagOptions}}) 
+
+    // }
 
     handleChange = ({ target }) => {
         let { value, name: field } = target
@@ -18,32 +29,19 @@ export class GameFilter extends Component {
 
     render() {
         const { txt } = this.state.filterBy
+        const tagsOptions = gameService.getDefaultTags()
+        const sortByOptions = ['title','rating','minPrice','maxPrice']
+        if(!tagsOptions) return <h1>'Loading,,,'</h1>
+        console.log({tagsOptions});
         return (
             <section className="game-filter mb-20">
                 <div className="filter-container container flex">
-                    <input className="game-search" autoComplete="off"
-                        type="text" name="txt" value={txt}
-                        placeholder="Search a game" onChange={this.handleChange} />
-                    <select className="game-select tag" name="tag" onChange={this.handleChange}>
-                        <option value="all">Tag</option>
-                        <option value="action">Action</option>
-                        <option value="rpg">Rpg</option>
-                        <option value="strategy">Strategy</option>
-                        <option value="fighting">Fighting</option>
-                        <option value="racing">Racing</option>
-                        <option value="simulation">Simulation</option>
-                        <option value="shooter">Shooter</option>
-                        <option value="classic">Classic</option>
-                        <option value="multiplayer">Multiplayer</option>
-                        <option value="adventure">Adventure</option>
-                    </select>
-                    <select className="game-select sort" name="sortBy" onChange={this.handleChange}>
-                        <option value="title">Title</option>
-                        <option value="rating">Top-Reviews</option>
-                        <option value="minPrice">Min-Price</option>
-                        <option value="maxPrice">Max-Price</option>
-                    </select>
-                    {/* {this.props.children} */}
+                    <FormInput  label="search a game"
+                        type="text" name="txt" value={txt} handleChange={this.handleChange}/>
+                        <FormInput  label="tags"
+                        type="select" name="tag" options={tagsOptions} handleChange={this.handleChange}/>
+                        <FormInput  label="sort by"
+                        type="select" name="sortBy" options={sortByOptions} handleChange={this.handleChange}/>
                 </div>
             </section>
         )

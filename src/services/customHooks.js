@@ -4,21 +4,27 @@ export const useForm = (initialState, cb = () => { }) => {
   const [fields, setFields] = useState(initialState)
   useEffect(() => {
     cb(fields)
-    // console.log(fields);
-    // console.log(initialState);
+
   }, [fields])
 
   return [
     fields,
-    function (ev) {
+    function (ev, idx) {
       const field = ev.target.name
       let value
       if (ev.target.type === 'number') {
         value = +ev.target.value
       } else {
         value = ev.target.value
+        console.log(value);
       }
-      setFields(prevFields => ({ ...prevFields, [field]: value }))
+      if (idx !== undefined) {
+        const arryField = [...fields[field]]
+        arryField[idx] = value
+        setFields(prevFields => ({ ...prevFields, [field]: arryField }))
+      } else {
+        setFields(prevFields => ({ ...prevFields, [field]: value }))
+      }
     },
     setFields
   ]

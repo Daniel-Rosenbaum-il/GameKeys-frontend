@@ -5,12 +5,11 @@
     grid-gap: 10px;
     grid-auto-flow: dense;
     @media screen and(min-width:345px) {
-        grid-template-columns: repeat(2, minmax(86px, 1fr));
+        grid-template-columns: repeat(2, minmax(100px, 1fr));
     }
     @media screen and(min-width:750px) {
-        grid-template-columns: repeat(5, minmax(86px, 1fr));
+        grid-template-columns: repeat(4, minmax(100px, 1fr));
     }
-
     .review-preview {
         padding: 12px;
         background-color: #101a26;

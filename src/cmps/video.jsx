@@ -2,6 +2,8 @@ import React from "react";
 // import PropTypes from "prop-types";
 
 export function Video({ url }) {
+    if(url.includes('=')) url = `https://www.youtube.com/embed/${url.slice(url.indexOf('=')+1)}`
+    console.log('video', url);
     return (
         <div className="video-responsive">
             <iframe

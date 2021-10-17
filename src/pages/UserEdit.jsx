@@ -77,7 +77,7 @@ export const UserEdit = ({ history }) => {
                         accept="image/png, image/jpeg"
                     />
                 </label>
-                <p>Click the image to change your avatar</p>
+                <p>Click on the image to change your avatar</p>
                 <form onSubmit={onUpdateUser} className="user-edit-form">
                     <FormInput type="text" value={user.fullname} name="fullname" label='Fullname' handleChange={handleChange} />
                     <FormInput type="text" value={user.username} name="username" label='Username' handleChange={handleChange} />
