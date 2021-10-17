@@ -9,6 +9,7 @@ export function VideoGame({ games }) {
                 <Link className="btn btn-view align-end  title cap" to="/game"> View all</Link>
             </div>
         </div>
+        
         <div className="video-container grid-container container" >
             {games.map(game => {
                 return (
