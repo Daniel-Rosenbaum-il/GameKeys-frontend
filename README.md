@@ -1,7 +1,7 @@
 ﻿# GameKeys (frontend)
  
- GameKeys is a marketplace application, that allows you to add/buy games, add reviews, and manage your profile and much more.
- This app was build as my final project in my studies with Alon Dadon at Codingacademy.
+ GameKeys is a marketplace application, that allows you to add/buy games, add reviews, manage your profile, and much more.
+ This app was built as my final project in my studies with Alon Dadon at Codingacademy.
  
  ## Technology:
  ### Frontend:
@@ -21,9 +21,9 @@
   
   Socket-io
 
-  MongoDb
+  MongoDB
   
- This is the frontend part, to vuew the backend please enter the link below:
+ This is the frontend part, to view the backend please enter the link below:
 
 https://github.com/Daniel-Rosenbaum-il/GameKeys-backend
  
